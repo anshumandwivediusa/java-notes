@@ -355,36 +355,66 @@ System.out.println(b); // Prints a string which is returned by toString
 
 ## 11. Object vs Class
 
-
+| **[Object](ca://s?q=Java_object_definition)** | **[Class](ca://s?q=Java_class_definition)** |
+| --- | --- |
+| Object is an **instance** of a class. | Class is a **blueprint/template** from which objects are created. |
+| Object is a **real‑world entity** (pen, laptop, mobile, chair). | Class is a **group of similar objects**. |
+| Object is a **physical entity**. | Class is a **logical entity**. |
+| Object is created using ``new``** keyword**. <br> Example: ``Student ``s1 ``= ``new ``Student();`` | Class is declared using ``class``** keyword**. <br> Example: ``class ``Student ``{ ``}`` |
+| Object can be created **many times** as needed. | Class is declared **once**. |
+| Object **allocates memory** when created. | Class **does not allocate memory** when declared. |
+| Object can be created in **many ways**: ``new``, ``newInstance()``, ``clone()``, factory method, deserialization. | Class can be defined only **one way**: using ``class`` keyword. |
 
 ## Constructors vs Methods
 
-<table class="alt">
-<tbody><tr><th>Java Constructor</th><th>Java Method</th></tr>
-<tr><td>Constructor is used to initialize the state of an object.</td><td>Method is used to expose behaviour of an object.</td></tr>
-<tr><td>Constructor must not have return type.</td><td>Method must have return type.</td></tr>
-<tr><td>Constructor is invoked implicitly.</td><td>Method is invoked explicitly.</td></tr>
-<tr><td>Compiler provides a default constructor if you don't have any constructor.</td><td>Method is not provided by compiler in any case.</td></tr>
-<tr><td>Constructor name must be same as the class name.</td><td> Method name may or may not be same as class name.</td></tr>
-</tbody></table>
+| **[Java Constructor](ca://s?q=Java_constructor)** | **[Java Method](ca://s?q=Java_method)** |
+| --- | --- |
+| Constructor is used to **initialize the state of an object**. | Method is used to **expose behaviour of an object**. |
+| Constructor must **not have a return type**. | Method must have a **return type** (void or any data type). |
+| Constructor is **invoked implicitly** when an object is created. | Method is **invoked explicitly** by calling it. |
+| Compiler provides a **default constructor** if none is defined. | Compiler does **not provide any method** automatically. |
+| Constructor name must be the **same as the class name**. | Method name may or may not be the same as the class name. |
 
-📘 finalize() – Key Points
-Definition → Inherited from Object, signature:
-protected void finalize() throws Throwable { }.
+### finalize() – Key Points
+  - **Definition** → Inherited from Object, signature:
+    protected void finalize() throws Throwable { }.
+  - **Purpose** → Intended for releasing non‑memory resources (files, sockets), not memory cleanup.
+  - **Modern Status** → Deprecated since Java 9, removed in Java 18+.
+  - Use try‑with‑resources or implement AutoCloseable instead.
 
-Purpose → Intended for releasing non‑memory resources (files, sockets), not memory cleanup.
+### Try‑with‑Resources & AutoCloseable – Key Notes
 
-Invocation → Called by GC before object removal, but no guarantee it will run.
+1. **Deprecation of finalize**  
+   - `finalize()` is deprecated (Java 9) and removed in Java 18+.  
+   - It was unreliable, non‑deterministic, and could cause performance issues.
 
-Single Call → Executed at most once per object; exceptions inside don’t prevent GC.
+2. **Try‑with‑Resources**  
+   - Introduced in Java 7.  
+   - Ensures resources (files, sockets, DB connections) are closed automatically.  
+   - Syntax:  
+     ```java
+     try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+         System.out.println(br.readLine());
+     } // br is auto‑closed here
+     ```
 
-Resurrection → Object can revive itself once in finalize(), but only once.
+3. **AutoCloseable Interface**  
+   - Any class implementing `AutoCloseable` can be used in try‑with‑resources.  
+   - Must override `close()` method for cleanup.  
+   - Example:  
+     ```java
+     class MyResource implements AutoCloseable {
+         public void close() {
+             System.out.println("Resource closed");
+         }
+     }
+     ```
 
-Chaining → Subclass must explicitly call super.finalize(); not automatic.
+4. **Advantages**  
+   - Deterministic cleanup (resources closed immediately).  
+   - No dependency on GC timing.  
+   - Safer, cleaner, and recommended over `finalize()`.
 
-Modern Status → Deprecated since Java 9, removed in Java 18+.
-
-Use try‑with‑resources or implement AutoCloseable instead.
 
 ## Types of Inheritance (Supported through Class)
 
