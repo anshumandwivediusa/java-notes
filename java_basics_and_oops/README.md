@@ -365,7 +365,7 @@ System.out.println(b); // Prints a string which is returned by toString
 | Object **allocates memory** when created. | Class **does not allocate memory** when declared. |
 | Object can be created in **many ways**: ``new``, ``newInstance()``, ``clone()``, factory method, deserialization. | Class can be defined only **one way**: using ``class`` keyword. |
 
-## Constructors vs Methods
+### Constructors vs Methods
 
 | **[Java Constructor](ca://s?q=Java_constructor)** | **[Java Method](ca://s?q=Java_method)** |
 | --- | --- |
@@ -416,45 +416,45 @@ System.out.println(b); // Prints a string which is returned by toString
    - Safer, cleaner, and recommended over `finalize()`.
 
 
-## Types of Inheritance (Supported through Class)
+## 12 Types of Inheritance
+
+### Types of Inheritance (Supported through Class)
 
 ![single inheritance](https://user-images.githubusercontent.com/2780145/34364364-40b6b646-eaab-11e7-8c92-2c4cd9d0b2ca.png)
 
-## Types of Inheritance (Supported through Interface only)
+### Types of Inheritance (Supported through Interface only)
 
 ![multiple inheritance](https://user-images.githubusercontent.com/2780145/34364363-407486b8-eaab-11e7-94e2-5c1876f414d3.png)
 
-## Association vs Aggregation vs Composition
+## 13. Association vs Aggregation vs Composition
 
 ![association-aggregation-composition](https://user-images.githubusercontent.com/2780145/34364371-5db00694-eaab-11e7-8ef2-bf56d3394f15.png)
 
-## Aggregation vs Composition
+### Aggregation vs Composition
 
-<table class="alt">
-<tbody><tr><th>Aggregation</th><th>Composition</th></tr>
-<tr><td>Aggregation is a weak Association.</td><td>Composition is a strong Association.</td></tr>
-<tr><td>Class can exist independently without owner.</td><td>Class can not meaningfully exist without owner.</td></tr>
-<tr><td>Have their own Life Time.</td><td>Life Time depends on the Owner.</td></tr>
-<tr><td>A uses B.</td><td>A owns B.</td></tr>
-<tr><td>Child is not owned by 1 owner.</td><td>Child can have only 1 owner.</td></tr>
-<tr><td>Has-A relationship. A has B.</td><td>Part-Of relationship. B is part of A.</td></tr>
-<tr><td>Denoted by a empty diamond in UML.</td><td>Denoted by a filled diamond in UML.</td></tr>
-<tr><td>We do not use "final" keyword for Aggregation.</td><td>"final" keyword is used to represent Composition.</td></tr>
-<tr><td>Examples:<br>- Car has a Driver.<br>- A Human uses Clothes.<br>- A Company is an aggregation of People.<br>- A Text Editor uses a File.<br>- Mobile has a SIM Card.</td><td>Examples:<br>- Engine is a part of Car.<br>- A Human owns the Heart.<br>- A Company is a composition of Accounts.<br>- A Text Editor owns a Buffer.<br>- IMEI Number is a part of a Mobile.</td></tr>
-</tbody></table>
+| **[Aggregation](ca://s?q=Java_aggregation)** | **[Composition](ca://s?q=Java_composition)** |
+| --- | --- |
+| Aggregation is a **weak association**. | Composition is a **strong association**. |
+| Class can exist **independently** without owner. | Class cannot meaningfully exist **without owner**. |
+| Has its **own lifetime**. | Lifetime depends on the **owner**. |
+| **A uses B.** | **A owns B.** |
+| Child is **not owned by one owner**. | Child can have **only one owner**. |
+| **Has‑A relationship** → A has B. | **Part‑Of relationship** → B is part of A. |
+| Denoted by an **empty diamond** in UML. | Denoted by a **filled diamond** in UML. |
+| We do not use ``final``** keyword** for Aggregation. | ``final``** keyword** is used to represent Composition. |
+| **Examples:** <br> – Car has a Driver <br> – Human uses Clothes <br> – Company is an aggregation of People <br> – Text Editor uses a File <br> – Mobile has a SIM Card | **Examples:** <br> – Engine is part of Car <br> – Human owns the Heart <br> – Company is a composition of Accounts <br> – Text Editor owns a Buffer <br> – IMEI Number is part of Mobile |
 
 NOTE : "final" keyword is used in Composition to make sure child variable is initialized.
 
 ## Polymorphism - Method Overloading vs Method Overriding
 
-<table class="alt">
-<tbody><tr><th>Method Overloading </th><th>Method Overriding</th></tr>
-<tr><td>Method overloading is used <em>to increase the readability</em> of the program.</td><td>Method overriding is used <em>to provide the specific implementation</em> of the method that is already provided by its super class.</td></tr>
-<tr><td>Method overloading is performed <em>within class</em>.</td><td>Method overriding occurs <em>in two classes</em> that have IS-A (inheritance) relationship.</td></tr>
-<tr><td>In case of method overloading, <em>parameter must be different</em>.</td><td>In case of method overriding, <em>parameter must be same</em>.</td></tr>
-<tr><td>Method overloading is the example of <em>compile time polymorphism</em>.</td><td>Method overriding is the example of <em>run time polymorphism</em>.</td></tr>
-<tr><td>In java, method overloading can't be done by changing only the return type of method. <em>Return type can be same/different</em> in overloading, but you must change the parameter.</td><td><em>Return type must be same or covariant (changing return type to subclass type)</em> in method overriding.</td></tr>
-</tbody></table>
+| **[Method Overloading](ca://s?q=Java_method_overloading)** | **[Method Overriding](ca://s?q=Java_method_overriding)** |
+| --- | --- |
+| Used to **increase readability** of the program. | Used to **provide specific implementation** of a method already defined in the superclass. |
+| Performed **within the same class**. | Occurs **between two classes** with an IS‑A (inheritance) relationship. |
+| Parameters must be **different**. | Parameters must be **same**. |
+| Example of **compile‑time polymorphism**. | Example of **run‑time polymorphism**. |
+| Cannot overload by changing only the return type. <br> Return type may be same/different, but parameters must change. | Return type must be **same or covariant** (subclass type allowed). |
 
 ## Abstract Class vs Interface
 
