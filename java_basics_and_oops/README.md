@@ -339,29 +339,17 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 
 ```java
 int[] i = new int[2] { 5, 10}; // Wrong
-
 int i[5] = { 1, 2, 3, 4, 5}; // Wrong
-
 int[] i[] = {{}, new int[] {} }; // Correct
-
 int i[][] = { {1,2}, new int[2] }; // Correct
-
 int i[] = { 1, 2, 3, 4, } ; // Correct
-
 static int a[];
-
 static int b[] = {1,2,3};
-
 public static void main(String s[]) {
-
 System.out.println(a[0]); // Throws a null pointer exception
-
 System.out.println(b[0]); // This code runs fine
-
 System.out.println(a); // Prints ‘null’
-
 System.out.println(b); // Prints a string which is returned by toString
-
 }
 ```
 
