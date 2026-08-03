@@ -292,7 +292,18 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 
 **2. Automatic Variables(Method Local)**
   - Must be initialized explicitly. (Or, compiler will catch it.) Object references can be initialized to null to make the compiler happy. The following code won’t compile. Specify else part or initialize the local variable explicitly.
-  - 
+
+
+## 9. Main Method
+| Keyword | Purpose | Question | Answer |
+| --- | --- | --- | --- |
+| [public](ca://s?q=Why_is_main_method_public_in_Java) | Accessible to JVM | Why not private? | Because JVM must call ``main`` from outside the class. If it were ``private``, JVM couldn’t access it. |
+| [static](ca://s?q=Why_is_main_method_static_in_Java) | No object needed | Why static? | JVM doesn’t create an object of the class before starting execution. Declaring ``main`` as ``static`` allows it to be invoked directly. |
+| [void](ca://s?q=Why_is_main_method_void_in_Java) | No return value | Why void? | ``main`` doesn’t return anything to JVM. Its job is to start program execution, not provide a result. |
+| [main](ca://s?q=Java_main_method_signature) | Entry point | Why fixed signature? | JVM looks specifically for ``public ``static ``void ``main(String[] ``args)`` as the entry point. Changing the signature means JVM won’t recognize it. |
+| [String[] args](ca://s?q=Java_main_method_arguments) | Command-line input | How are args passed? | Arguments typed after the class name in the command line are passed as strings. Example: ``java ``Demo ``Hello ``World`` → ``args[0] ``= ``"Hello"``, ``args[1] ``= ``"World"``. |
+
+
 ## Object vs Class
 
 <table class="alt">
