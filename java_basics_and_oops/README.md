@@ -308,12 +308,10 @@ Object obj = cls.getDeclaredConstructor().newInstance();
   - You can overload main, but JVM will only call the exact public static void main(String[] args) version.
   - Command-line arguments are always strings, even if you type numbers (they must be parsed).
   - In order to be run by JVM, a class should have a main method with the following signature.
-
     ```java
     public static void main(String args[])
     static public void main(String[] s)
     ```
-
   - args array’s name is not important. args[0] is the first argument. args.length gives no. of arguments.
   - main method can be final.
   - A class with a different main signature or w/o main method will compile. But throws a runtime error.
