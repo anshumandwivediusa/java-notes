@@ -203,23 +203,20 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 | [float](ca://s?q=Java_float_data_type) (Single-Precision) | 32 | ``0.0F`` | 1.4E-45 | 3.4028235E38 | **Float** |
 | [double](ca://s?q=Java_double_data_type) (Double-precision) | 64 | ``0.0`` | 4.9E-324 | 1.7976931348623157E308 | **Double** |
 
-## Data Type Promotion in Java :
+### Data Type Guidelines and Promotion in Java:
 
 ![data type promotion small](https://user-images.githubusercontent.com/2780145/34364362-403e9db4-eaab-11e7-914b-7acc9007cf41.png)
 
-## Wrapper Classes in Java
-
-<table class="alt">
-<tbody><tr><th>Primitive Type</th><th>Wrapper class</th></tr>
-<tr><td>boolean</td><td>Boolean</td></tr>
-<tr><td>char</td><td>Character</td></tr>
-<tr><td>byte</td><td>Byte</td></tr>
-<tr><td>short</td><td>Short</td></tr>
-<tr><td>int</td><td>Integer</td></tr>
-<tr><td>long</td><td>Long</td></tr>
-<tr><td>float</td><td>Float</td></tr>
-<tr><td>double</td><td>Double</td></tr>
-</tbody></table>
+| Concept | Rule | Example |
+| --- | --- | --- |
+| [Numeric Types](ca://s?q=Java_numeric_data_types) | All signed except ``char`` | ``byte``, ``int``, ``long`` |
+| [Object References](ca://s?q=Java_object_reference_variables) | Default = ``null`` | ``String ``s;`` |
+| [Octal Literals](ca://s?q=Java_number_literals) | Begin with ``0`` | ``012`` → 10 |
+| [Hex Literals](ca://s?q=Java_number_literals) | Begin with ``0x`` or ``0X`` | ``0x1A`` → 26 |
+| [Char Literals](ca://s?q=Java_char_literals) | Single quotes or Unicode | ``'\\u0041'`` → 'A' |
+| [Default Literals](ca://s?q=Java_number_literals_defaults) | int / double | ``10``, ``10.5`` |
+| [Scientific Notation](ca://s?q=Java_scientific_notation_literals) | ``1E-5d`` valid | ``E2d`` invalid |
+| [Unicode Anywhere](ca://s?q=Java_unicode_in_source_code) | Allowed in identifiers | ``ch\\u0061r`` → ``char`` |
 
 ## Operators in Java
 
