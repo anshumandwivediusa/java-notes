@@ -226,6 +226,14 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 | [Literals](ca://s?q=Java_literals) | Fixed constant values | ``10``, ``3.14``, ``'A'``, ``"Hello"``, ``true`` |
 | [Tokens](ca://s?q=Java_tokens) | Smallest unit of code | Keywords, identifiers, literals, operators, separators |
 
+**Naming Rules**
+  - Start Character → Must begin with a letter (A–Z, a–z), underscore _, or dollar sign $.
+  - Subsequent Characters → Can include letters, digits (0–9), underscores, or dollar signs.
+  - No Keywords → Cannot use reserved words like class, int, static, etc.
+  - Case Sensitivity → Java is case-sensitive, so Name and name are different identifiers.
+  - Length → No fixed limit, but should be meaningful and readable.
+  - Convention → Follow camelCase for variables/methods, PascalCase for classes, UPPERCASE for constants.
+
 | **Element** | **Convention** | **Examples** |
 | --- | --- | --- |
 | [Class Name](ca://s?q=Java_class_naming_convention) | Start with **uppercase letter**, should be a **noun** | ``String``, ``Color``, ``Button``, ``System``, ``Thread`` |
