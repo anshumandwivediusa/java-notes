@@ -337,6 +337,34 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 | [Initializer rules](ca://s?q=Java_array_initializer_rules) | Trailing comma allowed; certain forms invalid. | ✅ ``int ``i[] ``= ``{1, ``2, ``3, ``4,};`` <br> ✅ ``int ``i[][] ``= ``{{1,2}, ``new ``int[2]};`` <br> ❌ ``int[] ``i ``= ``new ``int[2]{5,10};`` |
 
 
+```java
+int[] i = new int[2] { 5, 10}; // Wrong
+
+int i[5] = { 1, 2, 3, 4, 5}; // Wrong
+
+int[] i[] = {{}, new int[] {} }; // Correct
+
+int i[][] = { {1,2}, new int[2] }; // Correct
+
+int i[] = { 1, 2, 3, 4, } ; // Correct
+
+static int a[];
+
+static int b[] = {1,2,3};
+
+public static void main(String s[]) {
+
+System.out.println(a[0]); // Throws a null pointer exception
+
+System.out.println(b[0]); // This code runs fine
+
+System.out.println(a); // Prints ‘null’
+
+System.out.println(b); // Prints a string which is returned by toString
+
+}
+```
+
 ## Object vs Class
 
 <table class="alt">
