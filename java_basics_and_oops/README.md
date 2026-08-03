@@ -192,16 +192,16 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 
 ## 5. Data Types in Java
 
-| **Data Type** | **Size (bits)** | **Initial Value** | **Min Value** | **Max Value** |
-| --- | --- | --- | --- | --- |
-| [boolean](ca://s?q=Java_boolean_data_type) | 1 | ``false`` | ``false`` | ``true`` |
-| [byte](ca://s?q=Java_byte_data_type) | 8 | ``0`` | -128 (-2⁷) | 127 (2⁷ – 1) |
-| [short](ca://s?q=Java_short_data_type) (Rarely Used) | 16 | ``0`` | -32,768 (-2¹⁵) | 32,767 (2¹⁵ – 1) |
-| [char](ca://s?q=Java_char_data_type) (Only unsigned datatype) | 16 | ``'\\u0000'`` | ``'\\u0000'`` (0) | ``'\\uFFFF'`` (65,535) |
-| [int](ca://s?q=Java_int_data_type) | 32 | ``0`` | -2,147,483,648 (-2³¹) | 2,147,483,647 (2³¹ – 1) |
-| [long](ca://s?q=Java_long_data_type) | 64 | ``0L`` | -9,223,372,036,854,775,808 (-2⁶³) | 9,223,372,036,854,775,807 (2⁶³ – 1) |
-| [float](ca://s?q=Java_float_data_type) (Single-Precision) | 32 | ``0.0F`` | 1.4E-45 | 3.4028235E38 |
-| [double](ca://s?q=Java_double_data_type) (Double-precision) | 64 | ``0.0`` | 4.9E-324 | 1.7976931348623157E308 |
+| **Data Type** | **Size (bits)** | **Initial Value** | **Min Value** | **Max Value** | **[Wrapper Class](ca://s?q=Java_Wrapper_Classes) Name |
+| --- | --- | --- | --- | --- | --- |
+| [boolean](ca://s?q=Java_boolean_data_type) | 1 | ``false`` | ``false`` | ``true`` | **Boolean** |
+| [byte](ca://s?q=Java_byte_data_type) | 8 | ``0`` | -128 (-2⁷) | 127 (2⁷ – 1) | **Byte** |
+| [short](ca://s?q=Java_short_data_type) (Rarely Used) | 16 | ``0`` | -32,768 (-2¹⁵) | 32,767 (2¹⁵ – 1) | **Short** |
+| [char](ca://s?q=Java_char_data_type) (Only unsigned datatype) | 16 | ``'\\u0000'`` | ``'\\u0000'`` (0) | ``'\\uFFFF'`` (65,535) | **Character** |
+| [int](ca://s?q=Java_int_data_type) | 32 | ``0`` | -2,147,483,648 (-2³¹) | 2,147,483,647 (2³¹ – 1) | **Integer** |
+| [long](ca://s?q=Java_long_data_type) | 64 | ``0L`` | -9,223,372,036,854,775,808 (-2⁶³) | 9,223,372,036,854,775,807 (2⁶³ – 1) | **Long** |
+| [float](ca://s?q=Java_float_data_type) (Single-Precision) | 32 | ``0.0F`` | 1.4E-45 | 3.4028235E38 | **Float** |
+| [double](ca://s?q=Java_double_data_type) (Double-precision) | 64 | ``0.0`` | 4.9E-324 | 1.7976931348623157E308 | **Double** |
 
 ## Data Type Promotion in Java :
 
