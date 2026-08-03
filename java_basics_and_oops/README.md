@@ -1,9 +1,97 @@
 # Java Fundamentals and Object Oriented Programming
 
-## Introduction
-Java is a high-level, object-oriented programming language known for its Oortability, Robustness, and Scalability. It runs on the Java Virtual Machine (JVM), making it platform-independent — “Write Once, Run Anywhere.”
+## Introduction to Java Foundations
 
-Object-Oriented Programming is a methodology or paradigm to design a program using classes and objects. It simplifies the software development and maintenance. Main Concepts - Polymorphism, Encapsulation, Inheritance, (PEI) Abstraction.
+Java is a **high-level, object-oriented programming language** known for its **portability, robustness, and scalability**. Programs written in Java run on the **Java Virtual Machine (JVM)**, making them platform-independent — the famous principle of *“Write Once, Run Anywhere.”*
+
+## 🧩 Object-Oriented Programming (OOP)
+
+**Object-Oriented Programming (OOP)** is a paradigm that structures software around **classes** and **objects**. It simplifies development and maintenance by promoting modularity and reusability.
+
+The four main pillars of OOP in Java are often remembered as **PEIA**:
+
+- **Polymorphism**  
+  Ability of a method or object to take many forms.  
+  Example: Method overloading and overriding.
+
+- **Encapsulation**  
+  Wrapping data (fields) and behavior (methods) into a single unit (class).  
+  Example: Using private variables with public getters/setters.
+
+- **Inheritance**  
+  Mechanism to acquire properties and behaviors of another class.  
+  Example: `class Dog extends Animal`.
+
+- **Abstraction**  
+  Hiding implementation details and exposing only essential features.  
+  Example: Abstract classes and interfaces.
+
+### Quick Example
+
+```java
+// Abstraction: Define a generic financial account
+abstract class Account {
+    protected double balance; // Encapsulation
+
+    Account(double balance) {
+        this.balance = balance;
+    }
+
+    abstract void calculateInterest(); // Abstraction
+    abstract void accountType();
+}
+
+// Inheritance: SavingsAccount inherits from Account
+class SavingsAccount extends Account {
+    SavingsAccount(double balance) {
+        super(balance);
+    }
+
+    @Override
+    void calculateInterest() { // Polymorphism
+        double interest = balance * 0.04; // 4% interest
+        System.out.println("Savings Interest: " + interest);
+    }
+
+    @Override
+    void accountType() {
+        System.out.println("This is a Savings Account");
+    }
+}
+
+// Inheritance: LoanAccount inherits from Account
+class LoanAccount extends Account {
+    LoanAccount(double balance) {
+        super(balance);
+    }
+
+    @Override
+    void calculateInterest() { // Polymorphism
+        double interest = balance * 0.10; // 10% loan interest
+        System.out.println("Loan Interest: " + interest);
+    }
+
+    @Override
+    void accountType() {
+        System.out.println("This is a Loan Account");
+    }
+}
+
+// Main class
+public class FinanceDemo {
+    public static void main(String[] args) {
+        Account acc1 = new SavingsAccount(10000);
+        Account acc2 = new LoanAccount(50000);
+
+        acc1.accountType();
+        acc1.calculateInterest();
+
+        acc2.accountType();
+        acc2.calculateInterest();
+    }
+}
+```
+
 
 ## Data Types in Java
 
