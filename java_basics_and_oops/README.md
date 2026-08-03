@@ -303,6 +303,11 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 | [main](ca://s?q=Java_main_method_signature) | Entry point | Why fixed signature? | JVM looks specifically for ``public ``static ``void ``main(String[] ``args)`` as the entry point. Changing the signature means JVM won’t recognize it. |
 | [String[] args](ca://s?q=Java_main_method_arguments) | Command-line input | How are args passed? | Arguments typed after the class name in the command line are passed as strings. Example: ``java ``Demo ``Hello ``World`` → ``args[0] ``= ``"Hello"``, ``args[1] ``= ``"World"``. |
 
+### Observations
+  - The signature is strict because JVM needs a predictable entry point.
+  - You can overload main, but JVM will only call the exact public static void main(String[] args) version.
+  - Command-line arguments are always strings, even if you type numbers (they must be parsed).
+
 
 ## Object vs Class
 
