@@ -138,6 +138,9 @@ public class FinanceDemo {
   - **Extension Class Loader** → loads extension libraries.  
   - **Application Class Loader** → loads user-defined classes.  
 
+
+<img width="262" height="217" alt="image" src="https://github.com/user-attachments/assets/03d97f8b-baf0-4d32-be95-04ad91589e17" />
+
 ### 6. **Execution Engine**
 - Executes bytecode instructions.  
 - Components:  
@@ -149,9 +152,7 @@ public class FinanceDemo {
 - Includes **Collections, Networking, I/O, Concurrency, JDBC**.  
 - Saves development time by providing reusable components.  
 
----
-
-## 📊 Summary Table
+### Summary Table
 
 | Component | Role | Example |
 |-----------|------|---------|
