@@ -30,7 +30,7 @@ The four main pillars of OOP in Java are often remembered as **PEIA**:
 
 - **Inheritance**  
   Mechanism to acquire properties and behaviors of another class.  
-  Example: `class Dog extends Animal`.
+  Example: `class SavingAccounts extends Accounts`.
 
 - **Abstraction**  
   Hiding implementation details and exposing only essential features.  
