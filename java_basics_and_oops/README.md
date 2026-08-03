@@ -1,6 +1,6 @@
 # Java Fundamentals and Object Oriented Programming
 
-Object-Oriented Programming is a methodology or paradigm to design a program using classes and objects. It simplifies the software development and maintenance. Main Concepts - Polymorphism, Encapsulation, Inheritance, Abstraction.
+Object-Oriented Programming is a methodology or paradigm to design a program using classes and objects. It simplifies the software development and maintenance. Main Concepts - Polymorphism, Encapsulation, Inheritance, (PEI) Abstraction.
 
 ## Data Types in Java
 
