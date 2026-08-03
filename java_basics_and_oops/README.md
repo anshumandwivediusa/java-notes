@@ -317,6 +317,22 @@ Object obj = cls.getDeclaredConstructor().newInstance();
   - A class with a different main signature or w/o main method will compile. But throws a runtime error.
   - A class without a main method can be run by JVM, if its ancestor class has a main method. (main is just a method and is inherited)
 
+## 10. Arrays
+
+| Rule | Explanation | Valid Example |
+| --- | --- | --- |
+| [Arrays are objects](ca://s?q=Java_arrays_are_objects) | Arrays are objects; creating ``String[5]`` makes 1 array + 5 element references (total 6 objects). | ``String[] ``arr ``= ``new ``String[5]; ``arr[0] ``= ``"Hello";`` |
+| [Declaration](ca://s?q=Java_arrays_declaration_allocation_initialization) | Declare array reference without size. | ``int[] ``a; ``String ``b[]; ``Object[] ``c;`` |
+| [Allocation](ca://s?q=Java_arrays_declaration_allocation_initialization) | Construct array with ``new``. | ``a ``= ``new ``int[10]; ``c ``= ``new ``String[5];`` |
+| [Initialization](ca://s?q=Java_arrays_declaration_allocation_initialization) | Assign values to elements. | ``for ``(int ``i ``= ``0; ``i ``< ``a.length; ``i++) ``a[i] ``= ``0;`` |
+| [One‑step init](ca://s?q=Java_array_initialization) | Declare, allocate, and initialize together. | ``int ``a[] ``= ``{1, ``2, ``3}; ``int ``b[] ``= ``new ``int[]{4, ``5, ``6};`` |
+| [Static size](ca://s?q=Java_static_arrays) | Arrays are fixed size; length stored in object. | ``int[] ``nums ``= ``new ``int[3]; ``System.out.println(nums.length); ``// ``3`` |
+| [Array size storage](ca://s?q=Java_array_length_property) | Size maintained in ``array.length``. | ``int[] ``arr ``= ``new ``int[5]; ``System.out.println(arr.length); ``// ``5`` |
+| [Anonymous arrays](ca://s?q=Java_anonymous_arrays) | Created without reference, often passed directly. | ``printArray(new ``int[]{1, ``2, ``3});`` |
+| [Zero‑element arrays](ca://s?q=Java_zero_element_arrays) | Arrays with 0 elements are valid. | ``String[] ``args ``= ``new ``String[0]; ``System.out.println(args.length); ``// ``0`` |
+| [Initializer rules](ca://s?q=Java_array_initializer_rules) | Trailing comma allowed; certain forms invalid. | ✅ ``int ``i[] ``= ``{1, ``2, ``3, ``4,};`` <br> ✅ ``int ``i[][] ``= ``{{1,2}, ``new ``int[2]};`` <br> ❌ ``int[] ``i ``= ``new ``int[2]{5,10};`` |
+
+
 ## Object vs Class
 
 <table class="alt">
