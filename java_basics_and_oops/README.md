@@ -520,7 +520,7 @@ public class CompositionDemo {
 | Example of **compile‑time polymorphism**. | Example of **run‑time polymorphism**. |
 | Cannot overload by changing only the return type. <br> Return type may be same/different, but parameters must change. | Return type must be **same or covariant** (subclass type allowed). In case Parameters is different, treated as method overriding. |
 
-## Abstract Class vs Interface
+## 15. Abstract Class vs Interface
 
 | **[Abstract Class](ca://s?q=Java_abstract_class)** | **[Interface](ca://s?q=Java_interface)** |
 | --- | --- |
@@ -534,6 +534,45 @@ public class CompositionDemo {
 | Can have **constructors**. | Cannot have **constructors**. |
 | Can contain **instance methods with implementation**. | Cannot contain **instance methods with implementation** (except default methods since Java 8). |
 | Suitable for **code reusability** with partial abstraction. | Suitable for **full abstraction** and defining APIs. |
+
+### Diamond Problem
+| **Concept** | **Explanation** |
+| --- | --- |
+| [Diamond Problem](ca://s?q=Java_diamond_problem) | Ambiguity when multiple parents provide same method. |
+| [Default Methods](ca://s?q=Java_default_methods_in_interfaces) | Interfaces can have methods with implementation (Java 8+). |
+| [Conflict](ca://s?q=Java_default_method_conflict) | Occurs if two interfaces define same default method. |
+| [Resolution](ca://s?q=Java_default_method_resolution) | Child must override and explicitly choose implementation. |
+
+```java
+interface A {
+    default void show() {
+        System.out.println("A's default show");
+    }
+}
+
+interface B {
+    default void show() {
+        System.out.println("B's default show");
+    }
+}
+
+class C implements A, B {
+    // Must override to resolve ambiguity
+    @Override
+    public void show() {
+        // Choose explicitly
+        A.super.show(); // or B.super.show()
+        System.out.println("C's own show");
+    }
+}
+
+public class DiamondProblemDemo {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.show();
+    }
+}
+```
 
 ## Java Access Modifiers
 
