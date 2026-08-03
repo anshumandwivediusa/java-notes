@@ -164,6 +164,10 @@ public class FinanceDemo {
 | Execution Engine | Runs instructions | JIT compiler |
 | Java API | Pre-built libraries | Collections, JDBC |
 
+
+
+
+
 ## 4. Static vs Dynamic Class Loading
 
 Static class loading in Java happens at compile-time when classes are linked directly in code, while dynamic class loading occurs at runtime using reflection or APIs like Class.forName(). Static loading is faster and simpler, but dynamic loading provides flexibility for plugins, JDBC drivers, and frameworks.
@@ -278,7 +282,17 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 8. **Empty File Validity**  
    - Even an empty file is considered a valid Java source file.  
 
+## 8. Two types of variables.
 
+**1. Member Variables**
+  - Accessible anywhere in the class.
+  - Automatically initialized before invoking any constructor.
+  - Static variables are initialized at class load time.
+  - Can have the same name as the class.
+
+**2. Automatic Variables(Method Local)**
+  - Must be initialized explicitly. (Or, compiler will catch it.) Object references can be initialized to null to make the compiler happy. The following code won’t compile. Specify else part or initialize the local variable explicitly.
+  - 
 ## Object vs Class
 
 <table class="alt">
