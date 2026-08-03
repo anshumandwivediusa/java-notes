@@ -1,10 +1,10 @@
 # Java Fundamentals and Object Oriented Programming
 
-## Introduction to Java Foundations
+## 1. Introduction to Java Foundations
 
 Java is a **high-level, object-oriented programming language** known for its **portability, robustness, and scalability**. Programs written in Java run on the **Java Virtual Machine (JVM)**, making them platform-independent — the famous principle of *“Write Once, Run Anywhere.”*
 
-## 🧩 Object-Oriented Programming (OOP)
+## 2. Object-Oriented Programming (OOP)
 
 **Object-Oriented Programming (OOP)** is a paradigm that structures software around **classes** and **objects**. It simplifies development and maintenance by promoting modularity and reusability.
 
