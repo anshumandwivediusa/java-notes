@@ -614,17 +614,23 @@ In short, marker interfaces like `Serializable` and `Cloneable` are **tags with 
 ## Methods of Object Class
 The Object class is the parent class of all the classes in java by default.
 
-<table class="alt">
-<tbody><tr><th>Method</th><th>Description</th></tr>
-<tr><td>public final Class getClass()</td><td>returns the Class class object of this object. The Class class can further be used to get the metadata of this class.</td></tr>
-<tr><td>public int hashCode()</td><td> returns the hashcode number for this object.</td></tr>
-<tr><td>public boolean equals(Object obj)</td><td> compares the given object to this object.</td></tr>
-<tr><td>protected Object clone() throws CloneNotSupportedException</td><td> creates and returns the exact copy (clone) of this object.</td></tr>
-<tr><td>public String toString()</td><td> returns the string representation of this object.</td></tr>
-<tr><td>public final void notify()</td><td> wakes up single thread, waiting on this object's monitor.</td></tr>
-<tr><td>public final void notifyAll()</td><td> wakes up all the threads, waiting on this object's monitor.</td></tr>
-<tr><td>public final void wait(long timeout)throws InterruptedException</td><td> causes the current thread to wait for the specified milliseconds, until another thread notifies (invokes notify() or notifyAll() method).</td></tr>
-<tr><td>public final void wait(long timeout,int nanos)throws InterruptedException</td><td>causes the current thread to wait for the specified milliseconds and nanoseconds, until another thread notifies (invokes notify() or notifyAll() method).</td></tr>
-<tr><td>public final void wait()throws InterruptedException</td><td> causes the current thread to wait, until another thread notifies (invokes notify() or notifyAll() method).</td></tr>
-<tr><td>protected void finalize()throws Throwable</td><td> is invoked by the garbage collector before object is being garbage collected.</td></tr>
-</tbody></table>
+| **Method** | **Description (Latest Java)** |
+| --- | --- |
+| **[public final Class getClass()](ca://s?q=getClass_method_in_Java)** | Returns the runtime ``Class`` object of this instance. Still widely used for reflection and metadata. |
+| **[public int hashCode()](ca://s?q=hashCode_method_in_Java)** | Returns a hash code value for the object. Must be consistent with ``equals()``. |
+| **[public boolean equals(Object obj)](ca://s?q=equals_method_in_Java)** | Compares this object with another for equality. Default is reference equality; can be overridden. |
+| **[protected Object clone()](ca://s?q=clone_method_in_Java)** | Creates and returns a shallow copy of the object. Requires implementing ``Cloneable``. |
+| **[public String toString()](ca://s?q=toString_method_in_Java)** | Returns a string representation of the object. Default: ``ClassName@hashcode``. Often overridden. |
+| **[public final void notify()](ca://s?q=notify_method_in_Java)** | Wakes up a single thread waiting on this object’s monitor. Used in synchronization. |
+| **[public final void notifyAll()](ca://s?q=notifyAll_method_in_Java)** | Wakes up all threads waiting on this object’s monitor. |
+| **[public final void wait(long timeout)](ca://s?q=wait_method_in_Java)** | Causes the current thread to wait until notified or timeout expires. |
+| **[public final void wait(long timeout, int nanos)](ca://s?q=wait_method_in_Java)** | Same as above, with nanosecond precision. |
+| **[public final void wait()](ca://s?q=wait_method_in_Java)** | Causes the current thread to wait indefinitely until notified. |
+| **[protected void finalize()](ca://s?q=finalize_method_in_Java)** | **Deprecated since Java 9, removed in Java 18.** It was invoked by GC before object collection, but now replaced by ``Cleaner`` and ``try-with-resources``. |
+
+### Important Updates
+  - finalize() → Removed in Java 18. Use java.lang.ref.Cleaner or AutoCloseable instead.
+
+  - Concurrency methods (wait, notify, notifyAll) → Still present, but modern concurrency prefers java.util.concurrent APIs (Executors, Locks, Semaphores, Virtual Threads in JDK 21).
+
+  - Reflection (getClass) → Still core, but newer APIs like sealed classes and pattern matching reduce the need for manual reflection.
