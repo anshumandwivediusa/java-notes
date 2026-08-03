@@ -169,10 +169,23 @@ public class FinanceDemo {
 Static class loading in Java happens at compile-time when classes are linked directly in code, while dynamic class loading occurs at runtime using reflection or APIs like Class.forName(). Static loading is faster and simpler, but dynamic loading provides flexibility for plugins, JDBC drivers, and frameworks.
 ```java
 // Static loading
+/* A NoClassDefFoundException is 
+thrown if a class is referenced with 
+Java’s “new” operator (i.e. static loading) 
+but the runtime system cannot find the 
+referenced class.
+*/
+
 SavingsAccount acc = new SavingsAccount();
 acc.calculateInterest();
 
 // Dynamic loading
+/*
+A ClassNotFoundException is thrown when an application tries to load in a 
+class through its string name using the following methods but no definition for the 
+class with the specified name could be found:
+*/
+
 Class<?> cls = Class.forName("com.bank.SavingsAccount");
 Object obj = cls.getDeclaredConstructor().newInstance();
 ```
