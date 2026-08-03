@@ -190,57 +190,18 @@ Class<?> cls = Class.forName("com.bank.SavingsAccount");
 Object obj = cls.getDeclaredConstructor().newInstance();
 ```
 
-## Data Types in Java
+## 5. Data Types in Java
 
-<table class="alt"> 
-<tbody><tr> 
-  <th id="table_dvpt_datatype"><strong>Data Type</strong></th> 
-  <th id="table_dvpt_defaultvalue"><strong>Default Value</strong></th> 
-  <th id="table_dvpt_defaultsize"><strong>Default size</strong></th> 
-</tr> 
-<tr> 
-<td headers="table_dvpt_datatype">boolean</td> 
-<td headers="table_dvpt_defaultvalue">false</td> 
-<td headers="table_dvpt_defaultsize">1 bit</td> 
-</tr> 
-<tr> 
-<td headers="table_dvpt_datatype">char</td> 
-<td headers="table_dvpt_defaultvalue">'\u0000'</td> 
-<td headers="table_dvpt_defaultsize">2 byte</td> 
-</tr> 
-<tr> 
-<td headers="table_dvpt_datatype">byte</td> 
-<td headers="table_dvpt_defaultvalue">0</td> 
-<td headers="table_dvpt_defaultsize">1 byte</td> 
-</tr> 
-<tr> 
-<td headers="table_dvpt_datatype">short</td> 
-<td headers="table_dvpt_defaultvalue">0</td> 
-<td headers="table_dvpt_defaultsize">2 byte</td> 
-</tr> 
-<tr> 
-<td headers="table_dvpt_datatype">int</td> 
-<td headers="table_dvpt_defaultvalue">0</td> 
-<td headers="table_dvpt_defaultsize">4 byte</td> 
-</tr> 
-<tr> 
-<td headers="table_dvpt_datatype">long</td> 
-<td headers="table_dvpt_defaultvalue">0L</td> 
-<td headers="table_dvpt_defaultsize">8 byte</td> 
-</tr> 
-<tr> 
-<td headers="table_dvpt_datatype">float</td> 
-<td headers="table_dvpt_defaultvalue">0.0f</td> 
-<td headers="table_dvpt_defaultsize">4 byte</td> 
-</tr> 
-<tr> 
-<td headers="table_dvpt_datatype">double</td> 
-<td headers="table_dvpt_defaultvalue">0.0d</td> 
-<td headers="table_dvpt_defaultsize">8 byte</td> 
-</tr> 
-</tbody></table>
-
-NOTE : UTF-8 is the most popular unicode character encoding with 90% websites using it.
+| **Data Type** | **Size (bits)** | **Initial Value** | **Min Value** | **Max Value** |
+| --- | --- | --- | --- | --- |
+| [boolean](ca://s?q=Java_boolean_data_type) | 1 | ``false`` | ``false`` | ``true`` |
+| [byte](ca://s?q=Java_byte_data_type) | 8 | ``0`` | -128 (-2⁷) | 127 (2⁷ – 1) |
+| [short](ca://s?q=Java_short_data_type) | 16 | ``0`` | -32,768 (-2¹⁵) | 32,767 (2¹⁵ – 1) |
+| [char](ca://s?q=Java_char_data_type) | 16 | ``'\\u0000'`` | ``'\\u0000'`` (0) | ``'\\uFFFF'`` (65,535) |
+| [int](ca://s?q=Java_int_data_type) | 32 | ``0`` | -2,147,483,648 (-2³¹) | 2,147,483,647 (2³¹ – 1) |
+| [long](ca://s?q=Java_long_data_type) | 64 | ``0L`` | -9,223,372,036,854,775,808 (-2⁶³) | 9,223,372,036,854,775,807 (2⁶³ – 1) |
+| [float](ca://s?q=Java_float_data_type) | 32 | ``0.0F`` | 1.4E-45 | 3.4028235E38 |
+| [double](ca://s?q=Java_double_data_type) | 64 | ``0.0`` | 4.9E-324 | 1.7976931348623157E308 |
 
 ## Data Type Promotion in Java :
 
