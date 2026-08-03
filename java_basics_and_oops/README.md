@@ -243,6 +243,42 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 | [Package Name](ca://s?q=Java_package_naming_convention) | Always **lowercase letters** | ``java``, ``lang``, ``sql``, ``util`` |
 | [Constant Name](ca://s?q=Java_constant_naming_convention) | Use **uppercase letters**, words separated by ``_`` | ``RED``, ``YELLOW``, ``MAX_PRIORITY`` |
 
+## 7. Notes on Java Source File Elements
+
+1. **Source File Structure**  
+   - Order:  
+     a. Package declaration  
+     b. Import statements  
+     c. Class/interface definitions  
+
+2. **Importing Packages**  
+   - Importing a package does **not** recursively import its sub‑packages.  
+
+3. **Sub‑Packages**  
+   - Sub‑packages are independent packages.  
+   - Classes in sub‑packages cannot access enclosing package classes with default access.  
+
+4. **Comments**  
+   - Comments
+      - Single-line → // comment
+      - Multi-line → /* comment block */
+      - Javadoc → /** documentation */
+   - Can appear anywhere in source code.  
+   - Cannot be nested (applies to all comment types).  
+
+6. **Public Class Rule**  
+   - At most **one public class** per file.  
+   - Its name must match the file name.  
+   - If multiple public classes exist, compiler accepts the one matching the file name and throws error for others.  
+
+7. **Optional Public Class**  
+   - A file may contain **no public class**.  
+   - In that case, file name must differ from all class/interface names inside.  
+
+8. **Empty File Validity**  
+   - Even an empty file is considered a valid Java source file.  
+
+
 ## Object vs Class
 
 <table class="alt">
