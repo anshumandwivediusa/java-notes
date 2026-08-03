@@ -353,18 +353,9 @@ System.out.println(b); // Prints a string which is returned by toString
 }
 ```
 
-## Object vs Class
+## 11. Object vs Class
 
-<table class="alt">
-<tbody><tr><th>Object</th><th>Class</th></tr>
-<tr><td>Object is an <strong>instance</strong> of a class.</td><td>Class is a <strong>blueprint or template</strong> from which objects are created.</td></tr>
-<tr><td>Object is a <strong>real world entity</strong> such as pen, laptop, mobile, bed, keyboard, mouse, chair etc.</td><td>Class is a <strong>group of similar objects</strong>.</td></tr>
-<tr><td>Object is a <strong>physical</strong> entity.</td><td>Class is a <strong>logical</strong> entity.</td></tr>
-<tr><td>Object is created through <strong>new keyword</strong> mainly e.g. Student s1=new Student();</td><td>Class is declared using <strong>class keyword</strong> e.g. class Student{}</td></tr>
-<tr><td>Object is created <strong>many times</strong> as per requirement.</td><td>Class is declared <strong>once</strong>.</td></tr>
-<tr><td>Object <strong>allocates memory when it is created</strong>.</td><td>Class <strong>doesn't allocated memory when it is created</strong>.</td></tr>
-<tr><td>There are <strong>many ways to create object</strong> like new keyword, newInstance() method, clone() method, factory method & deserialization.</td><td>There is only <strong>one way to define class</strong> in java using class keyword.</td></tr>
-</tbody></table>
+
 
 ## Constructors vs Methods
 
@@ -376,6 +367,24 @@ System.out.println(b); // Prints a string which is returned by toString
 <tr><td>Compiler provides a default constructor if you don't have any constructor.</td><td>Method is not provided by compiler in any case.</td></tr>
 <tr><td>Constructor name must be same as the class name.</td><td> Method name may or may not be same as class name.</td></tr>
 </tbody></table>
+
+📘 finalize() – Key Points
+Definition → Inherited from Object, signature:
+protected void finalize() throws Throwable { }.
+
+Purpose → Intended for releasing non‑memory resources (files, sockets), not memory cleanup.
+
+Invocation → Called by GC before object removal, but no guarantee it will run.
+
+Single Call → Executed at most once per object; exceptions inside don’t prevent GC.
+
+Resurrection → Object can revive itself once in finalize(), but only once.
+
+Chaining → Subclass must explicitly call super.finalize(); not automatic.
+
+Modern Status → Deprecated since Java 9, removed in Java 18+.
+
+Use try‑with‑resources or implement AutoCloseable instead.
 
 ## Types of Inheritance (Supported through Class)
 
