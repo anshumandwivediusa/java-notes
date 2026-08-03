@@ -24,7 +24,6 @@ The four main pillars of OOP in Java are often remembered as **PEIA**:
   Ability of a method or object to take many forms.  
   Same class, same method name, but different parameter lists (number or type of arguments).
   Decided at compile time.
-  
   Example: Different ways to calculate interest depending on inputs.
 
 - **Encapsulation**  
