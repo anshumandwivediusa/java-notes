@@ -430,6 +430,65 @@ System.out.println(b); // Prints a string which is returned by toString
 
 ![association-aggregation-composition](https://user-images.githubusercontent.com/2780145/34364371-5db00694-eaab-11e7-8ef2-bf56d3394f15.png)
 
+```java
+class Driver {
+    String name;
+    Driver(String name) {
+        this.name = name;
+    }
+}
+
+class Car {
+    String model;
+    Driver driver; // Aggregation: Car uses Driver
+
+    Car(String model, Driver driver) {
+        this.model = model;
+        this.driver = driver;
+    }
+
+    void showDetails() {
+        System.out.println("Car: " + model + ", Driver: " + driver.name);
+    }
+}
+
+public class AggregationDemo {
+    public static void main(String[] args) {
+        Driver d = new Driver("John"); // Driver exists independently
+        Car c = new Car("Tesla", d);   // Car uses Driver
+        c.showDetails();
+    }
+}
+```
+```java
+class Engine {
+    String type;
+    Engine(String type) {
+        this.type = type;
+    }
+}
+
+class Car {
+    String model;
+    Engine engine; // Composition: Car owns Engine
+
+    Car(String model) {
+        this.model = model;
+        this.engine = new Engine("V8"); // Engine created inside Car
+    }
+
+    void showDetails() {
+        System.out.println("Car: " + model + ", Engine: " + engine.type);
+    }
+}
+
+public class CompositionDemo {
+    public static void main(String[] args) {
+        Car c = new Car("Mustang"); // Engine cannot exist without Car
+        c.showDetails();
+    }
+}
+```
 ### Aggregation vs Composition
 
 | **[Aggregation](ca://s?q=Java_aggregation)** | **[Composition](ca://s?q=Java_composition)** |
