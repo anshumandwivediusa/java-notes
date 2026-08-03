@@ -573,6 +573,12 @@ public class DiamondProblemDemo {
     }
 }
 ```
+### Marker Interface
+In Java, **marker interfaces** are special interfaces that contain no methods or fields and serve purely as a tag to signal the compiler or JVM that a class has a particular property. They don’t add behavior but instead act as metadata, telling the runtime environment how to treat objects of the implementing class differently. For example, when a class implements the **Serializable** interface, it indicates that its objects can be converted into a byte stream for storage or transmission. Similarly, the **Cloneable** interface marks that a class’s objects can be cloned using the `clone()` method, and the **Remote** interface signals that objects can be used in remote method invocation. The JVM or frameworks check for these markers at runtime and allow or restrict certain operations accordingly.  
+
+Although marker interfaces were widely used in earlier versions of Java, modern Java often prefers **annotations** as a replacement because they are more flexible, descriptive, and can carry additional metadata. For instance, `@FunctionalInterface` is an annotation that serves a similar purpose to a marker interface but provides compile‑time checking and clearer semantics.  
+
+In short, marker interfaces like `Serializable` and `Cloneable` are **tags with no methods** that influence how the JVM treats objects, but in newer Java versions, annotations are the recommended approach for such tagging.
 
 ## Java Access Modifiers
 
