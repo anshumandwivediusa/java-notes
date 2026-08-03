@@ -720,5 +720,7 @@ System.out.println(set.size()); // 1 (because equals + hashCode are consistent)
 
 ### The Contract Between equals() and hashCode()
 **Rule 1:** If two objects are equal according to equals(), they must return the same hashCode().
+
 **Rule 2:** If two objects are not equal, they may still return the same hashCode() (called a collision).
+
 **Rule 3:** hashCode() is used for bucket placement in hash-based collections (HashMap, HashSet).
