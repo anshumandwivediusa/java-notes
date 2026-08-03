@@ -218,73 +218,22 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 | [Scientific Notation](ca://s?q=Java_scientific_notation_literals) | ``1E-5d`` valid | ``E2d`` invalid |
 | [Unicode Anywhere](ca://s?q=Java_unicode_in_source_code) | Allowed in identifiers | ``ch\\u0061r`` → ``char`` |
 
-## Operators in Java
+## 6. Java Naming Conventions:
 
-<table class="alt"> 
-<tbody><tr><th>Operator Type</th><th>Category</th><th>Precedence</th></tr> 
-<tr> 
-<td rowspan="2">Unary</td><td>postfix</td><td><code><em>expr</em>++ <em>expr</em>--</code></td> 
-</tr>  
-<tr> 
-<td>prefix</td><td headers="precedence"><code>++<em>expr</em> --<em>expr</em> +<em>expr</em> -<em>expr</em> ~ !</code></td> 
-</tr> 
-<tr> 
-<td rowspan="2">Arithmetic</td><td>multiplicative</td><td headers="precedence"><code>* / %</code></td> 
-</tr> 
-<tr> 
-<td>additive</td><td headers="precedence"><code>+ -</code></td> 
-</tr> 
-<tr> 
-<td>Shift</td><td>shift</td><td headers="precedence"><code>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</code></td>  
-</tr> 
-<tr> 
-<td rowspan="2">Relational</td><td>comparison</td><td headers="precedence"><code>&lt; &gt; &lt;= &gt;= instanceof</code></td> 
-</tr> 
-<tr> 
-<td>equality</td><td headers="precedence"><code>== !=</code></td> 
-</tr>  
-<tr> 
-<td rowspan="3">Bitwise</td><td>bitwise AND</td><td headers="precedence"><code>&amp;</code></td> 
-</tr> 
-<tr> 
-<td>bitwise exclusive OR</td><td headers="precedence"><code>^</code></td> 
-</tr> 
-<tr> 
-<td>bitwise inclusive OR</td><td headers="precedence"><code>|</code></td> 
-</tr>  
-<tr> 
-<td rowspan="2">Logical</td><td>logical AND</td><td headers="precedence"><code>&amp;&amp;</code></td> 
-</tr> 
-<tr> 
-<td>logical OR</td><td headers="precedence"><code>||</code></td> 
-</tr> 
-<tr> 
-<td>Ternary</td><td>ternary</td><td headers="precedence"><code>? :</code></td> 
-</tr> 
-<tr> 
-<td>Assignment</td><td>assignment</td><td headers="precedence"><code>= += -= *= /= %= &amp;= ^= |= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=</code></td> 
-</tr> 
-</tbody></table>
+| Concept | Definition | Examples |
+| --- | --- | --- |
+| [Identifiers](ca://s?q=Java_identifiers) | Names for variables, methods, classes | ``age``, ``firstName``, ``Demo`` |
+| [Literals](ca://s?q=Java_literals) | Fixed constant values | ``10``, ``3.14``, ``'A'``, ``"Hello"``, ``true`` |
+| [Tokens](ca://s?q=Java_tokens) | Smallest unit of code | Keywords, identifiers, literals, operators, separators |
 
-## Java Naming Conventions :
-
-<table class="alt">
-<tbody><tr><th>Name</th><th>Convention</th></tr>
-<tr><td>class name</td><td> should start with uppercase letter and be a noun 
-<br>e.g. String, Color, Button, System, Thread etc.</td></tr>
-<tr><td>interface name</td><td>should start with uppercase letter and be an adjective 
-<br>e.g. Runnable, Remote, ActionListener etc.</td></tr>
-<tr><td>method name</td><td>should start with lowercase letter and be a verb 
-<br>e.g. actionPerformed(), main(), print(), println() etc.
-</td></tr>
-<tr><td>variable name</td><td>should start with lowercase letter
-<br>e.g. firstName, orderNumber etc.</td></tr>
-<tr><td>package name</td><td>should be in lowercase letter 
-<br>e.g. java, lang, sql, util etc.
-</td></tr>
-<tr><td>constants name</td><td>should be in uppercase letter.
-<br>e.g. RED, YELLOW, MAX_PRIORITY etc.</td></tr>
-</tbody></table>
+| **Element** | **Convention** | **Examples** |
+| --- | --- | --- |
+| [Class Name](ca://s?q=Java_class_naming_convention) | Start with **uppercase letter**, should be a **noun** | ``String``, ``Color``, ``Button``, ``System``, ``Thread`` |
+| [Interface Name](ca://s?q=Java_interface_naming_convention) | Start with **uppercase letter**, should be an **adjective** | ``Runnable``, ``Remote``, ``ActionListener`` |
+| [Method Name](ca://s?q=Java_method_naming_convention) | Start with **lowercase letter**, should be a **verb** | ``actionPerformed()``, ``main()``, ``print()``, ``println()`` |
+| [Variable Name](ca://s?q=Java_variable_naming_convention) | Start with **lowercase letter**, use **camelCase** | ``firstName``, ``orderNumber`` |
+| [Package Name](ca://s?q=Java_package_naming_convention) | Always **lowercase letters** | ``java``, ``lang``, ``sql``, ``util`` |
+| [Constant Name](ca://s?q=Java_constant_naming_convention) | Use **uppercase letters**, words separated by ``_`` | ``RED``, ``YELLOW``, ``MAX_PRIORITY`` |
 
 ## Object vs Class
 
