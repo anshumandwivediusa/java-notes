@@ -584,7 +584,7 @@ In short, marker interfaces like `Serializable` and `Cloneable` are **tags with 
 ### Key Changes over Time
 | **Version** | **New Interface Features** | **Example** |
 | --- | --- | --- |
-| **[Java 8](ca://s?q=Java_8_interface_changes)** | Default methods, Static methods, Functional interfaces |``` ``public ``interface ``Logger ``{ ``void ``log(String ``msg); ``default ``void ``logInfo(String ``msg){ ``log("[INFO] ``" ``+ ``msg);} ``}````` |
+| **[Java 8](ca://s?q=Java_8_interface_changes)** | Default methods, Static methods, Functional interfaces |``` public interface Logger { void log(String msg); default void logInfo(String msg){ log("[INFO] " + msg);} }``` |
 | **[Java 9](ca://s?q=Java_9_interface_changes)** | Private methods (helper methods inside interfaces) | ``public ``interface ``Helper ``{ ``default ``void ``show(){ ``greet(); ``} ``private ``void ``greet(){ ``System.out.println("Hello"); ``} ``}`` |
 | **[Java 15/16](ca://s?q=Java_16_sealed_interfaces)** | Sealed interfaces (restrict who can implement) | ``sealed ``interface ``Shape ``permits ``Circle, ``Square ``{} ``final ``class ``Circle ``implements ``Shape ``{} ``final ``class ``Square ``implements ``Shape ``{}`` |
 | **[Java 21](ca://s?q=Java_21_interface_changes)** | Pattern matching with sealed interfaces, better integration with ``switch`` | ``sealed ``interface ``Shape ``permits ``Circle, ``Square ``{} ``static ``String ``describe(Shape ``s){ ``return ``switch(s){ ``case ``Circle ``c ``-> ``"Circle"; ``case ``Square ``sq ``-> ``"Square"; ``}; ``}`` |
