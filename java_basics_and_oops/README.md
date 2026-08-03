@@ -611,7 +611,7 @@ In short, marker interfaces like `Serializable` and `Cloneable` are **tags with 
 
 
 
-## Methods of Object Class
+## 18. Methods of Object Class
 The Object class is the parent class of all the classes in java by default.
 
 | **Method** | **Description (Latest Java)** |
@@ -635,7 +635,7 @@ The Object class is the parent class of all the classes in java by default.
 
   - Reflection (getClass) → Still core, but newer APIs like sealed classes and pattern matching reduce the need for manual reflection.
 
-## `==`, equals and hashCode()
+## 19. `==`, equals and hashCode()
 ### `==` Operator
 - **Definition**: Compares **references** (memory addresses) for objects, not their content.  
 - For **primitives**, it compares actual values.  
@@ -720,7 +720,5 @@ System.out.println(set.size()); // 1 (because equals + hashCode are consistent)
 
 ### The Contract Between equals() and hashCode()
 **Rule 1:** If two objects are equal according to equals(), they must return the same hashCode().
-
 **Rule 2:** If two objects are not equal, they may still return the same hashCode() (called a collision).
-
 **Rule 3:** hashCode() is used for bucket placement in hash-based collections (HashMap, HashSet).
