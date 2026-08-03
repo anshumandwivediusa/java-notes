@@ -522,15 +522,18 @@ public class CompositionDemo {
 
 ## Abstract Class vs Interface
 
-<table class="alt">
-<tbody><tr><th>Abstract class</th><th>Interface</th></tr>
-<tr><td>Abstract class can <strong>have abstract and non-abstract</strong> methods.</td><td>Interface can have <strong>only abstract</strong> methods. Since Java8, it can have <strong>default & static methods</strong> also.</td></tr>
-<tr><td>Abstract class <strong>doesn't support multiple inheritance</strong>.</td><td>Interface <strong>supports multiple inheritance</strong>.</td></tr>
-<tr><td>Abstract class <strong>can have final, non-final, static and non-static variables</strong>.</td><td>Interface has <strong>only static and final variables</strong>.</td></tr>
-<tr><td>Abstract class <strong>can provide the implementation of interface</strong>.</td><td>Interface <strong>can't provide the implementation of abstract class</strong>.</td></tr>
-<tr><td>The <strong>abstract keyword</strong> is used to declare abstract class.</td><td>The <strong>interface keyword</strong> is used to declare interface.</td></tr>
-<tr><td><strong>Example:</strong><br> public abstract class Shape{<br>public abstract void draw();}</td><td><strong>Example:</strong><br> public interface Drawable{<br>void draw();}</td></tr>
-</tbody></table>
+| **[Abstract Class](ca://s?q=Java_abstract_class)** | **[Interface](ca://s?q=Java_interface)** |
+| --- | --- |
+| Can have **abstract and non‑abstract methods**. | Can have **only abstract methods**. Since Java 8, can also have **default & static methods**. |
+| **Does not support multiple inheritance**. | **Supports multiple inheritance**. |
+| Can have **final, non‑final, static, and non‑static variables**. | Has **only static and final variables**. |
+| Can provide the **implementation of an interface**. | Cannot provide the **implementation of an abstract class**. |
+| Declared using the ``abstract``** keyword**. | Declared using the ``interface``** keyword**. |
+| Example: <br> ``java ``public ``abstract ``class ``Shape ``{ ``public ``abstract ``void ``draw(); ``}`` | Example: <br> ``java ``public ``interface ``Drawable ``{ ``void ``draw(); ``}`` |
+| Used when classes share **common behavior** but also need **partial implementation**. | Used to define a **contract** that multiple classes can implement. |
+| Can have **constructors**. | Cannot have **constructors**. |
+| Can contain **instance methods with implementation**. | Cannot contain **instance methods with implementation** (except default methods since Java 8). |
+| Suitable for **code reusability** with partial abstraction. | Suitable for **full abstraction** and defining APIs. |
 
 ## Java Access Modifiers
 
