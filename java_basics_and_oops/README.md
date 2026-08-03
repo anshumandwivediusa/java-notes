@@ -580,31 +580,36 @@ Although marker interfaces were widely used in earlier versions of Java, modern 
 
 In short, marker interfaces like `Serializable` and `Cloneable` are **tags with no methods** that influence how the JVM treats objects, but in newer Java versions, annotations are the recommended approach for such tagging.
 
-## Java Access Modifiers
 
-<table class="alt">
-<tbody><tr><th>Access Modifier</th><th>within class</th><th>within package</th><th>outside package by subclass only</th><th>outside package</th></tr>
-<tr><td><b>Private</b></td><td>Y</td><td>N</td><td>N</td><td>N</td></tr>
-<tr><td><b>Default</b></td><td>Y</td><td>Y</td><td>N</td><td>N</td></tr>
-<tr><td><b>Protected</b></td><td>Y</td><td>Y</td><td>Y</td><td>N</td></tr>
-<tr><td><b>Public</b></td><td>Y</td><td>Y</td><td>Y</td><td>Y</td></tr>
-</tbody></table>
+### Key Changes over Time
+| **Version** | **New Interface Features** | **Example** |
+| --- | --- | --- |
+| **[Java 8](ca://s?q=Java_8_interface_changes)** | Default methods, Static methods, Functional interfaces | ``public ``interface ``Logger ``{ ``void ``log(String ``msg); ``default ``void ``logInfo(String ``msg){ ``log("[INFO] ``" ``+ ``msg);} ``}`` |
+| **[Java 9](ca://s?q=Java_9_interface_changes)** | Private methods (helper methods inside interfaces) | ``public ``interface ``Helper ``{ ``default ``void ``show(){ ``greet(); ``} ``private ``void ``greet(){ ``System.out.println("Hello"); ``} ``}`` |
+| **[Java 15/16](ca://s?q=Java_16_sealed_interfaces)** | Sealed interfaces (restrict who can implement) | ``sealed ``interface ``Shape ``permits ``Circle, ``Square ``{} ``final ``class ``Circle ``implements ``Shape ``{} ``final ``class ``Square ``implements ``Shape ``{}`` |
+| **[Java 21](ca://s?q=Java_21_interface_changes)** | Pattern matching with sealed interfaces, better integration with ``switch`` | ``sealed ``interface ``Shape ``permits ``Circle, ``Square ``{} ``static ``String ``describe(Shape ``s){ ``return ``switch(s){ ``case ``Circle ``c ``-> ``"Circle"; ``case ``Square ``sq ``-> ``"Square"; ``}; ``}`` |
 
-## Abstraction vs Encapsulation
+## 16. Java Access Modifiers
 
-<table class="alt">
-<tbody><tr><th>Abstraction</th><th>Encapsulation</th></tr>
-<tr><td>Abstraction is a process of hiding the implementation details and showing only functionality to the user.</td>
-<td> Encapsulation is a process of wrapping code and data together into a single unit</td></tr>
-<tr><td>Abstraction lets you focus on what the object does instead of how it does it.</td>
-<td>Encapsulation provides you the control over the data and keeping it safe from outside misuse.</td></tr>
-<tr><td>Abstraction solves the problem in the Design Level.</td>
-<td>Encapsulation solves the problem in the Implementation Level.</td></tr>
-<tr><td>Abstraction is implemented by using Interfaces and Abstract Classes.</td>
-<td>Encapsulation is implemented by using Access Modifiers (private, default, protected, public)</td></tr>
-<tr><td>Abstraction means hiding implementation complexities by using interfaces and abstract class.</td>
-<td>Encapsulation means hiding data by using setters and getters.</td></tr>
-</tbody></table>
+| **Access Modifier** | **Within Class** | **Within Package** | **Subclass (outside package)** | **Outside Package** |
+| --- | --- | --- | --- | --- |
+| **[Private](ca://s?q=Private_access_modifier_in_Java)** | ✅ Yes | ❌ No | ❌ No | ❌ No |
+| **[Default](ca://s?q=Default_access_modifier_in_Java)** (no keyword) | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
+| **[Protected](ca://s?q=Protected_access_modifier_in_Java)** | ✅ Yes | ✅ Yes | ✅ Yes | ❌ No |
+| **[Public](ca://s?q=Public_access_modifier_in_Java)** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+
+## 17. Abstraction vs Encapsulation
+
+| **Aspect** | **[Abstraction](ca://s?q=Abstraction_in_Java)** | **[Encapsulation](ca://s?q=Encapsulation_in_Java)** |
+| --- | --- | --- |
+| **Definition** | Hiding implementation details, showing only functionality | Wrapping data and methods together in one unit |
+| **Focus** | *What* an object does | *How* data is accessed and protected |
+| **Level** | Design level | Implementation level |
+| **Implementation** | Interfaces, Abstract classes | Access modifiers (``private``, ``protected``, ``public``) |
+| **Purpose** | Reduce complexity, expose essential behavior | Control access, ensure data safety |
+| **Example** | Abstract class ``Shape`` with ``draw()`` method | Class ``Student`` with private fields and getters/setters |
+
+
 
 ## Methods of Object Class
 The Object class is the parent class of all the classes in java by default.
