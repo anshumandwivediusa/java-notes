@@ -634,3 +634,93 @@ The Object class is the parent class of all the classes in java by default.
   - Concurrency methods (wait, notify, notifyAll) → Still present, but modern concurrency prefers java.util.concurrent APIs (Executors, Locks, Semaphores, Virtual Threads in JDK 21).
 
   - Reflection (getClass) → Still core, but newer APIs like sealed classes and pattern matching reduce the need for manual reflection.
+
+## `==`, equals and hashCode()
+### `==` Operator
+- **Definition**: Compares **references** (memory addresses) for objects, not their content.  
+- For **primitives**, it compares actual values.  
+- For **objects**, it checks if both references point to the same object in memory.  
+
+```java
+String s1 = new String("Java");
+String s2 = new String("Java");
+
+System.out.println(s1 == s2);       // false (different objects)
+System.out.println(s1.equals(s2));  // true (same content)
+```
+
+### `equals()` Method
+- **Definition**: Compares **content/values** of objects.  
+- Default implementation in `Object` class → behaves like `==` (reference equality).  
+- Should be **overridden** in custom classes to compare meaningful fields.  
+
+```java
+class Student {
+    String name;
+    Student(String name) { this.name = name; }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Student)) return false;
+        Student s = (Student) obj;
+        return this.name.equals(s.name);
+    }
+}
+
+Student s1 = new Student("Anshuman");
+Student s2 = new Student("Anshuman");
+
+System.out.println(s1.equals(s2)); // true (same content)
+```
+
+### `hashCode()` Method
+- **Definition**: Returns an integer hash value for the object.  
+- Used in **hash-based collections** (`HashMap`, `HashSet`).  
+- Must be **consistent with equals()**:  
+  - If `equals()` returns true → both objects must have the same `hashCode()`.  
+  - If `equals()` returns false → hash codes may differ.  
+
+```java
+class Student {
+    String name;
+    Student(String name) { this.name = name; }
+
+    @Override
+    public boolean equals(Object obj) {
+        return (obj instanceof Student) && this.name.equals(((Student)obj).name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode(); // consistent with equals
+    }
+}
+
+HashSet<Student> set = new HashSet<>();
+set.add(new Student("Anshuman"));
+set.add(new Student("Anshuman"));
+
+System.out.println(set.size()); // 1 (because equals + hashCode are consistent)
+```
+
+### Comparison Table
+
+| **Aspect** | **==** | **equals()** | **hashCode()** |
+|------------|---------------------------------------|-----------------------------------------------|-----------------------------------------------|
+| **Type** | Operator | Method | Method |
+| **Default Behavior** | Compares references | Compares references (unless overridden) | Generates integer hash |
+| **Use Case** | Check if two references point to same object | Check if two objects have same content | Used in hash-based collections |
+| **Override?** | No | Yes (for meaningful equality) | Yes (must align with equals) |
+
+### Easy Way to Remember
+- **`==`** → Same memory reference?  
+- **`equals()`** → Same content?  
+- **`hashCode()`** → Same bucket in hash collections?  
+
+### The Contract Between equals() and hashCode()
+**Rule 1:** If two objects are equal according to equals(), they must return the same hashCode().
+
+**Rule 2:** If two objects are not equal, they may still return the same hashCode() (called a collision).
+
+**Rule 3:** hashCode() is used for bucket placement in hash-based collections (HashMap, HashSet).
