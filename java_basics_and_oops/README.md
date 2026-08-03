@@ -164,6 +164,18 @@ public class FinanceDemo {
 | Execution Engine | Runs instructions | JIT compiler |
 | Java API | Pre-built libraries | Collections, JDBC |
 
+## 4. Static vs Dynamic Class Loading
+
+Static class loading in Java happens at compile-time when classes are linked directly in code, while dynamic class loading occurs at runtime using reflection or APIs like Class.forName(). Static loading is faster and simpler, but dynamic loading provides flexibility for plugins, JDBC drivers, and frameworks.
+```java
+// Static loading
+SavingsAccount acc = new SavingsAccount();
+acc.calculateInterest();
+
+// Dynamic loading
+Class<?> cls = Class.forName("com.bank.SavingsAccount");
+Object obj = cls.getDeclaredConstructor().newInstance();
+```
 
 ## Data Types in Java
 
