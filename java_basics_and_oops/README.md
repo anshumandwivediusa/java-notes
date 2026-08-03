@@ -319,6 +319,8 @@ Object obj = cls.getDeclaredConstructor().newInstance();
 
 ## 10. Arrays
 
+_Java arrays are static arrays. Size has to be specified at compile time. Array.length returns array’s size.
+Use ArrayList for Dynamic Purpose._
 | Rule | Explanation | Valid Example |
 | --- | --- | --- |
 | [Arrays are objects](ca://s?q=Java_arrays_are_objects) | Arrays are objects; creating ``String[5]`` makes 1 array + 5 element references (total 6 objects). | ``String[] ``arr ``= ``new ``String[5]; ``arr[0] ``= ``"Hello";`` |
