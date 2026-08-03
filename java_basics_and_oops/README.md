@@ -510,7 +510,7 @@ public class CompositionDemo {
 }
 ```
 
-## Polymorphism - Method Overloading vs Method Overriding
+## 14. Polymorphism - Method Overloading vs Method Overriding
 
 | **[Method Overloading](ca://s?q=Java_method_overloading)** | **[Method Overriding](ca://s?q=Java_method_overriding)** |
 | --- | --- |
@@ -518,7 +518,7 @@ public class CompositionDemo {
 | Performed **within the same class**. | Occurs **between two classes** with an IS‑A (inheritance) relationship. |
 | Parameters must be **different**. | Parameters must be **same**. |
 | Example of **compile‑time polymorphism**. | Example of **run‑time polymorphism**. |
-| Cannot overload by changing only the return type. <br> Return type may be same/different, but parameters must change. | Return type must be **same or covariant** (subclass type allowed). |
+| Cannot overload by changing only the return type. <br> Return type may be same/different, but parameters must change. | Return type must be **same or covariant** (subclass type allowed). In case Parameters is different, treated as method overriding. |
 
 ## Abstract Class vs Interface
 
