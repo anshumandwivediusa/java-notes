@@ -134,9 +134,9 @@ public class FinanceDemo {
 ### 5. **Class Loader**
 - Part of JVM responsible for loading classes into memory.  
 - Types:  
-  - **Bootstrap Class Loader** → loads core Java classes.  
-  - **Extension Class Loader** → loads extension libraries.  
-  - **Application Class Loader** → loads user-defined classes.  
+  - **Bootstrap Class Loader** → loads core Java classes. (java.lang, java.util).
+  - **Extension Class Loader** → loads extension libraries. (JAVA_HOME/lib/ext - Plugins) 
+  - **Application Class Loader** → loads user-defined classes. (Loads user-defined classes from the classpath.)
 
 
 <img width="262" height="217" alt="image" src="https://github.com/user-attachments/assets/03d97f8b-baf0-4d32-be95-04ad91589e17" />
