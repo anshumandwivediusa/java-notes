@@ -430,7 +430,25 @@ System.out.println(b); // Prints a string which is returned by toString
 
 ![association-aggregation-composition](https://user-images.githubusercontent.com/2780145/34364371-5db00694-eaab-11e7-8ef2-bf56d3394f15.png)
 
+
+### Aggregation vs Composition
+
+| **[Aggregation](ca://s?q=Java_aggregation)** | **[Composition](ca://s?q=Java_composition)** |
+| --- | --- |
+| Aggregation is a **weak association**. | Composition is a **strong association**. |
+| Class can exist **independently** without owner. | Class cannot meaningfully exist **without owner**. |
+| Has its **own lifetime**. | Lifetime depends on the **owner**. |
+| **A uses B.** | **A owns B.** |
+| Child is **not owned by one owner**. | Child can have **only one owner**. |
+| **Has‑A relationship** → A has B. | **Part‑Of relationship** → B is part of A. |
+| Denoted by an **empty diamond** in UML. | Denoted by a **filled diamond** in UML. |
+| We do not use ``final``** keyword** for Aggregation. | ``final``** keyword** is used to represent Composition. |
+| **Examples:** <br> – Car has a Driver <br> – Human uses Clothes <br> – Company is an aggregation of People <br> – Text Editor uses a File <br> – Mobile has a SIM Card | **Examples:** <br> – Engine is part of Car <br> – Human owns the Heart <br> – Company is a composition of Accounts <br> – Text Editor owns a Buffer <br> – IMEI Number is part of Mobile |
+
+NOTE : "final" keyword is used in Composition to make sure child variable is initialized.
+
 ```java
+---ASSOCIATION EXAMPLE---
 class Driver {
     String name;
     Driver(String name) {
@@ -461,6 +479,8 @@ public class AggregationDemo {
 }
 ```
 ```java
+---COMPOSITION EXAMPLE---
+
 class Engine {
     String type;
     Engine(String type) {
@@ -489,21 +509,6 @@ public class CompositionDemo {
     }
 }
 ```
-### Aggregation vs Composition
-
-| **[Aggregation](ca://s?q=Java_aggregation)** | **[Composition](ca://s?q=Java_composition)** |
-| --- | --- |
-| Aggregation is a **weak association**. | Composition is a **strong association**. |
-| Class can exist **independently** without owner. | Class cannot meaningfully exist **without owner**. |
-| Has its **own lifetime**. | Lifetime depends on the **owner**. |
-| **A uses B.** | **A owns B.** |
-| Child is **not owned by one owner**. | Child can have **only one owner**. |
-| **Has‑A relationship** → A has B. | **Part‑Of relationship** → B is part of A. |
-| Denoted by an **empty diamond** in UML. | Denoted by a **filled diamond** in UML. |
-| We do not use ``final``** keyword** for Aggregation. | ``final``** keyword** is used to represent Composition. |
-| **Examples:** <br> – Car has a Driver <br> – Human uses Clothes <br> – Company is an aggregation of People <br> – Text Editor uses a File <br> – Mobile has a SIM Card | **Examples:** <br> – Engine is part of Car <br> – Human owns the Heart <br> – Company is a composition of Accounts <br> – Text Editor owns a Buffer <br> – IMEI Number is part of Mobile |
-
-NOTE : "final" keyword is used in Composition to make sure child variable is initialized.
 
 ## Polymorphism - Method Overloading vs Method Overriding
 
