@@ -1,5 +1,8 @@
 # Java Fundamentals and Object Oriented Programming
 
+## Introduction
+Java is a high-level, object-oriented programming language known for its Oortability, Robustness, and Scalability. It runs on the Java Virtual Machine (JVM), making it platform-independent — “Write Once, Run Anywhere.”
+
 Object-Oriented Programming is a methodology or paradigm to design a program using classes and objects. It simplifies the software development and maintenance. Main Concepts - Polymorphism, Encapsulation, Inheritance, (PEI) Abstraction.
 
 ## Data Types in Java
