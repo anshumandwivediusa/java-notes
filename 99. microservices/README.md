@@ -8,6 +8,7 @@
 </p>
 
 ### Key Characteristics
+ ```                   
                     Client (Web/Mobile)
                             │
                             │
@@ -24,7 +25,7 @@
                                   Notification Service
                                            │
                                     Email / SMS
-                                    
+ ```                                  
 - **Loosely Coupled** → Services can evolve independently.  
 - **Independent Deployment** → Each service can be deployed without affecting others.  
 - **Polyglot Development** → Different services can use different languages/frameworks (Java, Python, Node.js, Go).  
