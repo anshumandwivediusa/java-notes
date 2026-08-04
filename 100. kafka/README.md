@@ -77,6 +77,7 @@ Example:
     - **Scalability**: More partitions → more directories → distributed across brokers.
     - **Parallelism**: Consumers in a group can read different partitions simultaneously.
     - **Durability**: Logs are persisted on disk, enabling replay and recovery.
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/a2ac9831-d4e0-4a5d-8d60-8356ecb93086" />
 
 
 ## 🔄 Partition vs Log
