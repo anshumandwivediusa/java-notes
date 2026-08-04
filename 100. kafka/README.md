@@ -152,6 +152,57 @@ Example:
  <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/985f6d5d-b527-47a2-adbd-02d3df2e90b4" />
 </p>
 
+## 4. Kafka Log Cleanup Policies
+
+### 1. **Delete Policy**
+- Old log segments are **deleted** once they exceed a configured retention threshold.  
+- Controlled by settings like:
+  - `log.retention.hours` (default: 168 hours = 7 days)  
+  - `log.retention.bytes` (maximum size before deletion)  
+- Use case: transient data streams (e.g., clickstream, logs) where old data isn’t needed.
+
+### 2. **Compact Policy**
+- Instead of deleting, Kafka **compacts logs** by retaining only the latest record for each key.  
+- Older records with the same key are removed, ensuring the log contains a complete snapshot of the latest state.  
+- Controlled by:
+  - `cleanup.policy=compact`  
+  - `min.cleanable.dirty.ratio` (threshold for compaction)  
+- Use case: stateful data (e.g., user profiles, account balances) where you only need the most recent value per key.
+
+### How Compaction Works
+1. Producer sends multiple updates for the same key (e.g., `user123 → address`).  
+2. Kafka appends all updates to the log.  
+3. During compaction, Kafka scans the log and removes older entries for `user123`, keeping only the latest.  
+4. Consumers replay the log and reconstruct the current state.
 
 
+### Delete vs Compact — Quick Comparison
+
+| **Policy** | **Behavior** | **Best Use Case** |
+|------------|--------------|-------------------|
+| **Delete** | Removes old records after time/size threshold | Event streams, logs, transient data |
+| **Compact** | Keeps only the latest record per key | Stateful data, snapshots, configuration tables |
+
+
+## ACK
+acks: Controls how many partition replicas must receive the record before the producer can consider write successful.
+
+ - **acks = 0**: the producer will not wait for a reply from the broker before assuming the message was sent successfully. The message may be lost but it can send messages as fast as the network will support, so this setting can be used to achieve very high throughput
+
+ - **acks=1**: With a setting of 1, the producer will consider the write successful when the leader receives the record. The leader replica will know to immediately respond the moment it receives the record and not wait any longer.
+
+ - **acks=all**: the producer will consider the write successful when all of the in-sync replicas receive the record. This is achieved by the leader broker being smart as to when it responds to the request — it’ll send back a response once all the in-sync replicas receive the record themselves.
+
+ - **Acks**=all must be used in conjunction with min.insync.replicas
+
+ - **In-sync replicas**: An in-sync replica (ISR) is a replica that has the latest data for a given partition. A leader is always an in-sync replica. A follower is an in-sync replica only if it has fully caught up to the partition it’s following.
+
+ - **Minimum In-Sync Replica**: min.insync.replicas is a config on the broker that denotes the minimum number of in-sync replicas required to exist for a broker to allow acks=all requests. That means if you use replication.factor=3, min.insync=2, acks=all, you can only tolerate 1 broker going down, otherwise the producer will receive an exception on send.
+
+ - **max.in.flight.request.per.connection**: setting while controls how many produce requests can be made in parallel. Set it to 1 if you need to ensure ordering(may impact throughput) 
+
+ -  **min.insync.replicas=X allows acks=all** requests to continue to work when at least x replicas of the partition are in sync
+if we go below that value of in-sync replicas, the producer will start receiving exceptions. 
+
+ 
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/ae9561c7-01d6-427d-9649-935831c14d65" />
