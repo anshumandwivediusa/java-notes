@@ -32,8 +32,6 @@
 - **Scalability** → Scale only the services that need more resources.  
 - **Resilience** → Failure in one service doesn’t crash the whole system.  
 
-
-
 ### Example Scenario
 Imagine an **e-commerce application** split into microservices:
 - **User Service** → handles registration, login.  
@@ -55,28 +53,27 @@ Each service runs independently, communicates via APIs, and can be scaled separa
 | **Resilience** | Fault isolation | Network latency, monitoring overhead |
 
 
-## 2. Microservice Patterns
-
-<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/a3da106b-2e09-4866-9159-273521968d1b" />
-
-## API Gateway
+## 2. API Gateway
 
 The **API Gateway pattern** is one of the most important **microservice patterns** because it provides a single-entry point for all client requests into a microservices system. Instead of clients calling each service directly, they interact with the gateway, which handles routing, security, and aggregation.  
 
-## Key Features of API Gateway
+- **Without API Gateway** → Clients must call each microservice directly (complex, error-prone).  
+- **With API Gateway** → Clients call one endpoint, gateway handles the rest.
+ 
+### Key Features of API Gateway
 - **Single Entry Point** → Clients don’t need to know about individual services.  
 - **Routing** → Directs requests to the appropriate microservice.  
 - **Aggregation** → Combines responses from multiple services into one.  
 - **Security** → Handles authentication, authorization, SSL termination.  
 - **Cross-cutting concerns** → Logging, monitoring, rate limiting, caching.  
 
-## ✅ Example Flow
+### Example Flow
 1. Client (Web/Mobile) sends request → API Gateway.  
 2. Gateway authenticates request, applies policies.  
 3. Gateway routes request to **User Service**, **Order Service**, or **Payment Service**.  
 4. Gateway aggregates responses if needed and sends back to client.  
 
-## ⚖️ Benefits vs Challenges
+### Benefits vs Challenges
 
 | **Benefits** | **Challenges** |
 |--------------|----------------|
@@ -85,15 +82,36 @@ The **API Gateway pattern** is one of the most important **microservice patterns
 | Enables protocol translation (REST ↔ gRPC) | Requires high availability |
 | Supports aggregation | Complexity in configuration |
 
-## ✅ Example Implementation
+### Example Implementation
 - **Spring Cloud Gateway** (Java/Spring ecosystem)  
 - **Netflix Zuul** (legacy, but widely known)  
 - **Kong, NGINX, Traefik** (open-source gateways)  
 - **AWS API Gateway, Azure API Management** (cloud-native solutions)  
 
-## 🎯 Easy Way to Remember
-- **Without API Gateway** → Clients must call each microservice directly (complex, error-prone).  
-- **With API Gateway** → Clients call one endpoint, gateway handles the rest.  
+### Azure API Management Capabilities
+**API Gateway** → Acts as a single-entry point for APIs, handling routing, request/response transformation, and protocol translation.
+
+**Security** → Provides authentication, authorization, OAuth 2.0, JWT validation, IP filtering, and SSL termination.
+
+**Rate Limiting & Quotas** → Control API usage with throttling, quotas, and policies to prevent abuse.
+
+**Transformation** → Modify requests/responses (e.g., format conversion, header injection, payload reshaping).
+
+**Monitoring & Analytics** → Built-in dashboards for usage metrics, performance, and error tracking.
+
+**Developer Portal** → Self-service portal for API documentation, onboarding, and testing.
+
+**Versioning & Revision Control** → Manage multiple API versions and revisions without breaking clients.
+
+**Caching** → Improve performance by caching responses at the gateway.
+
+**Policy Engine** → Apply reusable policies (security, transformation, validation) declaratively.
+
+**Hybrid & Multi-cloud Support** → Deploy APIs across Azure, on-premises, or other clouds.
+
+**Integration** → Works seamlessly with Azure services (Functions, Logic Apps, Event Grid, Service Bus).
 
 
-Would you like me to also prepare a **diagram** that visually shows how services like User, Order, and Payment interact through APIs, so you can see the flow of communication in a microservices system?
+## 2. Microservice Patterns
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/a3da106b-2e09-4866-9159-273521968d1b" />
