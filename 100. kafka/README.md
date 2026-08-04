@@ -280,7 +280,7 @@ if we go below that value of in-sync replicas, the producer will start receiving
 - **isolation.level** → `read_uncommitted` or `read_committed` (for transactional reads)  
 
 
-### Cheat Sheet — Profiles
+### Summary — Profiles
 
 | **Profile** | **Producer** | **Broker** | **Consumer** |
 |-------------|--------------|------------|--------------|
@@ -288,6 +288,7 @@ if we go below that value of in-sync replicas, the producer will start receiving
 | **Low Latency** | batch.size=4KB, linger.ms=0, compression=none | min.insync.replicas=1 | fetch.min.bytes=1, max.poll.records=100 |
 | **High Durability** | acks=all, enable.idempotence=true | replication.factor=3, min.insync.replicas=2 | isolation.level=read_committed, auto.offset.reset=earliest |
 
+### Cheat Sheet
 
 
 
