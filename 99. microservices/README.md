@@ -1,6 +1,6 @@
 ## 1. What are Microservices?
 - **Microservices** → An architectural style where an application is broken into **small, independent services**.  
-- Each service handles a **specific business capability** (e.g., user management, payment, inventory).  
+- Each service handles a **specific business capability** (e.g., user management, payment, inventory), domains, team capabilities.  
 - Services communicate via **lightweight protocols** (usually HTTP/REST, gRPC, or messaging).  
 
 <p align = "center">
