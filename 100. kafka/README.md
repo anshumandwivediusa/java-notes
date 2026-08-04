@@ -239,6 +239,55 @@ if we go below that value of in-sync replicas, the producer will start receiving
 - For critical systems (payments, financial transactions), this is essential.  
 - For high‑volume, less critical streams (logs, metrics), weaker guarantees may be acceptable for speed.
 
+## **Comprehensive Catalog of Kafka Tuning Parameters**
+
+### Producer Parameters
+- **acks** → `0`, `1`, `all` (durability vs speed)  
+- **batch.size** → size of batch in bytes (default 16KB)  
+- **linger.ms** → wait time before sending batch (default 0ms)  
+- **compression.type** → `none`, `gzip`, `snappy`, `lz4`, `zstd`  
+- **retries** → number of retry attempts (default: MAX_INT with idempotence)  
+- **max.in.flight.requests.per.connection** → concurrent requests allowed (default 5, set 1 for strict ordering)  
+- **enable.idempotence** → ensures exactly-once semantics  
+- **buffer.memory** → total memory for buffering records (default 32MB)  
+- **max.request.size** → max size of a single request (default 1MB)  
+- **delivery.timeout.ms** → max time before a record fails (default 120s)  
+
+### Broker Parameters
+- **num.network.threads** → threads for handling network requests  
+- **num.io.threads** → threads for disk I/O  
+- **socket.send.buffer.bytes** → TCP send buffer size  
+- **socket.receive.buffer.bytes** → TCP receive buffer size  
+- **socket.request.max.bytes** → max size of a request (default 100MB)  
+- **log.dirs** → directories for storing logs  
+- **log.retention.hours** → retention period (default 168h = 7 days)  
+- **log.retention.bytes** → max size before deletion  
+- **log.segment.bytes** → segment size (default 1GB)  
+- **log.cleaner.enable** → enables log compaction  
+- **replication.factor** → default replication factor (usually 3)  
+- **min.insync.replicas** → minimum replicas required for ack (default 1, recommended 2)  
+- **unclean.leader.election.enable** → allow out-of-sync replicas to become leader (default false for safety)  
+
+
+### Consumer Parameters
+- **fetch.min.bytes** → minimum data per fetch request (default 1 byte)  
+- **fetch.max.bytes** → max data per fetch (default 50MB)  
+- **fetch.max.wait.ms** → max wait time for fetch (default 500ms)  
+- **max.poll.records** → max records per poll (default 500)  
+- **max.partition.fetch.bytes** → max bytes per partition per fetch (default 1MB)  
+- **enable.auto.commit** → auto commit offsets (default true)  
+- **auto.offset.reset** → `earliest`, `latest`, `none`  
+- **isolation.level** → `read_uncommitted` or `read_committed` (for transactional reads)  
+
+
+### Cheat Sheet — Profiles
+
+| **Profile** | **Producer** | **Broker** | **Consumer** |
+|-------------|--------------|------------|--------------|
+| **High Throughput** | batch.size=64KB, linger.ms=20, compression=snappy | log.segment.bytes=1GB, replication.factor=2 | fetch.min.bytes=50KB, max.poll.records=1000 |
+| **Low Latency** | batch.size=4KB, linger.ms=0, compression=none | min.insync.replicas=1 | fetch.min.bytes=1, max.poll.records=100 |
+| **High Durability** | acks=all, enable.idempotence=true | replication.factor=3, min.insync.replicas=2 | isolation.level=read_committed, auto.offset.reset=earliest |
+
 
 
 
