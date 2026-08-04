@@ -204,9 +204,45 @@ acks: Controls how many partition replicas must receive the record before the pr
  -  **min.insync.replicas=X allows acks=all** requests to continue to work when at least x replicas of the partition are in sync
 if we go below that value of in-sync replicas, the producer will start receiving exceptions. 
 
+
+
+
 <p align="center">
   <img width="737" height="837" alt="image" src="https://github.com/user-attachments/assets/dbf6f8c5-36e9-47d0-92c6-8915f8e34fea" />
 </p>
+
+
+## 6. Idempotence
+
+### Kafka < 0.11 (Pre‑Idempotence Era)
+- **acks=all**  
+  Producer waits until all in‑sync replicas (ISR) acknowledge the message → ensures durability.  
+- **min.insync.replicas**  
+  Broker/topic setting requiring at least 2 replicas to confirm before acknowledging.  
+- **retries=MAX_INT**  
+  Producer retries indefinitely on transient errors.  
+- **max.in.flight.requests.per.connection=1**  
+  Only one request at a time → prevents reordering during retries, but reduces throughput.
+
+### Kafka ≥ 0.11 (Idempotent Producers)
+- **enable.idempotence=true**  
+  Automatically implies:  
+  - `acks=all`  
+  - `retries=MAX_INT`  
+  - `max.in.flight.requests.per.connection=1` (or 5 in Kafka ≥ 1.0)  
+- Guarantees **exactly‑once semantics** for producers (no duplicates, no reordering).  
+- Still requires `min.insync.replicas=2` for durability.  
+- Improves performance while keeping ordering guarantees.
+
+### Trade‑offs
+- Running a **safe producer** (idempotence + strong durability) may reduce throughput and increase latency.  
+- For critical systems (payments, financial transactions), this is essential.  
+- For high‑volume, less critical streams (logs, metrics), weaker guarantees may be acceptable for speed.
+
+
+
+
+
  
 
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/ae9561c7-01d6-427d-9649-935831c14d65" />
