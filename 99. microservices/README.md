@@ -106,3 +106,50 @@ The **API Gateway pattern** is one of the most important **microservice patterns
 ## 2. Microservice Patterns
 
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/a3da106b-2e09-4866-9159-273521968d1b" />
+
+## 3. Azure Microservice
+That infographic perfectly captures the **layered architecture** for Azure‑based microservices. Here’s how to interpret it and where each component fits:  
+
+### Flow Breakdown
+1. **Azure Front Door**  
+   - Global entry point for HTTP(S) traffic.  
+   - Provides global load balancing, SSL offload, and edge caching.  
+   - Routes requests to the nearest region.  
+
+2. **Application Gateway**  
+   - Regional layer with **Web Application Firewall (WAF)**.  
+   - Handles TLS termination, URL routing, and protection against attacks.  
+   - Operates at Layer 7 (HTTP/HTTPS).  
+
+3. **Azure API Management**  
+   - Governance and lifecycle layer for APIs.  
+   - Adds authentication, rate limiting, transformation, and analytics.  
+   - Provides a **developer portal** and manages API versions.  
+   - Ideal for external or partner‑facing APIs.  
+
+4. **API Gateway (Ingress)**  
+   - Local routing inside your **AKS cluster**.  
+   - Handles retries, circuit breaking, and internal service discovery.  
+   - Operates at the microservice boundary.  
+
+5. **Microservices Boundary**  
+   - Individual services (User, Order, Payment, etc.) running in AKS pods.  
+   - Communicate via internal DNS or service mesh (Istio, Linkerd).  
+
+
+### Layer Responsibilities
+
+| **Layer** | **Purpose** | **Scope** |
+|------------|--------------|------------|
+| **Front Door** | Global routing, CDN, SSL offload | Multi‑region |
+| **Application Gateway** | Regional WAF, routing | Region |
+| **API Management** | API governance, analytics, developer portal | Enterprise‑wide |
+| **API Gateway (Ingress)** | Internal routing, retries, service discovery | Cluster |
+| **Microservices** | Business logic | Pod level |
+
+
+### Easy Way to Remember
+- **Front Door** → Global traffic manager.  
+- **App Gateway** → Regional security shield.  
+- **API Management** → Strategic governance layer.  
+- **API Gateway** → Local router for microservices.  
