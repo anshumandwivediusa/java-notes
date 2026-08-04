@@ -4,7 +4,7 @@
 - Services communicate via **lightweight protocols** (usually HTTP/REST, gRPC, or messaging).  
 
 <p align = "center">
-<img width="500" height="250" alt="image" src="https://github.com/user-attachments/assets/45069518-fea8-4048-a761-74f72404e6e4" />
+<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/45069518-fea8-4048-a761-74f72404e6e4" />
 </p>
 
 ## Key Characteristics
