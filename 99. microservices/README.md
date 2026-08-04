@@ -89,27 +89,27 @@ The **API Gateway pattern** is one of the most important **microservice patterns
 - **AWS API Gateway, Azure API Management** (cloud-native solutions)  
 
 ### Azure API Management Capabilities
-**API Gateway** → Acts as a single-entry point for APIs, handling routing, request/response transformation, and protocol translation.
+  - **API Gateway** → Acts as a single-entry point for APIs, handling routing, request/response transformation, and protocol translation.
 
-**Security** → Provides authentication, authorization, OAuth 2.0, JWT validation, IP filtering, and SSL termination.
+  - **Security** → Provides authentication, authorization, OAuth 2.0, JWT validation, IP filtering, and SSL termination.
 
-**Rate Limiting & Quotas** → Control API usage with throttling, quotas, and policies to prevent abuse.
+  - **Rate Limiting & Quotas** → Control API usage with throttling, quotas, and policies to prevent abuse.
 
-**Transformation** → Modify requests/responses (e.g., format conversion, header injection, payload reshaping).
+  - **Transformation** → Modify requests/responses (e.g., format conversion, header injection, payload reshaping).
 
-**Monitoring & Analytics** → Built-in dashboards for usage metrics, performance, and error tracking.
+  - **Monitoring & Analytics** → Built-in dashboards for usage metrics, performance, and error tracking.
 
-**Developer Portal** → Self-service portal for API documentation, onboarding, and testing.
+  - **Developer Portal** → Self-service portal for API documentation, onboarding, and testing.
 
-**Versioning & Revision Control** → Manage multiple API versions and revisions without breaking clients.
+  - **Versioning & Revision Control** → Manage multiple API versions and revisions without breaking clients.
 
-**Caching** → Improve performance by caching responses at the gateway.
+  - **Caching** → Improve performance by caching responses at the gateway.
 
-**Policy Engine** → Apply reusable policies (security, transformation, validation) declaratively.
+  - **Policy Engine** → Apply reusable policies (security, transformation, validation) declaratively.
 
-**Hybrid & Multi-cloud Support** → Deploy APIs across Azure, on-premises, or other clouds.
+  - **Hybrid & Multi-cloud Support** → Deploy APIs across Azure, on-premises, or other clouds.
 
-**Integration** → Works seamlessly with Azure services (Functions, Logic Apps, Event Grid, Service Bus).
+  - **Integration** → Works seamlessly with Azure services (Functions, Logic Apps, Event Grid, Service Bus).
 
 
 ## 2. Microservice Patterns
