@@ -34,12 +34,12 @@ Kafka integrates with the OS kernel’s sendfile system call, which streams data
 - **Page Cache Usage**
   Kafka relies heavily on the OS page cache rather than implementing its own caching layer, reducing complexity and maximizing performance.  
 
-## Kafka vs RabitMQ
+## 3. Kafka vs RabitMQ
 - **Kafka** is ideal for **event streaming, analytics, and replayable pipelines** where throughput and durability matter.  
 - **RabbitMQ** excels at **low-latency messaging, complex routing, and microservices communication**.  
 - Compared to other systems like **ActiveMQ** or **Amazon SQS**, Kafka stands out for **scalability and replay**, while RabbitMQ is valued for **protocol flexibility and ease of integration**.  
 
-## 3. Kafka architecture
+## 4. Kafka architecture
 
 <img width="790" height="441" alt="image" src="https://github.com/user-attachments/assets/c41dd9fd-c802-437b-bbe7-b6097e3d1476" />
 
