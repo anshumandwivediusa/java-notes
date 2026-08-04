@@ -116,7 +116,41 @@ public DefaultErrorHandler errorHandler(KafkaTemplate<String, String> template) 
 - Retries twice with 1s delay.  
 - If still failing, message is sent to `topic.DLT`.
 
----
+```java
+@Bean
+public RetryTemplate retryTemplate() {
+    // Create a retry template with exponential backoff
+    RetryTemplate retryTemplate = new RetryTemplate();
+
+    // Retry policy: max 3 attempts
+    SimpleRetryPolicy retryPolicy = new SimpleRetryPolicy();
+    retryPolicy.setMaxAttempts(3);
+
+    // Backoff policy: start at 1s, double each time, max 10s
+    ExponentialBackOffPolicy backOffPolicy = new ExponentialBackOffPolicy();
+    backOffPolicy.setInitialInterval(1000);
+    backOffPolicy.setMultiplier(2.0);
+    backOffPolicy.setMaxInterval(10000);
+
+    retryTemplate.setRetryPolicy(retryPolicy);
+    retryTemplate.setBackOffPolicy(backOffPolicy);
+
+    return retryTemplate;
+}
+
+@Autowired
+private KafkaTemplate<String, String> kafkaTemplate;
+
+@Autowired
+private RetryTemplate retryTemplate;
+
+public void sendMessage(String message) {
+    retryTemplate.execute(context -> {
+        kafkaTemplate.send("orders", message).get(); 
+        return null;
+    });
+}
+```
 
 ## 📊 Summary Table
 
