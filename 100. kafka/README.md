@@ -239,7 +239,7 @@ if we go below that value of in-sync replicas, the producer will start receiving
 - For critical systems (payments, financial transactions), this is essential.  
 - For high‑volume, less critical streams (logs, metrics), weaker guarantees may be acceptable for speed.
 
-## **Comprehensive Catalog of Kafka Tuning Parameters**
+## 7. **Comprehensive Catalog of Kafka Tuning Parameters**
 
 ### Producer Parameters
 - **acks** → `0`, `1`, `all` (durability vs speed)  
