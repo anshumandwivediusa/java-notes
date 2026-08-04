@@ -118,10 +118,39 @@ Example:
    </p>
 
 
-## 🔄 Producer–Consumer Flow
-1. **Producer** sends a message → Kafka broker stores it in the topic partition log.  
-2. **Consumer** fetches messages from the log → processes them in order.  
-3. Kafka itself remains **stateless** about producers/consumers — only offsets are tracked.  
+## 3. Flow of Sending a Message in Kafka
+
+1. **Create ProducerRecord**  
+   - Must include: **topic** and **value**.  
+   - Optional: **key** (for partitioning/order) and **partition** (explicit assignment).
+
+2. **Serialization**  
+   - Key and value objects are converted into **ByteArrays** using serializers (e.g., StringSerializer, AvroSerializer).  
+   - Ensures data can be transmitted over the network.
+
+3. **Partitioner**  
+   - If a partition is explicitly specified → use it.  
+   - If not → partitioner chooses one based on:  
+     ``` \[
+     \text{target\_partition} = \text{HashCode(key)} \% \text{number\_of\_partitions}
+     \]  ```
+   - Guarantees ordering for messages with the same key.
+
+4. **Batching**  
+   - Producer groups records destined for the same topic + partition into a batch.  
+   - Reduces network overhead and improves throughput.
+
+5. **Send to Broker**  
+   - Batch is sent over a persistent TCP connection to the broker.  
+   - Broker appends records sequentially to the partition log file.
+
+6. **Broker Response**  
+   - If successful → returns **RecordMetadata** containing `<topic, partition, offset>`.  
+   - If failed → returns an error. Producer may retry (based on retry settings).
+
+<p align="center">
+ <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/985f6d5d-b527-47a2-adbd-02d3df2e90b4" />
+</p>
 
 
 
