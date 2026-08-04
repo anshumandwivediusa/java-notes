@@ -1,6 +1,7 @@
 # Kafka
 ## What is Kafka?
 **Apache Kafka is an open-source distributed event streaming platform used to build real-time data pipelines and streaming applications. It allows you to publish, subscribe, store, and process streams of events reliably and at scale.** It’s widely adopted across industries, including finance, telecom, logistics, and healthcare, for mission-critical applications.  [Apache Kafka](https://kafka.apache.org/)  [Apache Kafka](https://kafka.apache.org/intro/)  
+
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/ae9561c7-01d6-427d-9649-935831c14d65" />
 
 
