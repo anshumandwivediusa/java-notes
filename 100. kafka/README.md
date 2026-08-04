@@ -43,11 +43,59 @@ Kafka integrates with the OS kernel’s sendfile system call, which streams data
 
 <img width="790" height="441" alt="image" src="https://github.com/user-attachments/assets/c41dd9fd-c802-437b-bbe7-b6097e3d1476" />
 
-- **Event Streaming**: Kafka captures data in real-time from sources like databases, sensors, mobile devices, and applications, then routes it to destinations such as analytics systems or storage.  
-- **Topics**: Events (messages) are organized into topics, similar to folders, where producers write and consumers read.  [Apache Kafka](https://kafka.apache.org/quickstart/)  
-- **Producers and Consumers**: Producers publish events to topics, while consumers subscribe to topics to process events.  
-- **Brokers**: Kafka servers that store and serve event data.  
-- **Clusters**: Groups of brokers working together to provide scalability, fault tolerance, and high throughput.  
+- **Broker**  
+  A broker is a Kafka server that acts as an intermediary between producers and consumers. It receives messages from producers, stores them, and serves them to consumers. Multiple brokers form a **cluster** for scalability and fault tolerance.
+
+- **Log**  
+  A log is the physical file on disk where Kafka appends incoming records sequentially.  
+  - Append-only, ordered by time.  
+  - Configured via `log.dir`.  
+  - Provides durability and replayability.
+
+```
+//Each topic gets its own folder, and partitions are represented as numbered suffixes.
+//Inside each partition directory, Kafka maintains segment files (append-only logs) where records are stored sequentially. These files are rolled over periodically based on size or time.
+Example:
+/logs/topicA_0   → topicA with 1 partition
+/logs/topicB_0   → partition 0 of topicB
+/logs/topicB_1   → partition 1 of topicB
+/logs/topicB_2   → partition 2 of topicB
+```
+
+- **Topic**  
+  A topic is a logical category or stream of records (like a database table or folder).  
+  - Examples: `orders`, `customers`, `payments`.  
+  - Topics are broken into **partitions** for scalability.
+
+- **Partition**  
+  A partition is a **logical subdivision of a topic**.  
+  - Each partition is stored as a log file on disk.  
+  - Enables parallelism: different consumers can read different partitions.  
+  - Provides redundancy: partitions can be replicated across brokers.  
+  - Messages with the same **key** always go to the same partition, preserving order.
+
+---
+
+## 🔄 Partition vs Log
+
+- **Log**: Physical file on disk where records are appended.  
+- **Partition**: Logical abstraction that groups logs for scalability and redundancy.  
+  - You can “see” logs on disk.  
+  - Partitions are logical constructs managed by Kafka.
+
+---
+
+## 🧮 Partitioning Formula
+When a producer sends a message with a key:
+
+\[
+\text{target\_partition} = \text{HashCode(key)} \% \text{number\_of\_partitions}
+\]
+
+- Ensures all records with the same key go to the same partition.  
+- Guarantees ordering within that partition.
+
+
 
 
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/ae9561c7-01d6-427d-9649-935831c14d65" />
