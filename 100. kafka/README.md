@@ -113,7 +113,8 @@ Example:
     - Different groups can independently consume the same topic.
 
    <p align="center">
-    <img width="2041" height="1243" alt="image" src="https://github.com/user-attachments/assets/b4c5ec2c-41a2-47ca-bfa0-fa272eb6a09b" />
+    <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/72d6b40a-c4b8-426e-a748-daef8a826edb" />
+    <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/1aac28c7-b5e5-4048-baac-168690fb61f9" />
    </p>
 
 
