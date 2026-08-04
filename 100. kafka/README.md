@@ -184,7 +184,7 @@ Example:
 | **Compact** | Keeps only the latest record per key | Stateful data, snapshots, configuration tables |
 
 
-## ACK
+## 5. ACK
 acks: Controls how many partition replicas must receive the record before the producer can consider write successful.
 
  - **acks = 0**: the producer will not wait for a reply from the broker before assuming the message was sent successfully. The message may be lost but it can send messages as fast as the network will support, so this setting can be used to achieve very high throughput
@@ -204,5 +204,9 @@ acks: Controls how many partition replicas must receive the record before the pr
  -  **min.insync.replicas=X allows acks=all** requests to continue to work when at least x replicas of the partition are in sync
 if we go below that value of in-sync replicas, the producer will start receiving exceptions. 
 
+<p align="center">
+  <img width="737" height="837" alt="image" src="https://github.com/user-attachments/assets/dbf6f8c5-36e9-47d0-92c6-8915f8e34fea" />
+</p>
  
+
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/ae9561c7-01d6-427d-9649-935831c14d65" />
