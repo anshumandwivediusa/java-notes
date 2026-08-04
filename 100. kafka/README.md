@@ -63,7 +63,7 @@ Example:
 ```
 
 - **Topic**  
-  A topic is a logical category or stream of records (like a database table or folder).  
+  A topic is a logical category or stream of records (like a database table or folder). Topics are logs that are seperated by topic name. Thinks topics as labeled logs. 
   - Examples: `orders`, `customers`, `payments`.  
   - Topics are broken into **partitions** for scalability.
 
