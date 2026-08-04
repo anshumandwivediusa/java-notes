@@ -73,8 +73,11 @@ Example:
   - Enables parallelism: different consumers can read different partitions.  
   - Provides redundancy: partitions can be replicated across brokers.  
   - Messages with the same **key** always go to the same partition, preserving order.
+  - Why This Matters
+    - **Scalability**: More partitions → more directories → distributed across brokers.
+    - **Parallelism**: Consumers in a group can read different partitions simultaneously.
+    - **Durability**: Logs are persisted on disk, enabling replay and recovery.
 
----
 
 ## 🔄 Partition vs Log
 
