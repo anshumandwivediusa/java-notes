@@ -172,6 +172,66 @@ Error handling in Kafka isn’t just about retries — it’s about **deciding w
 
 ## 6. **Transactions**: Exactly-once semantics with `enable.idempotence=true`.  
 
+In **Kafka with Spring Boot**, transactions provide **exactly-once semantics** — meaning a message is either fully processed and committed, or not processed at all. This prevents duplicates and ensures consistency across producer and consumer operations.
+
+- **Idempotent Producer**  
+  - Enabled with `enable.idempotence=true`.  
+  - Guarantees no duplicate records even during retries.  
+
+- **Transactional Producer**  
+  - Extends idempotence to support atomic writes across multiple partitions/topics.  
+  - Uses a **transactional.id** to track producer state.  
+
+- **Consumer Transactions**  
+  - Consumers can read only committed messages (`isolation.level=read_committed`).  
+  - Prevents reading uncommitted or aborted records.  
+
+- **Spring Integration**  
+  - Spring Kafka integrates transactions with `@Transactional`.  
+  - You can wrap producer sends and database operations in a single transaction.  
+
+```java
+@Bean
+public KafkaTransactionManager<String, String> kafkaTransactionManager(
+        ProducerFactory<String, String> producerFactory) {
+    return new KafkaTransactionManager<>(producerFactory);
+}
+
+@Autowired
+private KafkaTemplate<String, String> kafkaTemplate;
+
+@Transactional
+public void processAndSend(String order) {
+    // Business logic (e.g., save to DB)
+    // If DB fails, Kafka send is rolled back
+    kafkaTemplate.send("orders", order);
+}
+```
+
+- `@Transactional` ensures **atomicity**: either both DB and Kafka succeed, or both roll back.  
+- Requires `spring.kafka.producer.transaction-id-prefix` in `application.yml`.
+
+  ```java
+  @KafkaListener(topics = "orders", groupId = "order-service")
+  @Transactional
+  public void consume(String message) {
+      // Process message and update DB
+      // If DB fails, offset commit is rolled back
+      processOrder(message);
+  }
+  ```
+
+- Consumer offset commits are part of the transaction.  
+- Ensures **exactly-once processing**: no duplicate consumption, no lost messages.
+
+### 📊 Benefits of Transactions
+| **Feature** | **Benefit** |
+|-------------|-------------|
+| Atomicity | DB + Kafka operations succeed or fail together |
+| Exactly-once | Prevents duplicates and lost messages |
+| Consistency | Consumers only see committed data |
+| Integration | Works seamlessly with Spring’s `@Transactional` |
+
 
 ## 7. **Batch Consumption**: Fetch multiple records per poll for efficiency.
 
