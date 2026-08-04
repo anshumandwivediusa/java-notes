@@ -77,29 +77,50 @@ Example:
     - **Scalability**: More partitions → more directories → distributed across brokers.
     - **Parallelism**: Consumers in a group can read different partitions simultaneously.
     - **Durability**: Logs are persisted on disk, enabling replay and recovery.
-<p align="center">
- <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/a2ac9831-d4e0-4a5d-8d60-8356ecb93086" />
-</p>
 
-## 🔄 Partition vs Log
+   <p align="center">
+    <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/a2ac9831-d4e0-4a5d-8d60-8356ecb93086" />
+   </p>
+  
+  - Partitioning Formula
+    When a producer sends a message with a key:
+    ```
+    \[
+    \text{target\_partition} = \text{HashCode(key)} \% \text{number\_of\_partitions}
+    \]
+    ```
+    - Ensures all records with the same key go to the same partition.  
+    - Guarantees ordering within that partition.
 
-- **Log**: Physical file on disk where records are appended.  
-- **Partition**: Logical abstraction that groups logs for scalability and redundancy.  
-  - You can “see” logs on disk.  
-  - Partitions are logical constructs managed by Kafka.
+- Producers
+  - **Producer** is any application or service that publishes (writes) messages into Kafka topics.  
+  - Producers decide:
+    - **Topic**: where the message goes.  
+    - **Partition**: either explicitly or via Kafka’s partitioner (hashing the key).  
+    - **Key**: ensures ordering by sending related messages to the same partition.  
+  - **Batching**: Producers send messages in batches to reduce network overhead.  
+  - **Acknowledgments**: Producers can configure how many broker acknowledgments they wait for (e.g., `acks=0`, `acks=1`, `acks=all`) to balance speed vs durability.
 
----
+- Consumers
+  - **Consumer** is any application or service that subscribes (reads) messages from Kafka topics.  
+  - Consumers track their position in a partition using **offsets**.  
+  - They can:
+    - Read messages sequentially from a partition.  
+    - Commit offsets to Kafka (or external storage) for fault tolerance.  
+  - **Consumer Groups**:  
+    - Multiple consumers can join a group to share the load.  
+    - Kafka ensures each partition is consumed by only one consumer in the group.  
+    - Different groups can independently consume the same topic.
 
-## 🧮 Partitioning Formula
-When a producer sends a message with a key:
+   <p align="center">
+    <img width="2041" height="1243" alt="image" src="https://github.com/user-attachments/assets/b4c5ec2c-41a2-47ca-bfa0-fa272eb6a09b" />
+   </p>
 
-\[
-\text{target\_partition} = \text{HashCode(key)} \% \text{number\_of\_partitions}
-\]
 
-- Ensures all records with the same key go to the same partition.  
-- Guarantees ordering within that partition.
-
+## 🔄 Producer–Consumer Flow
+1. **Producer** sends a message → Kafka broker stores it in the topic partition log.  
+2. **Consumer** fetches messages from the log → processes them in order.  
+3. Kafka itself remains **stateless** about producers/consumers — only offsets are tracked.  
 
 
 
