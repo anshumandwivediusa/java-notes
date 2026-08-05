@@ -92,22 +92,22 @@ Java is a **high-level, object-oriented programming language** known for its **p
 <br><a>Java Virtual Machine</a>
 </p>
 
-### 1. **Java Development Kit (JDK)**
-- Complete package for developers.  
-- Contains **compiler (javac)**, debugger, documentation tools, and the **JRE**.  
-- Used for writing, compiling, and testing Java programs.  
-
-### 2. **Java Runtime Environment (JRE)**
-- Provides the environment to run Java applications.  
-- Includes **JVM** + core libraries.  
-- Does not contain development tools like compiler.  
-- Ideal for end-users who only need to run Java programs.  
-
-### 3. **Java Virtual Machine (JVM)**
+### 1. **Java Virtual Machine (JVM)**
 - Heart of Java architecture.  
 - Converts **bytecode** into machine code for execution.  
 - Provides **platform independence**.  
 - Handles **memory management, garbage collection, and security checks**.  
+
+### 2. **Java Runtime Environment (JRE)**
+- Provides the environment to run Java applications.  
+- Includes **JVM** + core libraries (like java.util.*, java.io.*) and supporting files.
+- Does not contain development tools like compiler.  
+- Ideal for end-users who only need to run Java programs.  
+
+### 3. **Java Development Kit (JDK)**
+- Complete package for developers.  
+- Contains **compiler (javac)**, debugger, documentation tools, and the **JRE**.  
+- Used for writing, compiling, and testing Java programs.  
 
 ### 4. **Bytecode**
 - Intermediate representation of Java code.  
