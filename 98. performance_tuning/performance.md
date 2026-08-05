@@ -41,8 +41,9 @@
 | **JRE** | JVM + core libraries | Runs Java applications |
 | **JDK** | JRE + compiler + dev tools | Builds Java applications |
 
-## 2. Java Performance
-**Java performance tuning focuses on optimizing JVM settings, garbage collection, memory management, and code-level practices to ensure applications run faster, with lower latency and predictable resource usage. The most impactful areas are garbage collector choice, heap sizing, profiling, and efficient use of data structures.** 
+## Java Performance & GC Tuning Cheat Sheet
+
+**Java performance tuning focuses on optimizing JVM settings, garbage collection, memory management, and code-level practices to ensure applications run faster, with lower latency and predictable resource usage. The most impactful areas are garbage collector choice, heap sizing, profiling, and efficient use of data structures.**
 
 ### JVM & Garbage Collection Tuning
 - **Choose the right GC**:  
@@ -50,34 +51,42 @@
   - **ZGC** → Ultra-low pause times (<10 ms), ideal for latency-sensitive apps.  
   - **Shenandoah** → Low pause GC with concurrent compaction.  
   - **Parallel GC** → Best for batch jobs, maximizes throughput.  
-- **Heap sizing**: Allocate **~75% of physical memory** to the heap, leaving room for OS and metaspace.  
+- **Heap sizing**: Allocate ~75% of physical memory to JVM heap, leaving room for OS and metaspace.  
 - **Key flags**:  
   ```bash
   -Xms2g -Xmx4g
   -XX:+UseG1GC
   -XX:MaxGCPauseMillis=200
   -XX:+UseStringDeduplication
+  -XX:NewRatio=2
+  -XX:SurvivorRatio=8
   ```
 
+### Heap Generations
+- **Young Generation** → Where new objects are created.  
+  - **Eden Space** → All new objects start here.  
+  - **Survivor Spaces (S0, S1)** → Objects surviving Minor GC move here.  
+  - **Minor GC** → Frequent, fast collections.  
+- **Old Generation (Tenured)** → Long-lived objects promoted here after surviving multiple GCs.  
+  - **Major GC / Full GC** → Less frequent, more expensive.  
+- **Metaspace** → Stores class metadata (replaced PermGen in Java 8).  
+
 ### Memory Management
-- **Avoid memory leaks**: Always close resources (`try-with-resources`).  
+- **Avoid leaks**: Always close resources (`try-with-resources`).  
 - **String handling**: Use `StringBuilder` for concatenation in loops.  
-- **Object pooling**: Avoid unnecessary object creation; reuse where possible.  
+- **Object pooling**: Reuse objects where possible, avoid unnecessary creation.  
 - **Compressed OOPs**: Enable `-XX:+UseCompressedOops` for reduced memory footprint.  
 
-
 ### Profiling & Monitoring
-- **Java Flight Recorder (JFR)**: Lightweight profiling tool for production.  
-- **VisualVM / JProfiler**: Detect CPU/memory hotspots.  
-- **GC logs**: Enable with `-Xlog:gc*` to analyze pause times and collection frequency.  
-
+- **Java Flight Recorder (JFR)** → Lightweight production profiler.  
+- **VisualVM / JProfiler** → Detect CPU/memory hotspots.  
+- **GC logs** → Enable with `-Xlog:gc*` (Java 9+) or `-verbose:gc` (Java 8).  
 
 ### Code-Level Optimizations
 - **Efficient collections**: Use `ArrayList` for fast iteration, `HashMap` for lookups.  
-- **Concurrency**: Use `ConcurrentHashMap`, `ForkJoinPool`, and avoid excessive synchronization.  
+- **Concurrency**: Use `ConcurrentHashMap`, `ForkJoinPool`, avoid excessive synchronization.  
 - **I/O tuning**: Prefer NIO (`java.nio`) for scalable network/file operations.  
 - **Lazy loading**: Initialize heavy objects only when needed.  
-
 
 ### Performance Checklist
 
@@ -85,15 +94,16 @@
 |----------|------------------|------------|
 | **GC** | Select G1GC/ZGC based on workload | Reduces pause times |
 | **Heap** | 75% of physical memory | Prevents OOM & swapping |
+| **Young Gen** | Tune Eden/Survivor ratios | Faster Minor GC |
+| **Old Gen** | Monitor promotion rates | Avoid costly Full GC |
 | **Strings** | Use `StringBuilder` | Faster concatenation |
 | **Profiling** | JFR, VisualVM | Identifies bottlenecks |
 | **Concurrency** | Use modern APIs | Improves throughput |
 | **I/O** | Use NIO | Scales better under load |
-
 
 ### Risks if Ignored
 - **Frequent GC pauses** → Latency spikes in APIs.  
 - **Oversized heap** → Long GC pauses, OS swapping.  
 - **Unoptimized strings** → High CPU usage.  
 - **Memory leaks** → OutOfMemoryErrors in production.  
-
+- **Poor Survivor/Eden tuning** → Excessive promotions → Old Gen fills quickly → Full GC storms.  
