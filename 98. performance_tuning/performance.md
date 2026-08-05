@@ -79,6 +79,8 @@
 
 ### Memory Management
 - **Avoid leaks**: Always close resources (`try-with-resources`).  
+  - **Java:** Always close resources (try-with-resources) for streams, sockets, DB connections.
+  - **Spring Boot:** Use Spring Data JPA with proper transaction boundaries (@Transactional) so connections are released. Configure HikariCP (default pool) with sensible timeouts to avoid connection leaks.
 - **String handling**: Use `StringBuilder` for concatenation in loops.  
 - **Object pooling**: Reuse objects where possible, avoid unnecessary creation.  
 - **Compressed OOPs**: Enable `-XX:+UseCompressedOops` for reduced memory footprint.  
