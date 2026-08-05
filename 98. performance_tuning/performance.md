@@ -75,6 +75,7 @@
 - **Old Generation (Tenured)** → Long-lived objects promoted here after surviving multiple GCs.  
   - **Major GC / Full GC** → Less frequent, more expensive.  
 - **Metaspace** → Stores class metadata (replaced PermGen in Java 8).  
+<img width="591" height="414" alt="image" src="https://github.com/user-attachments/assets/9a087abc-e6cc-4428-b810-741252dfb422" />
 
 ### Memory Management
 - **Avoid leaks**: Always close resources (`try-with-resources`).  
