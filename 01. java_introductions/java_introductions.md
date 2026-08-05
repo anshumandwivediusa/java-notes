@@ -89,7 +89,7 @@ Java is a **high-level, object-oriented programming language** known for its **p
 
 <p align="center">
   <img width="669" height="588" alt="image" src="https://github.com/user-attachments/assets/fd53a0ea-6917-497b-a517-2f181f49bf0f" />
-  <a>Java Virtual Machine</a>
+<br><a>Java Virtual Machine</a>
 </p>
 
 ### 1. **Java Development Kit (JDK)**
