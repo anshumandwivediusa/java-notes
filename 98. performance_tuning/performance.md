@@ -5,6 +5,7 @@
   <img width="669" height="588" alt="image" src="https://github.com/user-attachments/assets/e3a2ca37-726e-48fd-a238-e321458cb991" />
 </p>
 
+
 ### Class Loader Subsystem
 - **Bootstrap Loader** → Loads core Java classes (`java.lang.*`, etc.).  
 - **Extension Loader** → Loads classes from `ext` directories.  
