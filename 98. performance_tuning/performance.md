@@ -1,6 +1,6 @@
 # Java Performance Tuning
 
-# JVM Architecure
+## JVM Architecture
 ### Class Loader Subsystem
 - **Bootstrap Loader** → Loads core Java classes (`java.lang.*`, etc.).  
 - **Extension Loader** → Loads classes from `ext` directories.  
@@ -41,6 +41,59 @@
 | **JRE** | JVM + core libraries | Runs Java applications |
 | **JDK** | JRE + compiler + dev tools | Builds Java applications |
 
+## 2. Java Performance
+**Java performance tuning focuses on optimizing JVM settings, garbage collection, memory management, and code-level practices to ensure applications run faster, with lower latency and predictable resource usage. The most impactful areas are garbage collector choice, heap sizing, profiling, and efficient use of data structures.** 
 
-✅ So, the diagram you uploaded is **JVM architecture** — it explains the internal working of the JVM.  
-The **JRE** is a package that *includes* the JVM plus libraries to run Java apps, while the **JDK** adds development tools.  
+### JVM & Garbage Collection Tuning
+- **Choose the right GC**:  
+  - **G1GC** → Default since JDK 9, balanced throughput and pause times.  
+  - **ZGC** → Ultra-low pause times (<10 ms), ideal for latency-sensitive apps.  
+  - **Shenandoah** → Low pause GC with concurrent compaction.  
+  - **Parallel GC** → Best for batch jobs, maximizes throughput.  
+- **Heap sizing**: Allocate **~75% of physical memory** to the heap, leaving room for OS and metaspace.  
+- **Key flags**:  
+  ```bash
+  -Xms2g -Xmx4g
+  -XX:+UseG1GC
+  -XX:MaxGCPauseMillis=200
+  -XX:+UseStringDeduplication
+  ```
+
+### Memory Management
+- **Avoid memory leaks**: Always close resources (`try-with-resources`).  
+- **String handling**: Use `StringBuilder` for concatenation in loops.  
+- **Object pooling**: Avoid unnecessary object creation; reuse where possible.  
+- **Compressed OOPs**: Enable `-XX:+UseCompressedOops` for reduced memory footprint.  
+
+
+### Profiling & Monitoring
+- **Java Flight Recorder (JFR)**: Lightweight profiling tool for production.  
+- **VisualVM / JProfiler**: Detect CPU/memory hotspots.  
+- **GC logs**: Enable with `-Xlog:gc*` to analyze pause times and collection frequency.  
+
+
+### Code-Level Optimizations
+- **Efficient collections**: Use `ArrayList` for fast iteration, `HashMap` for lookups.  
+- **Concurrency**: Use `ConcurrentHashMap`, `ForkJoinPool`, and avoid excessive synchronization.  
+- **I/O tuning**: Prefer NIO (`java.nio`) for scalable network/file operations.  
+- **Lazy loading**: Initialize heavy objects only when needed.  
+
+
+### Performance Checklist
+
+| **Area** | **Best Practice** | **Impact** |
+|----------|------------------|------------|
+| **GC** | Select G1GC/ZGC based on workload | Reduces pause times |
+| **Heap** | 75% of physical memory | Prevents OOM & swapping |
+| **Strings** | Use `StringBuilder` | Faster concatenation |
+| **Profiling** | JFR, VisualVM | Identifies bottlenecks |
+| **Concurrency** | Use modern APIs | Improves throughput |
+| **I/O** | Use NIO | Scales better under load |
+
+
+### Risks if Ignored
+- **Frequent GC pauses** → Latency spikes in APIs.  
+- **Oversized heap** → Long GC pauses, OS swapping.  
+- **Unoptimized strings** → High CPU usage.  
+- **Memory leaks** → OutOfMemoryErrors in production.  
+
