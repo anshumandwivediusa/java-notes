@@ -321,3 +321,80 @@ public class ReadDir {
    }
 }
 ```
+
+## 3. Serialization in Java
+
+### **Definition**
+- **Serialization** → Process of converting an object into a **byte stream** so it can be stored (file, database) or transmitted (network).  
+- **Deserialization** → Reconstructing the object back from the byte stream.  
+- Enables persistence and communication of objects.
+- **Transient** keyword → Prevents a field from being serialized. During deserialization, transient fields are reset to their default values (null, 0, false).
+- **Static** fields → Not serialized because they belong to the class, not the object. After deserialization, they retain the current class value, not the serialized one.
+- **serialVersionUID** → Unique identifier for class versioning; ensures compatibility during deserialization. Prevents InvalidClassException.
+- **Inheritance** → If parent is serializable, child automatically becomes serializable.
+- **Object Graph** →
+  - Serialization is recursive; if an object references other serializable objects, they are serialized too.
+When you serialize an object, all referenced objects inside it are also serialized (this is called the object graph).
+
+Example: If Employee has a Department field, and both are serializable, then serializing Employee will also serialize Department.
+Customization → You can override writeObject() and readObject() for custom serialization logic.
+
+### **Key Classes**
+- `ObjectOutputStream` → Used to serialize (write object).  
+- `ObjectInputStream` → Used to deserialize (read object).  
+- `Serializable` interface → Marker interface; class must implement it to be serializable.
+
+### **Basic Example**
+```java
+import java.io.*;
+
+class Student implements Serializable {
+    int id;
+    String name;
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+public class SerializationDemo {
+    public static void main(String[] args) throws Exception {
+        Student s1 = new Student(101, "Anshuman");
+
+        // Serialization
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("student.ser"));
+        oos.writeObject(s1);
+        oos.close();
+
+        // Deserialization
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("student.ser"));
+        Student s2 = (Student) ois.readObject();
+        ois.close();
+
+        System.out.println(s2.id + " " + s2.name);
+    }
+}
+```
+
+### **Important Concepts**
+- **Transient keyword** → Prevents a field from being serialized.  
+- **Static fields** → Not serialized (belong to class, not object).  
+- **serialVersionUID** → Unique identifier for class versioning; ensures compatibility during deserialization.  
+- **Inheritance** → If parent is serializable, child automatically becomes serializable.  
+
+### Exam‑Ready Comparison
+
+| **Aspect** | **Serialization** | **Deserialization** |
+|------------|-------------------|---------------------|
+| **Definition** | Convert object → byte stream | Convert byte stream → object |
+| **Classes** | `ObjectOutputStream` | `ObjectInputStream` |
+| **Interface** | `Serializable` | N/A |
+| **Keywords** | `transient`, `serialVersionUID` | N/A |
+
+
+### Exam Observations
+- Serialization is used for **persistence** and **network communication**.  
+- Must implement `Serializable` interface.  
+- **Transient fields** are skipped.  
+- **serialVersionUID** prevents `InvalidClassException`.  
+- Common exam question: *“What is transient? What is serialVersionUID?”*  
