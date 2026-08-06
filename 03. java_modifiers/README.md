@@ -168,7 +168,7 @@ non-sealed class Rectangle extends Shape { } // open for extension
 - `non-sealed` → removes restriction, allows open extension.
 
 
-## 📊 Final vs Sealed
+### Final vs Sealed
 | **Aspect** | **Final** | **Sealed** |
 |------------|-----------|------------|
 | Inheritance | Prevents subclassing entirely | Restricts subclassing to specific classes |
@@ -182,3 +182,80 @@ non-sealed class Rectangle extends Shape { } // open for extension
 - `sealed` = controlled inheritance.  
 - Both are about **limiting change**, but sealed gives more flexibility in defining *who* can extend.  
 
+## Abstract Modifier in Java
+
+### **Abstract Class**
+- Declared with the `abstract` keyword.  
+- Cannot be instantiated directly.  
+- Must be subclassed to provide concrete implementations.  
+- Opposite of `final`:  
+  - `final` → cannot be subclassed.  
+  - `abstract` → must be subclassed.  
+
+**Example:**
+```java
+abstract class Shape {
+    abstract void draw(); // abstract method
+    void info() {         // concrete method
+        System.out.println("I am a shape");
+    }
+}
+```
+
+### **Abstract Method**
+- Declared without a body; ends with `;`.  
+- Must be implemented by subclasses unless they are also abstract.  
+- Example:
+  ```java
+  abstract class Shape {
+      abstract void draw(); // no body
+  }
+  class Circle extends Shape {
+      @Override
+      void draw() {
+          System.out.println("Drawing circle");
+      }
+  }
+  ```
+
+### **Rules for Abstract Classes**
+1. If a class has any abstract methods, it must be declared abstract.  
+2. If a class inherits abstract methods but does not implement them, it must be declared abstract.  
+3. If a class claims to implement an interface but does not provide implementations, it must be declared abstract.  
+4. A class can be abstract even if it has **no abstract methods** (used to prevent instantiation).  
+
+### **Abstract vs Final**
+| **Aspect** | **Abstract** | **Final** |
+|------------|--------------|-----------|
+| Instantiation | Cannot be instantiated | Can be instantiated |
+| Subclassing | Must be subclassed | Cannot be subclassed |
+| Methods | May contain abstract methods | Methods cannot be overridden |
+| Purpose | Defers implementation | Prevents modification |
+
+### **Abstract + Interfaces**
+- Abstract classes can partially implement interfaces.  
+- If not all methods are implemented, the class must remain abstract.  
+- Example:
+  ```java
+  interface Drawable {
+      void draw();
+  }
+  abstract class Shape implements Drawable {
+      // no implementation → must be abstract
+  }
+  ```
+- Public → All interface methods are implicitly public.
+- You cannot declare them as private, protected, or default (package-private).
+- Abstract → All interface methods are implicitly abstract (unless they are default or static methods introduced in Java 8).
+This means they have no body and must be implemented by the implementing class.
+
+### Observations
+- Abstract methods **cannot be private, static, or final**.
+  - Private methods are not visible to subclasses.
+  - Since abstract methods must be implemented by subclasses, making them private would make them inaccessible.  
+  - Static methods belong to the class, not to instances.
+  - Abstract methods are meant to be overridden by subclasses at the instance level.
+- Abstract classes can have constructors (used during subclass instantiation).  
+- Abstract classes can mix abstract and concrete methods.  
+- You can declare an abstract class without abstract methods (to prevent instantiation).  
+- Abstract classes are often used in **template design patterns**.  
