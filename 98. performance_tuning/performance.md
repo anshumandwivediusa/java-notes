@@ -192,3 +192,54 @@
 2. **Collect recording** (`.jfr` file).  
 3. **Open in JMC** → visualize GC pauses, heap allocations, thread contention.  
 4. **Analyze bottlenecks** → tune JVM flags (`-Xmx`, GC options, etc.).  
+
+## **Spring Boot Actuator**
+**Spring Boot Actuator provides production-ready monitoring and management features for your applications, exposing endpoints for health, metrics, info, and more. It’s especially useful in microservices and enterprise setups where observability is critical.**  
+
+### What is Spring Boot Actuator?
+- **Definition**: A set of built-in endpoints and integrations that let you monitor and manage your Spring Boot application.  
+- **Purpose**: Helps developers and operators gain insights into application health, performance, and runtime behavior.  
+- **Integration**: Works with monitoring tools like **Prometheus**, **Grafana**, **Datadog**, and **Micrometer**.  
+
+### Key Features
+- **Health Endpoint** → Reports application health (`UP`, `DOWN`, `OUT_OF_SERVICE`, `UNKNOWN`).  
+- **Metrics Endpoint** → JVM metrics, system metrics, HTTP requests, cache, DB connections.  
+- **Info Endpoint** → Displays build info, Git commit details, custom app metadata.  
+- **Loggers Endpoint** → View and change logging levels at runtime.  
+- **Env Endpoint** → Shows environment properties and configuration.  
+- **Thread Dump** → Useful for debugging deadlocks or performance issues.  
+- **Custom Endpoints** → You can define your own monitoring endpoints.  
+
+### Common Endpoints
+| **Endpoint** | **Purpose** |
+|----------------|----------------|
+| `/actuator/health` | Application health status |
+| `/actuator/metrics` | Performance and resource metrics |
+| `/actuator/info` | Build and app info |
+| `/actuator/loggers` | Runtime logging configuration |
+| `/actuator/env` | Environment properties |
+| `/actuator/threaddump` | Thread diagnostics |
+
+### Configuration
+- **Enable Actuator**: Add dependency in `pom.xml` or Gradle.  
+  ```xml
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+  </dependency>
+  ```
+- **Expose Endpoints**:  
+  ```yaml
+  management.endpoints.web.exposure.include=health,info,metrics
+  ```
+- **Custom Port**:  
+  ```yaml
+  management.server.port=8081
+  ```
+- **Security**: Protect endpoints with Spring Security (recommended for production).  
+
+### Risks & Best Practices
+- **Do not expose sensitive endpoints publicly** (like `/env` or `/beans`).  
+- **Use authentication** for production monitoring.  
+- **Integrate with observability tools** (Prometheus, Grafana, ELK stack).  
+- **Group health checks** for Kubernetes probes (`/actuator/health/liveness`, `/actuator/health/readiness`).  
