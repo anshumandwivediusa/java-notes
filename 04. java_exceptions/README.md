@@ -11,6 +11,8 @@
     - **Checked exceptions** → Must be handled or declared (`IOException`, `SQLException`).  
     - **Unchecked exceptions** → Runtime exceptions (`NullPointerException`, `ArrayIndexOutOfBoundsException`).
 
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/c74105a8-4ad1-4ada-a20a-0cc4960a35b9" />
+
 ## 3. **Keywords**
 - **try** → Block of code to monitor for exceptions.  
 - **catch** → Handles the exception.  
