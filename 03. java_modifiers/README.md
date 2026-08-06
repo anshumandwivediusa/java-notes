@@ -276,3 +276,18 @@ This means they have no body and must be implemented by the implementing class.
 
 
 p
+
+
+| **[Modifier](ca://s?q=Java_modifiers_applicability_table)** | **Class** | **Inner Class** | **Variable** | **Method** | **Constructor** | **Code Block** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **public** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **protected** | ❌ (only inner classes) | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **default (friendly)** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **private** | ❌ (only inner classes) | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **final** | ✅ | ✅ (except anonymous) | ✅ | ✅ | ❌ | ❌ |
+| **abstract** | ✅ | ✅ (except anonymous) | ❌ | ✅ | ❌ | ❌ |
+| **static** | ❌ (top‑level classes cannot be static) | ✅ | ✅ | ✅ | ❌ | ✅ (static initializer) |
+| **native** | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **transient** | ❌ | ❌ | ✅ (instance variables only) | ❌ | ❌ | ❌ |
+| **synchronized** | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ (applies to method body, requires lock) |
+| **volatile** | ❌ | ❌ | ✅ (instance variables only) | ❌ | ❌ | ❌ |
