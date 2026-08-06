@@ -45,6 +45,10 @@ Error: / by zero
 Cleanup code executed
 ```
 
+- **try-catch** → handle exception locally.
+- **try-finally** → cleanup, exception propagates.
+- **try-catch-finally** → both handle and cleanup.
+- **try-with-resources** → preferred for auto-closing resources.
 
 ## 5. Checked vs Unchecked Exceptions
 | **Aspect** | **Checked** | **Unchecked** |
@@ -93,5 +97,57 @@ public class Test {
 - **Multi-catch (Java 7+)** → `catch (IOException | SQLException e)`.  
 - **Re-throwing exceptions** → Useful for propagating errors up the call stack.  
 
+## Section Notes: Multiple Catch Blocks
 
-Would you like me to also prepare a **diagram showing the Exception hierarchy (Throwable → Error/Exception → Checked/Unchecked)** so you can visualize it clearly for exams?
+### **Definition**
+- A single `try` block can be followed by **multiple `catch` blocks**.  
+- Each `catch` handles a different type of exception.  
+- Only **one catch executes** — the first matching type.
+
+### **Rules**
+- Order matters → **specific exceptions first, general last** (`Exception` at the end).  
+- If a general catch (`Exception`) comes before specific ones, compiler error (unreachable code).  
+- Only one catch block runs per thrown exception.  
+- Multiple exceptions can be handled separately or combined using **multi‑catch (Java 7+)**.
+
+### ⚙️ Example: Multiple Catch
+```java
+try {
+    int[] arr = new int[3];
+    arr[5] = 10; // ArrayIndexOutOfBoundsException
+    int result = 10 / 0; // ArithmeticException
+} catch (ArithmeticException e) {
+    System.out.println("Arithmetic Error: " + e.getMessage());
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Array Error: " + e.getMessage());
+} catch (Exception e) {
+    System.out.println("General Exception: " + e.getMessage());
+}
+```
+
+**Output:**
+```
+Array Error: Index 5 out of bounds for length 3
+```
+
+### Example: Multi‑Catch (Java 7+)
+```java
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException | NullPointerException e) {
+    System.out.println("Error: " + e.getMessage());
+}
+```
+
+### Exam‑Ready Comparison
+| **Pattern** | **Usage** | **Notes** |
+|-------------|-----------|-----------|
+| **Multiple catch** | Different blocks for different exceptions | Specific first, general last |
+| **Multi‑catch** | One block for multiple exceptions | Cleaner, but cannot distinguish exception type inside |
+
+### Key Exam Observations
+- **Multiple catch** → handle exceptions differently.  
+- **Multi‑catch** → handle multiple exceptions the same way.  
+- **Finally** → optional, runs after catch (or even if no catch).  
+- **Best practice** → Catch specific exceptions first, then general ones.  
+
