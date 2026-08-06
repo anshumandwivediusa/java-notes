@@ -95,7 +95,7 @@
 | **[Size Limitation](ca://s?q=Heap_vs_Stack_size_limitation)** | Much larger; depends on system configuration | Smaller; fixed size per thread |
 | **[Life Cycle](ca://s?q=Heap_vs_Stack_life_cycle)** | Lifespan depends on references; managed by Garbage Collection | Lifespan matches method execution; wiped when method finishes |
 | **[Performance Impact](ca://s?q=Heap_vs_Stack_performance)** | Slower due to GC overhead | Faster due to direct memory access |
-| **[Error Types](ca://s?q=Heap_vs_Stack_errors)** | OutOfMemoryError when heap is exhausted | StackOverflowError when stack depth exceeds limit |
+| **[Error Types](ca://s?q=Heap_vs_Stack_errors)** | `OutOfMemoryError` when heap is exhausted | `StackOverflowError` when stack depth exceeds limit |
 | **[Use Cases](ca://s?q=Heap_vs_Stack_use_cases)** | Long-lived objects, collections, large data structures | Method calls, recursion, temporary variables |
 
 ### Memory Management
