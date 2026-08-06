@@ -243,3 +243,51 @@
 - **Use authentication** for production monitoring.  
 - **Integrate with observability tools** (Prometheus, Grafana, ELK stack).  
 - **Group health checks** for Kubernetes probes (`/actuator/health/liveness`, `/actuator/health/readiness`).  
+
+## **Readiness** vs **Liveness**
+
+### Readiness Probe
+- **Definition**: Checks if the application is *ready to serve requests*.  
+- **Purpose**: Ensures traffic is only routed to instances that are fully initialized and ready.  
+- **Behavior**:
+  - If readiness fails → the pod is *removed from the service endpoints*.  
+  - Common checks: DB connection availability, external service dependencies, cache warm-up.  
+- **Spring Boot Actuator**: `/actuator/health/readiness` endpoint.  
+
+### Liveness Probe
+- **Definition**: Checks if the application is *still alive* (not stuck or crashed).  
+- **Purpose**: Detects deadlocks, infinite loops, or unrecoverable states.  
+- **Behavior**:
+  - If liveness fails → Kubernetes *restarts the pod*.  
+  - Common checks: JVM responsiveness, thread deadlocks, stuck processes.  
+- **Spring Boot Actuator**: `/actuator/health/liveness` endpoint.  
+
+### Comparison Table
+| **Aspect** | **Readiness Probe** | **Liveness Probe** |
+|----------------|----------------|----------------|
+| **Purpose** | Determines if app can serve traffic | Determines if app is alive |
+| **Failure Action** | Pod removed from load balancer | Pod restarted by Kubernetes |
+| **Checks** | DB connections, external services, caches | JVM health, deadlocks, stuck threads |
+| **Spring Endpoint** | `/actuator/health/readiness` | `/actuator/health/liveness` |
+
+
+### Example Configuration (Spring Boot + Kubernetes)
+```yaml
+livenessProbe:
+  httpGet:
+    path: /actuator/health/liveness
+    port: 8080
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /actuator/health/readiness
+    port: 8080
+  initialDelaySeconds: 30
+  periodSeconds: 10
+```
+
+### Notes:  
+- **Readiness** = “Can I serve requests right now?”  
+- **Liveness** = “Am I still alive and not stuck?”  
