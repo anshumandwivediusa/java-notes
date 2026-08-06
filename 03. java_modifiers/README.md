@@ -321,7 +321,7 @@ class Child extends Parent {
  - Cannot be applied to final variables.
  - Declaring a variable volatile indicates that it might be modified asynchronously, so that all threads will get the correct value of the variable.
  - Used in multi-processor environments.
-
+ - Ensures that reads/writes go directly to main memory, not cached in a thread’s local registers.
 ## 9. native
  - Can be applied to methods only. (static methods also)
  - Written in a non-Java language, compiled for a single machine target type.
