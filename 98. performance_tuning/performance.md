@@ -291,3 +291,63 @@ readinessProbe:
 ### Notes:  
 - **Readiness** = “Can I serve requests right now?”  
 - **Liveness** = “Am I still alive and not stuck?”  
+
+## `/actuator/metrics`
+The `/actuator/metrics` endpoint in **Spring Boot Actuator** is one of the most powerful features — it exposes detailed **application metrics** collected via **Micrometer**, the metrics facade used by Spring Boot.
+
+### What `/actuator/metrics` Provides
+- **JVM Metrics** → memory usage, GC counts, thread states.  
+- **System Metrics** → CPU load, disk space, uptime.  
+- **HTTP Metrics** → request count, response times, error rates.  
+- **Datasource Metrics** → connection pool usage (HikariCP, etc.).  
+- **Cache Metrics** → hits, misses, size.  
+- **Custom Metrics** → you can register your own counters, timers, gauges.  
+
+### How It Works
+- Accessing `/actuator/metrics` gives a **list of available metric names**.  
+- Example response:
+  ```json
+  {
+    "names": [
+      "jvm.memory.used",
+      "jvm.gc.pause",
+      "system.cpu.usage",
+      "http.server.requests"
+    ]
+  }
+  ```
+- To drill down into a specific metric, append the name:  
+  - `/actuator/metrics/jvm.memory.used`  
+  - `/actuator/metrics/http.server.requests`  
+
+### Example Drill-Down
+```json
+{
+  "name": "http.server.requests",
+  "measurements": [
+    { "statistic": "COUNT", "value": 1523 },
+    { "statistic": "TOTAL_TIME", "value": 45.7 },
+    { "statistic": "MAX", "value": 0.35 }
+  ],
+  "availableTags": [
+    { "tag": "method", "values": ["GET", "POST"] },
+    { "tag": "status", "values": ["200", "404", "500"] }
+  ]
+}
+```
+- **COUNT** → number of requests.  
+- **TOTAL_TIME** → cumulative response time.  
+- **MAX** → slowest request observed.  
+- **Tags** → filter by method, status, URI, etc.  
+
+### Configuration Notes
+- Enable metrics in `application.yml`:
+  ```yaml
+  management.endpoints.web.exposure.include=metrics
+  ```
+- Integrate with monitoring tools:
+  - **Prometheus** → `/actuator/prometheus` endpoint.  
+  - **Grafana** → visualize metrics dashboards.  
+  - **Datadog / New Relic** → Micrometer exporters.  
+
+In short: `/actuator/metrics` is your **real-time telemetry hub** — it lets you see JVM internals, system health, and application performance, all in one place.  
