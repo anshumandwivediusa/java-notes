@@ -4,21 +4,21 @@ Java I/O (java.io) is stream‑oriented and blocking, while Java NIO (java.nio) 
 
 _Mnemonic: I/O = Input/Output streams; NIO = New I/O with buffers/channels._
 
-## Java I/O
+## 1. Java I/O
  - Stream‑oriented → Data flows as continuous streams of bytes/characters.
  - Blocking I/O → Thread waits until operation completes.
  - Synchronous → Operations happen sequentially.
  - Simple API → Easy to use for files, console, and network basics.
    Examples: FileInputStream, FileReader, BufferedReader, ObjectOutputStream.
 
-## Java NIO
+## 2. Java NIO
  - Buffer‑oriented → Data handled in fixed‑size chunks (ByteBuffer, CharBuffer).
  - Non‑blocking I/O → Threads can continue without waiting.
  - Asynchronous capabilities → Event‑driven programming with Selector.
  - Channels → Bidirectional conduits for data transfer (FileChannel, SocketChannel).
  - Selectors → Monitor multiple channels with a single thread.
 
-## Scanner 
+## 3. Scanner, BufferedReader & Console
 - Part of `java.util` package.  
 - Used to **parse primitive types and strings** from input sources (keyboard, files, streams).  
 - Works by tokenizing input using regular expressions.
@@ -40,6 +40,10 @@ sc.close();
 // Create BufferedReader to read from console
 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 String name = br.readLine();
+
+Console console = System.console();
+String username = console.readLine("Enter username: ");
+char[] password = console.readPassword("Enter password: ");
 ```
 
 | **Method** | **Purpose** |
