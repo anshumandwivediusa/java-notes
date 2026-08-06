@@ -6,8 +6,8 @@
 
 ## 2. **Hierarchy**
 - Root class: `Throwable`  
-  - **Error** → Serious issues (e.g., `OutOfMemoryError`), not meant to be handled.  
-  - **Exception** → Recoverable problems.  
+  - **Error** → Serious issues (e.g., `OutOfMemoryError`), non-recoverable not meant to be handled.  
+  - **Exception** → Recoverable problems. Compile‑time checked → must be handled (`try-catch`) or declared (`throws`)
     - **Checked exceptions** → Must be handled or declared (`IOException`, `SQLException`).  
       - ClassNotFoundException: Thrown by Class.forName(), ClassLoader.loadClass(), or similar methods when the JVM cannot find the class definition at runtime.
     - **Unchecked exceptions** → Runtime exceptions (`NullPointerException`, `ArrayIndexOutOfBoundsException`).
