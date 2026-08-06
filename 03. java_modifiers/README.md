@@ -274,9 +274,36 @@ This means they have no body and must be implemented by the implementing class.
 - Actually, static methods are not participating in the usual overriding mechanism of invoking the methods based on the class of the object at runtime. Static method binding is done at compile time, so the method to be invoked is determined by the type of reference variable rather than the actual type of the object it holds at runtime.
  Let’s say a sub-class has a static method which ‘overrides’ a static method in a parent class. If you have a reference variable of parent class type and you assign a child class object to that variable and invoke the static method, the method invoked will be the parent class method, not the child class method. The following code explains this.
 
+```java
+public class StaticOverridingTest {
+    public static void main(String s[]) {
+        Child c = new Child();
+        c.doStuff(); // Calls Child.doStuff()
 
-p
+        Parent p = new Parent();
+        p.doStuff(); // Calls Parent.doStuff()
 
+        p = c;
+        p.doStuff(); // Calls Parent.doStuff(), not Child.doStuff()
+    }
+}
+
+class Parent {
+    static int x = 100;
+    public static void doStuff() {
+        System.out.println("In Parent..doStuff");
+        System.out.println(x);
+    }
+}
+
+class Child extends Parent {
+    static int x = 200;
+    public static void doStuff() {
+        System.out.println("In Child..doStuff");
+        System.out.println(x);
+    }
+}
+```
 
 | **[Modifier](ca://s?q=Java_modifiers_applicability_table)** | **Class** | **Inner Class** | **Variable** | **Method** | **Constructor** | **Code Block** |
 | --- | --- | --- | --- | --- | --- | --- |
