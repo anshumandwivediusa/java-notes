@@ -260,7 +260,7 @@ This means they have no body and must be implemented by the implementing class.
 - You can declare an abstract class without abstract methods (to prevent instantiation).  
 - Abstract classes are often used in **template design patterns**.  
 
-### Static
+## Static
 - Can be applied to nested classes, methods, variables, free floating code-block (static initializer)
 - Static variables are initialized at class load time. A class has only one copy of these variables.
 - Static variables in Java are stored in the JVM’s method area (Metaspace in Java 8+), not in the stack. They are initialized at class load time, and only one copy exists per class, shared across all instances.
