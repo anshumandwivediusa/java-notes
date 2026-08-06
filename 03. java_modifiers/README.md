@@ -55,5 +55,130 @@ class Child extends Parent {
 }
 ```
 
+## Final Modifier in Java
 
-Would you like me to also prepare a **visual diagram of access levels (private → default → protected → public)** so you can quickly recall the hierarchy during interviews?
+### **Final Class**
+- Cannot be subclassed.  
+- Example:
+  ```java
+  public final class String {
+      // String is final, cannot be extended
+  }
+  ```
+- Use case: Security, immutability, preventing inheritance.
+
+
+### **Final Method**
+- Cannot be overridden in subclasses.  
+- Example:
+  ```java
+  class Parent {
+      public final void display() {
+          System.out.println("Final method");
+      }
+  }
+  class Child extends Parent {
+      // ❌ Cannot override display()
+  }
+  ```
+
+
+### **Final Variable**
+- Value cannot be reassigned once initialized.  
+- Must be assigned at declaration, in an initializer block, or in every constructor.  
+- Example:
+  ```java
+  final int x = 10; // must be initialized
+  ```
+
+
+### **Static Final**
+- Must be initialized in a **static block** or at **declaration**.  
+- Example:
+  ```java
+  static final int MAX;
+  static {
+      MAX = 100;
+  }
+  ```
+
+
+### **Instance Final**
+- Must be initialized in constructor or instance initializer.  
+- Example:
+  ```java
+  final int id;
+  public MyClass(int id) {
+      this.id = id; // must assign here
+  }
+  ```
+
+
+### **Blank Final**
+- Declared but not initialized; can be assigned only once later.  
+- Example:
+  ```java
+  final int value; // blank final
+  public MyClass(int v) {
+      value = v; // assigned once
+  }
+  ```
+
+
+### **Final Parameter**
+- Read-only inside the method.  
+- Example:
+  ```java
+  void process(final int data) {
+      // data = 20; ❌ compiler error
+      System.out.println(data);
+  }
+  ```
+
+
+### **Local Final**
+- Useful in anonymous classes or lambdas (must be effectively final).  
+- Example:
+  ```java
+  void test() {
+      final int num = 5;
+      Runnable r = () -> System.out.println(num);
+      r.run();
+  }
+  ```
+
+
+## 📌 Sealed Classes (Java 15+)
+
+### **Definition**
+- Restrict which classes can extend or implement them.  
+- Declared with `sealed` keyword + `permits`.
+
+### **Example**
+```java
+sealed class Shape permits Circle, Rectangle { }
+
+final class Circle extends Shape { }       // cannot be extended further
+non-sealed class Rectangle extends Shape { } // open for extension
+```
+
+### **Subclass Options**
+- `final` → cannot be extended further.  
+- `sealed` → restricts further inheritance.  
+- `non-sealed` → removes restriction, allows open extension.
+
+
+## 📊 Final vs Sealed
+| **Aspect** | **Final** | **Sealed** |
+|------------|-----------|------------|
+| Inheritance | Prevents subclassing entirely | Restricts subclassing to specific classes |
+| Flexibility | Rigid | Controlled flexibility |
+| Use Case | Immutable classes, security | Domain modeling, exhaustive type hierarchies |
+| Introduced | Java 1.0 | Java 15 (preview), Java 17 (standard) |
+
+
+👉 **Observation for exams:**  
+- `final` = immutability & restriction.  
+- `sealed` = controlled inheritance.  
+- Both are about **limiting change**, but sealed gives more flexibility in defining *who* can extend.  
+
