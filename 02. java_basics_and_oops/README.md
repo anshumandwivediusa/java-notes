@@ -469,6 +469,12 @@ public class CompositionDemo {
 | Can contain **instance methods with implementation**. | Cannot contain **instance methods with implementation** (except default methods since Java 8). |
 | Suitable for **code reusability** with partial abstraction. | Suitable for **full abstraction** and defining APIs. |
 
+| **[Member](ca://s?q=Java_interface_members)** | **[Default Modifier](ca://s?q=Java_interface_default_modifiers)** |
+| --- | --- |
+| Methods | ``public ``abstract`` |
+| Variables | ``public ``static ``final`` |
+| Nested Types | ``public ``static`` |
+
 ### Diamond Problem
 | **Concept** | **Explanation** |
 | --- | --- |
