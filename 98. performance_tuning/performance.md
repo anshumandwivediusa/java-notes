@@ -66,14 +66,15 @@
 
 - **Heap sizing**: Allocate ~75% of physical memory to JVM heap, leaving room for OS and metaspace.  
 - **Key flags**:  
-  ```bash
-  -Xms2g -Xmx4g
-  -XX:+UseG1GC
-  -XX:MaxGCPauseMillis=200
-  -XX:+UseStringDeduplication
-  -XX:NewRatio=2
-  -XX:SurvivorRatio=8
-  ```
+  java \
+  -Xms2g                        # Initial heap size = 2 GB (allocated at startup)
+  -Xmx4g                        # Maximum heap size = 4 GB (upper limit for heap growth)
+  -XX:+UseG1GC                  # Enables G1 Garbage Collector (default since JDK 9)
+  -XX:MaxGCPauseMillis=200      # Target max GC pause time = 200 ms (soft goal, not guaranteed)
+  -XX:+UseStringDeduplication   # Deduplicates identical strings in heap to save memory
+  -XX:NewRatio=2                # Ratio of old generation to young generation = 2:1
+  -XX:SurvivorRatio=8           # Ratio of Eden space to Survivor space = 8:1
+
 
 ### Heap Generations
 - **Young Generation** → Where new objects are created.
