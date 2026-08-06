@@ -17,7 +17,57 @@ _Mnemonic: I/O = Input/Output streams; NIO = New I/O with buffers/channels._
  - Asynchronous capabilities → Event‑driven programming with Selector.
  - Channels → Bidirectional conduits for data transfer (FileChannel, SocketChannel).
  - Selectors → Monitor multiple channels with a single thread.
-   Examples: FileChannel, SocketChannel, Selector.
+
+## Scanner 
+- Part of `java.util` package.  
+- Used to **parse primitive types and strings** from input sources (keyboard, files, streams).  
+- Works by tokenizing input using regular expressions.
+- **Scanner is beginner‑friendly** and widely used in coding questions.  
+- Always **close the Scanner** to avoid resource leaks.  
+- Mixing `nextLine()` with `nextInt()` can cause newline issues (need to consume leftover newline).  
+- For **large input (competitive programming)** → prefer `BufferedReader`.  
+- For **secure input (like passwords)** → use `Console`.
+
+
+## **Basic Usage**
+```java
+Scanner sc = new Scanner(System.in);
+
+String name = sc.nextLine();   // Reads full line
+int age = sc.nextInt();        // Reads integer
+double salary = sc.nextDouble(); // Reads double
+
+sc.close();
+```
+
+---
+
+## **Common Methods**
+| **Method** | **Purpose** |
+|------------|-------------|
+| `nextLine()` | Reads a full line (string with spaces) |
+| `next()` | Reads a single word (until space) |
+| `nextInt()` | Reads an integer |
+| `nextDouble()` | Reads a double |
+| `nextBoolean()` | Reads a boolean (true/false) |
+
+---
+
+## **Sources**
+- `System.in` → Console input.  
+- `File` → Read from files.  
+- `String` → Parse tokens from a string.
+
+---
+
+## 📌 Exam Observations
+
+
+---
+
+👉 In short: **Scanner = simple, flexible input parser for console, files, and strings.**  
+
+Would you like me to also prepare a **comparison cheat sheet: Scanner vs BufferedReader vs Console** so you can quickly recall which one to use in different exam scenarios?
 
 The java.io package contains nearly every class required to perform input and output (I/O) in Java. All these streams represent an input source and an output destination. The stream in the java.io package supports many data such as primitives, object, localized characters, etc. Java provides strong and flexible support for I/O related to files and networks.
 
