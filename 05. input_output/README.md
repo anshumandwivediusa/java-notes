@@ -38,11 +38,12 @@ int age = sc.nextInt();        // Reads integer
 double salary = sc.nextDouble(); // Reads double
 
 sc.close();
+
+// Create BufferedReader to read from console
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+String name = br.readLine();
 ```
 
----
-
-## **Common Methods**
 | **Method** | **Purpose** |
 |------------|-------------|
 | `nextLine()` | Reads a full line (string with spaces) |
@@ -51,33 +52,15 @@ sc.close();
 | `nextDouble()` | Reads a double |
 | `nextBoolean()` | Reads a boolean (true/false) |
 
----
 
-## **Sources**
-- `System.in` → Console input.  
-- `File` → Read from files.  
-- `String` → Parse tokens from a string.
-
----
-
-## 📌 Exam Observations
-
-
----
-
-👉 In short: **Scanner = simple, flexible input parser for console, files, and strings.**  
-
-Would you like me to also prepare a **comparison cheat sheet: Scanner vs BufferedReader vs Console** so you can quickly recall which one to use in different exam scenarios?
-
+## Java.io
 The java.io package contains nearly every class required to perform input and output (I/O) in Java. All these streams represent an input source and an output destination. The stream in the java.io package supports many data such as primitives, object, localized characters, etc. Java provides strong and flexible support for I/O related to files and networks.
 
-
-
-## 1. The Hierarchy of I/O Class in Java
+### 1. The Hierarchy of I/O Class in Java
 
 ![java io class hierarchy](https://user-images.githubusercontent.com/2780145/34911563-14813348-f8f3-11e7-87ef-4c8f589bbdf5.png)
 
-## Stream
+#### Stream
 
 A stream can be defined as a sequence of data. There are two kinds of Streams :
 
@@ -86,23 +69,23 @@ A stream can be defined as a sequence of data. There are two kinds of Streams :
 <li><p><b>OutputStream</b> − The OutputStream is used for writing data to a destination.</p></li>
 </ul>
 
-### Byte Streams
+##### Byte Streams
 
 Java byte streams are used to perform input and output of 8-bit bytes. Though there are many classes related to byte streams but the most frequently used classes are, **FileInputStream** and **FileOutputStream**.
 
-### Character Streams
+##### Character Streams
 
 Java **Byte** streams are used to perform input and output of 8-bit bytes, whereas Java **Character** streams are used to perform input and output for 16-bit unicode. Though there are many classes related to character streams but the most frequently used classes are, **FileReader** and **FileWriter**.
 
 Though internally FileReader uses FileInputStream and FileWriter uses FileOutputStream but here the major difference is that FileReader reads two bytes at a time and FileWriter writes two bytes at a time.
 
-## Why there are Byte and Character Streams
+#### Why there are Byte and Character Streams
 
 A stream is a way of sequentially accessing a file. A byte stream access the file byte by byte. A byte stream is suitable for any kind of file, however not quite appropriate for text files. For example, if the file is using a unicode encoding and a character is represented with two bytes, the byte stream will treat these separately and you will need to do the conversion yourself.
 
 A character stream will read a file character by character. A character stream needs to be given the file's encoding in order to work properly.
 
-## Standard Streams
+#### Standard Streams
 
 All the programming languages provide support for standard I/O where the user's program can take input from a keyboard and then produce an output on the computer screen. Java provides the following three standard streams
 
@@ -112,11 +95,11 @@ All the programming languages provide support for standard I/O where the user's 
 <li><p><b>Standard Error</b> − This is used to output the error data produced by the user's program and usually a computer screen is used for standard error stream and represented as <b>System.err</b>.</p></li>
 </ul>
 
-## Reading and Writing Files
+#### Reading and Writing Files
 
 The **InputStream** is used to read data from a source and the **OutputStream** is used for writing data to a destination. The two important streams are **FileInputStream** and **FileOutputStream**.
 
-## FileInputStream
+#### FileInputStream
 
 This stream is used for reading data from the files. Objects can be created using the keyword new and there are several types of constructors available.
 
@@ -173,7 +156,7 @@ Other important input streams :
 - ByteArrayInputStream
 - DataInputStream
 
-## FileOutputStream
+#### FileOutputStream
 
 FileOutputStream is used to create a file and write data into it. The stream would create a file, if it doesn't already exist, before opening it for output.
 
@@ -224,7 +207,7 @@ Other important output streams :
 - ByteArrayOutputStream
 - DataOutputStream
 
-## Complete Example
+#### Complete Example
 The below code would create file test.txt and would write given numbers in binary format. Same would be the output on the stdout screen.
 ```java
 import java.io.*;
@@ -254,7 +237,7 @@ public class fileStreamTest {
 }
 ```
 
-## Java Console Class
+#### Java Console Class
 The Java Console class is be used to get input from console. It provides methods to read texts and passwords. If you read password using Console class, it will not be displayed to the user. The java.io.Console class is attached with system console internally.
 **Example :**
 ```java
@@ -271,18 +254,18 @@ class ReadPasswordTest {
 ```
 
 
-## File Navigation and I/O
+#### File Navigation and I/O
 
 Other classes for File Navigation and I/O.
 - File Class
 - FileReader Class
 - FileWriter Class
 
-## Directories in Java
+#### Directories in Java
 
 A directory is a File which can contain a list of other files and directories. You use **File** object to create directories, to list down files available in a directory.
 
-## Creating Directories
+#### Creating Directories
 
 <ul class="list">
 <li><p>The <b>mkdir( )</b> method creates a directory, returning true on success and false on failure. Failure indicates that the path specified in the File object already exists, or that the directory cannot be created because the entire path does not exist yet.</p></li>
@@ -306,7 +289,7 @@ public class CreateDir {
 
 **NOTE :** Java automatically takes care of path separators on UNIX and Windows as per conventions. If you use a forward slash (/) on a Windows version of Java, the path will still resolve correctly.
 
-## Listing Directories
+#### Listing Directories
 
 You can use list( ) method provided by File object to list down all the files and directories available in a directory as follows.
 ```java
