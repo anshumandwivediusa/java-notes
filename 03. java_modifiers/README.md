@@ -259,3 +259,20 @@ This means they have no body and must be implemented by the implementing class.
 - Abstract classes can mix abstract and concrete methods.  
 - You can declare an abstract class without abstract methods (to prevent instantiation).  
 - Abstract classes are often used in **template design patterns**.  
+
+### Static
+- Can be applied to nested classes, methods, variables, free floating code-block (static initializer)
+- Static variables are initialized at class load time. A class has only one copy of these variables.
+- Static variables in Java are stored in the JVM’s method area (Metaspace in Java 8+), not in the stack. They are initialized at class load time, and only one copy exists per class, shared across all instances.
+- Static methods can access only static variables. (They have no this)
+- Access by class name is a recommended way to access static methods/variables.
+- Static initializer code is run at class load time.
+- Static methods may not be overridden to be non-static.
+- Non-static methods may not be overridden to be static.
+- Abstract methods may not be static.
+- Local variables cannot be declared as static.
+- Actually, static methods are not participating in the usual overriding mechanism of invoking the methods based on the class of the object at runtime. Static method binding is done at compile time, so the method to be invoked is determined by the type of reference variable rather than the actual type of the object it holds at runtime.
+ Let’s say a sub-class has a static method which ‘overrides’ a static method in a parent class. If you have a reference variable of parent class type and you assign a child class object to that variable and invoke the static method, the method invoked will be the parent class method, not the child class method. The following code explains this.
+
+
+p
