@@ -148,3 +148,45 @@
 - **Unoptimized strings** → High CPU usage.  
 - **Memory leaks** → OutOfMemoryErrors in production.  
 - **Poor Survivor/Eden tuning** → Excessive promotions → Old Gen fills quickly → Full GC storms.  
+
+## **Java Mission Control (JMC)** and **Java Flight Recorder (JFR)**
+
+### Java Mission Control (JMC)
+- **Purpose**: GUI-based tool for analyzing JVM performance and diagnostics.  
+- **Integration**: Works seamlessly with JFR recordings.  
+- **Features**:
+  - Visual dashboards for CPU, memory, GC, and thread activity.  
+  - Detects bottlenecks and anomalies in production systems.  
+  - Provides **low-overhead profiling** (safe for live systems).  
+- **Use Cases**:
+  - Performance tuning of APIs and microservices.  
+  - Identifying memory leaks and GC inefficiencies.  
+  - Thread contention and lock analysis.  
+
+
+
+### Java Flight Recorder (JFR)
+- **Purpose**: Built-in JVM event recorder for profiling and diagnostics.  
+- **Integration**: Produces `.jfr` files that JMC can analyze.  
+- **Features**:
+  - Records JVM events: GC, heap usage, thread states, I/O, locks.  
+  - Extremely **low overhead** (1–2% CPU).  
+  - Can run continuously in production.  
+- **Configuration**:
+  - Start with JVM flags:  
+    ```bash
+    java -XX:StartFlightRecording=filename=recording.jfr,duration=60s
+    ```
+  - Options include `duration`, `maxsize`, `settings=profile`.  
+- **Use Cases**:
+  - Short-term profiling (e.g., 60s snapshot).  
+  - Long-term monitoring in production.  
+  - Debugging GC pauses, thread deadlocks, and memory leaks.  
+
+
+
+### JMC + JFR Workflow
+1. **Enable JFR** in your JVM with `-XX:StartFlightRecording`.  
+2. **Collect recording** (`.jfr` file).  
+3. **Open in JMC** → visualize GC pauses, heap allocations, thread contention.  
+4. **Analyze bottlenecks** → tune JVM flags (`-Xmx`, GC options, etc.).  
