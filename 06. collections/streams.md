@@ -74,3 +74,19 @@ Count = 2
 | **[new LinkedList<>(List.of())](ca://s?q=Java_LinkedList_from_List_of)** (Java 9+) | Creates a mutable linked list from an immutable source. | ``List<String> ``names ``= ``new ``LinkedList<>(List.of("Anshuman","Ravi","Amit","Anshuman"));`` |
 | **[Collections.unmodifiableList(new LinkedList<>())](ca://s?q=Java_unmodifiable_LinkedList)** | Wraps a linked list but makes it read‑only. | ``List<String> ``names ``= ``Collections.unmodifiableList(new ``LinkedList<>(Arrays.asList("Anshuman","Ravi","Amit")));`` |
 | **[Stream API → collect(Collectors.toCollection(LinkedList::new))](ca://s?q=Java_Stream_collect_LinkedList)** | Build a linked list directly from stream operations. | ``List<String> ``names ``= ``Stream.of("Anshuman","Ravi","Amit").collect(Collectors.toCollection(LinkedList::new));`` |
+
+
+| **Method** | **Description** | **Example** |
+| --- | --- | --- |
+| **[Collection.stream()](ca://s?q=Java_Stream_from_collection)** | From a collection (List, Set, etc.) | ``list.stream()`` |
+| **[Collection.parallelStream()](ca://s?q=Java_parallelStream_from_collection)** | Parallel stream from a collection | ``list.parallelStream()`` |
+| **[Arrays.stream()](ca://s?q=Java_Stream_from_array)** | From an array | ``Arrays.stream(new ``int[]{1,2,3})`` |
+| **[Stream.of()](ca://s?q=Java_Stream_of)** | From specified values | ``Stream.of("Anshuman","Ravi","Amit")`` |
+| **[Stream.empty()](ca://s?q=Java_Stream_empty)** | Creates an empty stream | ``Stream<String> ``empty ``= ``Stream.empty();`` |
+| **[Stream.generate()](ca://s?q=Java_Stream_generate)** | Infinite stream from a supplier | ``Stream.generate(Math::random)`` |
+| **[Stream.iterate()](ca://s?q=Java_Stream_iterate)** | Infinite stream from seed + function | ``Stream.iterate(1, ``n ``-> ``n+1)`` |
+| **[Files.lines()](ca://s?q=Java_Stream_from_file_lines)** | Stream of lines from a file | ``Files.lines(Paths.get("data.txt"))`` |
+| **[Pattern.splitAsStream()](ca://s?q=Java_Stream_from_pattern)** | Stream from regex split | ``Pattern.compile(",").splitAsStream("A,B,C")`` |
+| **[Stream.builder()](ca://s?q=Java_Stream_builder)** | Build stream manually | ``Stream.<String>builder().add("A").add("B").build()`` |
+| **[IntStream.range()](ca://s?q=Java_IntStream_range)** | Range of ints | ``IntStream.range(1,5)`` → 1,2,3,4 |
+| **[IntStream.rangeClosed()](ca://s?q=Java_IntStream_rangeClosed)** | Inclusive range of ints | ``IntStream.rangeClosed(1,5)`` → 1,2,3,4,5 |
