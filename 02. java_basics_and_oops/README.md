@@ -325,11 +325,23 @@ System.out.println(b); // Prints a string which is returned by toString
    - Must override `close()` method for cleanup.  
    - Example:  
      ```java
-     class MyResource implements AutoCloseable {
-         public void close() {
-             System.out.println("Resource closed");
-         }
-     }
+      import java.util.Arrays;
+
+      class MyResource implements AutoCloseable {
+          public void close() {
+              System.out.println("Resource closed");
+          }
+      }
+      
+      class Main {
+          public static void main(String[] args) {
+              try (MyResource myResource = new MyResource()) {
+                  Integer[] argsString = {1, 2, 3};
+                  System.out.println(Arrays.toString(argsString));
+              }
+              // At the end of try block, close() is automatically called
+          }
+      }
      ```
 
 4. **Advantages**  
