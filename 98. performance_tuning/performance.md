@@ -163,6 +163,7 @@
   - Identifying memory leaks and GC inefficiencies.  
   - Thread contention and lock analysis.  
 
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/c4717c69-8043-4fd8-a5bf-d1ff57852b8d" />
 
 
 ### Java Flight Recorder (JFR)
@@ -183,6 +184,7 @@
   - Long-term monitoring in production.  
   - Debugging GC pauses, thread deadlocks, and memory leaks.  
 
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/a1e2a9df-bf19-453f-8922-01ece51ee684" />
 
 
 ### JMC + JFR Workflow
