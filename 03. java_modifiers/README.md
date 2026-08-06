@@ -1,6 +1,6 @@
 # Modifiers
 
-## Modifiers in Java
+## 1. Modifiers in Java
 - **Definition** → Keywords that give the compiler information about classes, methods, and variables.  
 - **Types**:  
   - **Access Modifiers** → `public`, `protected`, `private`, *default (package-private)*.  
@@ -55,7 +55,7 @@ class Child extends Parent {
 }
 ```
 
-## Final Modifier in Java
+## 2. final
 
 ### **Final Class**
 - Cannot be subclassed.  
@@ -148,7 +148,7 @@ class Child extends Parent {
   ```
 
 
-## Sealed Classes (Java 15+)
+## 3. Sealed Classes (Java 15+)
 
 ### **Definition**
 - Restrict which classes can extend or implement them.  
@@ -182,7 +182,7 @@ non-sealed class Rectangle extends Shape { } // open for extension
 - `sealed` = controlled inheritance.  
 - Both are about **limiting change**, but sealed gives more flexibility in defining *who* can extend.  
 
-## Abstract Modifier in Java
+## 4. Abstract Modifier in Java
 
 ### **Abstract Class**
 - Declared with the `abstract` keyword.  
@@ -260,7 +260,7 @@ This means they have no body and must be implemented by the implementing class.
 - You can declare an abstract class without abstract methods (to prevent instantiation).  
 - Abstract classes are often used in **template design patterns**.  
 
-## Static
+## 5. Static
 - Can be applied to nested classes, methods, variables, free floating code-block (static initializer)
 - Static variables are initialized at class load time. A class has only one copy of these variables.
 - Static variables in Java are stored in the JVM’s method area (Metaspace in Java 8+), not in the stack. They are initialized at class load time, and only one copy exists per class, shared across all instances.
@@ -305,24 +305,24 @@ class Child extends Parent {
 }
 ```
 
-## transient 
+## 6. transient 
  - Can be applied to class level variables only.(Local variables cannot be declared transient)
  - Transient variables may not be final or static.(But compiler allows the declaration, since it doesn’t do any harm. Variables marked transient are never serialized. Static variables are not serialized anyway.)
  - Not stored as part of object’s persistent state, i.e. not written out during serialization.
  - Can be used for security.
 
-## synchronized
+## 7. synchronized
  - Can be applied to methods or parts of methods only.
  - Used to control access to critical code in multi-threaded programs.
 
-## volatile
+## 8. volatile
  - Can be applied to variables only.
  - Can be applied to static variables.
  - Cannot be applied to final variables.
  - Declaring a variable volatile indicates that it might be modified asynchronously, so that all threads will get the correct value of the variable.
  - Used in multi-processor environments.
 
-## native
+## 9. native
  - Can be applied to methods only. (static methods also)
  - Written in a non-Java language, compiled for a single machine target type.
  - Java classes use lot of native methods for performance and for accessing hardware Java is not aware of.
@@ -331,7 +331,7 @@ class Child extends Parent {
  - Can pass/return Java objects from native methods.
  - System.loadLibrary is used in static initializer code to load native libraries. If the library is not loaded when the static method is called, an UnsatisfiedLinkError is thrown.
 
-## Notes
+## 10. Notes
 
 | **[Modifier](ca://s?q=Java_modifiers_applicability_table)** | **Class** | **Inner Class** | **Variable** | **Method** | **Constructor** | **Code Block** |
 | --- | --- | --- | --- | --- | --- | --- |
