@@ -66,3 +66,11 @@ Count = 2
 | **[Collections.unmodifiableList()](ca://s?q=Java_Collections_unmodifiableList)** | Wraps a mutable list but makes it read‑only. | ``List<String> ``names ``= ``Collections.unmodifiableList(new ``ArrayList<>(Arrays.asList("Anshuman","Ravi","Amit","Anshuman")));`` |
 | **[Stream API](ca://s?q=Java_Stream_toList)** | Build list from stream operations. | ``List<String> ``names ``= ``Stream.of("Anshuman","Ravi","Amit","Anshuman").toList();`` |
 | **[Manual add()](ca://s?q=Java_ArrayList_add)** | Create empty list and add elements one by one. | ``List<String> ``names ``= ``new ``ArrayList<>(); ``names.add("Anshuman"); ``names.add("Ravi"); ``...`` |
+
+| **Method** | **Description** | **Example** |
+| --- | --- | --- |
+| **[new LinkedList<>()](ca://s?q=Java_new_LinkedList)** | Empty linked list, fully mutable (add/remove/update allowed). | ``List<String> ``names ``= ``new ``LinkedList<>(); ``names.add("Anshuman"); ``names.add("Ravi");`` |
+| **[new LinkedList<>(Arrays.asList())](ca://s?q=Java_LinkedList_from_Arrays_asList)** | Wraps an array into a linked list, fully mutable. | ``List<String> ``names ``= ``new ``LinkedList<>(Arrays.asList("Anshuman","Ravi","Amit","Anshuman"));`` |
+| **[new LinkedList<>(List.of())](ca://s?q=Java_LinkedList_from_List_of)** (Java 9+) | Creates a mutable linked list from an immutable source. | ``List<String> ``names ``= ``new ``LinkedList<>(List.of("Anshuman","Ravi","Amit","Anshuman"));`` |
+| **[Collections.unmodifiableList(new LinkedList<>())](ca://s?q=Java_unmodifiable_LinkedList)** | Wraps a linked list but makes it read‑only. | ``List<String> ``names ``= ``Collections.unmodifiableList(new ``LinkedList<>(Arrays.asList("Anshuman","Ravi","Amit")));`` |
+| **[Stream API → collect(Collectors.toCollection(LinkedList::new))](ca://s?q=Java_Stream_collect_LinkedList)** | Build a linked list directly from stream operations. | ``List<String> ``names ``= ``Stream.of("Anshuman","Ravi","Amit").collect(Collectors.toCollection(LinkedList::new));`` |
