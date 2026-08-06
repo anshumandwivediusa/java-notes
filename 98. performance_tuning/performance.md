@@ -78,6 +78,17 @@
 - **Metaspace** → Stores class metadata (replaced PermGen in Java 8).  
 <img width="591" height="414" alt="image" src="https://github.com/user-attachments/assets/9a087abc-e6cc-4428-b810-741252dfb422" />
 
+### Heap Memory vs. Stack Memory in Java
+| **[Feature](ca://s?q=Java_memory_features)** | **[Heap Memory](ca://s?q=Java_heap_memory)** | **[Stack Memory](ca://s?q=Java_stack_memory)** |
+| --- | --- | --- |
+| **[Primary Content](ca://s?q=Heap_vs_Stack_primary_content)** | Stores actual object instances and array elements | Stores primitive local variables and object reference pointers |
+| **[Thread Visibility](ca://s?q=Heap_vs_Stack_thread_visibility)** | Shared globally across all threads | Private to the specific thread that owns it |
+| **[Size Limitation](ca://s?q=Heap_vs_Stack_size_limitation)** | Much larger; depends on system configuration | Smaller; fixed size per thread |
+| **[Life Cycle](ca://s?q=Heap_vs_Stack_life_cycle)** | Lifespan depends on references; managed by Garbage Collection | Lifespan matches method execution; wiped when method finishes |
+| **[Performance Impact](ca://s?q=Heap_vs_Stack_performance)** | Slower due to GC overhead | Faster due to direct memory access |
+| **[Error Types](ca://s?q=Heap_vs_Stack_errors)** | OutOfMemoryError when heap is exhausted | StackOverflowError when stack depth exceeds limit |
+| **[Use Cases](ca://s?q=Heap_vs_Stack_use_cases)** | Long-lived objects, collections, large data structures | Method calls, recursion, temporary variables |
+
 ### Memory Management
 - **Avoid leaks**: Always close resources (`try-with-resources`).  
   - **Java:** Always close resources (try-with-resources) for streams, sockets, DB connections.
