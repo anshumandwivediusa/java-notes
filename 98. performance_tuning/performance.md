@@ -351,3 +351,55 @@ The `/actuator/metrics` endpoint in **Spring Boot Actuator** is one of the most 
   - **Datadog / New Relic** → Micrometer exporters.  
 
 In short: `/actuator/metrics` is your **real-time telemetry hub** — it lets you see JVM internals, system health, and application performance, all in one place.  
+
+## **Spring Boot with Prometheus**
+
+### Prometheus Overview
+- **Definition** → Open-source monitoring and alerting toolkit.  
+- **Core Role** → Collects and stores metrics as time-series data (value + timestamp).  
+- **Pull Model** → Scrapes metrics endpoints (e.g., `/actuator/prometheus`) at intervals.  
+- **Query Language** → PromQL for querying and analyzing metrics.  
+- **Visualization** → Often paired with Grafana dashboards.  
+
+### Key Components
+- **Prometheus Server** → Scrapes and stores metrics.  
+- **Exporters** → Expose metrics from apps, databases, OS (e.g., Node Exporter, JMX Exporter).  
+- **Alertmanager** → Handles alerts, integrates with email, Slack, PagerDuty.  
+- **Targets** → Endpoints Prometheus scrapes (like Spring Boot Actuator).  
+- **Storage** → Optimized for time-series, not relational joins.  
+
+### Data Model
+- **Metric** → Identified by name + labels.  
+- **Labels** → Key-value pairs for dimensions (e.g., `method="GET"`, `status="200"`).  
+- **Samples** → Each metric value with a timestamp.  
+- Example:  
+  ```
+  http_requests_total{method="GET",status="200"} 1523
+  ```
+
+### Integration with Spring Boot Actuator
+- Add dependency:  
+  ```xml
+  <dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
+  </dependency>
+  ```
+- Expose endpoint: `/actuator/prometheus`.  
+- Prometheus config (`prometheus.yml`):  
+  ```yaml
+  scrape_configs:
+    - job_name: 'spring-boot-app'
+      metrics_path: '/actuator/prometheus'
+      static_configs:
+        - targets: ['localhost:8080']
+  ```
+
+### Best Practices
+- **Retention** → Limit data retention to avoid storage bloat.  
+- **Label Hygiene** → Avoid high-cardinality labels (e.g., user IDs).  
+- **Dashboards** → Use Grafana for visualization.  
+- **Alerts** → Define meaningful thresholds (CPU, memory, latency).  
+
+👉 In short: Prometheus is a **time-series monitoring database** that scrapes metrics, stores them efficiently, and powers observability pipelines with Grafana and Alertmanager.  
+
