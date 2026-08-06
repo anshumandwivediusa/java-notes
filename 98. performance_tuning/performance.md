@@ -56,7 +56,8 @@
   - **ZGC** → Ultra-low pause times (<10 ms), ideal for latency-sensitive apps.  
   - **Shenandoah** → Low pause GC with concurrent compaction.  
   - **Parallel GC** → Best for batch jobs, maximizes throughput.  
-    | **[GC Type](ca://s?q=Java_GC_types)** | **[JVM Option](ca://s?q=JVM_GC_configuration_flags)** | **[Best Use Case](ca://s?q=Java_GC_use_cases)** |
+
+| **[GC Type](ca://s?q=Java_GC_types)** | **[JVM Option](ca://s?q=JVM_GC_configuration_flags)** | **[Best Use Case](ca://s?q=Java_GC_use_cases)** |
 | --- | --- | --- |
 | **[G1GC](ca://s?q=Configure_G1GC_in_Java)** | ``-XX:+UseG1GC`` (default since JDK 9) | Balanced throughput and pause times; general-purpose server apps |
 | **[ZGC](ca://s?q=Configure_ZGC_in_Java)** | ``-XX:+UseZGC`` | Ultra-low pause times (<10 ms); latency-sensitive apps, trading systems |
