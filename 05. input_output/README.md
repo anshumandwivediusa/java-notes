@@ -2,6 +2,8 @@
 
 Java I/O (java.io) is stream‑oriented and blocking, while Java NIO (java.nio) is buffer‑oriented, non‑blocking, and designed for high‑performance applications. 
 
+_Mnemonic: I/O = Input/Output streams; NIO = New I/O with buffers/channels._
+
 ## Java I/O
  - Stream‑oriented → Data flows as continuous streams of bytes/characters.
  - Blocking I/O → Thread waits until operation completes.
