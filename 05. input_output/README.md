@@ -28,8 +28,6 @@ _Mnemonic: I/O = Input/Output streams; NIO = New I/O with buffers/channels._
 - For **large input (competitive programming)** → prefer `BufferedReader`.  
 - For **secure input (like passwords)** → use `Console`.
 
-
-## **Basic Usage**
 ```java
 Scanner sc = new Scanner(System.in);
 
