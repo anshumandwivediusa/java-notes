@@ -148,7 +148,7 @@ class Child extends Parent {
   ```
 
 
-## 📌 Sealed Classes (Java 15+)
+## Sealed Classes (Java 15+)
 
 ### **Definition**
 - Restrict which classes can extend or implement them.  
