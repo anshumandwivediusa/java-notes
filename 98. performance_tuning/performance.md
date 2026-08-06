@@ -101,21 +101,21 @@
 ### Memory Management
 - **Avoid leaks**: Always close resources (`try-with-resources`).  
   - **Java:** Always close resources (try-with-resources) for streams, sockets, DB connections.
-  - **Spring Boot:** Use Spring Data JPA with proper transaction boundaries (@Transactional) so connections are released. Configure HikariCP (default pool) with sensible timeouts to avoid connection leaks.
+  - **Spring Boot:** Use Spring Data JPA with proper transaction boundaries (`@Transactional`) so connections are released. Configure HikariCP (default pool) with sensible timeouts to avoid connection leaks.
 - **String handling**: Use `StringBuilder` for concatenation in loops.  
-  - **Java:** Use StringBuilder or StringBuffer for concatenation in loops.
+  - **Java:** Use `StringBuilder` or `StringBuffer` (Synchronized) for concatenation in loops.
   - **Spring Boot:** For JSON/XML serialization, rely on Jackson or Spring converters instead of manual string concatenation.
 - **Object pooling**: Reuse objects where possible, avoid unnecessary creation.  
   - **Java:** Reuse objects where possible, avoid unnecessary creation.
-  - **Spring Boot:** Use connection pools (HikariCP, Redis Lettuce pool) and thread pools (@Async, TaskExecutor) to manage resources efficiently.
+  - **Spring Boot:** Use connection pools (HikariCP, Redis Lettuce pool) and thread pools (`@Async`, `TaskExecutor`) to manage resources efficiently.
 - **Compressed OOPs**: Enable `-XX:+UseCompressedOops` for reduced memory footprint.  
-  - **Java:** Enable -XX:+UseCompressedOops to reduce memory footprint.
+  - **Java:** Enable `-XX:+UseCompressedOop`s to reduce memory footprint.
   - **Spring Boot:** Combine with Actuator metrics to monitor heap usage and GC behavior in production.
 - **Spring Methods**
-  - **Caching:** Use @Cacheable with providers like Redis or Caffeine to reduce repeated DB calls.
-  - **Lazy Initialization:** Enable spring.main.lazy-initialization=true to avoid loading unused beans at startup.
+  - **Caching:** Use `@Cacheable` with providers like Redis or Caffeine to reduce repeated DB calls.
+  - **Lazy Initialization:** Enable `spring.main.lazy-initialization=true` to avoid loading unused beans at startup.
   - **Batch Processing:** Use chunk-oriented processing in Spring Batch to avoid loading huge datasets into memory.
-  - **Streaming APIs:** For large responses, use ResponseBodyEmitter or Flux (WebFlux) to stream data instead of holding everything in memory.
+  - **Streaming APIs:** For large responses, use `ResponseBodyEmitter` or Flux (WebFlux) to stream data instead of holding everything in memory.
   - **Monitoring:** Expose /actuator/metrics/jvm.memory.used and integrate with Prometheus/Grafana for real-time tracking.
 
 ### Profiling & Monitoring
