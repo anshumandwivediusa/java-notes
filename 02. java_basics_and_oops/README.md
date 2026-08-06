@@ -99,7 +99,7 @@ Static class loading in Java happens at compile-time when classes are linked dir
 thrown if a class is referenced with 
 Java’s “new” operator (i.e. static loading) 
 but the runtime system cannot find the 
-referenced class.
+referenced class. Unchecked Exception
 */
 
 SavingsAccount acc = new SavingsAccount();
@@ -109,7 +109,7 @@ acc.calculateInterest();
 /*
 A ClassNotFoundException is thrown when an application tries to load in a 
 class through its string name using the following methods but no definition for the 
-class with the specified name could be found:
+class with the specified name could be found: Checked Exception
 */
 
 Class<?> cls = Class.forName("com.bank.SavingsAccount");
