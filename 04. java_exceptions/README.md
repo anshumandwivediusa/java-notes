@@ -12,7 +12,10 @@
       - ClassNotFoundException: Thrown by Class.forName(), ClassLoader.loadClass(), or similar methods when the JVM cannot find the class definition at runtime.
     - **Unchecked exceptions** → Runtime exceptions (`NullPointerException`, `ArrayIndexOutOfBoundsException`).
       - NoClassDefFoundError: Thrown when the JVM tries to load a class that was present at compile time but missing at runtime.
-<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/c74105a8-4ad1-4ada-a20a-0cc4960a35b9" />
+
+<p align="center">
+  <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/c74105a8-4ad1-4ada-a20a-0cc4960a35b9" />
+</p>
 
 ## 3. **Keywords**
 - **try** → Block of code to monitor for exceptions.  
