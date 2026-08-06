@@ -70,7 +70,7 @@
 ### Heap Generations
 - **Young Generation** → Where new objects are created.
   Most newly instantiated objects begin their life here. Because a high percentage of objects are short-lived (die young), this area experiences frequent, fast cleanups called Minor Garbage Collections.  
-  - **Eden Space** → All new objects start here.  
+  - **Eden Space** → All **brand new** objects start here. Minor GC. 
   - **Survivor Spaces (S0, S1)** → Objects surviving Minor GC move here.  
   - **Minor GC** → Frequent, fast collections.  
 - **Old Generation (Tenured)** → Long-lived objects promoted here after surviving multiple GCs.  
