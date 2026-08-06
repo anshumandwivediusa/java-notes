@@ -305,6 +305,34 @@ class Child extends Parent {
 }
 ```
 
+## transient 
+ - Can be applied to class level variables only.(Local variables cannot be declared transient)
+ - Transient variables may not be final or static.(But compiler allows the declaration, since it doesn’t do any harm. Variables marked transient are never serialized. Static variables are not serialized anyway.)
+ - Not stored as part of object’s persistent state, i.e. not written out during serialization.
+ - Can be used for security.
+
+## synchronized
+ - Can be applied to methods or parts of methods only.
+ - Used to control access to critical code in multi-threaded programs.
+
+## volatile
+ - Can be applied to variables only.
+ - Can be applied to static variables.
+ - Cannot be applied to final variables.
+ - Declaring a variable volatile indicates that it might be modified asynchronously, so that all threads will get the correct value of the variable.
+ - Used in multi-processor environments.
+
+## native
+ - Can be applied to methods only. (static methods also)
+ - Written in a non-Java language, compiled for a single machine target type.
+ - Java classes use lot of native methods for performance and for accessing hardware Java is not aware of.
+ - Native method signature should be terminated by a ‘;’, curly braces will provide a compiler error.
+ - native doesn’t affect access qualifiers. Native methods can be private.
+ - Can pass/return Java objects from native methods.
+ - System.loadLibrary is used in static initializer code to load native libraries. If the library is not loaded when the static method is called, an UnsatisfiedLinkError is thrown.
+
+## Notes
+
 | **[Modifier](ca://s?q=Java_modifiers_applicability_table)** | **Class** | **Inner Class** | **Variable** | **Method** | **Constructor** | **Code Block** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **public** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
