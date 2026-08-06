@@ -1,8 +1,27 @@
-# Files and I/O in Java
+# Files & I/O in Java
+
+Java I/O (java.io) is stream‑oriented and blocking, while Java NIO (java.nio) is buffer‑oriented, non‑blocking, and designed for high‑performance applications. 
+
+## Java I/O
+ - Stream‑oriented → Data flows as continuous streams of bytes/characters.
+ - Blocking I/O → Thread waits until operation completes.
+ - Synchronous → Operations happen sequentially.
+ - Simple API → Easy to use for files, console, and network basics.
+   Examples: FileInputStream, FileReader, BufferedReader, ObjectOutputStream.
+
+## Java NIO
+ - Buffer‑oriented → Data handled in fixed‑size chunks (ByteBuffer, CharBuffer).
+ - Non‑blocking I/O → Threads can continue without waiting.
+ - Asynchronous capabilities → Event‑driven programming with Selector.
+ - Channels → Bidirectional conduits for data transfer (FileChannel, SocketChannel).
+ - Selectors → Monitor multiple channels with a single thread.
+   Examples: FileChannel, SocketChannel, Selector.
 
 The java.io package contains nearly every class required to perform input and output (I/O) in Java. All these streams represent an input source and an output destination. The stream in the java.io package supports many data such as primitives, object, localized characters, etc. Java provides strong and flexible support for I/O related to files and networks.
 
-## The Hierarchy of I/O Class in Java
+
+
+## 1. The Hierarchy of I/O Class in Java
 
 ![java io class hierarchy](https://user-images.githubusercontent.com/2780145/34911563-14813348-f8f3-11e7-87ef-4c8f589bbdf5.png)
 
