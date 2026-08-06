@@ -90,14 +90,7 @@ public class Test {
 ```
 
 
-## .7. Extra Notes for Exams
-- **finally always executes** (even if exception occurs), except when JVM exits (`System.exit(0)`).  
-- **try-with-resources** (Java 7+) → Auto-closes resources implementing `AutoCloseable`.  
-- **Multiple catch blocks** → Handle different exceptions separately.  
-- **Multi-catch (Java 7+)** → `catch (IOException | SQLException e)`.  
-- **Re-throwing exceptions** → Useful for propagating errors up the call stack.  
-
-## Section Notes: Multiple Catch Blocks
+## 7. Multiple Catch Blocks
 
 ### **Definition**
 - A single `try` block can be followed by **multiple `catch` blocks**.  
@@ -145,9 +138,11 @@ try {
 | **Multiple catch** | Different blocks for different exceptions | Specific first, general last |
 | **Multi‑catch** | One block for multiple exceptions | Cleaner, but cannot distinguish exception type inside |
 
-### Key Exam Observations
-- **Multiple catch** → handle exceptions differently.  
-- **Multi‑catch** → handle multiple exceptions the same way.  
-- **Finally** → optional, runs after catch (or even if no catch).  
-- **Best practice** → Catch specific exceptions first, then general ones.  
 
+
+## 8. Notes
+- **finally always executes** (even if exception occurs), except when JVM exits (`System.exit(0)`).  
+- **try-with-resources** (Java 7+) → Auto-closes resources implementing `AutoCloseable`.  
+- **Multiple catch blocks** → Handle different exceptions separately.  
+- **Multi-catch (Java 7+)** → `catch (IOException | SQLException e)`.  
+- **Re-throwing exceptions** → Useful for propagating errors up the call stack.  
