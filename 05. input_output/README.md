@@ -398,3 +398,85 @@ public class SerializationDemo {
 - **Transient fields** are skipped.  
 - **serialVersionUID** prevents `InvalidClassException`.  
 - Common exam question: *“What is transient? What is serialVersionUID?”*  
+
+## Externalization in Java
+
+### **Definition**
+- **Externalization** → A specialized form of serialization where the programmer has **full control** over what and how to serialize/deserialize.  
+- Achieved by implementing the **`Externalizable` interface** (extends `Serializable`).  
+- Requires overriding two methods:  
+  - `writeExternal(ObjectOutput out)`  
+  - `readExternal(ObjectInput in)`
+
+### **Key Features**
+- Unlike default serialization, **you decide which fields to save/restore**.  
+- More efficient for large objects or when only partial data needs persistence.  
+- Requires a **public no‑arg constructor** (used during deserialization).  
+- Faster than default serialization because you skip unnecessary data.
+
+### Example
+```java
+import java.io.*;
+
+class Employee implements Externalizable {
+    int id;
+    String name;
+    transient String password; // skipped manually
+
+    public Employee() {} // mandatory no-arg constructor
+
+    public Employee(int id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeInt(id);
+        out.writeUTF(name);
+        // password intentionally not written
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        id = in.readInt();
+        name = in.readUTF();
+        // password not restored
+    }
+}
+
+public class ExternalizationDemo {
+    public static void main(String[] args) throws Exception {
+        Employee e1 = new Employee(101, "Anshuman", "secret123");
+
+        // Externalization
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("emp.ext"));
+        e1.writeExternal(oos);
+        oos.close();
+
+        // Deserialization
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("emp.ext"));
+        Employee e2 = new Employee();
+        e2.readExternal(ois);
+        ois.close();
+
+        System.out.println(e2.id + " " + e2.name + " " + e2.password);
+    }
+}
+```
+
+### Exam‑Ready Comparison
+
+| **Aspect** | **Serialization** | **Externalization** |
+|------------|-------------------|---------------------|
+| **Interface** | `Serializable` | `Externalizable` |
+| **Control** | Automatic (default mechanism) | Full manual control |
+| **Methods** | None required | Must override `writeExternal`, `readExternal` |
+| **Performance** | Slower (saves all fields) | Faster (saves only chosen fields) |
+| **Constructor** | Not mandatory | Public no‑arg constructor required |
+
+### Exam Observations
+- **Serialization** → automatic, saves all non‑transient, non‑static fields.  
+- **Externalization** → manual, programmer decides what to save.  
+- Common exam question: *“Difference between Serialization and Externalization?”* → Answer with **automatic vs manual, Serializable vs Externalizable, control vs efficiency**.  
