@@ -346,3 +346,14 @@ class Child extends Parent {
 | **transient** | ❌ | ❌ | ✅ (instance variables only) | ❌ | ❌ | ❌ |
 | **synchronized** | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ (applies to method body, requires lock) |
 | **volatile** | ❌ | ❌ | ✅ (instance variables only) | ❌ | ❌ | ❌ |
+
+## Class Loading & Initialization Order
+
+| **Step** | **When Executed** | **Scope** |
+| --- | --- | --- |
+| **Class Loading** | When class is first referenced | JVM ClassLoader |
+| **Static Variables** | At class load | One copy per class |
+| **Static Blocks** | At class load | Run once |
+| **Instance Variables** | At object creation | Per object |
+| **Instance Initializer Blocks** | Before constructor | Per object |
+| **Constructor** | At object creation | Per object |
