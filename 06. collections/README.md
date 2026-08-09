@@ -258,7 +258,7 @@ alternates
 | **ConcurrentLinkedDeque** | Thread‑safe double‑ended queue (similar to LinkedList but concurrent). |
 | **BlockingQueue (e.g., LinkedBlockingQueue)** | Thread‑safe queue with blocking operations (``put``, ``take``). |
 
-## ArrayList
+## ArrayList: Think of it as a resizable array: great for indexing and traversal.
 
 | **Aspect** | **[Array](ca://s?q=Java_Array)** | **[ArrayList](ca://s?q=Java_ArrayList)** |
 | --- | --- | --- |
@@ -283,3 +283,19 @@ _Ways to convert [] to ArrayList_
 | **[Collections.addAll](ca://s?q=Collections_addAll_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(); ``Collections.addAll(list, ``arr);`` | Adds all array elements into a new ``ArrayList``. |
 | **[Stream API](ca://s?q=Stream_toList_in_Java)** | ``List<String> ``list ``= ``Arrays.stream(arr).collect(Collectors.toList());`` | Flexible, works well with transformations. |
 | **[List.of (Java 9+)](ca://s?q=List_of_in_Java)** | ``List<String> ``list ``= ``List.of(arr);`` | Immutable list — cannot add/remove/update. |
+
+## LinkedList: Think of it as a chain of nodes: great for frequent insertions/deletions.
+| **Aspect** | **[ArrayList](ca://s?q=ArrayList_in_Java)** | **[LinkedList](ca://s?q=LinkedList_in_Java)** |
+| --- | --- | --- |
+| **Underlying Data Structure** | Dynamic array | Doubly linked list |
+| **Access (get/set)** | Fast random access (``O(1)``) | Slow random access (``O(n)``) |
+| **Insertion/Deletion (middle)** | Slow (``O(n)`` due to shifting) | Fast (``O(1)`` if node reference known) |
+| **Insertion/Deletion (end)** | Fast (``O(1)`` amortized) | Fast (``O(1)``) |
+| **Memory Usage** | Less overhead (just array) | More overhead (extra pointers per node) |
+| **Iteration Performance** | Better cache locality, faster traversal | Slightly slower due to pointer chasing |
+| **Sorting** | ``list.sort(Comparator)`` or ``Collections.sort(list)`` | Same methods available |
+| **Searching** | ``contains``, ``indexOf``, ``binarySearch`` (on sorted list) | Same methods, but slower for index-based search |
+| **Synchronization** | Not synchronized; wrap with ``Collections.synchronizedList`` | Not synchronized; wrap similarly |
+| **Concurrent Alternatives** | ``CopyOnWriteArrayList`` | ``ConcurrentLinkedDeque``, ``LinkedBlockingQueue`` |
+| **Best Use Case** | Frequent random access, fewer insertions/deletions in middle | Frequent insertions/deletions, especially at ends |
+
