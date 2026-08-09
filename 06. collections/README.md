@@ -14,7 +14,7 @@
 
 ### Core Methods
 | Method | Description |
-|--|-|
+|------|----|
 | **`Iterator<T> iterator()`** | Returns an `Iterator` over elements of type `T`. |
 | **`default void forEach(Consumer<? super T> action)`** | Performs the given action for each element. |
 | **`default Spliterator<T> spliterator()`** | Creates a `Spliterator` for parallel iteration. |
@@ -90,7 +90,7 @@ public class IterableDemo {
 ## Collection Methods
 
 | **Category** | **Method** | **Description** |
-|  |  |  |
+|---  | --- | --- |
 | **CRUD (Modify)** | `boolean add(E e)` | Adds an element to the collection. |
 |  | `boolean addAll(Collection<? extends E> c)` | Adds all elements from another collection. |
 |  | `boolean remove(Object o)` | Removes a single instance of the specified element. |
