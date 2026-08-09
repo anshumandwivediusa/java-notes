@@ -455,13 +455,13 @@ Use a **Set** when your main requirement is **uniqueness** and you don’t care 
 
 The **Map** interface in Java represents a collection of **key–value pairs** where each key maps to exactly one value. Unlike `List` or `Set`, a `Map` is not a subtype of `Collection` — it’s its own hierarchy.
 
-## Key Features of Map
+### Key Features of Map
 - Stores data as **key → value** pairs.  
 - Keys are **unique**; values can be duplicated.  
 - A key can map to only one value (latest put overwrites).  
 - Allows fast lookups by key.  
 
-## Common Implementations
+### Common Implementations
 
 | **Implementation** | **Ordering** | **Performance** | **Notes** |
 |---------------------|--------------|-----------------|-----------|
@@ -470,7 +470,7 @@ The **Map** interface in Java represents a collection of **key–value pairs** w
 | **TreeMap** | Sorted by keys | O(log n) operations | Backed by Red‑Black tree |
 | **Hashtable** | No order | Legacy, synchronized | Rarely used now |
 
-## Common Methods of Map
+### Common Methods of Map
 - `put(K key, V value)` → adds or updates a mapping.  
 - `get(Object key)` → retrieves value for a key.  
 - `remove(Object key)` → removes mapping.  
@@ -483,7 +483,7 @@ The **Map** interface in Java represents a collection of **key–value pairs** w
 - `values()` → returns all values.  
 - `entrySet()` → returns all key–value pairs.  
 
-## Sample Usage
+### Sample Usage
 
 ```java
 import java.util.*;
@@ -511,7 +511,7 @@ public class MapDemo {
 }
 ```
 
-## Conceptual Sense
+### Conceptual Sense
 - **Map** → dictionary or phonebook analogy: key = name, value = number.  
 - **HashMap** → fastest, unordered.  
 - **LinkedHashMap** → preserves insertion order.  
@@ -519,3 +519,47 @@ public class MapDemo {
 
 ✅ In short:  
 Use a **Map** when you need **fast lookups by key** and want to associate values with unique identifiers.  
+
+## Map.Entry
+
+Exactly — you’ve captured the essence. Let’s expand the **conceptual sense** of `Map.Entry` so it’s crystal clear:
+
+### Conceptual Sense of `Map.Entry`
+
+- **Unit of a Map** → A `Map.Entry<K,V>` is the smallest building block of a `Map`. Each entry is a **single object** that bundles together a **key** and its **associated value**.  
+- **Set of Entries** → When you call `map.entrySet()`, you get a `Set<Map.Entry<K,V>>`. Each element of that set is one entry object, not just a raw key or value.  
+- **Uniqueness** → The `Set` ensures no duplicate entries. Since keys in a map are unique, each `Map.Entry` is unique by its key.  
+- **Two-in-One** → Conceptually, think of it as a **pair container**:  
+  - `getKey()` → the identifier.  
+  - `getValue()` → the data associated with that identifier.  
+- **Mutability** → You can update the value directly via `entry.setValue(newValue)`, which changes the mapping inside the map itself.  
+
+### Example in Action
+```java
+Map<String, Integer> scores = new HashMap<>();
+scores.put("Alice", 90);
+scores.put("Bob", 85);
+
+for (Map.Entry<String, Integer> entry : scores.entrySet()) {
+    System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+}
+```
+
+### Output:
+```
+Key: Alice, Value: 90
+Key: Bob, Value: 85
+```
+
+
+### Analogy
+Think of a **Map.Entry** like a **row in a table**:
+- **Key** → the primary column (unique identifier).  
+- **Value** → the data stored in that row.  
+- The `entrySet()` is like the entire table, but represented as a `Set` of rows.  
+
+
+
+✅ In short:  
+`Map.Entry` is the **conceptual representation of one mapping** inside a map. It’s the way Java lets you work with both the key and the value together, rather than separately.  
+
