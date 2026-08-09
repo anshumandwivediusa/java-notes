@@ -308,6 +308,8 @@ _Ways to convert [] to ArrayList_
 | **Concurrent Alternatives** | ``CopyOnWriteArrayList`` | ``ConcurrentLinkedDeque``, ``LinkedBlockingQueue`` |
 | **Best Use Case** | Frequent random access, fewer insertions/deletions in middle | Frequent insertions/deletions, especially at ends |
 
+LinkedList can be used directly as a FIFO queue because it supports add/offer (enqueue), remove/poll (dequeue), and peek/element (examine head).
+
 # Queue Interface
 
 | **Category** | **Method** | **Description** |
@@ -319,4 +321,15 @@ _Ways to convert [] to ArrayList_
 | **[Examination](ca://s?q=Queue_peek_element_in_Java)** | ``element()`` | Retrieves head without removing; throws exception if empty. |
 |  | ``peek()`` | Retrieves head without removing; returns ``null`` if empty. |
 
- The difference between add/remove/element vs offer/poll/peek is exception vs safe return:
+The difference between add/remove/element vs offer/poll/peek is exception vs safe return:
+
+```java
+Queue<Integer> fifo = new LinkedList<>();
+fifo.offer(10);
+fifo.offer(20);
+fifo.offer(30);
+
+System.out.println(fifo.poll()); // 10 (first in, first out)
+System.out.println(fifo.poll()); // 20
+System.out.println(fifo.poll()); // 30
+```
