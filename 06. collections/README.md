@@ -90,7 +90,7 @@ public class IterableDemo {
 ## Collection Methods
 
 | **Category** | **Method** | **Description** |
-|---  | --- | --- |
+| ---  | --- | --- |
 | **CRUD (Modify)** | `boolean add(E e)` | Adds an element to the collection. |
 |  | `boolean addAll(Collection<? extends E> c)` | Adds all elements from another collection. |
 |  | `boolean remove(Object o)` | Removes a single instance of the specified element. |
@@ -118,7 +118,7 @@ _List Methods with Functional Interfaces_
 Key implementations:
 
 | **Interface** | **Ordered?** | **Duplicates?** | **Null allowed?** | **Typical impl** | **Concepts / Usage Notes** |
-|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
 | **[List](ca://s?q=Java_List_interface)** | Yes (index-based) | Yes | Yes | ArrayList, LinkedList | Sequential collection, preserves insertion order. Best for random access (``ArrayList``) or frequent insert/delete (``LinkedList``). |
 | **[Set](ca://s?q=Java_Set_interface)** | No (HashSet), Yes (Linked/Tree) | No | 1 null (Hash/Linked), none in TreeSet | HashSet, TreeSet | Ensures uniqueness. HashSet is fastest, TreeSet keeps sorted order, LinkedHashSet preserves insertion order. |
 | **[Map](ca://s?q=Java_Map_interface)** | Depends (HashMap unordered, LinkedHashMap ordered, TreeMap sorted) | Keys unique, values can repeat | 1 null key (HashMap), multiple null values | HashMap, TreeMap | Key-value pairs. HashMap for speed, TreeMap for sorted keys, LinkedHashMap for predictable iteration order. |
@@ -137,7 +137,7 @@ Conceptually:
 
 ### List Methods 
 | **Method** | **Description** |
-|  |  |
+| --- | --- |
 | ``void ``add(int ``index, ``E ``element)``; ``list.add("a");`` | Inserts element at specified position. |
 | ``boolean ``addAll(int ``index, ``Collection<? ``extends ``E> ``c)`` | Inserts all elements at specified position. |
 | ``E ``get(int ``index)`` | Returns element at given position. |
@@ -151,7 +151,7 @@ Conceptually:
 
 ### Ways to create List
 | **Approach** | **Code Example** | **Notes** |
-|  |  |  |
+| --- | --- | --- |
 | **[Constructor](ca://s?q=Create_List_with_ArrayList_Constructor)** | ``List<String> ``list ``= ``new ``ArrayList<>();`` | Most common, mutable, dynamic size. |
 | **[Add/Replace/Query Elements](ca://s?q=Add_Elements_to_List)** | ``list.add("a"); ``list.add("b");`` ``list.add(0, "b");`` list.set(0, "c"); ``    | Standard way to populate. |
 | **[Arrays.asList](ca://s?q=Arrays_asList_in_Java)** | ``List<String> ``list ``= ``Arrays.asList("a","b","c");`` | Fixed‑size list backed by array (cannot add/remove). |
@@ -167,7 +167,7 @@ Conceptually:
 ### Sorting, Searching and Synchronization
 
 | **Operation** | **Method / Utility** | **Description** |
-|  |  |  |
+| --- | --- | --- |
 | **[Sorting](ca://s?q=Sorting_List_in_Java)** | ``list.sort(Comparator)`` | Sorts elements in place using a comparator. |
 |  | ``Collections.sort(list)`` | Legacy static method to sort a list. |
 |  | ``Collections.reverse(list)`` | Reverses the order of elements. |
@@ -255,7 +255,7 @@ synchronized(syncList) {
 ```
 alternates
 | **Concurrent Collection** | **Description** |
-|  |  |
+| --- | --- |
 | **CopyOnWriteArrayList** | Thread‑safe variant of ``ArrayList``. Best for frequent reads, infrequent writes. |
 | **ConcurrentLinkedQueue** | Non‑blocking, thread‑safe queue based on linked nodes. |
 | **ConcurrentLinkedDeque** | Thread‑safe double‑ended queue (similar to LinkedList but concurrent). |
@@ -264,7 +264,7 @@ alternates
 ## ArrayList: Think of it as a resizable array: great for indexing and traversal.
 
 | **Aspect** | **[Array](ca://s?q=Java_Array)** | **[ArrayList](ca://s?q=Java_ArrayList)** |
-|  |  |  |
+| --- | --- | --- |
 | **Size** | Fixed at creation, cannot grow/shrink | Dynamic, resizes automatically. The resizing strategy is not 50% — it actually grows by ~1.5x (50% increase) each time. Default 10, When full, new capacity = oldCapacity + (oldCapacity >> 1) → 15 |
 | **Type** | Can store primitives (``int[]``, ``char[]``) and objects | Can only store objects (``Integer``, ``String``, etc.) |
 | **Flexibility** | Limited — must know size in advance | Flexible — can add/remove elements anytime |
@@ -280,7 +280,7 @@ alternates
 
 _Ways to convert [] to ArrayList_
 | **Approach** | **Code Example** | **Notes** |
-|  |  |  |
+| --- | --- | --- |
 | **[Arrays.asList](ca://s?q=Arrays_asList_in_Java)** | ``String[] ``arr ``= ``{"a","b","c"}; ``List<String> ``list ``= ``Arrays.asList(arr);`` | Returns a fixed-size list backed by the array (cannot add/remove, but can update). |
 | **[ArrayList Constructor](ca://s?q=ArrayList_from_Array_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(Arrays.asList(arr));`` | Creates a mutable ``ArrayList`` copy — you can add/remove freely. |
 | **[Collections.addAll](ca://s?q=Collections_addAll_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(); ``Collections.addAll(list, ``arr);`` | Adds all array elements into a new ``ArrayList``. |
@@ -307,7 +307,7 @@ LinkedList can be used directly as a FIFO queue because it supports add/offer (e
 # Queue Interface
 
 | **Category** | **Method** | **Description** |
-|  |  |  |
+| --- | --- | --- |
 | **[Insertion](ca://s?q=Queue_offer_add_in_Java)** | ``add(E ``e)`` | Inserts element; throws exception if capacity restrictions prevent it. |
 |  | ``offer(E ``e)`` | Inserts element; returns ``false`` if capacity restrictions prevent it (preferred in queues). |
 | **[Removal](ca://s?q=Queue_poll_remove_in_Java)** | ``remove()`` | Removes and returns head; throws exception if empty. |
@@ -377,7 +377,7 @@ System.out.println(deque.removeLast());  // 3
 ### Comparison: ArrayDeque vs LinkedList
 
 | **Aspect** | **ArrayDeque** | **LinkedList** |
-||-|-|
+| --- | --- | --- |
 | Underlying Structure | Resizable array | Doubly linked list |
 | Performance | Faster (better cache locality) | Slower (pointer chasing) |
 | Nulls | Not allowed | Allowed |
