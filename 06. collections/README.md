@@ -274,3 +274,12 @@ alternates
 | **Synchronization** | Not synchronized (manual handling only) | Not synchronized by default, but can be wrapped: ``Collections.synchronizedList(list)`` |
 | **Sorting** | Manual sorting with ``Arrays.sort(array)`` | Built‑in: ``list.sort(Comparator)``, ``Collections.sort(list)`` |
 | **Use Case** | Best for fixed‑size, primitive data | Best for dynamic collections, frequent insert/delete |
+
+_Ways to convert [] to ArrayList_
+| **Approach** | **Code Example** | **Notes** |
+| --- | --- | --- |
+| **[Arrays.asList](ca://s?q=Arrays_asList_in_Java)** | ``String[] ``arr ``= ``{"a","b","c"}; ``List<String> ``list ``= ``Arrays.asList(arr);`` | Returns a fixed-size list backed by the array (cannot add/remove, but can update). |
+| **[ArrayList Constructor](ca://s?q=ArrayList_from_Array_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(Arrays.asList(arr));`` | Creates a mutable ``ArrayList`` copy — you can add/remove freely. |
+| **[Collections.addAll](ca://s?q=Collections_addAll_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(); ``Collections.addAll(list, ``arr);`` | Adds all array elements into a new ``ArrayList``. |
+| **[Stream API](ca://s?q=Stream_toList_in_Java)** | ``List<String> ``list ``= ``Arrays.stream(arr).collect(Collectors.toList());`` | Flexible, works well with transformations. |
+| **[List.of (Java 9+)](ca://s?q=List_of_in_Java)** | ``List<String> ``list ``= ``List.of(arr);`` | Immutable list — cannot add/remove/update. |
