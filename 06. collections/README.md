@@ -149,3 +149,20 @@ Key implementations:
 | **[Pre‑Sized ArrayList](ca://s?q=Pre_sized_ArrayList_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(100);`` | Mutable list with initial capacity. |
 | **[LinkedList](ca://s?q=LinkedList_in_Java)** | ``List<String> ``list ``= ``new ``LinkedList<>();`` | Doubly linked list, good for frequent insert/delete. |
 | **[Vector/Stack](ca://s?q=Vector_and_Stack_in_Java)** | ``List<String> ``list ``= ``new ``Vector<>();`` | Legacy synchronized list; ``Stack`` extends ``Vector``. |
+
+## ArrayList
+
+| **Aspect** | **[Array](ca://s?q=Java_Array)** | **[ArrayList](ca://s?q=Java_ArrayList)** |
+| --- | --- | --- |
+| **Size** | Fixed at creation, cannot grow/shrink | Dynamic, resizes automatically |
+| **Type** | Can store primitives (``int[]``, ``char[]``) and objects | Can only store objects (``Integer``, ``String``, etc.) |
+| **Flexibility** | Limited — must know size in advance | Flexible — can add/remove elements anytime |
+| **Performance** | Faster for direct indexed access | Slight overhead due to resizing and wrappers |
+| **Methods** | No built‑in methods (manual loops) | Rich API (``add``, ``remove``, ``contains``, ``sort``, etc.) |
+| **Memory** | Compact, contiguous block | May allocate extra capacity (default 10, doubles when full) |
+| **Iteration** | For loop, enhanced for loop | For loop, enhanced for loop, ``iterator()``, ``forEach()``, ``spliterator()`` |
+| **Duplicates** | Allowed | Allowed |
+| **Nulls** | Allowed | Allowed |
+| **Synchronization** | Not synchronized (manual handling only) | Not synchronized by default, but can be wrapped: ``Collections.synchronizedList(list)`` |
+| **Sorting** | Manual sorting with ``Arrays.sort(array)`` | Built‑in: ``list.sort(Comparator)``, ``Collections.sort(list)`` |
+| **Use Case** | Best for fixed‑size, primitive data | Best for dynamic collections, frequent insert/delete |
