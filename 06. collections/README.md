@@ -91,23 +91,23 @@ public class IterableDemo {
 
 | **Category** | **Method** | **Description** |
 |  |  |  |
-| **CRUD (Modify)** | ``boolean ``add(E ``e)`` | Adds an element to the collection. |
-|  | ``boolean ``addAll(Collection<? ``extends ``E> ``c)`` | Adds all elements from another collection. |
-|  | ``boolean ``remove(Object ``o)`` | Removes a single instance of the specified element. |
-|  | ``boolean ``removeAll(Collection<?> ``c)`` | Removes all elements that are also in another collection. |
-|  | ``boolean ``retainAll(Collection<?> ``c)`` | Retains only elements present in another collection. |
-|  | ``void ``clear()`` | Removes all elements. |
-| **Query (Check)** | ``boolean ``contains(Object ``o)`` | Checks if the collection contains the given element. |
-|  | ``boolean ``containsAll(Collection<?> ``c)`` | Checks if the collection contains all elements of another collection. |
-|  | ``boolean ``isEmpty()`` | Checks if the collection is empty. |
-|  | ``int ``size()`` | Returns the number of elements. |
-| **Conversion** | ``Object[] ``toArray()`` | Returns an array containing all elements. |
-|  | ``<T> ``T[] ``toArray(T[] ``a)`` | Returns an array containing all elements in the specified type. |
-| **Iteration** | ``Iterator<E> ``iterator()`` | Returns an iterator over elements. |
-|  | ``default ``void ``forEach(Consumer<? ``super ``E> ``action)`` | Performs the given action for each element. |
-|  | ``default ``Spliterator<E> ``spliterator()`` | Returns a Spliterator for parallel iteration. |
-| **Identity (Object)** | ``boolean ``equals(Object ``o)`` | Compares this collection with another for equality. |
-|  | ``int ``hashCode()`` | Returns hash code for the collection. |
+| **CRUD (Modify)** | `boolean add(E e)` | Adds an element to the collection. |
+|  | `boolean addAll(Collection<? extends E> c)` | Adds all elements from another collection. |
+|  | `boolean remove(Object o)` | Removes a single instance of the specified element. |
+|  | `boolean removeAll(Collection<?> c)` | Removes all elements that are also in another collection. |
+|  | `boolean retainAll(Collection<?> c)` | Retains only elements present in another collection. |
+|  | `void clear()` | Removes all elements. |
+| **Query (Check)** | `boolean contains(Object o)` | Checks if the collection contains the given element. |
+|  | `boolean containsAll(Collection<?> c)` | Checks if the collection contains all elements of another collection. |
+|  | `boolean isEmpty()` | Checks if the collection is empty. |
+|  | `int size()` | Returns the number of elements. |
+| **Conversion** | `Object[] toArray()` | Returns an array containing all elements. |
+|  | `<T> T[] toArray(T[] a)` | Returns an array containing all elements in the specified type. |
+| **Iteration** | Iterator<E> iterator()` | Returns an iterator over elements. |
+|  | `default void forEach(Consumer<? super E> action)` | Performs the given action for each element. |
+|  | `default Spliterator<E> spliterator()` | Returns a Spliterator for parallel iteration. |
+| **Identity (Object)** | `boolean equals(Object o)` | Compares this collection with another for equality. |
+|  | `int hashCode()` | Returns hash code for the collection. |
 
 _List Methods with Functional Interfaces_
 
