@@ -109,3 +109,16 @@ public class IterableDemo {
 | **Identity (Object)** | ``boolean ``equals(Object ``o)`` | Compares this collection with another for equality. |
 |  | ``int ``hashCode()`` | Returns hash code for the collection. |
 
+# List Interface
+| **Method** | **Description** |
+| --- | --- |
+| ``void ``add(int ``index, ``E ``element)`` | Inserts element at specified position. |
+| ``boolean ``addAll(int ``index, ``Collection<? ``extends ``E> ``c)`` | Inserts all elements at specified position. |
+| ``E ``get(int ``index)`` | Returns element at given position. |
+| ``E ``set(int ``index, ``E ``element)`` | Replaces element at given position. |
+| ``E ``remove(int ``index)`` | Removes element at given position. |
+| ``int ``indexOf(Object ``o)`` | Returns first index of element, or -1. |
+| ``int ``lastIndexOf(Object ``o)`` | Returns last index of element, or -1. |
+| ``ListIterator<E> ``listIterator()`` | Returns list iterator (bidirectional). |
+| ``ListIterator<E> ``listIterator(int ``index)`` | Returns list iterator starting at index. |
+| ``List<E> ``subList(int ``fromIndex, ``int ``toIndex)`` | Returns view of portion of list. |
