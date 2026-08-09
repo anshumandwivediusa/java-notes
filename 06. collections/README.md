@@ -132,6 +132,7 @@ Conceptually:
 - Array = fixed, rigid container.
 - List = dynamic, ordered sequence with powerful operations.
 
+### List Methods 
 | **Method** | **Description** |
 | --- | --- |
 | ``void ``add(int ``index, ``E ``element)``; ``list.add("a");`` | Inserts element at specified position. |
@@ -145,6 +146,7 @@ Conceptually:
 | ``ListIterator<E> ``listIterator(int ``index)`` | Returns list iterator starting at index. |
 | ``List<E> ``subList(int ``fromIndex, ``int ``toIndex)`` | Returns view of portion of list. |
 
+### Ways to create List
 | **Approach** | **Code Example** | **Notes** |
 | --- | --- | --- |
 | **[Constructor](ca://s?q=Create_List_with_ArrayList_Constructor)** | ``List<String> ``list ``= ``new ``ArrayList<>();`` | Most common, mutable, dynamic size. |
@@ -158,6 +160,21 @@ Conceptually:
 | **[Pre‑Sized ArrayList](ca://s?q=Pre_sized_ArrayList_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(100);`` | Mutable list with initial capacity. |
 | **[LinkedList](ca://s?q=LinkedList_in_Java)** | ``List<String> ``list ``= ``new ``LinkedList<>();`` | Doubly linked list, good for frequent insert/delete. |
 | **[Vector/Stack](ca://s?q=Vector_and_Stack_in_Java)** | ``List<String> ``list ``= ``new ``Vector<>();`` | Legacy synchronized list; ``Stack`` extends ``Vector``. |
+
+### Sorting, Searching and Synchronization
+
+| **Operation** | **Method / Utility** | **Description** |
+| --- | --- | --- |
+| **[Sorting](ca://s?q=Sorting_List_in_Java)** | ``list.sort(Comparator)`` | Sorts elements in place using a comparator. |
+|  | ``Collections.sort(list)`` | Legacy static method to sort a list. |
+|  | ``Collections.reverse(list)`` | Reverses the order of elements. |
+|  | ``list.replaceAll(UnaryOperator<E>)`` | Can be used to transform elements before/after sorting. |
+| **[Searching](ca://s?q=Searching_in_List_in_Java)** | ``list.contains(Object ``o)`` | Checks if element exists. |
+|  | ``list.indexOf(Object ``o)`` | Returns first index of element, or -1. |
+|  | ``list.lastIndexOf(Object ``o)`` | Returns last index of element, or -1. |
+|  | ``Collections.binarySearch(list, ``key)`` | Searches sorted list using binary search. |
+| **[Synchronization](ca://s?q=Synchronized_List_in_Java)** | ``Collections.synchronizedList(list)`` | Wraps a list to make it thread‑safe. |
+|  | ``CopyOnWriteArrayList`` | Thread‑safe alternative to ArrayList, good for concurrent reads. |
 
 ## ArrayList
 
