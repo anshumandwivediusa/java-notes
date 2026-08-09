@@ -239,6 +239,25 @@ public class MultiSortDemo {
 }
 ```
 
+_Synchronized_
+
+This ensures that all operations are synchronized, but iteration still requires manual synchronization:
+```java
+List<String> syncList = Collections.synchronizedList(new LinkedList<>());
+synchronized(syncList) {
+    for (String s : syncList) {
+        System.out.println(s);
+    }
+}
+```
+alternates
+| **Concurrent Collection** | **Description** |
+| --- | --- |
+| **CopyOnWriteArrayList** | Thread‑safe variant of ``ArrayList``. Best for frequent reads, infrequent writes. |
+| **ConcurrentLinkedQueue** | Non‑blocking, thread‑safe queue based on linked nodes. |
+| **ConcurrentLinkedDeque** | Thread‑safe double‑ended queue (similar to LinkedList but concurrent). |
+| **BlockingQueue (e.g., LinkedBlockingQueue)** | Thread‑safe queue with blocking operations (``put``, ``take``). |
+
 ## ArrayList
 
 | **Aspect** | **[Array](ca://s?q=Java_Array)** | **[ArrayList](ca://s?q=Java_ArrayList)** |
