@@ -14,7 +14,7 @@
 
 ### Core Methods
 | Method | Description |
-|--------|-------------|
+|--|-|
 | **`Iterator<T> iterator()`** | Returns an `Iterator` over elements of type `T`. |
 | **`default void forEach(Consumer<? super T> action)`** | Performs the given action for each element. |
 | **`default Spliterator<T> spliterator()`** | Creates a `Spliterator` for parallel iteration. |
@@ -90,7 +90,7 @@ public class IterableDemo {
 ## Collection Methods
 
 | **Category** | **Method** | **Description** |
-| --- | --- | --- |
+|  |  |  |
 | **CRUD (Modify)** | ``boolean ``add(E ``e)`` | Adds an element to the collection. |
 |  | ``boolean ``addAll(Collection<? ``extends ``E> ``c)`` | Adds all elements from another collection. |
 |  | ``boolean ``remove(Object ``o)`` | Removes a single instance of the specified element. |
@@ -112,7 +112,7 @@ public class IterableDemo {
 _List Methods with Functional Interfaces_
 
 | **Category** | **Method** | **Functional Interface** | **Description** | **Sample Usage** |
-| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
 | **[Modify](ca://s?q=List_replaceAll_in_Java)** | ``void ``replaceAll(UnaryOperator<E> ``operator)`` | **UnaryOperator<E>** | Transforms each element in place. | ``list.replaceAll(String::toUpperCase); ``// ``[A, ``B, ``C]`` |
 | **[Sort](ca://s?q=List_sort_in_Java)** | ``void ``sort(Comparator<? ``super ``E> ``c)`` | **Comparator<E>** | Sorts elements using natural or custom order. | ``list.sort(Comparator.naturalOrder()); ``// ``ascending``<br>``list.sort(Comparator.reverseOrder()); ``// ``descending`` |
 | **[Iteration](ca://s?q=List_forEach_in_Java)** | ``default ``void ``forEach(Consumer<? ``super ``E> ``action)`` | **Consumer<E>** | Performs an action for each element. | ``list.forEach(System.out::println);`` |
@@ -124,7 +124,7 @@ _List Methods with Functional Interfaces_
 Key implementations:
 
 | **Interface** | **Ordered?** | **Duplicates?** | **Null allowed?** | **Typical impl** | **Concepts / Usage Notes** |
-| --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |
 | **[List](ca://s?q=Java_List_interface)** | Yes (index-based) | Yes | Yes | ArrayList, LinkedList | Sequential collection, preserves insertion order. Best for random access (``ArrayList``) or frequent insert/delete (``LinkedList``). |
 | **[Set](ca://s?q=Java_Set_interface)** | No (HashSet), Yes (Linked/Tree) | No | 1 null (Hash/Linked), none in TreeSet | HashSet, TreeSet | Ensures uniqueness. HashSet is fastest, TreeSet keeps sorted order, LinkedHashSet preserves insertion order. |
 | **[Map](ca://s?q=Java_Map_interface)** | Depends (HashMap unordered, LinkedHashMap ordered, TreeMap sorted) | Keys unique, values can repeat | 1 null key (HashMap), multiple null values | HashMap, TreeMap | Key-value pairs. HashMap for speed, TreeMap for sorted keys, LinkedHashMap for predictable iteration order. |
@@ -143,7 +143,7 @@ Conceptually:
 
 ### List Methods 
 | **Method** | **Description** |
-| --- | --- |
+|  |  |
 | ``void ``add(int ``index, ``E ``element)``; ``list.add("a");`` | Inserts element at specified position. |
 | ``boolean ``addAll(int ``index, ``Collection<? ``extends ``E> ``c)`` | Inserts all elements at specified position. |
 | ``E ``get(int ``index)`` | Returns element at given position. |
@@ -157,7 +157,7 @@ Conceptually:
 
 ### Ways to create List
 | **Approach** | **Code Example** | **Notes** |
-| --- | --- | --- |
+|  |  |  |
 | **[Constructor](ca://s?q=Create_List_with_ArrayList_Constructor)** | ``List<String> ``list ``= ``new ``ArrayList<>();`` | Most common, mutable, dynamic size. |
 | **[Add/Replace/Query Elements](ca://s?q=Add_Elements_to_List)** | ``list.add("a"); ``list.add("b");`` ``list.add(0, "b");`` list.set(0, "c"); ``    | Standard way to populate. |
 | **[Arrays.asList](ca://s?q=Arrays_asList_in_Java)** | ``List<String> ``list ``= ``Arrays.asList("a","b","c");`` | Fixed‑size list backed by array (cannot add/remove). |
@@ -173,7 +173,7 @@ Conceptually:
 ### Sorting, Searching and Synchronization
 
 | **Operation** | **Method / Utility** | **Description** |
-| --- | --- | --- |
+|  |  |  |
 | **[Sorting](ca://s?q=Sorting_List_in_Java)** | ``list.sort(Comparator)`` | Sorts elements in place using a comparator. |
 |  | ``Collections.sort(list)`` | Legacy static method to sort a list. |
 |  | ``Collections.reverse(list)`` | Reverses the order of elements. |
@@ -261,7 +261,7 @@ synchronized(syncList) {
 ```
 alternates
 | **Concurrent Collection** | **Description** |
-| --- | --- |
+|  |  |
 | **CopyOnWriteArrayList** | Thread‑safe variant of ``ArrayList``. Best for frequent reads, infrequent writes. |
 | **ConcurrentLinkedQueue** | Non‑blocking, thread‑safe queue based on linked nodes. |
 | **ConcurrentLinkedDeque** | Thread‑safe double‑ended queue (similar to LinkedList but concurrent). |
@@ -270,7 +270,7 @@ alternates
 ## ArrayList: Think of it as a resizable array: great for indexing and traversal.
 
 | **Aspect** | **[Array](ca://s?q=Java_Array)** | **[ArrayList](ca://s?q=Java_ArrayList)** |
-| --- | --- | --- |
+|  |  |  |
 | **Size** | Fixed at creation, cannot grow/shrink | Dynamic, resizes automatically. The resizing strategy is not 50% — it actually grows by ~1.5x (50% increase) each time. Default 10, When full, new capacity = oldCapacity + (oldCapacity >> 1) → 15 |
 | **Type** | Can store primitives (``int[]``, ``char[]``) and objects | Can only store objects (``Integer``, ``String``, etc.) |
 | **Flexibility** | Limited — must know size in advance | Flexible — can add/remove elements anytime |
@@ -286,7 +286,7 @@ alternates
 
 _Ways to convert [] to ArrayList_
 | **Approach** | **Code Example** | **Notes** |
-| --- | --- | --- |
+|  |  |  |
 | **[Arrays.asList](ca://s?q=Arrays_asList_in_Java)** | ``String[] ``arr ``= ``{"a","b","c"}; ``List<String> ``list ``= ``Arrays.asList(arr);`` | Returns a fixed-size list backed by the array (cannot add/remove, but can update). |
 | **[ArrayList Constructor](ca://s?q=ArrayList_from_Array_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(Arrays.asList(arr));`` | Creates a mutable ``ArrayList`` copy — you can add/remove freely. |
 | **[Collections.addAll](ca://s?q=Collections_addAll_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(); ``Collections.addAll(list, ``arr);`` | Adds all array elements into a new ``ArrayList``. |
@@ -295,7 +295,7 @@ _Ways to convert [] to ArrayList_
 
 ## LinkedList: Think of it as a chain of nodes: great for frequent insertions/deletions.
 | **Aspect** | **[ArrayList](ca://s?q=ArrayList_in_Java)** | **[LinkedList](ca://s?q=LinkedList_in_Java)** |
-| --- | --- | --- |
+|  |  |  |
 | **Underlying Data Structure** | Dynamic array | Doubly linked list |
 | **Access (get/set)** | Fast random access (``O(1)``) | Slow random access (``O(n)``) |
 | **Insertion/Deletion (middle)** | Slow (``O(n)`` due to shifting) | Fast (``O(1)`` if node reference known) |
@@ -313,7 +313,7 @@ LinkedList can be used directly as a FIFO queue because it supports add/offer (e
 # Queue Interface
 
 | **Category** | **Method** | **Description** |
-| --- | --- | --- |
+|  |  |  |
 | **[Insertion](ca://s?q=Queue_offer_add_in_Java)** | ``add(E ``e)`` | Inserts element; throws exception if capacity restrictions prevent it. |
 |  | ``offer(E ``e)`` | Inserts element; returns ``false`` if capacity restrictions prevent it (preferred in queues). |
 | **[Removal](ca://s?q=Queue_poll_remove_in_Java)** | ``remove()`` | Removes and returns head; throws exception if empty. |
@@ -383,7 +383,7 @@ System.out.println(deque.removeLast());  // 3
 ### Comparison: ArrayDeque vs LinkedList
 
 | **Aspect** | **ArrayDeque** | **LinkedList** |
-|------------|----------------|----------------|
+||-|-|
 | Underlying Structure | Resizable array | Doubly linked list |
 | Performance | Faster (better cache locality) | Slower (pointer chasing) |
 | Nulls | Not allowed | Allowed |
@@ -394,3 +394,64 @@ System.out.println(deque.removeLast());  // 3
 ✅ In short:  
 - Use **ArrayDeque** when you need a **fast queue or stack**.  
 - Use **LinkedList** when you need frequent **insertions/deletions in the middle**.  
+
+# Set
+
+A Set is best used when you need to store a collection of elements with the guarantee that no duplicates will exist. It’s ideal for situations where uniqueness matters more than ordering or indexing.
+
+## When to Use a Set
+
+### Ensure Uniqueness
+- When you want to avoid duplicate entries automatically.  
+- Example: storing unique usernames, IDs, or email addresses.  
+```java
+Set<String> usernames = new HashSet<>();
+usernames.add("alice");
+usernames.add("bob");
+usernames.add("alice"); // ignored
+System.out.println(usernames); // [alice, bob]
+```
+
+### Fast Membership Checks
+- `Set.contains()` is optimized (O(1) average for `HashSet`).  
+- Example: checking if a word is in a dictionary.  
+```java
+Set<String> dictionary = new HashSet<>(List.of("cat", "dog", "bird"));
+System.out.println(dictionary.contains("dog")); // true
+```
+
+### Remove Duplicates from a Collection
+- Convert a list to a set to eliminate duplicates.  
+```java
+List<Integer> numbers = List.of(1, 2, 2, 3, 4, 4);
+Set<Integer> unique = new HashSet<>(numbers);
+System.out.println(unique); // [1, 2, 3, 4]
+```
+
+### Sorted or Ordered Collections
+- Use `TreeSet` when you need elements sorted.  
+- Use `LinkedHashSet` when you need to preserve insertion order.  
+```java
+Set<Integer> sorted = new TreeSet<>(List.of(5, 3, 1, 4));
+System.out.println(sorted); // [1, 3, 4, 5]
+```
+
+
+### Remove Duplicates from a List and convert it back to List
+List<Integer> numbers = List.of(1, 2, 2, 3, 4, 4);
+
+// Remove duplicates
+Set<Integer> unique = new HashSet<>(numbers);
+System.out.println(unique); // [1, 2, 3, 4]
+
+// Convert back to list
+List<Integer> list = new ArrayList<>(unique);
+System.out.println(list); // [1, 2, 3, 4]
+
+
+### Conceptual Sense
+- **HashSet** → fastest, unordered uniqueness.  
+- **LinkedHashSet** → uniqueness + insertion order.  
+- **TreeSet** → uniqueness + sorted order.  
+
+Use a **Set** when your main requirement is **uniqueness** and you don’t care about duplicates sneaking in. It’s perfect for IDs, tags, categories, dictionary words, or any collection where repetition is meaningless.  
