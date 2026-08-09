@@ -333,3 +333,64 @@ System.out.println(fifo.poll()); // 10 (first in, first out)
 System.out.println(fifo.poll()); // 20
 System.out.println(fifo.poll()); // 30
 ```
+
+## ArrayDeque
+
+The **ArrayDeque** is one of the most versatile and efficient implementations of the **Deque (double-ended queue)** interface in Java. It’s backed by a **resizable array**, making it faster than `LinkedList` for most queue and stack operations.
+
+### Key Features of ArrayDeque
+- **Dynamic resizing** → grows automatically when full.  
+- **No capacity limit** (except memory).  
+- **Faster than LinkedList** for stack/queue operations due to better cache locality.  
+- **Not thread-safe** → must be synchronized externally if used by multiple threads.  
+- **Cannot store `null` elements** (throws `NullPointerException`).  
+
+
+_As a Queue (FIFO)_
+```java
+Deque<String> queue = new ArrayDeque<>();
+queue.offer("A");   // enqueue
+queue.offer("B");
+queue.offer("C");
+
+System.out.println(queue.poll()); // A (first in, first out)
+System.out.println(queue.peek()); // B (next element)
+```
+
+_As a Stack (LIFO)_
+```java
+Deque<String> stack = new ArrayDeque<>();
+stack.push("A");   // push
+stack.push("B");
+stack.push("C");
+
+System.out.println(stack.pop());  // C (last in, first out)
+System.out.println(stack.peek()); // B (top element)
+```
+
+_Double-Ended Queue_
+```java
+Deque<Integer> deque = new ArrayDeque<>();
+deque.addFirst(1);  // front
+deque.addLast(2);   // back
+deque.addLast(3);
+
+System.out.println(deque.removeFirst()); // 1
+System.out.println(deque.removeLast());  // 3
+```
+
+
+### Comparison: ArrayDeque vs LinkedList
+
+| **Aspect** | **ArrayDeque** | **LinkedList** |
+|------------|----------------|----------------|
+| Underlying Structure | Resizable array | Doubly linked list |
+| Performance | Faster (better cache locality) | Slower (pointer chasing) |
+| Nulls | Not allowed | Allowed |
+| Memory Overhead | Lower | Higher (extra node pointers) |
+| Best Use | Queue/Stack operations | Frequent insertions/deletions in middle |
+
+
+✅ In short:  
+- Use **ArrayDeque** when you need a **fast queue or stack**.  
+- Use **LinkedList** when you need frequent **insertions/deletions in the middle**.  
