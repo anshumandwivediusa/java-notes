@@ -135,3 +135,17 @@ Key implementations:
 | ``ListIterator<E> ``listIterator()`` | Returns list iterator (bidirectional). |
 | ``ListIterator<E> ``listIterator(int ``index)`` | Returns list iterator starting at index. |
 | ``List<E> ``subList(int ``fromIndex, ``int ``toIndex)`` | Returns view of portion of list. |
+
+| **Approach** | **Code Example** | **Notes** |
+| --- | --- | --- |
+| **[Constructor](ca://s?q=Create_List_with_ArrayList_Constructor)** | ``List<String> ``list ``= ``new ``ArrayList<>();`` | Most common, mutable, dynamic size. |
+| **[Add/Replace Elements](ca://s?q=Add_Elements_to_List)** | ``list.add("a"); ``list.add("b");`` ``list.add(0, "b");`` list.set(0, "c"); ``    | Standard way to populate. |
+| **[Arrays.asList](ca://s?q=Arrays_asList_in_Java)** | ``List<String> ``list ``= ``Arrays.asList("a","b","c");`` | Fixed‑size list backed by array (cannot add/remove). |
+| **[Collections.singletonList](ca://s?q=Collections_singletonList_in_Java)** | ``List<String> ``list ``= ``Collections.singletonList("a");`` | Immutable list with one element. |
+| **[List.of (Java 9+)](ca://s?q=List_of_in_Java)** | ``List<String> ``list ``= ``List.of("x","y","z");`` | Immutable, concise factory method. |
+| **[List.copyOf (Java 10+)](ca://s?q=List_copyOf_in_Java)** | ``List<String> ``copy ``= ``List.copyOf(list);`` | Immutable copy of another list. |
+| **[Stream Collectors](ca://s?q=Stream_toList_in_Java)** | ``List<String> ``list ``= ``Stream.of("a","b").collect(Collectors.toList());`` | Useful when working with streams. |
+| **[Empty List](ca://s?q=Collections_emptyList_in_Java)** | ``List<String> ``list ``= ``Collections.emptyList();`` | Immutable empty list. |
+| **[Pre‑Sized ArrayList](ca://s?q=Pre_sized_ArrayList_in_Java)** | ``List<String> ``list ``= ``new ``ArrayList<>(100);`` | Mutable list with initial capacity. |
+| **[LinkedList](ca://s?q=LinkedList_in_Java)** | ``List<String> ``list ``= ``new ``LinkedList<>();`` | Doubly linked list, good for frequent insert/delete. |
+| **[Vector/Stack](ca://s?q=Vector_and_Stack_in_Java)** | ``List<String> ``list ``= ``new ``Vector<>();`` | Legacy synchronized list; ``Stack`` extends ``Vector``. |
