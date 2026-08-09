@@ -204,6 +204,41 @@ people.add(new Person("Charlie", 30));
 people.sort(Comparator.comparingInt(Person::getAge)); // sort by age
 ```
 
+
+
+```java
+import java.util.*;
+
+class Person {
+    String name;
+    int age;
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public int getAge() { return age; }
+    public String getName() { return name; }
+}
+
+public class MultiSortDemo {
+    public static void main(String[] args) {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Alice", 25));
+        people.add(new Person("Bob", 20));
+        people.add(new Person("Charlie", 30));
+        people.add(new Person("Alex", 25));
+
+        // Sort by age, then by name
+        people.sort(
+            Comparator.comparingInt(Person::getAge)
+                      .thenComparing(Person::getName)
+        );
+
+        people.forEach(p -> System.out.println(p.name + " - " + p.age));
+    }
+}
+```
+
 ## ArrayList
 
 | **Aspect** | **[Array](ca://s?q=Java_Array)** | **[ArrayList](ca://s?q=Java_ArrayList)** |
