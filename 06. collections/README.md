@@ -438,6 +438,7 @@ System.out.println(sorted); // [1, 3, 4, 5]
 
 
 ### Remove Duplicates from a List and convert it back to List
+```java
 List<Integer> numbers = List.of(1, 2, 2, 3, 4, 4);
 
 // Remove duplicates
@@ -447,7 +448,7 @@ System.out.println(unique); // [1, 2, 3, 4]
 // Convert back to list
 List<Integer> list = new ArrayList<>(unique);
 System.out.println(list); // [1, 2, 3, 4]
-
+```
 
 ### Conceptual Sense
 - **HashSet** → fastest, unordered uniqueness.  
