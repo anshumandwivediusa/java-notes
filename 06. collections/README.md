@@ -450,3 +450,72 @@ System.out.println(list); // [1, 2, 3, 4]
 - **TreeSet** → uniqueness + sorted order.  
 
 Use a **Set** when your main requirement is **uniqueness** and you don’t care about duplicates sneaking in. It’s perfect for IDs, tags, categories, dictionary words, or any collection where repetition is meaningless.  
+
+# Map
+
+The **Map** interface in Java represents a collection of **key–value pairs** where each key maps to exactly one value. Unlike `List` or `Set`, a `Map` is not a subtype of `Collection` — it’s its own hierarchy.
+
+## Key Features of Map
+- Stores data as **key → value** pairs.  
+- Keys are **unique**; values can be duplicated.  
+- A key can map to only one value (latest put overwrites).  
+- Allows fast lookups by key.  
+
+## Common Implementations
+
+| **Implementation** | **Ordering** | **Performance** | **Notes** |
+|---------------------|--------------|-----------------|-----------|
+| **HashMap** | No order | O(1) average for get/put | Most commonly used |
+| **LinkedHashMap** | Maintains insertion order | Slightly slower | Useful when order matters |
+| **TreeMap** | Sorted by keys | O(log n) operations | Backed by Red‑Black tree |
+| **Hashtable** | No order | Legacy, synchronized | Rarely used now |
+
+## Common Methods of Map
+- `put(K key, V value)` → adds or updates a mapping.  
+- `get(Object key)` → retrieves value for a key.  
+- `remove(Object key)` → removes mapping.  
+- `containsKey(Object key)` → checks if key exists.  
+- `containsValue(Object value)` → checks if value exists.  
+- `size()` → number of mappings.  
+- `isEmpty()` → checks if empty.  
+- `clear()` → removes all mappings.  
+- `keySet()` → returns all keys.  
+- `values()` → returns all values.  
+- `entrySet()` → returns all key–value pairs.  
+
+## Sample Usage
+
+```java
+import java.util.*;
+
+public class MapDemo {
+    public static void main(String[] args) {
+        Map<String, Integer> scores = new HashMap<>();
+
+        // Add mappings
+        scores.put("Alice", 90);
+        scores.put("Bob", 85);
+        scores.put("Charlie", 92);
+
+        // Retrieve
+        System.out.println(scores.get("Alice")); // 90
+
+        // Check existence
+        System.out.println(scores.containsKey("Bob")); // true
+
+        // Iterate
+        for (Map.Entry<String, Integer> entry : scores.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+    }
+}
+```
+
+## Conceptual Sense
+- **Map** → dictionary or phonebook analogy: key = name, value = number.  
+- **HashMap** → fastest, unordered.  
+- **LinkedHashMap** → preserves insertion order.  
+- **TreeMap** → keeps keys sorted.  
+
+✅ In short:  
+Use a **Map** when you need **fast lookups by key** and want to associate values with unique identifiers.  
