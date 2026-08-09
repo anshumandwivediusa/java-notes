@@ -262,7 +262,7 @@ alternates
 
 | **Aspect** | **[Array](ca://s?q=Java_Array)** | **[ArrayList](ca://s?q=Java_ArrayList)** |
 | --- | --- | --- |
-| **Size** | Fixed at creation, cannot grow/shrink | Dynamic, resizes automatically |
+| **Size** | Fixed at creation, cannot grow/shrink | Dynamic, resizes automatically. The resizing strategy is not 50% — it actually grows by ~1.5x (50% increase) each time. Default 10, When full, new capacity = oldCapacity + (oldCapacity >> 1) → 15 |
 | **Type** | Can store primitives (``int[]``, ``char[]``) and objects | Can only store objects (``Integer``, ``String``, etc.) |
 | **Flexibility** | Limited — must know size in advance | Flexible — can add/remove elements anytime |
 | **Performance** | Faster for direct indexed access | Slight overhead due to resizing and wrappers |
