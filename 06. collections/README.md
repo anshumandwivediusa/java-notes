@@ -139,7 +139,7 @@ Key implementations:
 | **Approach** | **Code Example** | **Notes** |
 | --- | --- | --- |
 | **[Constructor](ca://s?q=Create_List_with_ArrayList_Constructor)** | ``List<String> ``list ``= ``new ``ArrayList<>();`` | Most common, mutable, dynamic size. |
-| **[Add/Replace Elements](ca://s?q=Add_Elements_to_List)** | ``list.add("a"); ``list.add("b");`` ``list.add(0, "b");`` list.set(0, "c"); ``    | Standard way to populate. |
+| **[Add/Replace/Query Elements](ca://s?q=Add_Elements_to_List)** | ``list.add("a"); ``list.add("b");`` ``list.add(0, "b");`` list.set(0, "c"); ``    | Standard way to populate. |
 | **[Arrays.asList](ca://s?q=Arrays_asList_in_Java)** | ``List<String> ``list ``= ``Arrays.asList("a","b","c");`` | Fixed‑size list backed by array (cannot add/remove). |
 | **[Collections.singletonList](ca://s?q=Collections_singletonList_in_Java)** | ``List<String> ``list ``= ``Collections.singletonList("a");`` | Immutable list with one element. |
 | **[List.of (Java 9+)](ca://s?q=List_of_in_Java)** | ``List<String> ``list ``= ``List.of("x","y","z");`` | Immutable, concise factory method. |
