@@ -129,3 +129,88 @@ public class ExecutorDemo {
 
 ✅ In short:  
 Use **ExecutorService** when you want to **run tasks asynchronously** without worrying about thread creation, scheduling, or cleanup. It’s the go-to tool for scalable multithreaded applications.  
+
+## Future & Callable
+
+**Future** and **Callable** are two key pieces of the `java.util.concurrent` framework that work hand‑in‑hand to handle asynchronous tasks and their results.
+
+
+
+### Callable
+- Similar to `Runnable`, but **returns a result** and can throw exceptions.  
+- Defined as:
+```java
+public interface Callable<V> {
+    V call() throws Exception;
+}
+```
+- Used when you want a task to **produce a value**.  
+- Example:
+```java
+Callable<Integer> task = () -> {
+    Thread.sleep(1000);
+    return 42;
+};
+```
+
+
+
+### Future
+- Represents the **result of an asynchronous computation**.  
+- Returned when you submit a `Callable` (or `Runnable`) to an `ExecutorService`.  
+- Provides methods to check status, wait for completion, and retrieve the result.  
+
+### Common Methods:
+- `get()` → waits until task completes, returns result.  
+- `get(timeout, unit)` → waits up to given time.  
+- `isDone()` → checks if task finished.  
+- `cancel(boolean mayInterrupt)` → attempts to cancel task.  
+- `isCancelled()` → checks if task was cancelled.  
+
+
+
+Example: Callable + Future
+
+```java
+import java.util.concurrent.*;
+
+public class FutureCallableDemo {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        Callable<Integer> task = () -> {
+            Thread.sleep(1000);
+            return 42;
+        };
+
+        Future<Integer> future = executor.submit(task);
+
+        System.out.println("Task submitted...");
+
+        // Wait for result
+        Integer result = future.get(); 
+        System.out.println("Result: " + result);
+
+        executor.shutdown();
+    }
+}
+```
+
+### Output:
+```
+Task submitted...
+Result: 42
+```
+
+
+
+### Conceptual Sense
+- **Callable** → defines the work (like a worker who promises to deliver something).  
+- **Future** → represents the promise of that result (like a receipt you hold until the worker finishes).  
+- Together, they let you **submit tasks asynchronously and retrieve results later** without blocking the main thread unnecessarily.  
+
+
+
+✅ In short:  
+- Use **Callable** when you need a task to **return a value**.  
+- Use **Future** to **track and retrieve that value** once the task completes.  
