@@ -299,3 +299,4 @@ _Ways to convert [] to ArrayList_
 | **Concurrent Alternatives** | ``CopyOnWriteArrayList`` | ``ConcurrentLinkedDeque``, ``LinkedBlockingQueue`` |
 | **Best Use Case** | Frequent random access, fewer insertions/deletions in middle | Frequent insertions/deletions, especially at ends |
 
+# Queue Interface
