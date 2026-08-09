@@ -629,3 +629,17 @@ public class TreeMapDemo {
 ✅ In short:  
 Use a **TreeMap** when you need a **sorted map** or want to perform **range queries** efficiently.  
 
+HashMap to TreeMap
+```java
+Map<String, Integer> hashMap = new HashMap<>();
+hashMap.put("Charlie", 92);
+hashMap.put("Alice", 90);
+hashMap.put("Bob", 85);
+
+// Sort keys in reverse order
+Map<String, Integer> treeMap = new TreeMap<>(Comparator.reverseOrder());
+treeMap.putAll(hashMap);
+
+System.out.println(treeMap); 
+// {Charlie=92, Bob=85, Alice=90}
+```
