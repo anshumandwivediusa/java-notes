@@ -45,6 +45,17 @@ public class IterableDemo {
 
 ## Iterator
 
+ - Interface in java.util.
+ - Provides methods to traverse elements:
+   ```java
+   boolean hasNext();
+   T next();
+   void remove(); // optional
+   ```
+ - Used to step through elements one by one.
+ - More control than for‑each loop (e.g., can remove elements during iteration).
+ - Think of Iterator as the mechanism that actually performs the iteration.
+
 ## SplitIterator
 
 ```java
