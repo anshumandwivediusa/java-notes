@@ -563,3 +563,69 @@ Think of a **Map.Entry** like a **row in a table**:
 ✅ In short:  
 `Map.Entry` is the **conceptual representation of one mapping** inside a map. It’s the way Java lets you work with both the key and the value together, rather than separately.  
 
+## TreeMap
+
+The **TreeMap** is a `Map` implementation in Java that stores key–value pairs in **sorted order**. It’s backed by a **Red‑Black tree**, which guarantees log‑time performance for basic operations.
+
+
+
+### Key Features of TreeMap
+- **Sorted by keys** (natural order or custom `Comparator`).  
+- **Unique keys** (like all maps).  
+- **NavigableMap** implementation → supports navigation methods like `higherKey`, `lowerKey`, `ceilingEntry`, etc.  
+- **Logarithmic performance** → O(log n) for `put`, `get`, `remove`.  
+- **Null keys not allowed** (throws `NullPointerException`), but null values are permitted.  
+
+
+
+### Common Methods
+
+| **Method** | **Description** |
+|------------|-----------------|
+| **put** | Adds or updates a key–value pair. |
+| **get** | Retrieves value by key. |
+| **remove** | Removes mapping for a key. |
+| **firstKey** | Returns the lowest key. |
+| **lastKey** | Returns the highest key. |
+| **higherKey** | Returns the least key strictly greater than given key. |
+| **lowerKey** | Returns the greatest key strictly less than given key. |
+| **ceilingEntry** | Returns entry ≥ given key. |
+| **floorEntry** | Returns entry ≤ given key. |
+
+
+
+### Example Usage
+
+```java
+import java.util.*;
+
+public class TreeMapDemo {
+    public static void main(String[] args) {
+        TreeMap<String, Integer> scores = new TreeMap<>();
+
+        scores.put("Charlie", 92);
+        scores.put("Alice", 90);
+        scores.put("Bob", 85);
+
+        System.out.println(scores); 
+        // {Alice=90, Bob=85, Charlie=92} (sorted by keys)
+
+        System.out.println(scores.firstKey());   // Alice
+        System.out.println(scores.lastKey());    // Charlie
+        System.out.println(scores.higherKey("Alice")); // Bob
+    }
+}
+```
+
+
+
+### Conceptual Sense
+- Think of **TreeMap** as a **dictionary that is always sorted by keys**.  
+- Perfect when you need **range queries**, ordered traversal, or nearest‑key lookups.  
+- Unlike `HashMap` (fast but unordered), `TreeMap` trades a bit of speed for **ordering guarantees**.  
+
+
+
+✅ In short:  
+Use a **TreeMap** when you need a **sorted map** or want to perform **range queries** efficiently.  
+
