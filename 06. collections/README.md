@@ -451,6 +451,68 @@ System.out.println(list); // [1, 2, 3, 4]
 
 Use a **Set** when your main requirement is **uniqueness** and you don’t care about duplicates sneaking in. It’s perfect for IDs, tags, categories, dictionary words, or any collection where repetition is meaningless.  
 
+# How Hash is Calculated
+
+## ### Step 1: hashCode()
+- Every Java object inherits a `hashCode()` method from `Object`.  
+- Classes like `String`, `Integer`, etc. override it to produce a meaningful integer.  
+- Example:  
+  ```java
+  String s = "Alice";
+  int hash = s.hashCode(); // returns an int
+  ```
+
+
+
+### Step 2: HashMap Processing
+- HashMap doesn’t use the raw `hashCode()` directly.  
+- It applies a **hash function** to spread values more evenly across buckets.  
+- In Java 8+, this is done by mixing the high and low bits of the hash:  
+  ```java
+  static final int hash(Object key) {
+      int h;
+      return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+  }
+  ```
+- This reduces collisions by ensuring better distribution.
+
+
+
+### Step 3: Index Calculation
+- Once the hash is computed, HashMap decides which **bucket (array index)** to use:  
+  ```java
+  index = (n - 1) & hash;
+  ```
+  where `n` = number of buckets (capacity).  
+- This is a fast way of doing `hash % n` using bitwise operations.
+
+
+
+### 📘 Example Walkthrough
+```java
+Map<String, Integer> map = new HashMap<>();
+map.put("Alice", 90);
+```
+
+1. `"Alice".hashCode()` → returns some integer (say 63281940).  
+2. HashMap mixes bits → `(h ^ (h >>> 16))`.  
+3. Index = `(capacity - 1) & hash`.  
+   If capacity = 16, index = 4 → so `"Alice"` goes into bucket 4.  
+
+
+
+### Conceptual Sense
+- **hashCode()** → raw number from the object.  
+- **Hash function** → improves distribution.  
+- **Index calculation** → decides which bucket in the array to store the entry.  
+- That’s how HashMap achieves **O(1) average lookup time**.  
+
+
+
+✅ In short:  
+Java calculates a hash by calling `hashCode()`, mixing bits for better distribution, and then mapping it to a bucket index using bitwise operations.  
+
+
 # Map
 
 The **Map** interface in Java represents a collection of **key–value pairs** where each key maps to exactly one value. Unlike `List` or `Set`, a `Map` is not a subtype of `Collection` — it’s its own hierarchy.
