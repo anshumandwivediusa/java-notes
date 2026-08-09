@@ -109,6 +109,19 @@ public class IterableDemo {
 | **Identity (Object)** | ``boolean ``equals(Object ``o)`` | Compares this collection with another for equality. |
 |  | ``int ``hashCode()`` | Returns hash code for the collection. |
 
+
+## Set, Queue, List (SQL)
+
+Key implementations:
+
+| **Interface** | **Ordered?** | **Duplicates?** | **Null allowed?** | **Typical impl** | **Concepts / Usage Notes** |
+| --- | --- | --- | --- | --- | --- |
+| **[List](ca://s?q=Java_List_interface)** | Yes (index-based) | Yes | Yes | ArrayList, LinkedList | Sequential collection, preserves insertion order. Best for random access (``ArrayList``) or frequent insert/delete (``LinkedList``). |
+| **[Set](ca://s?q=Java_Set_interface)** | No (HashSet), Yes (Linked/Tree) | No | 1 null (Hash/Linked), none in TreeSet | HashSet, TreeSet | Ensures uniqueness. HashSet is fastest, TreeSet keeps sorted order, LinkedHashSet preserves insertion order. |
+| **[Map](ca://s?q=Java_Map_interface)** | Depends (HashMap unordered, LinkedHashMap ordered, TreeMap sorted) | Keys unique, values can repeat | 1 null key (HashMap), multiple null values | HashMap, TreeMap | Key-value pairs. HashMap for speed, TreeMap for sorted keys, LinkedHashMap for predictable iteration order. |
+| **[Queue/Deque](ca://s?q=Java_Queue_interface)** | FIFO (Queue), LIFO possible with Deque | Yes | Depends on impl | ArrayDeque, PriorityQueue | Queue for task scheduling (FIFO), PriorityQueue for ordering by comparator, Deque for double-ended operations (stack/queue hybrid). |
+
+
 # List Interface
 | **Method** | **Description** |
 | --- | --- |
