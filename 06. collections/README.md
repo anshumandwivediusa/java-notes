@@ -300,3 +300,14 @@ _Ways to convert [] to ArrayList_
 | **Best Use Case** | Frequent random access, fewer insertions/deletions in middle | Frequent insertions/deletions, especially at ends |
 
 # Queue Interface
+
+| **Category** | **Method** | **Description** |
+| --- | --- | --- |
+| **[Insertion](ca://s?q=Queue_offer_add_in_Java)** | ``add(E ``e)`` | Inserts element; throws exception if capacity restrictions prevent it. |
+|  | ``offer(E ``e)`` | Inserts element; returns ``false`` if capacity restrictions prevent it (preferred in queues). |
+| **[Removal](ca://s?q=Queue_poll_remove_in_Java)** | ``remove()`` | Removes and returns head; throws exception if empty. |
+|  | ``poll()`` | Removes and returns head; returns ``null`` if empty. |
+| **[Examination](ca://s?q=Queue_peek_element_in_Java)** | ``element()`` | Retrieves head without removing; throws exception if empty. |
+|  | ``peek()`` | Retrieves head without removing; returns ``null`` if empty. |
+
+ The difference between add/remove/element vs offer/poll/peek is exception vs safe return:
