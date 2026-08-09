@@ -47,37 +47,44 @@ public class IterableDemo {
 
  - Interface in java.util.
  - Provides methods to traverse elements:
+ - Used to step through elements one by one.
+ - More control than for‑each loop (e.g., can remove elements during iteration).
+ - Think of Iterator as the mechanism that actually performs the iteration.
+
    ```java
    boolean hasNext();
    T next();
    void remove(); // optional
    ```
- - Used to step through elements one by one.
- - More control than for‑each loop (e.g., can remove elements during iteration).
- - Think of Iterator as the mechanism that actually performs the iteration.
+
 
 ## SplitIterator
 
-```java
-import java.util.*;
+ - Spliterator = Split + Iterator.
+ - Interface in java.util.
+ - Designed for parallel iteration and Streams API.
+ - Can traverse elements sequentially or split them into parts for parallel processing.
+ 
+ ```java
+ import java.util.*;
+ 
+ public class IterableDemo {
+     public static void main(String[] args) {
+         List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+ 
+         // Using Spliterator
+         Spliterator<String> spliterator = names.spliterator();
 
-public class IterableDemo {
-    public static void main(String[] args) {
-        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+         // Process elements one by one
+         spliterator.forEachRemaining(System.out::println);
+ 
+         // Or split for parallel processing
+         Spliterator<String> split = spliterator.trySplit();
+         if (split != null) {
+             split.forEachRemaining(System.out::println);
+         }
+     }
+ }
+ ```
 
-        // Using Spliterator
-        Spliterator<String> spliterator = names.spliterator();
 
-        // Process elements one by one
-        spliterator.forEachRemaining(System.out::println);
-
-        // Or split for parallel processing
-        Spliterator<String> split = spliterator.trySplit();
-        if (split != null) {
-            split.forEachRemaining(System.out::println);
-        }
-    }
-}
-```
-
-Would you like me to also show a **comparison table of `Iterable` vs `Iterator` vs `Collection`** so you can quickly recall their differences?
