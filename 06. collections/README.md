@@ -176,6 +176,34 @@ Conceptually:
 | **[Synchronization](ca://s?q=Synchronized_List_in_Java)** | ``Collections.synchronizedList(list)`` | Wraps a list to make it thread‑safe. |
 |  | ``CopyOnWriteArrayList`` | Thread‑safe alternative to ArrayList, good for concurrent reads. |
 
+_Natural Order_
+```java
+List<String> names = new ArrayList<>(List.of("Charlie", "Alice", "Bob"));
+names.sort(Comparator.naturalOrder());   // [Alice, Bob, Charlie]
+```
+
+_Reverse Order_
+```java
+names.sort(Comparator.reverseOrder());   // [Charlie, Bob, Alice]
+```
+
+_Custom Comparator_
+```java 
+class Person {
+    String name;
+    int age;
+    Person(String name, int age) { this.name = name; this.age = age; }
+    public int getAge() { return age; }
+}
+
+List<Person> people = new ArrayList<>();
+people.add(new Person("Alice", 25));
+people.add(new Person("Bob", 20));
+people.add(new Person("Charlie", 30));
+
+people.sort(Comparator.comparingInt(Person::getAge)); // sort by age
+```
+
 ## ArrayList
 
 | **Aspect** | **[Array](ca://s?q=Java_Array)** | **[ArrayList](ca://s?q=Java_ArrayList)** |
