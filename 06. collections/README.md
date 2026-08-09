@@ -501,6 +501,11 @@ map.put("Alice", 90);
 
 
 
+Each key is mapped to one bucket index. That bucket is where the entry (key + value) is stored.
+
+
+
+
 ### Conceptual Sense
 - **hashCode()** → raw number from the object.  
 - **Hash function** → improves distribution.  
