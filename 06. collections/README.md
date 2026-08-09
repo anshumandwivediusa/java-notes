@@ -453,7 +453,7 @@ Use a **Set** when your main requirement is **uniqueness** and you don’t care 
 
 # How Hash is Calculated
 
-## ### Step 1: hashCode()
+### Step 1: hashCode()
 - Every Java object inherits a `hashCode()` method from `Object`.  
 - Classes like `String`, `Integer`, etc. override it to produce a meaningful integer.  
 - Example:  
