@@ -4,9 +4,8 @@
   <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/6c8c78dd-e5a1-4cd4-8475-e62d343dd0cc" />
 </p>
 
-## Iterable & Iterator 
+## 1. Iterable
 
-### Iterable
 - Root interface of the collection traversal mechanism
 - Provide mechanism for `for-each` loop, `Iterator` and `Spliitrator`.
 - Declared in `java.lang` package.  
@@ -44,24 +43,30 @@ public class IterableDemo {
 }
 ```
 
+## Iterator
 
-## ### Relationship with Iterator
-- **Iterable** → provides `iterator()` method.  
-- **Iterator** → provides traversal methods (`hasNext()`, `next()`, `remove()`).  
-- Iterable is the **source**, Iterator is the **mechanism**.
+## SplitIterator
 
+```java
+import java.util.*;
 
-## ### Common Implementations
-- All major collection classes implement `Iterable`:  
-  - **List** (`ArrayList`, `LinkedList`)  
-  - **Set** (`HashSet`, `TreeSet`)  
-  - **Queue** (`PriorityQueue`, `ArrayDeque`)  
+public class IterableDemo {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
 
+        // Using Spliterator
+        Spliterator<String> spliterator = names.spliterator();
 
-## ### Best Practices
-- Prefer **for-each loop** for readability.  
-- Use `forEach` with **lambda expressions** for concise code.  
-- For parallel processing, use `spliterator()` with streams.  
+        // Process elements one by one
+        spliterator.forEachRemaining(System.out::println);
 
+        // Or split for parallel processing
+        Spliterator<String> split = spliterator.trySplit();
+        if (split != null) {
+            split.forEachRemaining(System.out::println);
+        }
+    }
+}
+```
 
 Would you like me to also show a **comparison table of `Iterable` vs `Iterator` vs `Collection`** so you can quickly recall their differences?
