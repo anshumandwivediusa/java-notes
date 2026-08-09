@@ -109,6 +109,15 @@ public class IterableDemo {
 | **Identity (Object)** | ``boolean ``equals(Object ``o)`` | Compares this collection with another for equality. |
 |  | ``int ``hashCode()`` | Returns hash code for the collection. |
 
+_List Methods with Functional Interfaces_
+
+| **Category** | **Method** | **Functional Interface** | **Description** | **Sample Usage** |
+| --- | --- | --- | --- | --- |
+| **[Modify](ca://s?q=List_replaceAll_in_Java)** | ``void ``replaceAll(UnaryOperator<E> ``operator)`` | **UnaryOperator<E>** | Transforms each element in place. | ``list.replaceAll(String::toUpperCase); ``// ``[A, ``B, ``C]`` |
+| **[Sort](ca://s?q=List_sort_in_Java)** | ``void ``sort(Comparator<? ``super ``E> ``c)`` | **Comparator<E>** | Sorts elements using natural or custom order. | ``list.sort(Comparator.naturalOrder()); ``// ``ascending``<br>``list.sort(Comparator.reverseOrder()); ``// ``descending`` |
+| **[Iteration](ca://s?q=List_forEach_in_Java)** | ``default ``void ``forEach(Consumer<? ``super ``E> ``action)`` | **Consumer<E>** | Performs an action for each element. | ``list.forEach(System.out::println);`` |
+| **[Filtering](ca://s?q=List_removeIf_in_Java)** | ``default ``boolean ``removeIf(Predicate<? ``super ``E> ``filter)`` | **Predicate<E>** | Removes elements that match a condition. | ``list.removeIf(s ``-> ``s.isEmpty());`` |
+| **[Splitting](ca://s?q=List_spliterator_in_Java)** | ``default ``Spliterator<E> ``spliterator()`` | **Spliterator<E>** | Supports parallel iteration. | ``list.spliterator().forEachRemaining(System.out::println);`` |
 
 ## Set, Queue, List (SQL)
 
