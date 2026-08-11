@@ -460,7 +460,7 @@ public class CompositionDemo {
 | --- | --- |
 | Can have **abstract and non‑abstract methods**. | Can have **only abstract methods**. Since Java 8, can also have **default & static methods**. |
 | **Does not support multiple inheritance**. | **Supports multiple inheritance**. |
-| Can have **final, non‑final, static, and non‑static variables**. | Has **only static and final variables**. |
+| Can have **final, non‑final, static, and non‑static variables**. | Has **only static (no object creation needed) and final (immutable) variables**. |
 | Can provide the **implementation of an interface**. | Cannot provide the **implementation of an abstract class**. |
 | Declared using the ``abstract``** keyword**. | Declared using the ``interface``** keyword**. |
 | Example: <br> ``java ``public ``abstract ``class ``Shape ``{ ``public ``abstract ``void ``draw(); ``}`` | Example: <br> ``java ``public ``interface ``Drawable ``{ ``void ``draw(); ``}`` |
