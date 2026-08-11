@@ -194,7 +194,7 @@ public void readFile(String path) throws IOException {
 ```
 
 
-# 📘 Conceptual Sense
+### Conceptual Sense
 - **`throw`** → *I’m raising an error now.*  
 - **`try–catch`** → *I’ll handle the error here.*  
 - **`throws`** → *I might throw an error, caller must handle it.*  
