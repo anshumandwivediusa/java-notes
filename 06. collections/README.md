@@ -514,9 +514,16 @@ Each key is mapped to one bucket index. That bucket is where the entry (key + va
 
 
 
-✅ In short:  
+## hashCode() and equals for Collections
 Java calculates a hash by calling `hashCode()`, mixing bits for better distribution, and then mapping it to a bucket index using bitwise operations.  
 
+Think of it like this: when you compare two employees, equals() is the rule that says “Do these two employees have the same identity based on their fields?”. But in collections like HashSet or HashMap, equality alone isn’t enough. These collections first use hashCode() to decide which “bucket” or slot an object belongs to. Only if two employees land in the same bucket will the collection then call equals() to check if they are truly the same. That’s why overriding hashCode() consistently with equals() is critical — it ensures that logically equal employees are placed in the same bucket, so the collection can recognize them as duplicates or the same key. Without a proper hashCode(), two equal employees might end up in different buckets and never get compared, leading to wrong behavior.
+
+👉 Easy way to remember:
+
+equals() → defines logical sameness.
+
+hashCode() → makes sure equal objects meet in the same bucket so collections can apply that sameness.
 
 # Map
 
