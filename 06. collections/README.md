@@ -504,7 +504,73 @@ map.put("Alice", 90);
 Each key is mapped to one bucket index. That bucket is where the entry (key + value) is stored.
 
 
+#### Key Points Summarized
 
+- **equals() vs hashCode()**  
+  - `equals()` defines *logical equality* (e.g., two employees are the same if they share the same `id`).  
+  - `hashCode()` ensures equal objects land in the *same bucket* so collections can recognize them as equal.
+
+- **Role in Collections**  
+  - In **HashSet**, hashing prevents duplicates by placing equal objects in the same bucket.  
+  - In **HashMap**, hashing ensures keys map to the same bucket so values can be replaced or retrieved correctly.  
+  - Lookup is efficient because collections jump directly to the bucket using `hashCode()` instead of scanning all elements.
+
+- **Bucket Selection**  
+  - The system calculates `bucketIndex = hashCode % numberOfBuckets`.  
+  - Example: `Employee(101,"Alice") → hashCode of key(101)=123456 → 123456 % 16 = 8 → bucket 8`.  
+  - Then `equals()` checks inside bucket 8 to find the exact match.
+
+- **Why Override hashCode**  
+  - If you override `equals()` but not `hashCode()`, equal objects may hash differently → stored in different buckets → duplicates sneak in.  
+  - Correct practice: always override both, using the same fields.
+
+- **Using in Collections**  
+  - With proper overrides, `Employee` can be safely used in `HashSet` (no duplicates) and `HashMap` (keys behave correctly).  
+  - Example: two `Employee(101,"Alice")` objects → treated as equal → only one entry in `HashSet`, or one key in `HashMap`.
+
+- **Scenario to Override**  
+  - Whenever your class defines logical equality (`equals()`), and you plan to use it in hash-based collections.  
+  - Needed for custom keys in `HashMap`, preventing duplicates in `HashSet`, and ensuring consistent behavior in any hash-based structure.
+
+# 📘 Easy Conceptual Analogy
+- **hashCode()** → “Which drawer should I look in?”  
+- **equals()** → “Is this the exact file I want?”  
+- Together → Collections can store, find, and prevent duplicates efficiently.
+
+✅ In short:  
+Hashing makes collections fast by jumping directly to the right bucket. Overriding `hashCode()` ensures that logically equal objects end up in the same bucket, so `equals()` can confirm equality. Without it, collections may fail to recognize duplicates or treat equal keys as different.  
+
+```java
+import java.util.*;
+
+class Employee {
+    int id;
+    String name;
+
+    Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee other = (Employee) o;
+        return this.id == other.id; // equality based on id
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id); // consistent with equals
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{id=" + id + ", name='" + name + "'}";
+    }
+}
+```
 
 ### Conceptual Sense
 - **hashCode()** → raw number from the object.  
