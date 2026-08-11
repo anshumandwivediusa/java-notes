@@ -633,7 +633,7 @@ class Student {
 
     @Override
     public int hashCode() {
-        return name.hashCode(); // consistent with equals
+        return name.hashCode(); // consistent with equals Objects.hash(name)
     }
 }
 
