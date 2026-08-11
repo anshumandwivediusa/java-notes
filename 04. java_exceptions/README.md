@@ -16,6 +16,10 @@
   <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/c74105a8-4ad1-4ada-a20a-0cc4960a35b9" />
 </p>
 
+- **Unchecked exceptions are usually programming errors → fix the code logic instead of catching them everywhere.**
+
+- **Checked exceptions represent recoverable conditions → must be handled explicitly.**
+
 ## 3. **Keywords**
 - **try** → Block of code to monitor for exceptions.  
 - **catch** → Handles the exception.  
