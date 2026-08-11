@@ -144,6 +144,69 @@ try {
 
 
 
+## 8. Error Propogation resposibility principal
+
+### Using `throw`
+- **Purpose**: Actively signal an exceptional condition from within a method.  
+- **Scenario**:
+  - Input validation (e.g., division by zero).  
+  - Business rule violation (e.g., `CartEmptyException`).  
+  - Custom exceptions for domain logic.  
+- **Example**:
+```java
+if (b == 0) {
+    throw new ArithmeticException("Division by zero");
+}
+```
+👉 Use when the method detects an error it cannot handle locally.
+
+
+
+### Using `try–catch`
+- **Purpose**: Handle exceptions locally, recover, or log.  
+- **Scenario**:
+  - Boundary layers (UI, controllers, API endpoints).  
+  - Operations where recovery is possible (file I/O, parsing, DB rollback).  
+  - Logging and user-friendly error messages.  
+- **Example**:
+```java
+try {
+    int value = Integer.parseInt("abc");
+} catch (NumberFormatException e) {
+    System.out.println("Invalid number format!");
+}
+```
+👉 Use when you can meaningfully handle or recover from the exception.
+
+
+
+#### Using `throws`
+- **Purpose**: Declare that a method may propagate exceptions to its caller.  
+- **Scenario**:
+  - Library/utility methods that cannot decide how to handle errors.  
+  - Checked exceptions (e.g., `IOException`, `SQLException`).  
+  - APIs where caller must handle or propagate further.  
+- **Example**:
+```java
+public void readFile(String path) throws IOException {
+    Files.readAllLines(Path.of(path));
+}
+```
+
+
+# 📘 Conceptual Sense
+- **`throw`** → *I’m raising an error now.*  
+- **`try–catch`** → *I’ll handle the error here.*  
+- **`throws`** → *I might throw an error, caller must handle it.*  
+
+
+✅ In short:  
+- Use **`throw`** inside methods when detecting errors.  
+- Use **`try–catch`** at boundaries where recovery/logging is possible.  
+- Use **`throws`** in method signatures to declare possible exceptions for the caller.  
+
+
+
 ## 8. Notes
 - **finally always executes** (even if exception occurs), except when JVM exits (`System.exit(0)`).  
 - **try-with-resources** (Java 7+) → Auto-closes resources implementing `AutoCloseable`.  
