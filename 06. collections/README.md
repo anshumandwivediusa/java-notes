@@ -591,6 +591,53 @@ equals() → defines logical sameness.
 
 hashCode() → makes sure equal objects meet in the same bucket so collections can apply that sameness.
 
+```java
+import java.util.*;
+
+class Employee {
+    int id;
+    String name;
+
+    Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee other = (Employee) o;
+        return this.id == other.id; // equality based on id
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id); // consistent with equals
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{id=" + id + ", name='" + name + "'}";
+    }
+}
+
+public class TestEmployeeMap {
+    public static void main(String[] args) {
+        Map<Employee, String> roles = new HashMap<>();
+
+        Employee e1 = new Employee(101, "Alice");
+        Employee e2 = new Employee(101, "Alice"); // logically equal to e1
+
+        roles.put(e1, "Developer");
+        roles.put(e2, "Manager"); // replaces value because keys are equal
+
+        System.out.println("Map size: " + roles.size()); // Output: 1
+        System.out.println("Role: " + roles.get(new Employee(101, "Alice"))); // Output: Manager
+    }
+}
+```
+
 # Map
 
 The **Map** interface in Java represents a collection of **key–value pairs** where each key maps to exactly one value. Unlike `List` or `Set`, a `Map` is not a subtype of `Collection` — it’s its own hierarchy.
