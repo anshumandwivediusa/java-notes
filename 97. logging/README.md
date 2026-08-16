@@ -173,6 +173,84 @@ This gives you **fine-grained control at the method level** without cluttering g
 - Use **MDC** for tracing requests across microservices.
 - Avoid excessive logging (performance hit, log noise).
 
+# Splunk
+
+
+
+## Steps to Integrate Spring Boot with Splunk
+
+### 1. **Set up Splunk HEC**
+- In Splunk Web → **Settings → Data Inputs → HTTP Event Collector**.
+- Enable HEC globally and create a **token**.
+- Configure:
+  - **Source type**: `_json`
+  - **Index**: e.g., `spring_logs`
+  - Enable **Acknowledgement** for guaranteed delivery.
+
 ---
 
-Would you like me to show you **advanced logging practices** like MDC, structured JSON logs, and integration with monitoring tools (ELK, Prometheus)?
+### 2. **Add Dependencies**
+In `pom.xml`:
+```xml
+<dependency>
+  <groupId>net.logstash.logback</groupId>
+  <artifactId>logstash-logback-encoder</artifactId>
+  <version>7.4</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.httpcomponents.client5</groupId>
+  <artifactId>httpclient5</artifactId>
+  <version>5.3.1</version>
+</dependency>
+```
+
+
+
+### 3. **Configure Properties**
+In `application.properties`:
+```properties
+splunk.hec.url=https://your-splunk:8088/services/collector
+splunk.hec.token=YOUR_HEC_TOKEN
+splunk.hec.index=spring_logs
+splunk.hec.source=payment-service
+```
+
+
+
+### 4. **Logback Configuration**
+Create `logback-spring.xml`:
+```xml
+<configuration>
+  <appender name="SPLUNK" class="com.example.SplunkHecAppender">
+    <url>${splunk.hec.url}</url>
+    <token>${splunk.hec.token}</token>
+    <index>${splunk.hec.index}</index>
+    <source>${splunk.hec.source}</source>
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="SPLUNK"/>
+  </root>
+</configuration>
+```
+
+
+## 📊 Benefits of Splunk Integration
+| **Feature** | **Advantage** |
+|----------------|----------------|
+| **Real-time streaming** | Immediate visibility into app behavior |
+| **Centralized logs** | One place for all microservices |
+| **Search & dashboards** | Powerful Splunk queries and visualizations |
+| **Alerting** | Trigger alerts on error patterns |
+| **Scalability** | Handles high-volume logs |
+
+
+
+## Best Practices
+- Use **structured JSON logs** with `LogstashEncoder` for better parsing.
+- Separate **audit logs** from **debug logs** using different appenders.
+- Avoid logging sensitive data (passwords, tokens).
+- Monitor Splunk ingestion performance to prevent bottlenecks.
+
+
