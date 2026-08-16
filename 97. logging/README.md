@@ -187,7 +187,7 @@ This gives you **fine-grained control at the method level** without cluttering g
   - **Index**: e.g., `spring_logs`
   - Enable **Acknowledgement** for guaranteed delivery.
 
----
+
 
 ### 2. **Add Dependencies**
 In `pom.xml`:
