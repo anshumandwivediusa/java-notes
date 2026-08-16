@@ -709,7 +709,7 @@ Use a **Map** when you need **fast lookups by key** and want to associate values
 
 ## Map.Entry
 
-Exactly — you’ve captured the essence. Let’s expand the **conceptual sense** of `Map.Entry` so it’s crystal clear:
+
 
 ### Conceptual Sense of `Map.Entry`
 
