@@ -17,15 +17,6 @@ A stream pipeline has **three parts**:
    - Triggers execution of the pipeline.  
    - Produces a result or side effect.
 
-| **Operation** | **Purpose** | **Example** |
-| --- | --- | --- |
-| **[filter(Predicate)](ca://s?q=Java_Stream_filter)** | Select elements that match a condition | ``list.stream().filter(x ``-> ``x ``> ``10)`` |
-| **[map(Function)](ca://s?q=Java_Stream_map)** | Transform each element into another form | ``list.stream().map(String::toUpperCase)`` |
-| **[flatMap(Function)](ca://s?q=Java_Stream_flatMap)** | Flatten nested streams into a single stream | ``list.stream().flatMap(List::stream)`` |
-| **[sorted()](ca://s?q=Java_Stream_sorted)** | Sort elements in natural or custom order | ``list.stream().sorted()`` |
-| **[distinct()](ca://s?q=Java_Stream_distinct)** | Remove duplicate elements | ``list.stream().distinct()`` |
-| **[peek()](ca://s?q=Java_Stream_peek)** | Debug/logging without modifying elements | ``list.stream().peek(System.out::println)`` |
-
 ### **Key Properties**
 - **Lazy evaluation** → Intermediate operations are not executed until a terminal operation is invoked.  
 - **Single‑use** → Once a terminal operation runs, the stream is consumed and cannot be reused.  
