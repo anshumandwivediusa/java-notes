@@ -236,7 +236,7 @@ Create `logback-spring.xml`:
 ```
 
 
-## 📊 Benefits of Splunk Integration
+## Benefits of Splunk Integration
 | **Feature** | **Advantage** |
 |----------------|----------------|
 | **Real-time streaming** | Immediate visibility into app behavior |
