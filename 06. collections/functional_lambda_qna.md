@@ -1,8 +1,7 @@
 # Questions and Answers
 
   *Q*: What is Functional Programming?  
-  *A*:  
-  Functional programming is a **declarative programming paradigm** where you focus on *what to do* rather than *how to do it*.  
+  *A*: Functional programming is a **declarative programming paradigm** where you focus on *what to do* rather than *how to do it*.  
   
   - It treats **functions as first-class citizens**:  
     - You can **pass them as arguments**  
