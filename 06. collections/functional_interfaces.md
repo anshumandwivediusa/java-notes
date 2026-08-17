@@ -79,7 +79,7 @@ System.out.println(randomSupplier.get());
 
 ## FunctionalInterface
 
-**The `@FunctionalInterface` annotation is a compiler-level contract: it enforces that an interface has exactly one abstract method (SAM), making it valid for use with lambdas and method references. It’s not required, but when present, the compiler will throw an error if the interface violates functional interface rules.**
+**The `@FunctionalInterface` annotation is a compiler-level contract: it enforces that an interface has exactly one abstract method (SAM), making it valid for use with _lambdas_ and _method references_. It’s not required, but when present, the compiler will throw an error if the interface violates functional interface rules.**
 
 
 
