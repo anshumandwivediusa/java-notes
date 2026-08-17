@@ -15,21 +15,21 @@
    - **Imperative**: Explicitly tells the computer step-by-step how to do something (loops, mutable state).  
    - **Declarative**: Focuses on describing the result you want, leaving the “how” to the language/runtime.  
 
-   **Imperative (Before Java 8):**
-   ```java
-   for (int n : numbers) {
-       if (n % 2 == 0) {
-           System.out.println(n);
-       }
-   }
-   ```
-   
-   **Declarative (Java 8+ with Streams):**
-   ```java
-   numbers.stream()
-          .filter(n -> n % 2 == 0)
-          .forEach(System.out::println);
-   ```
+     **Imperative (Before Java 8):**
+     ```java
+     for (int n : numbers) {
+         if (n % 2 == 0) {
+             System.out.println(n);
+         }
+     }
+     ```
+     
+     **Declarative (Java 8+ with Streams):**
+     ```java
+     numbers.stream()
+            .filter(n -> n % 2 == 0)
+            .forEach(System.out::println);
+     ```
 
   *Q*: What is a functional interface? Why must it have exactly one abstract method?  
   *A*: A functional interface is an interface with exactly one abstract method (SAM). Lambdas need a single target method to bind to; multiple abstract methods would make binding ambiguous.
