@@ -83,3 +83,185 @@
 
   *Q*: Can a functional interface extend another interface?  
   *A*: Yes, but the resulting interface must still have only one abstract method.
+
+
+# Java Functional Programming — 20 Practice Q&A
+
+
+### **1. Even Numbers**
+**Q**: Find all even numbers from a list using Predicate and Stream.  
+```java
+List<Integer> nums = Arrays.asList(10, 15, 20, 25, 30);
+Predicate<Integer> isEven = n -> n % 2 == 0;
+List<Integer> evens = nums.stream().filter(isEven).toList();
+System.out.println(evens); // [10, 20, 30]
+```
+
+
+### **2. Prime Numbers**
+**Q**: Find all prime numbers using a Predicate<Integer>.  
+```java
+Predicate<Integer> isPrime = n -> n > 1 && IntStream.range(2, n).noneMatch(i -> n % i == 0);
+List<Integer> primes = nums.stream().filter(isPrime).toList();
+System.out.println(primes);
+```
+
+
+### **3. Greater Than 50**
+**Q**: Find numbers greater than 50 using a Predicate.  
+```java
+Predicate<Integer> gt50 = n -> n > 50;
+List<Integer> result = List.of(10, 60, 75, 30).stream().filter(gt50).toList();
+System.out.println(result); // [60, 75]
+```
+
+
+### **4. Uppercase Names**
+**Q**: Convert a list of names to uppercase using Function.  
+```java
+Function<String, String> toUpper = s -> s.toUpperCase();
+List<String> upper = List.of("Anshuman","Raj","Amit").stream().map(toUpper).toList();
+System.out.println(upper);
+```
+
+
+### **5. Names Starting with A**
+**Q**: Print all names starting with "A".  
+```java
+Predicate<String> startsWithA = s -> s.startsWith("A");
+List.of("Anshuman","Raj","Amit").stream().filter(startsWithA).forEach(System.out::println);
+```
+
+
+### **6. Sum with Reduce**
+**Q**: Calculate sum of all numbers.  
+```java
+int sum = nums.stream().reduce(0, Integer::sum);
+System.out.println(sum); // 100
+```
+
+
+### **7. Max & Min**
+**Q**: Find maximum and minimum number.  
+```java
+int max = nums.stream().max(Integer::compare).get();
+int min = nums.stream().min(Integer::compare).get();
+System.out.println("Max=" + max + ", Min=" + min);
+```
+
+
+### **8. Remove Duplicates**
+**Q**: Remove duplicate elements.  
+```java
+List<Integer> list = Arrays.asList(10,20,20,30,30,40);
+List<Integer> distinct = list.stream().distinct().toList();
+System.out.println(distinct); // [10,20,30,40]
+```
+
+
+### **9. Sort Employees**
+**Q**: Sort employees by salary.  
+```java
+employees.stream()
+         .sorted((e1,e2)->Double.compare(e1.getSalary(),e2.getSalary()))
+         .forEach(System.out::println);
+```
+
+
+### **10. Count Employees**
+**Q**: Count employees with salary > ₹10 lakh.  
+```java
+long count = employees.stream().filter(e->e.getSalary()>1000000).count();
+System.out.println(count);
+```
+
+
+### **11. Square Numbers**
+**Q**: Use Function to square each number.  
+```java
+Function<Integer,Integer> square = x->x*x;
+List<Integer> squares = nums.stream().map(square).toList();
+System.out.println(squares);
+```
+
+
+### **12. Consumer Logging**
+**Q**: Use Consumer to log each element.  
+```java
+Consumer<String> logger = s -> System.out.println("Log: " + s);
+List.of("A","B","C").forEach(logger);
+```
+
+
+### **13. Supplier UUID**
+**Q**: Generate random UUIDs.  
+```java
+Supplier<String> uuidSupplier = () -> UUID.randomUUID().toString();
+Stream.generate(uuidSupplier).limit(3).forEach(System.out::println);
+```
+
+
+### **14. Method Reference**
+**Q**: Replace lambda with method reference.  
+```java
+List.of("A","B","C").forEach(System.out::println);
+```
+
+
+### **15. Grouping by Department**
+**Q**: Group employees by department.  
+```java
+Map<String,List<Employee>> grouped = employees.stream()
+    .collect(Collectors.groupingBy(Employee::getDepartment));
+```
+
+
+### **16. Average Salary**
+**Q**: Find average salary.  
+```java
+double avg = employees.stream().mapToDouble(Employee::getSalary).average().orElse(0);
+System.out.println(avg);
+```
+
+
+### **17. Parallel Stream**
+**Q**: Use parallel stream for performance.  
+```java
+long count = nums.parallelStream().filter(n->n%2==0).count();
+System.out.println(count);
+```
+
+
+### **18. Exception Handling in Lambda**
+**Q**: Handle checked exception inside lambda.  
+```java
+List<String> files = List.of("a.txt","b.txt");
+files.forEach(f -> {
+    try { System.out.println(Files.readString(Path.of(f))); }
+    catch(IOException e){ e.printStackTrace(); }
+});
+```
+
+
+### **19. Reduce to Product**
+**Q**: Multiply all numbers using reduce.  
+```java
+int product = nums.stream().reduce(1,(a,b)->a*b);
+System.out.println(product);
+```
+
+
+### **20. Custom Functional Interface**
+**Q**: Create a functional interface to calculate cube.  
+```java
+@FunctionalInterface
+interface Cube { int calc(int x); }
+Cube c = n -> n*n*n;
+System.out.println(c.calc(3)); // 27
+```
+
+
+
+
+
+
