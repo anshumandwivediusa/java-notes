@@ -216,3 +216,76 @@ class Main {
 ### Key Takeaway
 - **Yes, it’s a hint to the compiler** — but more than that, it’s a **contract** ensuring your interface is lambda-compatible.  
 - It improves **readability, safety, and intent documentation** in modern Java codebases.  
+
+
+## Lambda Function
+A **Lambda expression** in Java is essentially a **shorthand for writing anonymous functions** — introduced in Java 8 to make code more concise and expressive. It’s the backbone of functional programming in Java because it lets you pass behavior (functions) as arguments instead of writing verbose anonymous classes.  
+
+
+
+## Core Concept
+- **Syntax**:  
+  ```java
+  (parameters) -> expression
+  (parameters) -> { statements }
+  ```
+- **Target typing**: The compiler decides which **functional interface** the lambda matches based on context.  
+- **Functional Interface requirement**: Lambdas can only be assigned to interfaces with a **single abstract method (SAM)**.  
+
+
+
+## Examples
+
+### 1. No Parameters
+```java
+Runnable r = () -> System.out.println("Hello Lambda!");
+r.run(); // Output: Hello Lambda!
+```
+
+### 2. Single Parameter
+```java
+Consumer<String> printer = s -> System.out.println(s);
+printer.accept("Lambda with one parameter"); // Output: Lambda with one parameter
+```
+
+### 3. Multiple Parameters
+```java
+BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+System.out.println(add.apply(5, 3)); // Output: 8
+```
+
+### 4. Block Body
+```java
+Comparator<String> comp = (s1, s2) -> {
+    int diff = s1.length() - s2.length();
+    return diff;
+};
+System.out.println(comp.compare("Java", "Spring")); // Output: -2
+```
+
+
+
+## Why Lambdas Matter
+- **Predicate** → used in `filter()`  
+- **Function** → used in `map()`  
+- **Consumer** → used in `forEach()`  
+- **Supplier** → used in `generate()`  
+
+Lambdas make these interfaces usable in a clean, functional style.
+
+
+
+## Comparison: Before vs After Java 8
+
+| **Before (Anonymous Class)** | **After (Lambda)** |
+|-------------------------------|---------------------|
+| ```Runnable r = new Runnable() { public void run() { System.out.println("Hi"); } };``` | ```Runnable r = () -> System.out.println("Hi");``` |
+
+
+
+## Best Practices
+- Keep lambdas short and expressive.  
+- Use **method references** (`String::toUpperCase`) when possible.  
+- Avoid complex logic inside lambdas — extract into named methods.  
+- Always tie lambdas to functional interfaces.  
+
