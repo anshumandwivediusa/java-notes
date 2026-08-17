@@ -1,6 +1,13 @@
 # Questions and Answers
 
 - **Definition**  
+ *Q*: What is Functional Programming?
+ *A*: Definition: A style of programming that treats functions as first-class citizens — meaning you can pass them as arguments, return them from other  functions, and store them in variables.
+Functional programming is a declarative programming paradigm where you focus on what to do rather than how to do it. In Java, it was introduced with Java 8 through lambda expressions and the Stream API, enabling concise, predictable, and testable code.
+  _Declarative vs Imperative:_
+  Imperative: Explicitly tells the computer step-by-step how to do something (loops, mutable state).
+  Declarative: Focuses on describing the result you want, leaving the “how” to the language/runtime.
+
   *Q*: What is a functional interface? Why must it have exactly one abstract method?  
   *A*: A functional interface is an interface with exactly one abstract method (SAM). Lambdas need a single target method to bind to; multiple abstract methods would make binding ambiguous.
 
