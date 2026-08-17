@@ -83,7 +83,7 @@ System.out.println(randomSupplier.get());
 
 
 
-## 🔎 Internals of `@FunctionalInterface`
+## Internals of `@FunctionalInterface`
 - **Package**: `java.lang`  
 - **Declaration**:
   ```java
@@ -96,9 +96,9 @@ System.out.println(randomSupplier.get());
 - **Target**: `TYPE` → can only be applied to interfaces (not classes, enums, or annotations).  
 - **Purpose**: Informative + enforcement. It signals intent to both the compiler and developers.  
 
----
 
-## ✅ What the Compiler Does
+
+## What the Compiler Does
 1. **Validation**: If you mark an interface with `@FunctionalInterface`, the compiler checks:
    - It must be an interface (not a class, enum, or annotation).  
    - It must declare **exactly one abstract method**.  
@@ -116,9 +116,9 @@ System.out.println(randomSupplier.get());
 
 3. **Documentation**: Even without the annotation, any interface with one abstract method is a functional interface. The annotation just makes the intent explicit and prevents accidental misuse.  
 
----
 
-## 📊 Why It Matters
+
+## Why It Matters
 | **Aspect** | **Without Annotation** | **With Annotation** |
 |------------|-------------------------|----------------------|
 | Compiler enforcement | No check | Ensures only one abstract method |
@@ -126,7 +126,7 @@ System.out.println(randomSupplier.get());
 | Errors | Silent until runtime | Compile-time error if misused |
 
 
-## 🌟 Example
+## Example
 ```java
 @FunctionalInterface
 interface Calculator {
@@ -141,10 +141,7 @@ class Main {
 }
 ```
 
-Here, the annotation guarantees `Calculator` stays a valid functional interface.
-
-
-## 🧠 Key Takeaway
+## Key Takeaway
 - **Yes, it’s a hint to the compiler** — but more than that, it’s a **contract** ensuring your interface is lambda-compatible.  
 - It improves **readability, safety, and intent documentation** in modern Java codebases.  
 
