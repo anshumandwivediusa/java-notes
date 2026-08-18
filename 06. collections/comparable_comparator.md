@@ -22,6 +22,14 @@ class Employee implements Comparable<Employee> {
 ```
 👉 Now `Collections.sort(list)` or `list.stream().sorted()` will sort employees by salary automatically.
 
+| Scenario | **Comparable Usage** | Why It Works | Example Code |
+| --- | --- | --- | --- |
+| **[Sorting numbers](ca://s?q=Java_Comparable_sorting_numbers)** | ``Integer``, ``Double``, ``Float`` already implement ``Comparable``. | Natural ascending order (1,2,3…). | ``List<Integer> ``nums ``= ``Arrays.asList(5,2,9); ``Collections.sort(nums); ``System.out.println(nums); ``// ``[2,5,9]`` |
+| **[Sorting strings](ca://s?q=Java_Comparable_sorting_strings)** | ``String`` implements ``Comparable``. | Alphabetical order (A → Z). | ``List<String> ``names ``= ``Arrays.asList("Raj","Anshuman","Amit"); ``Collections.sort(names); ``System.out.println(names); ``// ``[Amit, ``Anshuman, ``Raj]`` |
+| **[Sorting employees by salary](ca://s?q=Java_Comparable_sorting_employees_salary)** | Implement ``Comparable<Employee>`` and override ``compareTo`` to compare ``salary``. | Defines salary as the natural order for employees. | ``class ``Employee ``implements ``Comparable<Employee> ``{ ``String ``name; ``Float ``salary; ``public ``int ``compareTo(Employee ``o){ ``return ``this.salary.compareTo(o.salary);} ``} ``Collections.sort(listOfEmployees);`` |
+| **[Sorting students by roll number](ca://s?q=Java_Comparable_sorting_students_roll_number)** | Implement ``Comparable<Student>`` and compare ``rollNo``. | Roll number is the natural order in academic contexts. | ``class ``Student ``implements ``Comparable<Student> ``{ ``int ``rollNo; ``public ``int ``compareTo(Student ``o){ ``return ``this.rollNo ``- ``o.rollNo;} ``} ``Collections.sort(listOfStudents);`` |
+| **[Sorting products by price](ca://s?q=Java_Comparable_sorting_products_price)** | Implement ``Comparable<Product>`` and compare ``price``. | Price becomes the default order for products. | ``class ``Product ``implements ``Comparable<Product> ``{ ``double ``price; ``public ``int ``compareTo(Product ``o){ ``return ``Double.compare(this.price, ``o.price);} ``} ``Collections.sort(listOfProducts);`` |
+| **[Sorting dates](ca://s?q=Java_Comparable_sorting_dates)** | ``LocalDate``, ``Date`` implement ``Comparable``. | Chronological order (earliest → latest). | ``List<LocalDate> ``dates ``= ``Arrays.asList(LocalDate.of(2026,8,18), ``LocalDate.of(2025,1,1)); ``Collections.sort(dates); ``System.out.println(dates);`` |
 
 ## Comparator
 - **Package:** `java.util`  
