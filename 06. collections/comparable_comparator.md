@@ -60,8 +60,47 @@ Comparator<Employee> bySalaryDesc = (e1, e2) -> e2.salary.compareTo(e1.salary);
 employees.stream().sorted(byName).forEach(System.out::println);
 employees.stream().sorted(bySalaryDesc).forEach(System.out::println);
 ```
+```jaav
 
+import java.util.*;
 
+class Employee {
+    String name;
+    double salary;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " + salary;
+    }
+}
+
+// Custom Comparator class
+class SalaryComparator implements Comparator<Employee> {
+    @Override
+    public int compare(Employee e1, Employee e2) {
+        return Double.compare(e1.salary, e2.salary); // ascending order
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+            new Employee("Anshuman", 50000),
+            new Employee("Raj", 40000),
+            new Employee("Amit", 60000)
+        );
+
+        // Use custom comparator
+        Collections.sort(employees, new SalaryComparator());
+        employees.forEach(System.out::println);
+    }
+}
+```
 ## Comparison Table
 
 | Feature | **Comparable** | **Comparator** |
