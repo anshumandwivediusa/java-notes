@@ -31,6 +31,16 @@ class Employee implements Comparable<Employee> {
 | **[Sorting products by price](ca://s?q=Java_Comparable_sorting_products_price)** | Implement ``Comparable<Product>`` and compare ``price``. | Price becomes the default order for products. | ``class ``Product ``implements ``Comparable<Product> ``{ ``double ``price; ``public ``int ``compareTo(Product ``o){ ``return ``Double.compare(this.price, ``o.price);} ``} ``Collections.sort(listOfProducts);`` |
 | **[Sorting dates](ca://s?q=Java_Comparable_sorting_dates)** | ``LocalDate``, ``Date`` implement ``Comparable``. | Chronological order (earliest → latest). | ``List<LocalDate> ``dates ``= ``Arrays.asList(LocalDate.of(2026,8,18), ``LocalDate.of(2025,1,1)); ``Collections.sort(dates); ``System.out.println(dates);`` |
 
+Works with Collections.sort(), Arrays.sort(), Stream.sorted(), and sorted collections (TreeSet, TreeMap).
+
+| Scenario | Code Example | Explanation |
+| --- | --- | --- |
+| **[Collections.sort](ca://s?q=Java_Collections_sort_with_Comparable)** | ``Collections.sort(employees);`` | Sorts the list using ``compareTo`` defined in ``Employee``. |
+| **[Arrays.sort](ca://s?q=Java_Arrays_sort_with_Comparable)** | ``Employee[] ``arr ``= ``employees.toArray(new ``Employee[0]); ``Arrays.sort(arr);`` | Works for arrays; uses natural order. |
+| **[Stream.sorted](ca://s?q=Java_Stream_sorted_with_Comparable)** | ``employees.stream().sorted().forEach(System.out::println);`` | Stream API automatically uses ``compareTo``. |
+| **[TreeSet](ca://s?q=Java_TreeSet_with_Comparable)** | ``Set<Employee> ``set ``= ``new ``TreeSet<>(employees);`` | TreeSet stores elements in sorted order using ``compareTo``. |
+| **[TreeMap](ca://s?q=Java_TreeMap_with_Comparable)** | ``Map<Employee,String> ``map ``= ``new ``TreeMap<>(); ``map.put(new ``Employee("Raj",40000f),"Dev");`` | Keys are sorted by their natural order. |
+
 ## Comparator
 - **Package:** `java.util`  
 - **Method:** `int compare(T o1, T o2)`  
