@@ -151,6 +151,23 @@ Java is a **high-level, object-oriented programming language** known for its **p
 | Execution Engine | Runs instructions | JIT compiler |
 | Java API | Pre-built libraries | Collections, JDBC |
 
+ Source Code (.java)
+        |
+        v
+   [ JDK = JRE + Compiler, Debugger...]
+        |
+        v
+   Bytecode (.class)
+        |
+        v
+   [ JRE = JVM + Libraries (rt.jar, i18.jar ]
+        |
+        v
+   JVM Execution Engine
+        |
+        v
+   Machine Code (Platform-specific)
+
 
 ## Java LTS versions
 | **Version** | **Release Date** | **Key Features** | **Support Timeline** |
