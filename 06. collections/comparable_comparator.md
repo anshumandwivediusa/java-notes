@@ -41,6 +41,11 @@ Works with Collections.sort(), Arrays.sort(), Stream.sorted(), and sorted collec
 | **[TreeSet](ca://s?q=Java_TreeSet_with_Comparable)** | ``Set<Employee> ``set ``= ``new ``TreeSet<>(employees);`` | TreeSet stores elements in sorted order using ``compareTo``. |
 | **[TreeMap](ca://s?q=Java_TreeMap_with_Comparable)** | ``Map<Employee,String> ``map ``= ``new ``TreeMap<>(); ``map.put(new ``Employee("Raj",40000f),"Dev");`` | Keys are sorted by their natural order. TreeMap keys are sorted only by the fields mentioned in compareTo.|
 
+Reverse:
+ - Natural order is what you define. If you flip the comparison, descending becomes the “natural” order for that class.
+ - This means everywhere you use Collections.sort, Arrays.sort, Stream.sorted, or TreeSet/TreeMap, the objects will appear in reverse order.
+ - If you want both ascending and descending options, it’s better to keep ascending in Comparable and use a Comparator.reversed() when you need descending.
+
 ## Comparator
 - **Package:** `java.util`  
 - **Method:** `int compare(T o1, T o2)`  
