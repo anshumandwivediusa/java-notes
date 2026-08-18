@@ -39,7 +39,7 @@ Works with Collections.sort(), Arrays.sort(), Stream.sorted(), and sorted collec
 | **[Arrays.sort](ca://s?q=Java_Arrays_sort_with_Comparable)** | ``Employee[] ``arr ``= ``employees.toArray(new ``Employee[0]); ``Arrays.sort(arr);`` | Works for arrays; uses natural order. |
 | **[Stream.sorted](ca://s?q=Java_Stream_sorted_with_Comparable)** | ``employees.stream().sorted().forEach(System.out::println);`` | Stream API automatically uses ``compareTo``. |
 | **[TreeSet](ca://s?q=Java_TreeSet_with_Comparable)** | ``Set<Employee> ``set ``= ``new ``TreeSet<>(employees);`` | TreeSet stores elements in sorted order using ``compareTo``. |
-| **[TreeMap](ca://s?q=Java_TreeMap_with_Comparable)** | ``Map<Employee,String> ``map ``= ``new ``TreeMap<>(); ``map.put(new ``Employee("Raj",40000f),"Dev");`` | Keys are sorted by their natural order. |
+| **[TreeMap](ca://s?q=Java_TreeMap_with_Comparable)** | ``Map<Employee,String> ``map ``= ``new ``TreeMap<>(); ``map.put(new ``Employee("Raj",40000f),"Dev");`` | Keys are sorted by their natural order. TreeMap keys are sorted only by the fields mentioned in compareTo.|
 
 ## Comparator
 - **Package:** `java.util`  
