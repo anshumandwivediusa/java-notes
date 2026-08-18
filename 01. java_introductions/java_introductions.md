@@ -172,7 +172,7 @@ Java is a **high-level, object-oriented programming language** known for its **p
 ## Java LTS versions
 | **Version** | **Release Date** | **Key Features** | **Support Timeline** |
 | --- | --- | --- | --- |
-| **[Java 8](ca://s?q=Java_8_features)** | March 2014 | **Lambdas**, Streams API, Date/Time API | Oracle Premier Support ended 2022; extended support via vendors |
+| **[Java 8](ca://s?q=Java_8_features)** | March 2014 | **Lambdas**, **Functional**, **Streams API**, Date/Time API | Oracle Premier Support ended 2022; extended support via vendors |
 | **[Java 11](ca://s?q=Java_11_features)** | September 2018 | **HTTP Client API**, Flight Recorder, Local-Variable Syntax for Lambda | Oracle Premier Support until 2023; extended support until 2026+ |
 | **[Java 17](ca://s?q=Java_17_features)** | September 2021 | **Sealed Classes**, Pattern Matching (switch preview), Strong encapsulation of JDK internals | Oracle Premier Support until 2026; extended support until 2029 |
 | **[Java 21](ca://s?q=Java_21_features)** | September 2023 | **Virtual Threads** (Project Loom), Sequenced Collections, Record Patterns, Pattern Matching for switch | Oracle Premier Support until 2028; extended support until 2031 |
