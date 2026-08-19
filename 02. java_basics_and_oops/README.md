@@ -479,6 +479,14 @@ public class CompositionDemo {
 | Can contain **instance methods with implementation**. | Cannot contain **instance methods with implementation** (except default methods since Java 8). |
 | Suitable for **code reusability** with partial abstraction. | Suitable for **full abstraction** and defining APIs. |
 
+| Concept | **[Anonymous Class](ca://s?q=Java_anonymous_class)** | **[Lambda Expression](ca://s?q=Java_Lambda_expressions)** |
+| --- | --- | --- |
+| **Definition** | Inline class without a name | Inline function implementing a functional interface |
+| **Introduced** | Java 1.1 | Java 8 |
+| **Use Case** | Multiple methods, complex logic | Single abstract method (SAM) |
+| **Syntax** | Verbose | Concise |
+| **Example** | ``new ``Runnable() ``{ ``public ``void ``run(){...} ``}`` | ``() ``-> ``{...}`` |
+
 | **[Member](ca://s?q=Java_interface_members)** | **[Default Modifier](ca://s?q=Java_interface_default_modifiers)** |
 | --- | --- |
 | Methods | ``public ``abstract`` |
