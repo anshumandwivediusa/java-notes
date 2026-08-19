@@ -4,7 +4,7 @@
 - **Definition** → Keywords that give the compiler information about classes, methods, and variables.  
 - **Types**:  
   - **Access Modifiers** → `public`, `protected`, `private`, *default (package-private)*.  
-  - **Non-Access Modifiers** → `static`, `final`, `abstract`, `synchronized`, `volatile`, `transient`, `native`, `strictfp`.  
+  - **Non-Access Modifiers** → `static`, `final`, `abstract`, `synchronized`, `volatile`, `transient`, `native`, `strictfpnon-sealed`.  
 
 ### Access Modifiers
 - **Public** → Accessible everywhere.  
@@ -156,10 +156,11 @@ class Child extends Parent {
 
 ### **Example**
 ```java
-sealed class Shape permits Circle, Rectangle { }
+sealed class Shape permits Circle, Rectangle, Triangle { }
 
 final class Circle extends Shape { }       // cannot be extended further
 non-sealed class Rectangle extends Shape { } // open for extension
+abstract class Triangle extends Shape { }  // can be subclassed
 ```
 
 ### **Subclass Options**
