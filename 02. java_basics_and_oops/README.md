@@ -344,6 +344,16 @@ System.out.println(b); // Prints a string which is returned by toString
       }
      ```
 
+     | Concept | **[Closeable](ca://s?q=Java_Closeable_interface)** | **[AutoCloseable](ca://s?q=Java_AutoCloseable_interface)** |
+     | --- | --- | --- |
+     | **Design Goal** | Specialized for I/O | General resource management |
+     | **Exception Type** | Only ``IOException`` | Any ``Exception`` |
+     | **Scope** | Streams, readers, writers | DB connections, sockets, custom classes |
+     | **Inheritance** | Extends AutoCloseable | Root interface |
+     | **Usage** | File I/O cleanup | Universal cleanup in try‑with‑resources |
+     | **Example Code** | ``try ``(BufferedReader ``br ``= ``new ``BufferedReader(new ``FileReader("data.txt"))) ``{ ``System.out.println(br.readLine()); ``}`` | ``class ``MyResource ``implements ``AutoCloseable ``{ ``public ``void ``close() ``{ ``System.out.println("Closed!"); ``} ``} ``try ``(MyResource ``r ``= ``new ``MyResource()) ``{ ``System.out.println("Using ``resource"); ``}`` |
+     | **Built‑in Examples** | ``FileInputStream``, ``BufferedReader``, ``OutputStream`` | ``Connection``, ``Statement``, ``ResultSet``, ``ZipInputStream`` |
+
 4. **Advantages**  
    - Deterministic cleanup (resources closed immediately).  
    - No dependency on GC timing.  
