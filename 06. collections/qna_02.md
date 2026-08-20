@@ -1,7 +1,85 @@
-## 📘 Core Concepts
+## Core Concepts
+
+### 1. **What is the `Collection` interface?**
+**Answer:**  
+`Collection` is the **root interface** of the Java Collections Framework (excluding `Map`). It represents a group of **single objects** and provides basic CRUD operations using common methods like - add, addAll, remove, removeAll, search, and iteration.
+
+
+### 2. **Which package contains `Collection`?**
+**Answer:**  
+It is part of the `java.util` package.
+
+
+### 3. **Does `Collection` extend any other interface?**
+**Answer:**  
+Yes, it extends **`Iterable`**, which means all collections can be traversed using `Iterator` or enhanced `for-each` loops.
+
+
+### 4. **What are the main subinterfaces of `Collection`?**
+**Answer:**  
+- **List** → Ordered, allows duplicates.  
+- **Set** → Unique elements.  
+- **Queue** → FIFO/LIFO processing.  
+- **Deque** → Double-ended queue.
+
+
+### 5. **What are the key methods of `Collection`?**  
+**Answer:**  
+Some important methods include:  
+- `add(E e)` → Adds element.  
+- `remove(Object o)` → Removes element.  
+- `contains(Object o)` → Checks existence.  
+- `size()` → Returns number of elements.  
+- `isEmpty()` → Checks if empty.  
+- `clear()` → Removes all elements.  
+- `iterator()` → Returns an iterator.  
+- `addAll(Collection c)` → Adds all elements from another collection.  
+- `removeAll(Collection c)` → Removes all elements present in another collection.  
+- `retainAll(Collection c)` → Keeps only common elements.  
+- `toArray()` → Converts to array.  
+- `stream()` / `parallelStream()` → Functional programming support (Java 8+).
+
+
+### 6. **Can `Collection` store primitive types?**
+**Answer:**  
+No, it stores only **objects**. For primitives, you must use wrapper classes (e.g., `Integer`, `Double`).
+
+
+### 7. **Is `Collection` synchronized?**
+**Answer:**  
+No, by default it is **not synchronized**. You can use `Collections.synchronizedCollection()` to make it thread-safe.
+
+
+### 8. **What is the difference between `Collection` and `Map`?**  
+**Answer:**  
+- `Collection` → Stores single elements.  
+- `Map` → Stores key-value pairs.  
+
+
+### 9. **How does `Collection` support iteration?**  
+**Answer:**  
+Through the `iterator()` method (from `Iterable`) and enhanced `for-each` loops.
+
+
+### 10. **What is the role of Streams in `Collection`?**  
+**Answer:**  
+Since Java 8, `Collection` provides `stream()` and `parallelStream()` methods for functional programming (filter, map, reduce).
+
+
+## 🎯 Interview Notes
+- `Collection` is the **foundation** of Java’s Collections Framework.  
+- Defines **CRUD + bulk operations**.  
+- Extends `Iterable` → supports iteration.  
+- Subinterfaces specialize behavior: **List (ordered)**, **Set (unique)**, **Queue (processing)**.  
+- Since Java 8 → integrates with **Streams API**.  
+
+
+👉 In short: **`Collection` is the universal contract for storing and manipulating groups of objects in Java.**  
+
+Would you like me to now prepare a **Q&A set for List, Set, and Map interfaces** in the same style so you have a complete interview-ready pack?
 
 ### 1. What is the `Collection` interface?
-**Answer:** `Collection` is the **root interface of the Java Collections Framework** for representing and manipulating a group of objects.
+**Answer:** `Collection` is the **root interface of the Java Collections Framework** for representing and manipulating a group of **Single** objects.
 
 
 ### 2. What is the difference between `Collection` and `Collections`?
