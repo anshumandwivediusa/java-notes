@@ -219,90 +219,58 @@ public class ListIteratorDemo {
 }
 ```
 
-### 12. **What is the difference between Comparable and Comparator?**  
+### 21. **What is the difference between Comparable and Comparator?**  
 **Answer:**  
 - `Comparable` → Defines **natural ordering** via `compareTo()`.  
 - `Comparator` → Defines **custom ordering** via `compare()`.  
 
----
 
-### 13. **What is the difference between HashMap and ConcurrentHashMap?**  
+### 22. **What is the difference between HashMap and ConcurrentHashMap?**  
 **Answer:**  
 - `HashMap` → Not thread‑safe, allows null keys/values.  
 - `ConcurrentHashMap` → Thread‑safe, better concurrency, disallows null keys/values.  
 
----
 
-### 14. **What is the difference between HashMap and LinkedHashMap?**  
+### 23. **What is the difference between HashMap and LinkedHashMap?**  
 **Answer:**  
 - `HashMap` → Unordered storage.  
 - `LinkedHashMap` → Maintains **insertion order** of keys.  
 
----
 
-### 15. **What is the difference between HashMap and TreeMap?**  
+### 24. **What is the difference between HashMap and TreeMap?**  
 **Answer:**  
 - `HashMap` → Unordered, O(1) average operations.  
 - `TreeMap` → Sorted by keys, O(log n) operations.  
 
----
 
-### 16. **What is the difference between HashSet and LinkedHashSet?**  
+### 25. **What is the difference between HashSet and LinkedHashSet?**  
 **Answer:**  
 - `HashSet` → Unordered unique elements.  
 - `LinkedHashSet` → Maintains **insertion order** of elements.  
 
----
 
-### 17. **What is the difference between HashSet and TreeSet?**  
+### 26. **What is the difference between HashSet and TreeSet?**  
 **Answer:**  
 - `HashSet` → Unordered, backed by HashMap.  
 - `TreeSet` → Sorted, backed by TreeMap.  
 
----
 
-### 18. **What is the difference between ArrayList and Vector?**  
+### 27. **What is the difference between ArrayList and Vector?**  
 **Answer:**  
 - `ArrayList` → Unsynchronized, faster in single‑threaded use.  
 - `Vector` → Synchronized, legacy, slower.  
 
----
 
-### 19. **What is the difference between ArrayList and CopyOnWriteArrayList?**  
+### 28. **What is the difference between ArrayList and CopyOnWriteArrayList?**  
 **Answer:**  
 - `ArrayList` → Not thread‑safe.  
 - `CopyOnWriteArrayList` → Thread‑safe, uses copy‑on‑write strategy.  
 
----
 
-### 20. **What is the difference between Hashtable and ConcurrentHashMap?**  
+### 29. **What is the difference between Hashtable and ConcurrentHashMap?**  
 **Answer:**  
 - `Hashtable` → Synchronized, legacy, slower.  
 - `ConcurrentHashMap` → Modern, thread‑safe with better concurrency.  
-
----
-
-## 🎯 Interview Tip
-When asked about differences:
-- Always mention **ordering, uniqueness, synchronization**.  
-- Highlight **time complexity** (O(1), O(log n)).  
-- Show awareness of **legacy vs modern alternatives**.  
-
----
-
-👉 This Q&A set covers **11–20** in your sequence with crisp answers.  
-Would you like me to continue building the **next batch of 21–30 advanced questions** (covering queues, deques, blocking collections, and concurrent utilities)?
-
-## 🎯 Interview Tip
-When asked about **Collections core concepts**, always:
-- Mention **ordering, uniqueness, synchronization**.  
-- Highlight **time complexity** (O(1), O(log n)).  
-- Show awareness of **legacy vs modern alternatives**.  
-
-
-👉 This extended list now gives you **20 core concept questions** with crisp answers — a solid foundation for interviews.  
-
-Would you like me to now expand into **50 advanced Collections questions** (covering performance, concurrency, and tricky edge cases) so you have a complete master sheet?
 
 
 ## 📘 List
