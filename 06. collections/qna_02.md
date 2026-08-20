@@ -35,23 +35,28 @@ Some important methods include:
 - `stream()` / `parallelStream()` → Functional programming support (Java 8+).
 
 
-### 6. **Can `Collection` store primitive types?
+### 6. Can `Collection` store primitive types?
 **Answer:**  
 No, it stores only **objects**. For primitives, you must use wrapper classes (e.g., `Integer`, `Double`).
 
 
-### 7. **Is `Collection` synchronized?
+### 7. Is `Collection` synchronized?
 **Answer:**  
 No, by default it is **not synchronized**. You can use `Collections.synchronizedCollection()` to make it thread-safe.
 
 
-### 8. **What is the difference between `Collection` and `Map`?  
-8. Why does Map not inherit Collection?
+### 8. What is the difference between `Collection` and `Map`?  
+
+or
+
+Why does Map not inherit Collection?
+
 Because the design goals are different:
 
-Collection → represents a group of single elements (objects).
+**Answer:**
+Collection → Represents a group of single elements (objects).
 
-Map → represents key–value pairs, where each key maps to a value.
+Map → Represents key–value pairs, where each key maps to a value.
 
 If Map extended Collection, it would force unnatural semantics like treating a key–value pair as a single element, which breaks the conceptual clarity of the framework.
 
