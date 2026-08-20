@@ -1,6 +1,6 @@
 ## Core Concepts
 
-### 1. ** What is the `Collection` interface? **
+### 1. What is the `Collection` interface?
 **Answer:** `Collection` is the **root interface** of the Java Collections Framework (excluding `Map`). It represents a group of **single objects** and provides basic CRUD operations using common methods like - `add(E e)`, addAll(Coellection c), `remove(Object o)`, `contains(Object o)`, search, and iteration.
 
 
