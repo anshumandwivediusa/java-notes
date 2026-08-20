@@ -1,12 +1,39 @@
-Here’s a **Java Collections Interview Cheat Sheet with 50 concise Q&A** — one‑liners or two‑liners, perfect for rapid revision:
-
-
 ## 📘 Core Concepts
+
 1. **What is the Collection interface?** → Root interface for groups of objects.  
 2. **Difference between Collection and Collections?** → Interface vs utility class.  
 3. **Is Map part of Collection?** → No, Map is separate.  
 4. **What is Iterable?** → Root for iteration, extended by Collection.  
 5. **Fail-fast vs Fail-safe iterators?** → Fail-fast throws exception, fail-safe works on copy.  
+6. **Difference between Collection and Iterator?** → Collection stores elements, Iterator traverses them.  
+7. **What is the difference between Set and List?** → Set = unique elements, List = ordered with duplicates.  
+8. **What is the difference between Map and Collection?** → Map stores key-value pairs, Collection stores elements only.  
+9. **What is the difference between HashMap and HashSet?** → HashMap stores key-value pairs, HashSet stores unique values.  
+10. **What is the difference between Enumeration and Iterator?** → Enumeration is legacy, Iterator is modern and fail-fast.  
+11. **What is the difference between Iterator and ListIterator?** → Iterator = forward only, ListIterator = bidirectional with extra methods.  
+12. **What is the difference between Comparable and Comparator?** → Comparable defines natural order, Comparator defines custom order.  
+13. **What is the difference between HashMap and ConcurrentHashMap?** → HashMap not thread-safe, ConcurrentHashMap thread-safe with better concurrency.  
+14. **What is the difference between HashMap and LinkedHashMap?** → HashMap unordered, LinkedHashMap maintains insertion order.  
+15. **What is the difference between HashMap and TreeMap?** → HashMap unordered, TreeMap sorted by keys.  
+16. **What is the difference between HashSet and LinkedHashSet?** → HashSet unordered, LinkedHashSet maintains insertion order.  
+17. **What is the difference between HashSet and TreeSet?** → HashSet unordered, TreeSet sorted.  
+18. **What is the difference between ArrayList and Vector?** → ArrayList unsynchronized, Vector synchronized.  
+19. **What is the difference between ArrayList and CopyOnWriteArrayList?** → ArrayList not thread-safe, CopyOnWriteArrayList thread-safe with copy-on-write.  
+20. **What is the difference between HashTable and ConcurrentHashMap?** → Hashtable synchronized (legacy), ConcurrentHashMap modern with better concurrency.  
+
+---
+
+## 🎯 Interview Tip
+When asked about **Collections core concepts**, always:
+- Mention **ordering, uniqueness, synchronization**.  
+- Highlight **time complexity** (O(1), O(log n)).  
+- Show awareness of **legacy vs modern alternatives**.  
+
+---
+
+👉 This extended list now gives you **20 core concept questions** with crisp answers — a solid foundation for interviews.  
+
+Would you like me to now expand into **50 advanced Collections questions** (covering performance, concurrency, and tricky edge cases) so you have a complete master sheet?
 
 
 ## 📘 List
