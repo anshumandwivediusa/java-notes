@@ -60,6 +60,24 @@ Why does Map not inherit Collection?
 **Answer:**  
 Through the `iterator()` method (from `Iterable`) and enhanced `for-each` loops.
 
+```java
+for (Type element : collection) {
+    // use element
+}
+
+import java.util.*;
+
+public class ForEachDemo {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Andrew", "Rahul", "Priya");
+
+        // Enhanced for-each loop
+        for (String name : names) {
+            System.out.println("Name: " + name);
+        }
+    }
+}
+```
 
 ### 10. **What is the role of Streams in `Collection`?  
 **Answer:**  
