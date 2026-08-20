@@ -4,21 +4,21 @@
 **Answer:** `Collection` is the **root interface** of the Java Collections Framework (excluding `Map`). It represents a group of **single objects** and provides basic CRUD operations using common methods like - `add(E e)`, addAll(Coellection c), `remove(Object o)`, `contains(Object o)`, search, and iteration.
 
 
-### 2. ** Which package contains `Collection`? **
+### 2. Which package contains `Collection`?
 **Answer:** It is part of the `java.util` package.
 
 
-### 3. **Does `Collection` extend any other interface?**
+### 3. Does `Collection` extend any other interface?
 **Answer:**  Yes, it extends **`Iterable`**, which means all collections can be traversed using `Iterator` or enhanced `for-each` loops.
 
 
-### 4. **What are the main sub interfaces of `Collection`?**
+### 4. What are the main sub interfaces of `Collection`?
 **Answer:**  
 - **Set** → Unique elements. No ordering, For ordering use TreeSet.
 - **Queue** → FIFO/LIFO processing.  
 - **List** → Ordered, allows duplicates.  
 
-### 5. **What are the key methods of `Collection`?**  
+### 5. What are the key methods of `Collection`?  
 **Answer:**  
 Some important methods include:  
 - `add(E e)` → Adds element.  
@@ -35,17 +35,17 @@ Some important methods include:
 - `stream()` / `parallelStream()` → Functional programming support (Java 8+).
 
 
-### 6. **Can `Collection` store primitive types?**
+### 6. **Can `Collection` store primitive types?
 **Answer:**  
 No, it stores only **objects**. For primitives, you must use wrapper classes (e.g., `Integer`, `Double`).
 
 
-### 7. **Is `Collection` synchronized?**
+### 7. **Is `Collection` synchronized?
 **Answer:**  
 No, by default it is **not synchronized**. You can use `Collections.synchronizedCollection()` to make it thread-safe.
 
 
-### 8. **What is the difference between `Collection` and `Map`?**  
+### 8. **What is the difference between `Collection` and `Map`?  
 8. Why does Map not inherit Collection?
 Because the design goals are different:
 
@@ -56,12 +56,12 @@ Map → represents key–value pairs, where each key maps to a value.
 If Map extended Collection, it would force unnatural semantics like treating a key–value pair as a single element, which breaks the conceptual clarity of the framework.
 
 
-### 9. **How does `Collection` support iteration?**  
+### 9. **How does `Collection` support iteration?  
 **Answer:**  
 Through the `iterator()` method (from `Iterable`) and enhanced `for-each` loops.
 
 
-### 10. **What is the role of Streams in `Collection`?**  
+### 10. **What is the role of Streams in `Collection`?  
 **Answer:**  
 Since Java 8, `Collection` provides `stream()` and `parallelStream()` methods for functional programming (filter, map, reduce).
 
@@ -164,16 +164,16 @@ List / Set / Queue
 * `Iterator` can exhibit **fail-fast behavior** in standard collections.
 
  
-11. **What is the difference between Iterator and ListIterator?** → Iterator = forward only, ListIterator = bidirectional with extra methods.  
-12. **What is the difference between Comparable and Comparator?** → Comparable defines natural order, Comparator defines custom order.  
-13. **What is the difference between HashMap and ConcurrentHashMap?** → HashMap not thread-safe, ConcurrentHashMap thread-safe with better concurrency.  
-14. **What is the difference between HashMap and LinkedHashMap?** → HashMap unordered, LinkedHashMap maintains insertion order.  
-15. **What is the difference between HashMap and TreeMap?** → HashMap unordered, TreeMap sorted by keys.  
-16. **What is the difference between HashSet and LinkedHashSet?** → HashSet unordered, LinkedHashSet maintains insertion order.  
-17. **What is the difference between HashSet and TreeSet?** → HashSet unordered, TreeSet sorted.  
-18. **What is the difference between ArrayList and Vector?** → ArrayList unsynchronized, Vector synchronized.  
-19. **What is the difference between ArrayList and CopyOnWriteArrayList?** → ArrayList not thread-safe, CopyOnWriteArrayList thread-safe with copy-on-write.  
-20. **What is the difference between HashTable and ConcurrentHashMap?** → Hashtable synchronized (legacy), ConcurrentHashMap modern with better concurrency.  
+11. **What is the difference between Iterator and ListIterator? → Iterator = forward only, ListIterator = bidirectional with extra methods.  
+12. **What is the difference between Comparable and Comparator? → Comparable defines natural order, Comparator defines custom order.  
+13. **What is the difference between HashMap and ConcurrentHashMap? → HashMap not thread-safe, ConcurrentHashMap thread-safe with better concurrency.  
+14. **What is the difference between HashMap and LinkedHashMap? → HashMap unordered, LinkedHashMap maintains insertion order.  
+15. **What is the difference between HashMap and TreeMap? → HashMap unordered, TreeMap sorted by keys.  
+16. **What is the difference between HashSet and LinkedHashSet? → HashSet unordered, LinkedHashSet maintains insertion order.  
+17. **What is the difference between HashSet and TreeSet? → HashSet unordered, TreeSet sorted.  
+18. **What is the difference between ArrayList and Vector? → ArrayList unsynchronized, Vector synchronized.  
+19. **What is the difference between ArrayList and CopyOnWriteArrayList? → ArrayList not thread-safe, CopyOnWriteArrayList thread-safe with copy-on-write.  
+20. **What is the difference between HashTable and ConcurrentHashMap? → Hashtable synchronized (legacy), ConcurrentHashMap modern with better concurrency.  
 
 
 ## 🎯 Interview Tip
@@ -189,75 +189,75 @@ Would you like me to now expand into **50 advanced Collections questions** (cove
 
 
 ## 📘 List
-6. **ArrayList vs LinkedList?** → ArrayList = fast random access, LinkedList = fast insert/delete.  
-7. **Vector vs ArrayList?** → Vector synchronized, ArrayList not.  
-8. **Stack in Java?** → Legacy, extends Vector, LIFO.  
-9. **CopyOnWriteArrayList?** → Thread-safe list, uses copy on write.  
-10. **Difference between ListIterator and Iterator?** → ListIterator supports bidirectional traversal.  
+6. **ArrayList vs LinkedList? → ArrayList = fast random access, LinkedList = fast insert/delete.  
+7. **Vector vs ArrayList? → Vector synchronized, ArrayList not.  
+8. **Stack in Java? → Legacy, extends Vector, LIFO.  
+9. **CopyOnWriteArrayList? → Thread-safe list, uses copy on write.  
+10. **Difference between ListIterator and Iterator? → ListIterator supports bidirectional traversal.  
 
 
 ## 📘 Set
-11. **HashSet vs TreeSet?** → HashSet unordered, TreeSet sorted.  
-12. **LinkedHashSet?** → Maintains insertion order.  
-13. **EnumSet?** → Specialized set for enums.  
-14. **CopyOnWriteArraySet?** → Thread-safe set, backed by CopyOnWriteArrayList.  
-15. **Is HashSet synchronized?** → No, must wrap or use concurrent sets.  
+11. **HashSet vs TreeSet? → HashSet unordered, TreeSet sorted.  
+12. **LinkedHashSet? → Maintains insertion order.  
+13. **EnumSet? → Specialized set for enums.  
+14. **CopyOnWriteArraySet? → Thread-safe set, backed by CopyOnWriteArrayList.  
+15. **Is HashSet synchronized? → No, must wrap or use concurrent sets.  
 
 
 ## 📘 Map
-16. **HashMap vs Hashtable?** → HashMap unsynchronized, Hashtable synchronized.  
-17. **HashMap vs TreeMap?** → HashMap unordered, TreeMap sorted.  
-18. **LinkedHashMap?** → Maintains insertion order.  
-19. **ConcurrentHashMap?** → Thread-safe, lock-striping.  
-20. **WeakHashMap?** → Keys garbage-collected when weakly referenced.  
+16. **HashMap vs Hashtable? → HashMap unsynchronized, Hashtable synchronized.  
+17. **HashMap vs TreeMap? → HashMap unordered, TreeMap sorted.  
+18. **LinkedHashMap? → Maintains insertion order.  
+19. **ConcurrentHashMap? → Thread-safe, lock-striping.  
+20. **WeakHashMap? → Keys garbage-collected when weakly referenced.  
 
 
 ## 📘 Queue & Deque
-21. **PriorityQueue?** → Orders elements by priority.  
-22. **ArrayDeque?** → Resizable array, double-ended queue.  
-23. **BlockingQueue?** → Thread-safe queue for producer-consumer.  
-24. **ConcurrentLinkedQueue?** → Lock-free queue for concurrency.  
-25. **Deque vs Queue?** → Deque supports both ends, Queue only one.  
+21. **PriorityQueue? → Orders elements by priority.  
+22. **ArrayDeque? → Resizable array, double-ended queue.  
+23. **BlockingQueue? → Thread-safe queue for producer-consumer.  
+24. **ConcurrentLinkedQueue? → Lock-free queue for concurrency.  
+25. **Deque vs Queue? → Deque supports both ends, Queue only one.  
 
 
 ## 📘 Sorting & Ordering
-26. **Comparable vs Comparator?** → Comparable = natural order, Comparator = custom order.  
-27. **Collections.sort()?** → Sorts list using natural/comparator order.  
-28. **Arrays.sort()?** → Sorts arrays.  
-29. **TreeMap ordering?** → Sorted by keys.  
-30. **TreeSet ordering?** → Sorted by elements.  
+26. **Comparable vs Comparator? → Comparable = natural order, Comparator = custom order.  
+27. **Collections.sort()? → Sorts list using natural/comparator order.  
+28. **Arrays.sort()? → Sorts arrays.  
+29. **TreeMap ordering? → Sorted by keys.  
+30. **TreeSet ordering? → Sorted by elements.  
 
 
 ## 📘 Synchronization
-31. **Collections.synchronizedList()?** → Wraps list with synchronized access.  
-32. **Collections.synchronizedSet()?** → Wraps set with synchronized access.  
-33. **Collections.synchronizedMap()?** → Wraps map with synchronized access.  
-34. **ConcurrentSkipListSet?** → Thread-safe sorted set.  
-35. **ConcurrentSkipListMap?** → Thread-safe sorted map.  
+31. **Collections.synchronizedList()? → Wraps list with synchronized access.  
+32. **Collections.synchronizedSet()? → Wraps set with synchronized access.  
+33. **Collections.synchronizedMap()? → Wraps map with synchronized access.  
+34. **ConcurrentSkipListSet? → Thread-safe sorted set.  
+35. **ConcurrentSkipListMap? → Thread-safe sorted map.  
 
 
 ## 📘 Legacy
-36. **Hashtable?** → Legacy synchronized map.  
-37. **Vector?** → Legacy synchronized list.  
-38. **Stack?** → Legacy LIFO stack.  
-39. **Enumeration?** → Legacy iterator.  
-40. **Properties class?** → Legacy key-value pairs for config.  
+36. **Hashtable? → Legacy synchronized map.  
+37. **Vector? → Legacy synchronized list.  
+38. **Stack? → Legacy LIFO stack.  
+39. **Enumeration? → Legacy iterator.  
+40. **Properties class? → Legacy key-value pairs for config.  
 
 
 ## 📘 Miscellaneous
-41. **IdentityHashMap?** → Compares keys by reference, not equals().  
-42. **NavigableMap?** → Extends SortedMap with navigation methods.  
-43. **NavigableSet?** → Extends SortedSet with navigation methods.  
-44. **Unmodifiable collections?** → Created via `Collections.unmodifiableX()`.  
-45. **Singleton collections?** → Created via `Collections.singleton()`.  
+41. **IdentityHashMap? → Compares keys by reference, not equals().  
+42. **NavigableMap? → Extends SortedMap with navigation methods.  
+43. **NavigableSet? → Extends SortedSet with navigation methods.  
+44. **Unmodifiable collections? → Created via `Collections.unmodifiableX()`.  
+45. **Singleton collections? → Created via `Collections.singleton()`.  
 
 
 ## 📘 Performance & Internals
-46. **HashMap load factor?** → Default 0.75, triggers rehashing.  
-47. **Initial capacity of HashMap?** → Default 16.  
-48. **Time complexity of HashSet add()?** → Average O(1).  
-49. **Time complexity of TreeSet add()?** → O(log n).  
-50. **ConcurrentHashMap concurrency level?** → Default 16 (Java 7), replaced by finer-grained locks in Java 8+.  
+46. **HashMap load factor? → Default 0.75, triggers rehashing.  
+47. **Initial capacity of HashMap? → Default 16.  
+48. **Time complexity of HashSet add()? → Average O(1).  
+49. **Time complexity of TreeSet add()? → O(log n).  
+50. **ConcurrentHashMap concurrency level? → Default 16 (Java 7), replaced by finer-grained locks in Java 8+.  
 
 
 ## 🎯 Quick Strategy
