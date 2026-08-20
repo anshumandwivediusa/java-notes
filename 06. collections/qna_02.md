@@ -1,27 +1,22 @@
 ## Core Concepts
 
-### 1. **What is the `Collection` interface?**
-**Answer:**  
-`Collection` is the **root interface** of the Java Collections Framework (excluding `Map`). It represents a group of **single objects** and provides basic CRUD operations using common methods like - add, addAll, remove, removeAll, search, and iteration.
+### 1. ** What is the `Collection` interface? **
+**Answer:** `Collection` is the **root interface** of the Java Collections Framework (excluding `Map`). It represents a group of **single objects** and provides basic CRUD operations using common methods like - `add(E e)`, addAll(Coellection c), `remove(Object o)`, `contains(Object o)`, search, and iteration.
 
 
-### 2. **Which package contains `Collection`?**
-**Answer:**  
-It is part of the `java.util` package.
+### 2. ** Which package contains `Collection`? **
+**Answer:** It is part of the `java.util` package.
 
 
 ### 3. **Does `Collection` extend any other interface?**
-**Answer:**  
-Yes, it extends **`Iterable`**, which means all collections can be traversed using `Iterator` or enhanced `for-each` loops.
+**Answer:**  Yes, it extends **`Iterable`**, which means all collections can be traversed using `Iterator` or enhanced `for-each` loops.
 
 
-### 4. **What are the main subinterfaces of `Collection`?**
+### 4. **What are the main sub interfaces of `Collection`?**
 **Answer:**  
-- **List** → Ordered, allows duplicates.  
-- **Set** → Unique elements.  
+- **Set** → Unique elements. No ordering, For ordering use TreeSet.
 - **Queue** → FIFO/LIFO processing.  
-- **Deque** → Double-ended queue.
-
+- **List** → Ordered, allows duplicates.  
 
 ### 5. **What are the key methods of `Collection`?**  
 **Answer:**  
@@ -51,9 +46,14 @@ No, by default it is **not synchronized**. You can use `Collections.synchronized
 
 
 ### 8. **What is the difference between `Collection` and `Map`?**  
-**Answer:**  
-- `Collection` → Stores single elements.  
-- `Map` → Stores key-value pairs.  
+8. Why does Map not inherit Collection?
+Because the design goals are different:
+
+Collection → represents a group of single elements (objects).
+
+Map → represents key–value pairs, where each key maps to a value.
+
+If Map extended Collection, it would force unnatural semantics like treating a key–value pair as a single element, which breaks the conceptual clarity of the framework.
 
 
 ### 9. **How does `Collection` support iteration?**  
