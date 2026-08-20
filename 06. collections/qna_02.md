@@ -84,33 +84,41 @@ public class ForEachDemo {
 Since Java 8, `Collection` provides `stream()` and `parallelStream()` methods for functional programming (filter, map, reduce).
 
 
-## 🎯 Interview Notes
-- `Collection` is the **foundation** of Java’s Collections Framework.  
-- Defines **CRUD + bulk operations**.  
-- Extends `Iterable` → supports iteration.  
-- Subinterfaces specialize behavior: **List (ordered)**, **Set (unique)**, **Queue (processing)**.  
-- Since Java 8 → integrates with **Streams API**.  
-
-
-👉 In short: **`Collection` is the universal contract for storing and manipulating groups of objects in Java.**  
-
-Would you like me to now prepare a **Q&A set for List, Set, and Map interfaces** in the same style so you have a complete interview-ready pack?
-
-### 1. What is the `Collection` interface?
-**Answer:** `Collection` is the **root interface of the Java Collections Framework** for representing and manipulating a group of **Single** objects.
-
-
-### 2. What is the difference between `Collection` and `Collections`?
+### 11. What is the difference between `Collection` and `Collections`?
 **Answer:**
 * **`Collection`** → An **interface** representing a group of objects.
 * **`Collections`** → A **utility class** containing static methods such as `sort()`, `reverse()`, and `shuffle()`.
 
+| **Method** | **Description** |
+| --- | --- |
+| **[sort(List)](ca://s?q=Collections_sort_method_in_Java)** | Sorts a list in natural order. |
+| **[sort(List, Comparator)](ca://s?q=Collections_sort_with_comparator_in_Java)** | Sorts a list using a custom comparator. |
+| **[reverse(List)](ca://s?q=Collections_reverse_method_in_Java)** | Reverses the order of elements in a list. |
+| **[shuffle(List)](ca://s?q=Collections_shuffle_method_in_Java)** | Randomly permutes elements in a list. |
+| **[swap(List, i, j)](ca://s?q=Collections_swap_method_in_Java)** | Swaps elements at given positions. |
+| **[rotate(List, distance)](ca://s?q=Collections_rotate_method_in_Java)** | Rotates elements by given distance. |
+| **[binarySearch(List, key)](ca://s?q=Collections_binarySearch_method_in_Java)** | Searches for an element in a sorted list. |
+| **[max(Collection)](ca://s?q=Collections_max_method_in_Java)** | Returns the maximum element (natural order). |
+| **[min(Collection)](ca://s?q=Collections_min_method_in_Java)** | Returns the minimum element (natural order). |
+| **[frequency(Collection, o)](ca://s?q=Collections_frequency_method_in_Java)** | Counts occurrences of an element. |
+| **[disjoint(Collection, Collection)](ca://s?q=Collections_disjoint_method_in_Java)** | Checks if two collections have no elements in common. |
+| **[copy(List dest, List src)](ca://s?q=Collections_copy_method_in_Java)** | Copies elements from source to destination list. |
+| **[fill(List, obj)](ca://s?q=Collections_fill_method_in_Java)** | Replaces all elements with given object. |
+| **[nCopies(int, obj)](ca://s?q=Collections_nCopies_method_in_Java)** | Returns an immutable list with n copies of an object. |
+| **[singleton(obj)](ca://s?q=Collections_singleton_method_in_Java)** | Returns an immutable set with one element. |
+| **[unmodifiableList(List)](ca://s?q=Collections_unmodifiableList_in_Java)** | Returns an unmodifiable view of a list. |
+| **[synchronizedList(List)](ca://s?q=Collections_synchronizedList_in_Java)** | Returns a synchronized (thread-safe) list. |
+| **[synchronizedSet(Set)](ca://s?q=Collections_synchronizedSet_in_Java)** | Returns a synchronized set. |
+| **[synchronizedMap(Map)](ca://s?q=Collections_synchronizedMap_in_Java)** | Returns a synchronized map. |
+| **[emptyList()](ca://s?q=Collections_emptyList_in_Java)** | Returns an immutable empty list. |
+| **[emptySet()](ca://s?q=Collections_emptySet_in_Java)** | Returns an immutable empty set. |
+| **[emptyMap()](ca://s?q=Collections_emptyMap_in_Java)** | Returns an immutable empty map. |
 
-### 3. Is `Map` part of the `Collection` interface hierarchy?
+### 12. Is `Map` part of the `Collection` interface hierarchy?
 **Answer:** **No.** `Map` is part of the Java Collections Framework but does **not** extend the `Collection` interface because it stores **key-value pairs**.
 
 
-### 4. What is the `Iterable` interface?
+### 13. What is the `Iterable` interface?
 **Answer:** `Iterable` is the **root interface for iteration** in Java. It provides the `iterator()` method and allows objects to be used in an enhanced **for-each loop**.
 
 ```text
@@ -122,7 +130,7 @@ List / Set / Queue
 ```
 
 
-### 5. What is the difference between fail-fast and fail-safe iterators?
+### 14. What is the difference between fail-fast and fail-safe iterators?
 
 **Answer:**
 
@@ -135,7 +143,7 @@ List / Set / Queue
 * Fail-safe / weakly consistent → `ConcurrentHashMap`, `CopyOnWriteArrayList`
 
 
-### 6. What is the difference between `Collection` and `Iterator`?
+### 15. What is the difference between `Collection` and `Iterator`?
 
 **Answer:**
 
@@ -143,7 +151,7 @@ List / Set / Queue
 * **`Iterator`** → Traverses the elements of a collection.
 
 
-### 7. What is the difference between `Set` and `List`?
+### 16. What is the difference between `Set` and `List`?
 
 **Answer:**
 
@@ -154,7 +162,7 @@ List / Set / Queue
 | Order depends on implementation | Maintains insertion order   |
 
 
-### 8. What is the difference between `Map` and `Collection`?
+### 17. What is the difference between `Map` and `Collection`?
 
 **Answer:**
 
@@ -162,7 +170,7 @@ List / Set / Queue
 * **`Collection`** stores individual **objects/elements**.
 
 
-### 9. What is the difference between `HashMap` and `HashSet`?
+### 18. What is the difference between `HashMap` and `HashSet`?
 
 **Answer:**
 
@@ -172,7 +180,7 @@ List / Set / Queue
 **Important:** Internally, `HashSet` is backed by a `HashMap`.
 
 
-### 10. What is the difference between `Enumeration` and `Iterator`?
+### 19. What is the difference between `Enumeration` and `Iterator`?
 
 **Answer:**
 
@@ -182,17 +190,108 @@ List / Set / Queue
 * `Iterator` can exhibit **fail-fast behavior** in standard collections.
 
  
-11. **What is the difference between Iterator and ListIterator? → Iterator = forward only, ListIterator = bidirectional with extra methods.  
-12. **What is the difference between Comparable and Comparator? → Comparable defines natural order, Comparator defines custom order.  
-13. **What is the difference between HashMap and ConcurrentHashMap? → HashMap not thread-safe, ConcurrentHashMap thread-safe with better concurrency.  
-14. **What is the difference between HashMap and LinkedHashMap? → HashMap unordered, LinkedHashMap maintains insertion order.  
-15. **What is the difference between HashMap and TreeMap? → HashMap unordered, TreeMap sorted by keys.  
-16. **What is the difference between HashSet and LinkedHashSet? → HashSet unordered, LinkedHashSet maintains insertion order.  
-17. **What is the difference between HashSet and TreeSet? → HashSet unordered, TreeSet sorted.  
-18. **What is the difference between ArrayList and Vector? → ArrayList unsynchronized, Vector synchronized.  
-19. **What is the difference between ArrayList and CopyOnWriteArrayList? → ArrayList not thread-safe, CopyOnWriteArrayList thread-safe with copy-on-write.  
-20. **What is the difference between HashTable and ConcurrentHashMap? → Hashtable synchronized (legacy), ConcurrentHashMap modern with better concurrency.  
 
+### 20. **What is the difference between Iterator and ListIterator?**  
+**Answer:**  
+- `Iterator` → Traverses forward only.  
+- `ListIterator` → Traverses both forward and backward, with extra methods like `add()`, `set()`, `previous()`.  
+
+
+```java
+import java.util.*;
+
+public class ListIteratorDemo {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>(Arrays.asList("Anshuman", "Rahul", "Priya"));
+
+        ListIterator<String> it = names.listIterator();
+
+        System.out.println("Forward Traversal:");
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+
+        System.out.println("\nBackward Traversal:");
+        while (it.hasPrevious()) {
+            System.out.println(it.previous());
+        }
+    }
+}
+```
+
+### 12. **What is the difference between Comparable and Comparator?**  
+**Answer:**  
+- `Comparable` → Defines **natural ordering** via `compareTo()`.  
+- `Comparator` → Defines **custom ordering** via `compare()`.  
+
+---
+
+### 13. **What is the difference between HashMap and ConcurrentHashMap?**  
+**Answer:**  
+- `HashMap` → Not thread‑safe, allows null keys/values.  
+- `ConcurrentHashMap` → Thread‑safe, better concurrency, disallows null keys/values.  
+
+---
+
+### 14. **What is the difference between HashMap and LinkedHashMap?**  
+**Answer:**  
+- `HashMap` → Unordered storage.  
+- `LinkedHashMap` → Maintains **insertion order** of keys.  
+
+---
+
+### 15. **What is the difference between HashMap and TreeMap?**  
+**Answer:**  
+- `HashMap` → Unordered, O(1) average operations.  
+- `TreeMap` → Sorted by keys, O(log n) operations.  
+
+---
+
+### 16. **What is the difference between HashSet and LinkedHashSet?**  
+**Answer:**  
+- `HashSet` → Unordered unique elements.  
+- `LinkedHashSet` → Maintains **insertion order** of elements.  
+
+---
+
+### 17. **What is the difference between HashSet and TreeSet?**  
+**Answer:**  
+- `HashSet` → Unordered, backed by HashMap.  
+- `TreeSet` → Sorted, backed by TreeMap.  
+
+---
+
+### 18. **What is the difference between ArrayList and Vector?**  
+**Answer:**  
+- `ArrayList` → Unsynchronized, faster in single‑threaded use.  
+- `Vector` → Synchronized, legacy, slower.  
+
+---
+
+### 19. **What is the difference between ArrayList and CopyOnWriteArrayList?**  
+**Answer:**  
+- `ArrayList` → Not thread‑safe.  
+- `CopyOnWriteArrayList` → Thread‑safe, uses copy‑on‑write strategy.  
+
+---
+
+### 20. **What is the difference between Hashtable and ConcurrentHashMap?**  
+**Answer:**  
+- `Hashtable` → Synchronized, legacy, slower.  
+- `ConcurrentHashMap` → Modern, thread‑safe with better concurrency.  
+
+---
+
+## 🎯 Interview Tip
+When asked about differences:
+- Always mention **ordering, uniqueness, synchronization**.  
+- Highlight **time complexity** (O(1), O(log n)).  
+- Show awareness of **legacy vs modern alternatives**.  
+
+---
+
+👉 This Q&A set covers **11–20** in your sequence with crisp answers.  
+Would you like me to continue building the **next batch of 21–30 advanced questions** (covering queues, deques, blocking collections, and concurrent utilities)?
 
 ## 🎯 Interview Tip
 When asked about **Collections core concepts**, always:
