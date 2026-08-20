@@ -19,8 +19,7 @@
 - **List** → Ordered, allows duplicates.  
 
 ### 5. What are the key methods of `Collection`?  
-**Answer:**  
-Some important methods include:  
+**Answer:** Some important methods include:  
 - `add(E e)` → Adds element.  
 - `remove(Object o)` → Removes element.  
 - `contains(Object o)` → Checks existence.  
@@ -36,13 +35,11 @@ Some important methods include:
 
 
 ### 6. Can `Collection` store primitive types?
-**Answer:**  
-No, it stores only **objects**. For primitives, you must use wrapper classes (e.g., `Integer`, `Double`).
+**Answer:** No, it stores only **objects**. For primitives, you must use wrapper classes (e.g., `Integer`, `Double`).
 
 
 ### 7. Is `Collection` synchronized?
-**Answer:**  
-No, by default it is **not synchronized**. You can use `Collections.synchronizedCollection()` to make it thread-safe.
+**Answer:** No, by default it is **not synchronized**. You can use `Collections.synchronizedCollection()` to make it thread-safe.
 
 
 ### 8. What is the difference between `Collection` and `Map`?  
@@ -51,14 +48,12 @@ or
 
 Why does Map not inherit Collection?
 
-Because the design goals are different:
 
-**Answer:**
-Collection → Represents a group of single elements (objects).
 
-Map → Represents key–value pairs, where each key maps to a value.
-
-If Map extended Collection, it would force unnatural semantics like treating a key–value pair as a single element, which breaks the conceptual clarity of the framework.
+**Answer:** Because the design goals are different:
+ - Collection → Represents a group of single elements (objects).
+ - Map → Represents key–value pairs, where each key maps to a value.
+ - If Map extended Collection, it would force unnatural semantics like treating a key–value pair as a single element, which breaks the conceptual clarity of the framework.
 
 
 ### 9. **How does `Collection` support iteration?  
