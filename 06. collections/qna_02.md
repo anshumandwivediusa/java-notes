@@ -344,8 +344,3 @@ public class ListIteratorDemo {
 49. **Time complexity of TreeSet add()? → O(log n).  
 50. **ConcurrentHashMap concurrency level? → Default 16 (Java 7), replaced by finer-grained locks in Java 8+.  
 
-
-## 🎯 Quick Strategy
-- Always mention **ordering, uniqueness, synchronization**.  
-- Highlight **time complexity**.  
-- Show awareness of **legacy vs modern alternatives**.  
