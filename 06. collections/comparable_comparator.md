@@ -31,6 +31,26 @@ class Employee implements Comparable<Employee> {
 | **[Sorting products by price](ca://s?q=Java_Comparable_sorting_products_price)** | Implement ``Comparable<Product>`` and compare ``price``. | Price becomes the default order for products. | ``class ``Product ``implements ``Comparable<Product> ``{ ``double ``price; ``public ``int ``compareTo(Product ``o){ ``return ``Double.compare(this.price, ``o.price);} ``} ``Collections.sort(listOfProducts);`` |
 | **[Sorting dates](ca://s?q=Java_Comparable_sorting_dates)** | ``LocalDate``, ``Date`` implement ``Comparable``. | Chronological order (earliest → latest). | ``List<LocalDate> ``dates ``= ``Arrays.asList(LocalDate.of(2026,8,18), ``LocalDate.of(2025,1,1)); ``Collections.sort(dates); ``System.out.println(dates);`` |
 
+```java
+import java.util.*;
+
+public class SortComparison {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(5, 2, 9);
+
+        Collections.sort(nums, Comparator.reverseOrder());
+        System.out.println("Comparator.reverseOrder(): " + nums); // [9, 5, 2]
+
+        Collections.sort(nums, Comparator.naturalOrder());
+        System.out.println("Comparator.naturalOrder(): " + nums); // [2, 5, 9]
+
+        Collections.sort(nums, Collections.reverseOrder());
+        System.out.println("Collections.reverseOrder(): " + nums); // [9, 5, 2]
+    }
+}
+
+```
+
 Works with Collections.sort(), Arrays.sort(), Stream.sorted(), and sorted collections (TreeSet, TreeMap).
 
 | Scenario | Code Example | Explanation |
