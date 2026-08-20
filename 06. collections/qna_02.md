@@ -1,15 +1,98 @@
 ## 📘 Core Concepts
 
-1. **What is the Collection interface?** → Root interface for groups of objects.  
-2. **Difference between Collection and Collections?** → Interface vs utility class.  
-3. **Is Map part of Collection?** → No, Map is separate.  
-4. **What is Iterable?** → Root for iteration, extended by Collection.  
-5. **Fail-fast vs Fail-safe iterators?** → Fail-fast throws exception, fail-safe works on copy.  
-6. **Difference between Collection and Iterator?** → Collection stores elements, Iterator traverses them.  
-7. **What is the difference between Set and List?** → Set = unique elements, List = ordered with duplicates.  
-8. **What is the difference between Map and Collection?** → Map stores key-value pairs, Collection stores elements only.  
-9. **What is the difference between HashMap and HashSet?** → HashMap stores key-value pairs, HashSet stores unique values.  
-10. **What is the difference between Enumeration and Iterator?** → Enumeration is legacy, Iterator is modern and fail-fast.  
+## Java Collections – Interview Q&A
+
+### 1. What is the `Collection` interface?
+
+**Answer:** `Collection` is the **root interface of the Java Collections Framework** for representing and manipulating a group of objects.
+
+
+### 2. What is the difference between `Collection` and `Collections`?
+
+**Answer:**
+
+* **`Collection`** → An **interface** representing a group of objects.
+* **`Collections`** → A **utility class** containing static methods such as `sort()`, `reverse()`, and `shuffle()`.
+
+
+### 3. Is `Map` part of the `Collection` interface hierarchy?
+
+**Answer:** **No.** `Map` is part of the Java Collections Framework but does **not** extend the `Collection` interface because it stores **key-value pairs**.
+
+
+### 4. What is the `Iterable` interface?
+
+**Answer:** `Iterable` is the **root interface for iteration** in Java. It provides the `iterator()` method and allows objects to be used in an enhanced **for-each loop**.
+
+```text
+Iterable
+   ↓
+Collection
+   ↓
+List / Set / Queue
+```
+
+
+### 5. What is the difference between fail-fast and fail-safe iterators?
+
+**Answer:**
+
+* **Fail-fast** → Throws `ConcurrentModificationException` if the collection is structurally modified during iteration.
+* **Fail-safe** → Iterates over a copy or snapshot, so modifications do not cause an exception.
+
+**Examples:**
+
+* Fail-fast → `ArrayList`, `HashMap`
+* Fail-safe / weakly consistent → `ConcurrentHashMap`, `CopyOnWriteArrayList`
+
+
+### 6. What is the difference between `Collection` and `Iterator`?
+
+**Answer:**
+
+* **`Collection`** → Stores and manages a group of objects.
+* **`Iterator`** → Traverses the elements of a collection.
+
+
+### 7. What is the difference between `Set` and `List`?
+
+**Answer:**
+
+| `Set`                           | `List`                      |
+| ------------------------------- | --------------------------- |
+| Stores unique elements          | Allows duplicate elements   |
+| Generally no index-based access | Supports index-based access |
+| Order depends on implementation | Maintains insertion order   |
+
+
+### 8. What is the difference between `Map` and `Collection`?
+
+**Answer:**
+
+* **`Map`** stores data as **key-value pairs**.
+* **`Collection`** stores individual **objects/elements**.
+
+
+### 9. What is the difference between `HashMap` and `HashSet`?
+
+**Answer:**
+
+* **`HashMap`** stores **key-value pairs** and allows unique keys.
+* **`HashSet`** stores **unique values only**.
+
+**Important:** Internally, `HashSet` is backed by a `HashMap`.
+
+
+### 10. What is the difference between `Enumeration` and `Iterator`?
+
+**Answer:**
+
+* **`Enumeration`** is a **legacy interface**, mainly used with classes such as `Vector` and `Hashtable`.
+* **`Iterator`** is the modern interface used across the Collections Framework.
+* `Iterator` supports `remove()`, while `Enumeration` does not.
+* `Iterator` can exhibit **fail-fast behavior** in standard collections.
+
+ 
 11. **What is the difference between Iterator and ListIterator?** → Iterator = forward only, ListIterator = bidirectional with extra methods.  
 12. **What is the difference between Comparable and Comparator?** → Comparable defines natural order, Comparator defines custom order.  
 13. **What is the difference between HashMap and ConcurrentHashMap?** → HashMap not thread-safe, ConcurrentHashMap thread-safe with better concurrency.  
@@ -21,7 +104,6 @@
 19. **What is the difference between ArrayList and CopyOnWriteArrayList?** → ArrayList not thread-safe, CopyOnWriteArrayList thread-safe with copy-on-write.  
 20. **What is the difference between HashTable and ConcurrentHashMap?** → Hashtable synchronized (legacy), ConcurrentHashMap modern with better concurrency.  
 
----
 
 ## 🎯 Interview Tip
 When asked about **Collections core concepts**, always:
@@ -29,7 +111,6 @@ When asked about **Collections core concepts**, always:
 - Highlight **time complexity** (O(1), O(log n)).  
 - Show awareness of **legacy vs modern alternatives**.  
 
----
 
 👉 This extended list now gives you **20 core concept questions** with crisp answers — a solid foundation for interviews.  
 
