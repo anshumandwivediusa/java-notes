@@ -1,27 +1,20 @@
 ## 📘 Core Concepts
 
-## Java Collections – Interview Q&A
-
 ### 1. What is the `Collection` interface?
-
 **Answer:** `Collection` is the **root interface of the Java Collections Framework** for representing and manipulating a group of objects.
 
 
 ### 2. What is the difference between `Collection` and `Collections`?
-
 **Answer:**
-
 * **`Collection`** → An **interface** representing a group of objects.
 * **`Collections`** → A **utility class** containing static methods such as `sort()`, `reverse()`, and `shuffle()`.
 
 
 ### 3. Is `Map` part of the `Collection` interface hierarchy?
-
 **Answer:** **No.** `Map` is part of the Java Collections Framework but does **not** extend the `Collection` interface because it stores **key-value pairs**.
 
 
 ### 4. What is the `Iterable` interface?
-
 **Answer:** `Iterable` is the **root interface for iteration** in Java. It provides the `iterator()` method and allows objects to be used in an enhanced **for-each loop**.
 
 ```text
