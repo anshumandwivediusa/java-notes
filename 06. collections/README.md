@@ -288,8 +288,9 @@ _Ways to convert [] to ArrayList_
 | **[List.of (Java 9+)](ca://s?q=List_of_in_Java)** | ``List<String> ``list ``= ``List.of(arr);`` | Immutable list — cannot add/remove/update. |
 
 ## LinkedList: Think of it as a chain of nodes: great for frequent insertions/deletions.
+
 | **Aspect** | **[ArrayList](ca://s?q=ArrayList_in_Java)** | **[LinkedList](ca://s?q=LinkedList_in_Java)** |
-|  |  |  |
+| --- | --- | --- |
 | **Underlying Data Structure** | Dynamic array | Doubly linked list |
 | **Access (get/set)** | Fast random access (``O(1)``) | Slow random access (``O(n)``) |
 | **Insertion/Deletion (middle)** | Slow (``O(n)`` due to shifting) | Fast (``O(1)`` if node reference known) |
