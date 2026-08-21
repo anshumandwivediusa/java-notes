@@ -132,8 +132,13 @@ public class Main {
         };
 
         Collections.sort(employees, byNameThenSalary);
-```
 
+```
+```
+Comparator<Employee> cmp = Comparator.comparing(Employee::getName)
+                                     .thenComparing(Employee::getSalary);
+
+```
 ## Comparison Table
 
 | Feature | **Comparable** | **Comparator** |
