@@ -121,6 +121,19 @@ public class Main {
     }
 }
 ```
+```java
+        // Manual lambda comparator with two parameters
+        Comparator<Employee> byNameThenSalary = (e1, e2) -> {
+            int nameCompare = e1.name.compareTo(e2.name);
+            if (nameCompare != 0) {
+                return nameCompare; // primary sort by name
+            }
+            return Double.compare(e1.salary, e2.salary); // secondary sort by salary
+        };
+
+        Collections.sort(employees, byNameThenSalary);
+```
+
 ## Comparison Table
 
 | Feature | **Comparable** | **Comparator** |
