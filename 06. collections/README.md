@@ -138,16 +138,49 @@ Conceptually:
 ### List Methods 
 | **Method** | **Description** |
 | --- | --- |
-| ``void ``add(int ``index, ``E ``element)``; ``list.add("a");`` | Inserts element at specified position. |
+| ``void ``add(int ``index, ``E ``element)``; ``list.add("a");`` | **Inserts** element at specified position. |
 | ``boolean ``addAll(int ``index, ``Collection<? ``extends ``E> ``c)`` | Inserts all elements at specified position. |
 | ``E ``get(int ``index)`` | Returns element at given position. |
-| ``E ``set(int ``index, ``E ``element)`` | Replaces element at given position. |
+| ``E ``set(int ``index, ``E ``element)`` | **Replaces** element at given position. |
 | ``E ``remove(int ``index)`` ``remove("a")`` | Removes element at given position. |
 | ``int ``indexOf(Object ``o)`` | Returns first index of element, or -1. |
 | ``int ``lastIndexOf(Object ``o)`` | Returns last index of element, or -1. |
 | ``ListIterator<E> ``listIterator()`` | Returns list iterator (bidirectional). |
 | ``ListIterator<E> ``listIterator(int ``index)`` | Returns list iterator starting at index. |
 | ``List<E> ``subList(int ``fromIndex, ``int ``toIndex)`` | Returns view of portion of list. |
+
+```java
+import java.util.*;
+
+public class Demo {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>(Arrays.asList("A", "B", "C"));
+        ListIterator<String> it = list.listIterator();
+
+        // Forward
+        while (it.hasNext()) {
+            System.out.println("Next: " + it.next());
+        }
+
+        // Backward
+        while (it.hasPrevious()) {
+            System.out.println("Previous: " + it.previous());
+        }
+    }
+}
+```
+
+#### Forward traversal
+  - boolean hasNext() → checks if next element exists.
+  - E next() → returns next element.
+
+#### Backward traversal
+  - boolean hasPrevious() → checks if previous element exists.
+  - E previous() → returns previous element.
+
+#### Index helpers
+  - int nextIndex() → index of element returned by next().
+  - int previousIndex() → index of element returned by previous().
 
 ### Ways to create List
 | **Approach** | **Code Example** | **Notes** |
