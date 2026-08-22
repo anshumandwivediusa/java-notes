@@ -164,3 +164,78 @@ Comparator<Employee> cmp = Comparator.comparing(Employee::getName)
 - Remember: `compareTo` returns **negative, zero, positive** — not strictly -1, 0, 1.  
 - Comparator is a **functional interface** → can use lambdas and method references.  
 
+  
+
+
+
+# 📘 Shallow vs Deep Copy in Java Lists (with `clone()`)
+
+## Shallow Copy
+- **Definition:** Copies only the references of objects, not the actual objects.  
+- **Effect:** Both lists point to the same underlying objects.  
+- **Example:**
+  ```java
+  List<Address> original = new ArrayList<>();
+  original.add(new Address("Banglore"));
+
+  List<Address> shallowCopy = new ArrayList<>(original); // copy constructor
+  shallowCopy.get(0).city = "Delhi";
+
+  System.out.println(original.get(0).city); // Delhi
+  ```
+- **Use case:** Quick duplication when immutability or independence is not required.
+
+
+
+## Deep Copy
+- **Definition:** Copies the actual objects into a new list.  
+- **Effect:** Lists are independent; changes in one do not affect the other.  
+- **Example:**
+  ```java
+  List<Address> original = new ArrayList<>();
+  original.add(new Address("Banglore"));
+
+  List<Address> deepCopy = new ArrayList<>();
+  for (Address addr : original) {
+      deepCopy.add(new Address(addr.city)); // new object
+  }
+
+  deepCopy.get(0).city = "Delhi";
+
+  System.out.println(original.get(0).city); // Bilaspur
+  ```
+- **Use case:** Needed when objects must remain independent (e.g., cloning data for safe modification).
+
+
+
+## Using `clone()`
+- **Definition:** `ArrayList.clone()` creates a **shallow copy** of the list.  
+- **Effect:** New list object, but elements are the same references.  
+- **Example:**
+  ```java
+  ArrayList<Address> original = new ArrayList<>();
+  original.add(new Address("Bilaspur"));
+
+  ArrayList<Address> cloned = (ArrayList<Address>) original.clone();
+  cloned.get(0).city = "Delhi";
+
+  System.out.println(original.get(0).city); // Delhi
+  ```
+- **Note:** To achieve **deep copy with clone**, you must override `clone()` in your element class and manually copy objects.
+
+
+
+## Summary Table
+
+| Copy Type | What is copied | Independence | Example |
+|-----------|----------------|--------------|---------|
+| **Shallow Copy** | Object references | ❌ No | `new ArrayList<>(list)` |
+| **Deep Copy** | Actual objects | ✅ Yes | Manual loop creating new objects |
+| **clone()** | Shallow copy of list | ❌ No | `list.clone()` |
+
+---
+
+👉 In short:  
+- **Shallow copy** → duplicates structure, shares objects.  
+- **Deep copy** → duplicates both structure and objects.  
+- **clone()** → shorthand for shallow copy of ArrayList.  
