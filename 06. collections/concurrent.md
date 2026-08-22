@@ -214,3 +214,30 @@ Result: 42
 ✅ In short:  
 - Use **Callable** when you need a task to **return a value**.  
 - Use **Future** to **track and retrieve that value** once the task completes.  
+
+
+
+
+# Concurrent vs Synchronized Collections
+
+| Aspect | **Concurrent Collections** | **Synchronized Collections** |
+| --- | --- | --- |
+| **Definition** | Collections designed for multi‑threaded access with **non‑blocking / fine‑grained locking** | Legacy collections wrapped with **synchronized methods** |
+| **Examples** | ConcurrentHashMap, ConcurrentLinkedQueue, CopyOnWriteArrayList | Vector, Hashtable, Collections.synchronizedList(), Collections.synchronizedMap() |
+| **Performance** | High throughput, scalable under heavy concurrency | Lower throughput due to coarse‑grained locking |
+| **Iteration** | Fail‑safe (works on snapshot, no ``ConcurrentModificationException``) | Fail‑fast (throws ``ConcurrentModificationException`` if modified during iteration) |
+| **Locking** | Lock‑striping, CAS (Compare‑And‑Swap), copy‑on‑write | Entire collection locked for each operation |
+| **Use Case** | Modern concurrent apps, scalable multi‑threaded systems | Simpler synchronization, legacy codebases |
+
+| Collection | Type | Key Features | Best Use Case |
+| --- | --- | --- | --- |
+| **[ConcurrentHashMap](ca://s?q=Java_ConcurrentHashMap)** | Map | Thread‑safe hash map, high concurrency, lock‑striping | Shared caches, fast concurrent access |
+| **[ConcurrentLinkedQueue](ca://s?q=Java_ConcurrentLinkedQueue)** | Queue | Non‑blocking FIFO queue, lock‑free | Producer‑consumer, task scheduling |
+| **[ConcurrentLinkedDeque](ca://s?q=Java_ConcurrentLinkedDeque)** | Deque | Non‑blocking double‑ended queue | Work stealing, parallel task distribution |
+| **[LinkedBlockingQueue](ca://s?q=Java_LinkedBlockingQueue)** | BlockingQueue | Linked nodes, bounded/unbounded, blocking put/take | Producer‑consumer with capacity control |
+| **[ArrayBlockingQueue](ca://s?q=Java_ArrayBlockingQueue)** | BlockingQueue | Fixed‑size array, bounded, blocking | Bounded buffer, predictable capacity |
+| **[PriorityBlockingQueue](ca://s?q=Java_PriorityBlockingQueue)** | BlockingQueue | Unbounded, ordered by priority | Task scheduling with priorities |
+| **[DelayQueue](ca://s?q=Java_DelayQueue)** | BlockingQueue | Elements available only after delay | Scheduled tasks, time‑based caching |
+| **[SynchronousQueue](ca://s?q=Java_SynchronousQueue)** | BlockingQueue | No capacity, each insert waits for remove | Direct handoff between threads |
+| **[CopyOnWriteArrayList](ca://s?q=Java_CopyOnWriteArrayList)** | List | Thread‑safe, snapshot iterators, copy on write | Read‑heavy, safe concurrent iteration |
+| **[CopyOnWriteArraySet](ca://s?q=Java_CopyOnWriteArraySet)** | Set | Thread‑safe, backed by CopyOnWriteArrayList | Read‑heavy sets, safe iteration |
