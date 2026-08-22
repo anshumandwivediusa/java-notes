@@ -427,6 +427,8 @@ System.out.println(deque.removeLast());  // 3
 
 A Set is best used when you need to store a collection of elements with the guarantee that no duplicates will exist. It’s ideal for situations where uniqueness matters more than ordering or indexing.
 
+Set interface = **marker interface** → It doesn’t add new methods, but it enforces the rule: no duplicates allowed.
+
 ## When to Use a Set
 
 ### Ensure Uniqueness
