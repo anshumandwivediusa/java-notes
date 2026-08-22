@@ -387,8 +387,13 @@ O(n) → traversal required.
 
 26. What is the difference between subList() and clone() in ArrayList?  
 **Answer:**  
-subList() → Returns a view backed by original list.  
+subList(fromIndex, toIndex(exclusive)) → Returns a view backed by original list.  
 clone() → Creates shallow copy of list.  
+| Feature | **subList()** | **clone()** |
+| --- | --- | --- |
+| Relation | View backed by original | Independent shallow copy |
+| Effect on parent | Changes reflect in parent | Changes do not affect parent |
+| Use case | Work on a portion of list | Duplicate list for safe modification |
 
 27. What is the difference between shallow copy and deep copy in List?  
 **Answer:**  
