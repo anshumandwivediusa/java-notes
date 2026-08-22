@@ -393,6 +393,7 @@ System.out.println(fifo.poll()); // 20
 System.out.println(fifo.poll()); // 30
 ```
 
+
 ## ArrayDeque
 
 The **ArrayDeque** is one of the most versatile and efficient implementations of the **Deque (double-ended queue)** interface in Java. It’s backed by a **resizable array**, making it faster than `LinkedList` for most queue and stack operations.
@@ -437,6 +438,86 @@ deque.addLast(3);
 System.out.println(deque.removeFirst()); // 1
 System.out.println(deque.removeLast());  // 3
 ```
+
+
+##
+
+
+
+
+
+
+
+
+## PriorityQueue
+
+### Definition
+- A **queue** that orders elements by **priority** instead of insertion order.  
+- Implemented as a **binary heap** (min‑heap by default).  
+- Part of `java.util` package.  
+
+
+
+### Key Features
+- **Ordering:** Natural ordering (`Comparable`) or custom `Comparator`.  
+- **Head element:** Always the least (or highest priority) element.  
+- **Nulls:** Not allowed.  
+- **Duplicates:** Allowed.  
+- **Not synchronized:** Use **PriorityBlockingQueue** for concurrency.  
+
+
+
+### Time Complexity
+- `add()`, `offer()`, `poll()`, `remove()` → **O(log n)**  
+- `peek()`, `element()`, `size()` → **O(1)**  
+- `contains()` → **O(n)**  
+
+
+
+### Example: Min‑Heap (Default)
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+pq.add(30);
+pq.add(10);
+pq.add(20);
+
+while (!pq.isEmpty()) {
+    System.out.println(pq.poll()); // 10, 20, 30
+}
+```
+
+
+
+### Example: Max‑Heap (Custom Comparator)
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
+pq.add(30);
+pq.add(10);
+pq.add(20);
+
+while (!pq.isEmpty()) {
+    System.out.println(pq.poll()); // 30, 20, 10
+}
+```
+
+
+
+### Comparison Snapshot
+
+| Feature | **PriorityQueue** | **ArrayDeque** | **LinkedList** |
+|---------|-------------------|----------------|----------------|
+| Order | Based on priority | FIFO/LIFO | FIFO |
+| Nulls | Not allowed | Not allowed | Allowed |
+| Duplicates | Allowed | Allowed | Allowed |
+| Typical Use | Scheduling, graph algorithms | General queue/stack | General queue |
+
+
+
+### Exam Pointers
+- Default = **min‑heap**.  
+- Use **Comparator** for custom ordering.  
+- Not thread‑safe → use **PriorityBlockingQueue** for concurrency.  
+- Common in **Dijkstra’s algorithm, task scheduling, event simulation**.  
 
 
 ### Comparison: ArrayDeque vs LinkedList
