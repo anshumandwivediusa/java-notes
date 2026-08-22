@@ -338,6 +338,37 @@ _Ways to convert [] to ArrayList_
 
 LinkedList can be used directly as a FIFO queue because it supports add/offer (enqueue), remove/poll (dequeue), and peek/element (examine head).
 
+
+## Collections.unmodifiableList(list)
+ - Collections.unmodifiableList(list) creates a read‑only view of the given list.
+ - Any attempt to modify it (add, remove, set) will throw UnsupportedOperationException.
+ - Useful for exposing data safely without allowing external modification.
+
+```java
+import java.util.*;
+
+public class UnmodifiableListDemo {
+    public static void main(String[] args) {
+        List<String> modifiable = new ArrayList<>();
+        modifiable.add("A");
+        modifiable.add("B");
+
+        // Create unmodifiable view
+        List<String> unmodifiable = Collections.unmodifiableList(modifiable);
+
+        System.out.println(unmodifiable); // [A, B]
+
+        // Allowed: reading
+        String val = unmodifiable.get(0);
+        System.out.println(val); // A
+
+        // Not allowed: modifying
+        unmodifiable.add("C"); // throws UnsupportedOperationException
+    }
+}
+```
+ 
+
 # Queue Interface
 
 | **Category** | **Method** | **Description** |
