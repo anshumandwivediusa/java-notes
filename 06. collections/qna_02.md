@@ -56,7 +56,7 @@ Why does Map not inherit Collection?
  - If Map extended Collection, it would force unnatural semantics like treating a key–value pair as a single element, which breaks the conceptual clarity of the framework.
 
 
-### 9. **How does `Collection` support iteration?  
+### 9. How does `Collection` support iteration?  
 **Answer:**  
 Through the `iterator()` method (from `Iterable`) and enhanced `for-each` loops.
 
@@ -134,7 +134,7 @@ List / Set / Queue
 
 **Answer:**
 
-* **Fail-fast** → Throws `ConcurrentModificationException` if the collection is structurally modified during iteration.
+* **Fail-fast** → The term Fail‑Fast is a conceptual name used in Java collections (and other systems) to describe behavior where an iterator or method immediately throws an exception if the underlying collection is structurally modified while being iterated. Throws `ConcurrentModificationException` if the collection is structurally modified during iteration.
 * **Fail-safe** → Iterates over a copy or snapshot, so modifications do not cause an exception.
 
 **Examples:**
