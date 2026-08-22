@@ -500,7 +500,34 @@ while (!pq.isEmpty()) {
 }
 ```
 
+### Example: Complex 
+```java
+import java.util.*;
 
+class Task {
+    String name;
+    int priority;
+    Task(String name, int priority) {
+        this.name = name;
+        this.priority = priority;
+    }
+}
+
+public class PriorityQueueCustom {
+    public static void main(String[] args) {
+        PriorityQueue<Task> pq = new PriorityQueue<>(Comparator.comparingInt(t -> t.priority));
+
+        pq.add(new Task("Task A", 3));
+        pq.add(new Task("Task B", 1));
+        pq.add(new Task("Task C", 2));
+
+        while (!pq.isEmpty()) {
+            Task t = pq.poll();
+            System.out.println(t.name + " (priority " + t.priority + ")");
+        }
+    }
+}
+```
 
 ### Comparison Snapshot
 
