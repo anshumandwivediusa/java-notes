@@ -79,7 +79,7 @@ public class ForEachDemo {
 }
 ```
 
-### 10. **What is the role of Streams in `Collection`?  
+### 10. What is the role of Streams in `Collection`?  
 **Answer:**  
 Since Java 8, `Collection` provides `stream()` and `parallelStream()` methods for functional programming (filter, map, reduce).
 
