@@ -274,11 +274,240 @@ public class ListIteratorDemo {
 
 
 ## 📘 List
-6. **ArrayList vs LinkedList? → ArrayList = fast random access, LinkedList = fast insert/delete.  
-7. **Vector vs ArrayList? → Vector synchronized, ArrayList not.  
-8. **Stack in Java? → Legacy, extends Vector, LIFO.  
-9. **CopyOnWriteArrayList? → Thread-safe list, uses copy on write.  
-10. **Difference between ListIterator and Iterator? → ListIterator supports bidirectional traversal.  
+
+1. What is the difference between ArrayList and LinkedList?  
+**Answer:**  
+ArrayList → Fast random access, slow insert/delete in middle.  
+LinkedList → Slow random access, fast insert/delete at ends.  
+
+2. What is the difference between ArrayList and Vector?  
+**Answer:**  
+ArrayList → Not synchronized, faster in single‑threaded use.  
+Vector → Synchronized, slower but thread‑safe (legacy).  
+
+3. What is the difference between Vector and Stack?  
+**Answer:**  
+Vector → General synchronized list.  
+Stack → Extends Vector, adds LIFO methods (`push`, `pop`, `peek`).  
+
+4. What is the difference between ArrayList and CopyOnWriteArrayList?  
+**Answer:**  
+ArrayList → Not thread‑safe, better for frequent updates.  
+CopyOnWriteArrayList → Thread‑safe, uses copy‑on‑write, good for read‑heavy scenarios.  
+
+5. What is the difference between Iterator and ListIterator?  
+**Answer:**  
+Iterator → Forward traversal only, supports remove().  
+ListIterator → Bidirectional traversal, supports add(), set(), remove().  
+
+6. What is the difference between Fail‑Fast and Fail‑Safe Iterators?  
+**Answer:**  
+Fail‑Fast → Throws ConcurrentModificationException if modified during iteration.  
+Fail‑Safe → Works on a copy, safe for concurrent modifications.  
+
+7. What is the difference between ensureCapacity() and trimToSize() in ArrayList?  
+**Answer:**  
+ensureCapacity() → Pre‑allocates memory to reduce resizing.  
+trimToSize() → Shrinks capacity to match current size.  
+
+8. What is the difference between Stack and ArrayDeque?  
+**Answer:**  
+Stack → Legacy, synchronized, extends Vector.  
+ArrayDeque → Modern, faster, non‑synchronized, recommended for stack/queue.  
+
+9. What is the difference between ArrayList and LinkedHashList?  
+**Answer:**  
+ArrayList → Indexed, random access.  
+LinkedHashList → Maintains insertion order with linked nodes.  
+
+10. What is the difference between ArrayList and HashSet?  
+**Answer:**  
+ArrayList → Allows duplicates, maintains insertion order.  
+HashSet → No duplicates, unordered.  
+
+11. What is the initial capacity of ArrayList?  
+**Answer:**  
+Default capacity is 10 when first element is added.  
+
+12. What happens when ArrayList exceeds capacity?  
+**Answer:**  
+It resizes internally (usually 1.5x growth).  
+
+13. Can ArrayList store null values?  
+**Answer:**  
+Yes, multiple null values allowed.  
+
+14. Can LinkedList store null values?  
+**Answer:**  
+Yes, multiple null values allowed.  
+
+15. Is Vector synchronized?  
+**Answer:**  
+Yes, all methods are synchronized.  
+
+16. Is ArrayList synchronized?  
+**Answer:**  
+No, it is not thread‑safe.  
+
+17. Is CopyOnWriteArrayList synchronized?  
+**Answer:**  
+Yes, it is thread‑safe using copy‑on‑write.  
+
+18. What is the time complexity of get() in ArrayList?  
+**Answer:**  
+O(1) → direct index access.  
+
+19. What is the time complexity of get() in LinkedList?  
+**Answer:**  
+O(n) → traversal required.  
+
+20. What is the time complexity of add() at end in ArrayList?  
+**Answer:**  
+Amortized O(1).  
+
+21. What is the time complexity of add() at end in LinkedList?  
+**Answer:**  
+O(1).  
+
+22. What is the time complexity of add() at index in ArrayList?  
+**Answer:**  
+O(n) → shifting required.  
+
+23. What is the time complexity of add() at index in LinkedList?  
+**Answer:**  
+O(n) → traversal required.  
+
+24. What is the time complexity of remove() at index in ArrayList?  
+**Answer:**  
+O(n) → shifting required.  
+
+25. What is the time complexity of remove() at index in LinkedList?  
+**Answer:**  
+O(n) → traversal required.  
+
+26. What is the difference between subList() and clone() in ArrayList?  
+**Answer:**  
+subList() → Returns a view backed by original list.  
+clone() → Creates shallow copy of list.  
+
+27. What is the difference between shallow copy and deep copy in List?  
+**Answer:**  
+Shallow copy → Copies references, not objects.  
+Deep copy → Copies actual objects.  
+
+28. What is the difference between ArrayList and Arrays.asList()?  
+**Answer:**  
+ArrayList → Fully mutable, resizable.  
+Arrays.asList() → Fixed size, backed by array.  
+
+29. What is the difference between ArrayList and Collections.unmodifiableList()?  
+**Answer:**  
+ArrayList → Mutable.  
+unmodifiableList → Read‑only wrapper.  
+
+30. What is the difference between ArrayList and synchronizedList()?  
+**Answer:**  
+ArrayList → Not thread‑safe.  
+synchronizedList → Thread‑safe wrapper via Collections.  
+
+31. What is the difference between ArrayList and LinkedList memory usage?  
+**Answer:**  
+ArrayList → Less memory, contiguous array.  
+LinkedList → More memory, node objects with pointers.  
+
+32. What is the difference between ArrayList and Stack performance?  
+**Answer:**  
+ArrayList → Faster for random access.  
+Stack → Slower, synchronized overhead.  
+
+33. What is the difference between ArrayList and ArrayDeque for stack use?  
+**Answer:**  
+ArrayList → Not ideal for stack ops.  
+ArrayDeque → Optimized for push/pop.  
+
+34. What is the difference between ArrayList and PriorityQueue?  
+**Answer:**  
+ArrayList → General list, ordered by insertion.  
+PriorityQueue → Orders elements by priority comparator.  
+
+35. What is the difference between ArrayList and LinkedBlockingQueue?  
+**Answer:**  
+ArrayList → Non‑blocking, not thread‑safe.  
+LinkedBlockingQueue → Thread‑safe, blocking operations.  
+
+36. What is the difference between ArrayList and CopyOnWriteArrayList performance?  
+**Answer:**  
+ArrayList → Better for frequent writes.  
+CopyOnWriteArrayList → Better for frequent reads.  
+
+37. What is the difference between ArrayList and TreeList (Apache Commons)?  
+**Answer:**  
+ArrayList → Fast random access.  
+TreeList → Optimized for insertions/deletions.  
+
+38. What is the difference between ArrayList and ImmutableList (Guava)?  
+**Answer:**  
+ArrayList → Mutable.  
+ImmutableList → Read‑only, cannot be modified.  
+
+39. What is the difference between ArrayList and LinkedList iteration speed?  
+**Answer:**  
+ArrayList → Faster iteration (contiguous memory).  
+LinkedList → Slower iteration (pointer chasing).  
+
+40. What is the difference between ArrayList and Vector iteration?  
+**Answer:**  
+ArrayList → Faster, unsynchronized.  
+Vector → Slower, synchronized.  
+
+41. What is the difference between ArrayList and Stack thread safety?  
+**Answer:**  
+ArrayList → Not thread‑safe.  
+Stack → Thread‑safe (synchronized).  
+
+42. What is the difference between ArrayList and LinkedList insertion at head?  
+**Answer:**  
+ArrayList → O(n).  
+LinkedList → O(1).  
+
+43. What is the difference between ArrayList and LinkedList deletion at head?  
+**Answer:**  
+ArrayList → O(n).  
+LinkedList → O(1).  
+
+44. What is the difference between ArrayList and LinkedList deletion at tail?  
+**Answer:**  
+ArrayList → O(1) amortized.  
+LinkedList → O(1).  
+
+45. What is the difference between ArrayList and LinkedList deletion in middle?  
+**Answer:**  
+ArrayList → O(n) (shifting).  
+LinkedList → O(n) (traversal).  
+
+46. What is the difference between ArrayList and LinkedList memory locality?  
+**Answer:**  
+ArrayList → Better cache locality.  
+LinkedList → Poor cache locality.  
+
+47. What is the difference between ArrayList and LinkedList null handling?  
+**Answer:**  
+Both allow multiple null values.  
+
+48. What is the difference between ArrayList and LinkedList serialization?  
+**Answer:**  
+ArrayList → Serializes backing array.  
+LinkedList → Serializes node chain.  
+
+49. What is the difference between ArrayList and LinkedList cloning?  
+**Answer:**  
+ArrayList → Shallow copy of array.  
+LinkedList → Shallow copy of nodes.  
+
+50. What is the difference between ArrayList and LinkedList iterator type?  
+**Answer:**  
+ArrayList → Fail‑Fast iterator.  
+LinkedList → Fail‑Fast iterator (same behavior).  
 
 
 ## 📘 Set
