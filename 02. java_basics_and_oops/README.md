@@ -375,6 +375,7 @@ System.out.println(b); // Prints a string which is returned by toString
 
 ![association-aggregation-composition](https://user-images.githubusercontent.com/2780145/34364371-5db00694-eaab-11e7-8ef2-bf56d3394f15.png)
 
+IS-A vs HAS-A vs PART RELATIONSHIP
 
 ### Aggregation vs Composition
 
