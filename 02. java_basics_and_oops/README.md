@@ -602,11 +602,27 @@ The Object class is the parent class of all the classes in java by default.
 - For **objects**, it checks if both references point to the same object in memory.  
 
 ```java
-String s1 = new String("Java");
-String s2 = new String("Java");
+public class StringComparison {
+    public static void main(String[] args) {
+        // Using string literals (preferred)
+        String s1 = "Java";
+        String s2 = "Java";
 
-System.out.println(s1 == s2);       // false (different objects)
-System.out.println(s1.equals(s2));  // true (same content)
+        // Using 'new' forces a new object
+        String s3 = new String("Java");
+
+        // Reference equality
+        System.out.println("s1 == s2: " + (s1 == s2));   // true (same pool object)
+        System.out.println("s1 == s3: " + (s1 == s3));   // false (different objects)
+
+        // Value equality
+        System.out.println("s1.equals(s2): " + s1.equals(s2)); // true
+        System.out.println("s1.equals(s3): " + s1.equals(s3)); // true
+
+        // Interning example
+        System.out.println("s3.intern() == s1: " + (s3.intern() == s1)); // true
+    }
+}
 ```
 
 ### `equals()` Method
