@@ -15,7 +15,7 @@
 ### Key Rules
 - **Class Level**:  
   - Top-level classes can only be `public` or `default`.  
-  - Inner classes can be `public`, `protected`, or `private`.  
+  - Inner classes can be `public`, `default`, `protected`, or `private`.  
 - **Members**:  
   - Variables, methods, and constructors can use all access modifiers.  
   - If a class is not accessible, its members are not accessible even if declared `public`.  
