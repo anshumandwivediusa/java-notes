@@ -49,8 +49,9 @@ Java is a **high-level, object-oriented programming language** known for its **p
   - Removed confusing features - explicit pointers, operator overloading, multiple inheritance, etc
  
 - **Object-Oriented:**
-  - In Java, we organize the software as a combination of different types of objects that incorporates both data and behavior.
-  - Based on the concept of Objects, Class, Inheritance, Polymorphism, Abstraction, Encapsulation
+  - Java’s Object‑Oriented design is not just about syntax — it’s about **thinking in terms of entities and relationships.**
+  - By combining Objects, Classes, Polymorphism, Inheritance, Encapsulation, and Abstraction (PEI-A) Java enables developers to build systems that are modular, extensible, and resilient.
+  - In Java, we organize the software as a combination of different types of objects that incorporates both data (properties) and behavior (methods).
   
 - **Platform Independent:**
   - Java provides software-based platform. It has two components:
