@@ -234,7 +234,7 @@ Your example demonstrates the **entire lifecycle**:
 ## 2. Static vs Dynamic Class Loading
 
 Static class loading in Java happens at compile-time when classes are linked directly in code, while dynamic class loading occurs at runtime using reflection or APIs like Class.forName(). Static loading is faster and simpler, but dynamic loading provides flexibility for plugins, JDBC drivers, and frameworks.
-
+**Reference Variable: SavingsAccount sa;**
 ```java
 // Static loading
 /* A NoClassDefFoundError is 
@@ -256,6 +256,12 @@ class with the specified name could be found: Checked Exception
 
 Class<?> cls = Class.forName("com.bank.SavingsAccount");
 Object obj = cls.getDeclaredConstructor().newInstance();
+```
+
+```java
+Book refBook = javaBook; // Assign second reference
+javaBook = null;         // Remove original reference
+// But refBook still points to the Book object, so the object is not eligible for GC yet.
 ```
 
 ## 3. Data Types in Java
