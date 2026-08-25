@@ -50,15 +50,17 @@ Java is a **high-level, object-oriented programming language** known for its **p
  
 - **Object-Oriented:**
   - Java’s Object‑Oriented design is not just about syntax — it’s about **thinking in terms of entities and relationships.**
-  - By combining Objects, Classes, Polymorphism, Inheritance, Encapsulation, and Abstraction (PEI-A) Java enables developers to build systems that are modular, extensible, and resilient.
-  - In Java, we organize the software as a combination of different types of objects that incorporates both data (properties) and behavior (methods).
+  - By combining **Objects, Classes, Polymorphism, Inheritance, Encapsulation, and Abstraction (PEI-A)** Java enables developers to build systems that are modular, extensible, and resilient.
+  - In Java, we organize the software as a combination of different types of objects that incorporates both **data (properties) and behavior (methods)**.
   
 - **Platform Independent:**
-  - Java provides software-based platform. It has two components:
-    - JRE (Runtime Environment)
-    - API (Application Programming Interface)
-  - Java code is compiled by the compiler and converted into bytecode. This bytecode is a platform-independent. Can run on many platforms - Windows, Linux, Mac, etc.
-  
+   - Java Compiler translates human‑readable .java source code into bytecode (.class files).
+   - This bytecode is not tied to any single operating system or hardware — it’s platform‑independent.
+   - The JVM (Java Virtual Machine) interprets or compiles this bytecode into native machine instructions for the host system.
+   - As a result, the same .class file can run seamlessly on Windows, Linux, macOS, or Android, without modification.
+
+  👉 Formula:  Java Source → Compiler → Bytecode → JVM → Native Execution
+
 - **Secured:**
   - **No explicit pointer**
   - **JVM -** java Programs run inside virtual machine sandbox 
