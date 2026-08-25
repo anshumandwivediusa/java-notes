@@ -194,7 +194,6 @@ Java is a **high-level, object-oriented programming language** known for its **p
 - Components:
   - **Interpreter** → executes line by line.
   - **JIT Compiler (Just-In-Time)** → improves performance by compiling bytecode into native machine code.
-
 - **Simple Flow of JVM Execution**
   - **Startup → Interpreter runs immediately**
     - When you launch a Java program, the JVM doesn’t wait.
