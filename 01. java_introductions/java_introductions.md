@@ -2,7 +2,7 @@
 
 Java is a **programming language** and a **platform**. 
 
-1. Java as a **Programming Language**, because java Language provides:
+1. Java as a **Programming Language**, because java Language provides set of **Instructions**:
    - Syntax, keywords, operators, and constructs to write applications.
    - Object‑oriented features (encapsulation, inheritance, polymorphism).
    - Strong typing and platform independence (via bytecode).
@@ -15,9 +15,10 @@ A platform is any environment where programs run (hardware or software). Java qu
 
 
 👉 Together, **JVM + JRE + API = Java Platform**.
+
 👉 **Java Language → How you write instructions.**
 
-👉 **Java Platform → Where those programs run.**
+👉 **Java Platform → Where those instructions run.**
 
 <p align="center">
   <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/daaa2e0f-19c3-497d-bca0-a3f831b2f342" />
