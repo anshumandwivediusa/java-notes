@@ -176,14 +176,14 @@ public class ObjectLifecycleDemo {
 
 
 
-### 4. **Active Lifetime**
+#### 4. **Active Lifetime**
 - Object is referenced by `javaBook` and `refBook`.  
 - During this stage, JVM may optimize execution with **JIT compilation** and **inline caching**.  
 - The object participates in program logic (though here, only constructors and print statements are used).
 
 
 
-### 5. **Reachability Analysis**
+#### 5. **Reachability Analysis**
 - `javaBook = null;` → one reference removed.  
 - `refBook` still points to the object, so it remains reachable.  
 - `refBook = null;` → now no references exist.  
@@ -192,7 +192,7 @@ public class ObjectLifecycleDemo {
 
 
 
-### 6. **Garbage Collection**
+#### 6. **Garbage Collection**
 - Object is now eligible for GC.  
 - GC algorithms (G1, ZGC, Shenandoah) may reclaim memory.  
 - `finalize()` is deprecated; modern practice uses **cleaners** or **try‑with‑resources** for resource management.  
@@ -200,14 +200,14 @@ public class ObjectLifecycleDemo {
 
 
 
-### 7. **Deallocation**
+#### 7. **Deallocation**
 - Memory occupied by the `Book` object is returned to the heap pool.  
 - Object ceases to exist; both references are `null`.  
 - JVM can reuse the freed memory for future allocations.
 
 
 
-### Output Recap
+#### Output Recap
 ```
 Program start
 Static block: LibraryItem class loaded
@@ -219,7 +219,7 @@ End of main
 
 
 
-### Conceptual Takeaway
+#### Conceptual Takeaway
 Your example demonstrates the **entire lifecycle**:
 - **Class loading** → static blocks run once.  
 - **Object allocation** → heap memory reserved.  
