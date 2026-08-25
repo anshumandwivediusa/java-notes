@@ -156,10 +156,10 @@ Java is a **high-level, object-oriented programming language** known for its **p
 <img width="262" height="217" alt="image" src="https://github.com/user-attachments/assets/03d97f8b-baf0-4d32-be95-04ad91589e17" />
 
 ### 6. **Execution Engine**
-- Executes bytecode instructions.  
-- Components:  
-  - **Interpreter** → executes line by line.  
-  - **JIT Compiler (Just-In-Time)** → improves performance by compiling bytecode into native machine code.  
+- Executes bytecode instructions.
+- Components:
+  - **Interpreter** → executes line by line.
+  - **JIT Compiler (Just-In-Time)** → improves performance by compiling bytecode into native machine code.
 
 - **Simple Flow of JVM Execution**
   - **Startup → Interpreter runs immediately**
