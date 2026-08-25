@@ -347,7 +347,7 @@ Java 11 → JDK only (no separate JRE)
   - Generates native shared libraries (`.so` on Linux, `.dll` on Windows).  
   - These libraries can be loaded by the JVM at startup.  
 
-#### ⚙️ Example Usage
+#### Example Usage
 
 1. **Compile Java source into bytecode**  
    ```bash
@@ -368,14 +368,10 @@ Java 11 → JDK only (no separate JRE)
    - JVM loads the AOT‑compiled code at startup.  
    - Startup is faster since native code is already available.  
 
-
-
 ### When to Use AOT
 - **Short‑lived apps** → CLI tools, microservices, serverless functions.  
 - **Fast startup needs** → Applications where latency matters.  
 - **Embedded systems** → Limited resources, predictable performance.  
-
-
 
 ### Takeaway
 - AOT is available via **`jaotc`** starting from Java 9.  
