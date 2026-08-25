@@ -264,6 +264,61 @@ javaBook = null;         // Remove original reference
 // But refBook still points to the Book object, so the object is not eligible for GC yet.
 ```
 
+## 3. Keywords
+
+| **Keyword** | **Meaning / Usage** |
+| --- | --- |
+| **[abstract](ca://s?q=Java_abstract_keyword)** | Declares a class or method as abstract (no implementation, must be overridden). |
+| **[assert](ca://s?q=Java_assert_keyword)** | Used for debugging; tests assumptions at runtime. |
+| **[boolean](ca://s?q=Java_boolean_keyword)** | Declares a variable of type boolean (``true``/``false``). |
+| **[break](ca://s?q=Java_break_keyword)** | Exits a loop or switch immediately. |
+| **[byte](ca://s?q=Java_byte_keyword)** | Declares an 8‑bit integer variable. |
+| **[case](ca://s?q=Java_case_keyword)** | Defines a branch in a ``switch`` statement. |
+| **[catch](ca://s?q=Java_catch_keyword)** | Handles exceptions thrown in a ``try`` block. |
+| **[char](ca://s?q=Java_char_keyword)** | Declares a 16‑bit Unicode character. |
+| **[class](ca://s?q=Java_class_keyword)** | Defines a class. |
+| **[const](ca://s?q=Java_const_keyword)** | Reserved but unused. |
+| **[continue](ca://s?q=Java_continue_keyword)** | Skips to the next iteration of a loop. |
+| **[default](ca://s?q=Java_default_keyword)** | Defines default branch in ``switch``; also default methods in interfaces. |
+| **[do](ca://s?q=Java_do_loop)** | Starts a do‑while loop. |
+| **[double](ca://s?q=Java_double_keyword)** | Declares a 64‑bit floating‑point variable. |
+| **[else](ca://s?q=Java_else_keyword)** | Defines alternative branch in ``if``. |
+| **[enum](ca://s?q=Java_enum_keyword)** | Defines a set of named constants. |
+| **[extends](ca://s?q=Java_extends_keyword)** | Indicates inheritance from a superclass. |
+| **[final](ca://s?q=Java_final_keyword)** | Declares constants, prevents inheritance/overriding. |
+| **[finally](ca://s?q=Java_finally_keyword)** | Defines block that always executes after ``try``/``catch``. |
+| **[float](ca://s?q=Java_float_keyword)** | Declares a 32‑bit floating‑point variable. |
+| **[for](ca://s?q=Java_for_loop)** | Loop construct. |
+| **[goto](ca://s?q=Java_goto_keyword)** | Reserved but unused. |
+| **[if](ca://s?q=Java_if_keyword)** | Conditional branching. |
+| **[implements](ca://s?q=Java_implements_keyword)** | Declares that a class implements an interface. |
+| **[import](ca://s?q=Java_import_keyword)** | Brings external classes/packages into scope. |
+| **[instanceof](ca://s?q=Java_instanceof_keyword)** | Tests if an object is an instance of a class. |
+| **[int](ca://s?q=Java_int_keyword)** | Declares a 32‑bit integer variable. |
+| **[interface](ca://s?q=Java_interface_keyword)** | Defines a contract of methods. |
+| **[long](ca://s?q=Java_long_keyword)** | Declares a 64‑bit integer variable. |
+| **[native](ca://s?q=Java_native_keyword)** | Declares a method implemented in native code (JNI). |
+| **[new](ca://s?q=Java_new_keyword)** | Creates new object instances. |
+| **[package](ca://s?q=Java_package_keyword)** | Defines a namespace for classes. |
+| **[private](ca://s?q=Java_private_modifier)** | Access modifier → visible only within class. |
+| **[protected](ca://s?q=Java_protected_modifier)** | Access modifier → visible in package + subclasses. |
+| **[public](ca://s?q=Java_public_modifier)** | Access modifier → visible everywhere. |
+| **[return](ca://s?q=Java_return_keyword)** | Exits a method and optionally returns a value. |
+| **[short](ca://s?q=Java_short_keyword)** | Declares a 16‑bit integer variable. |
+| **[static](ca://s?q=Java_static_keyword)** | Declares members tied to the class, not instances. |
+| **[strictfp](ca://s?q=Java_strictfp_keyword)** | Ensures floating‑point calculations are consistent across platforms. |
+| **[super](ca://s?q=Java_super_keyword)** | Refers to superclass methods/constructors. |
+| **[switch](ca://s?q=Java_switch_keyword)** | Multi‑branch conditional logic. |
+| **[synchronized](ca://s?q=Java_synchronized_keyword)** | Ensures thread‑safe access to methods/blocks. |
+| **[this](ca://s?q=Java_this_keyword)** | Refers to the current object instance. |
+| **[throw](ca://s?q=Java_throw_keyword)** | Used to throw an exception. |
+| **[throws](ca://s?q=Java_throws_keyword)** | Declares exceptions a method may throw. |
+| **[transient](ca://s?q=Java_transient_keyword)** | Prevents a field from being serialized. |
+| **[try](ca://s?q=Java_try_keyword)** | Defines a block to test for exceptions. |
+| **[void](ca://s?q=Java_void_keyword)** | Declares a method with no return value. |
+| **[volatile](ca://s?q=Java_volatile_keyword)** | Ensures a variable is always read/written from main memory (thread visibility). |
+| **[while](ca://s?q=Java_while_loop)** | Loop construct. |
+
 ## 3. Data Types in Java
 
 | **Data Type** | **Size (bits)** | **Initial Value** | **Min Value** | **Max Value** | **[Wrapper Class](ca://s?q=Java_Wrapper_Classes) Name |
