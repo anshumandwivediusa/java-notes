@@ -13,13 +13,13 @@ A platform is any environment where programs run (hardware or software). Java qu
    - JRE → Runtime environment including JVM + core libraries.
    - Java API → Rich set of classes/interfaces for networking, collections, concurrency, etc.
 
-```
+
 👉 Together, **JVM + JRE + API = Java Platform**.
 
 👉 **Java Language → How you write instructions?**
 
 👉 **Java Platform → Where those instructions run?**
-```
+
 
 <p align="center">
   <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/daaa2e0f-19c3-497d-bca0-a3f831b2f342" />
@@ -27,7 +27,7 @@ A platform is any environment where programs run (hardware or software). Java qu
 
 ## 1. Introduction to Java Foundations
 
-Java is a **high-level, object-oriented programming language** known for its **portability, robustness, and scalability**. Programs written in Java run on the **Java Virtual Machine (JVM)**, making them platform-independent — the famous principle of *“Write Once, Run Anywhere.”*
+Java is a **high-level, object-oriented programming language** known for its **portability, robustness, and scalability (PRS)**. Programs written in Java run on the **Java Virtual Machine (JVM)**, making them platform-independent — the famous principle of *“Write Once, Run Anywhere.”*
 
 | **Reason** | **Benefit** | **Example Use Case** |
 | --- | --- | --- |
