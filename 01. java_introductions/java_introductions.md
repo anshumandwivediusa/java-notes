@@ -22,7 +22,7 @@ A platform is any environment where programs run (hardware or software). Java qu
 
 
 <p align="center">
-  <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/daaa2e0f-19c3-497d-bca0-a3f831b2f342" />
+  <img width="400" height="275" alt="image" src="https://github.com/user-attachments/assets/daaa2e0f-19c3-497d-bca0-a3f831b2f342" />
 </p>
 
 ## 1. Introduction to Java Foundations
