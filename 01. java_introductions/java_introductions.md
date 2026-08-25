@@ -294,3 +294,90 @@ Java 11 → JDK only (no separate JRE)
 - **Before Java 9** → JDK and JRE were distinct.  
 - **From Java 9 onward** → The JDK became modular, and **jlink** allowed custom runtimes.  
 - **From Java 11 onward** → Oracle stopped shipping a separate JRE; the JDK is the single distribution, and developers use **jlink** to create runtime images if needed.  
+
+## 5. Ahead‑of‑Time (AOT)
+
+**Ahead‑of‑Time (AOT) compilation improves startup speed and predictability by compiling Java bytecode into native machine code before execution, but it cannot fully replace Just‑In‑Time (JIT) compilation because JIT adapts dynamically to runtime workloads and optimizes “hot spots” better.**  
+
+
+
+### Advantages of AOT Compilation
+- **Faster Startup** → Native code is ready before execution, reducing warm‑up time.  
+- **Predictable Performance** → No runtime compilation overhead, so performance is more consistent.  
+- **Reduced Memory Usage** → Less memory needed since JIT compiler structures aren’t loaded.  
+- **Better for Short‑lived Apps** → Ideal for serverless, microservices, and CLI tools where startup latency matters.  
+- **Security & Deployment** → Produces self‑contained native images, easier to deploy in restricted environments.  
+
+
+
+### Why Not Use AOT Entirely?
+- **Dynamic Optimization** → JIT adapts to actual runtime behavior, optimizing hot methods more aggressively than static AOT.  
+- **Cross‑Platform Portability** → AOT generates native code tied to a specific CPU architecture; JIT keeps bytecode portable.  
+- **Code Size** → Native images can be larger than bytecode + JIT combo.  
+- **Limited Coverage** → Some dynamic features (reflection, dynamic proxies) are harder to handle with pure AOT.  
+- **Best Balance** → Modern JVMs combine AOT (for startup) with JIT (for runtime optimization) to achieve both responsiveness and speed.  
+
+
+
+### Comparison Table
+
+| **Aspect** | **AOT Compilation** | **JIT Compilation** |
+|------------|----------------------|----------------------|
+| **Startup Speed** | Very fast (native code ready) | Slower (needs profiling + compilation) |
+| **Performance** | Predictable, but less adaptive | Highly optimized for runtime workload |
+| **Memory Usage** | Lower (no JIT structures) | Higher (JIT compiler + profiling data) |
+| **Portability** | Tied to CPU architecture | Platform‑independent bytecode |
+| **Best Use Case** | Short‑lived apps, microservices, serverless | Long‑running apps, enterprise workloads |
+
+
+### ✅ Takeaway
+- **AOT alone** → Great for fast startup, predictable performance, and lightweight runtimes.  
+- **JIT alone** → Best for adaptive optimization in long‑running applications.  
+- **Modern JVMs (Project Leyden, GraalVM)** → Use a **hybrid approach**: AOT for startup + JIT for runtime, giving the best of both worlds.   [OpenJDK](https://openjdk.org/jeps/8335368)  [Java Code Geeks](https://www.javacodegeeks.com/understanding-ahead-of-time-aot-caching-in-java.html)  [javaspring.net](https://www.javaspring.net/blog/aot-compilation-java/)  
+
+
+### Using AOT in Java
+
+- **JDK 9 AOT Introduction**  
+  - Java 9 introduced experimental AOT support via the tool **`jaotc`** (Java Ahead‑Of‑Time Compiler).  
+  - It compiles Java bytecode into native code before runtime.  
+
+- **jaotc Tool**  
+  - Command‑line utility included in JDK 9+.  
+  - Generates native shared libraries (`.so` on Linux, `.dll` on Windows).  
+  - These libraries can be loaded by the JVM at startup.  
+
+#### ⚙️ Example Usage
+
+1. **Compile Java source into bytecode**  
+   ```bash
+   javac HelloWorld.java
+   ```
+
+2. **Generate AOT compiled library with jaotc**  
+   ```bash
+   jaotc --output libHelloWorld.so HelloWorld.class
+   ```
+   - `--output` specifies the native library file.  
+   - Input is the `.class` file (bytecode).  
+
+3. **Run with AOT library**  
+   ```bash
+   java -XX:AOTLibrary=./libHelloWorld.so HelloWorld
+   ```
+   - JVM loads the AOT‑compiled code at startup.  
+   - Startup is faster since native code is already available.  
+
+
+
+### When to Use AOT
+- **Short‑lived apps** → CLI tools, microservices, serverless functions.  
+- **Fast startup needs** → Applications where latency matters.  
+- **Embedded systems** → Limited resources, predictable performance.  
+
+
+
+### Takeaway
+- AOT is available via **`jaotc`** starting from Java 9.  
+- It’s best used for **fast startup** and **predictable performance**.  
+- Not a full replacement for JIT — modern JVMs combine **AOT + JIT** for optimal balance.  
