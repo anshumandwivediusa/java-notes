@@ -356,6 +356,64 @@ public int add(int a, int b) {
 ```
 
 
+## 5. Package and Import
+
+### Wild Import
+- **Syntax** → `import java.util.*;`  
+- **Meaning** → Brings in *all classes* from the `java.util` package (e.g., `List`, `ArrayList`, `HashMap`).  
+- **Performance Impact** →  
+  - **No runtime penalty** — imports are resolved at **compile time**, not at runtime.  
+  - The compiler only loads the classes you actually use, not the entire package.  
+  - So `import java.util.*;` does **not slow down performance**, but it can reduce clarity.  
+- **Exam Point** → Wildcard imports are allowed, but **explicit imports are preferred** for readability and avoiding conflicts.
+
+
+
+### Multiple Imports
+- You **cannot import multiple classes in one line** separated by commas.  
+- Each class must be imported separately:  
+  ```java
+  import java.util.List;
+  import java.util.ArrayList;
+  ```
+- Or use wildcard:  
+  ```java
+  import java.util.*;
+  ```
+- **Exam Point** → Each `import` statement is independent; no comma‑separated imports.
+
+
+
+### Static Import
+- **Syntax** → `import static java.lang.Math.*;`  
+- **Meaning** → Brings static members (methods, constants) directly into scope.  
+- Example:  
+  ```java
+  import static java.lang.Math.*;  
+  System.out.println(sqrt(16)); // no need for Math.sqrt
+  ```
+- **Use Cases** → Cleaner code when using many constants/methods (e.g., `PI`, `sqrt`, `max`).  
+- **Exam Point** → Use sparingly; overuse can reduce readability because it hides the class origin.
+
+
+
+### Exam‑Friendly Table
+
+| **Feature** | **Syntax** | **Performance / Rules** | **Exam Notes** |
+|-------------|------------|--------------------------|----------------|
+| **Wildcard Import** | `import java.util.*;` | No runtime cost; compiler loads only used classes | Allowed, but explicit imports preferred |
+| **Multiple Imports** | `import java.util.List;` <br> `import java.util.ArrayList;` | Must be separate lines; no commas | Each class imported individually |
+| **Static Import** | `import static java.lang.Math.*;` | Brings static members directly into scope | Useful for constants/methods; readability trade‑off |
+
+
+
+### Key Takeaways
+- `import java.util.*;` → **No performance issue**, but readability suffers.  
+- Multiple imports → **One per line**, no comma separation.  
+- Static import → Brings static members into scope; use carefully.  
+- Imports are **compile‑time only** — they don’t affect runtime performance.  
+
+
 ## 3. Data Types in Java
 
 | **Data Type** | **Size (bits)** | **Initial Value** | **Min Value** | **Max Value** | **[Wrapper Class](ca://s?q=Java_Wrapper_Classes) Name |
