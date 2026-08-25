@@ -174,8 +174,8 @@ Java is a **high-level, object-oriented programming language** known for its **p
     - This is called profiling — it’s like the JVM is observing which parts of your code are “hot” (used a lot).
 
   - **Hot methods → JIT compiler steps in**
-    - For frequently used methods, the JIT compiler translates bytecode into native machine code.
-    - Native code runs much faster than interpreted bytecode.
+    - For frequently used methods, the **JIT compiler translates bytecode into native machine code**.
+    - **Native code runs much faster than interpreted bytecode**.
     - This makes your program high‑performance after it warms up.
 
   - **Result → Best of both worlds**
