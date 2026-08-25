@@ -83,7 +83,7 @@ Java is a **high-level, object-oriented programming language** known for its **p
   - Write Once and Run Anywhere.
    
 - **Interpreted:**
-  - Java is compiled to bytecodes, which are interpreted by a Java run-time environment.
+  - Java is compiled into bytecode (by Javac Compiler), and the JVM within the JRE interprets that bytecode to make it platform‑independent.
   - The interpreter reads bytecode stream then execute the instructions.
   
 - **High-Performance:**
