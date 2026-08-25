@@ -259,3 +259,38 @@ Together, they balance fast startup with optimized performance.
 | **[Java 25](ca://s?q=Java_25_features)** | September 2025 | Compact source files, **Scoped Values**, Primitive type patterns, Stream Gatherers | Oracle Premier Support until 2030; extended support until 2033 |
 
 Lambda Client Seals Thread Scope.
+
+## 4. Evolution of JDK & JRE
+
+- **Pre‑Java 9**  
+  - JDK (Java Development Kit) = tools + compiler + JRE.  
+  - JRE (Java Runtime Environment) = JVM + core libraries, used only to run applications.  
+  - Developers installed JDK, end‑users often installed JRE.
+
+- **Java 9**  
+  - Introduced the **Java Platform Module System (JPMS)** → JDK reorganized into **94 modules**.  
+  - Added **jlink** → command‑line tool to generate **custom runtime images** containing only the modules your application needs.  
+  - Result → No strict separation between JDK and JRE; everything is modular.
+
+- **Java 11**  
+  - Oracle stopped offering separate JRE downloads.  
+  - Only the JDK is distributed, but you can still create a runtime image with **jlink** if you want a lightweight runtime.  
+  - This simplified distribution and pushed developers toward modular runtimes.
+
+### Why This Matters
+- **Smaller footprint** → Applications can ship with only the modules they need.  
+- **Better security** → Unused modules aren’t included, reducing attack surface.  
+- **Consistency** → No more confusion between JDK vs JRE downloads.  
+- **Flexibility** → Developers can build custom runtimes for embedded systems, containers, or microservices.  
+
+### Conceptual Flow
+```text
+Before Java 9 → JDK vs JRE (separate downloads)
+Java 9 → Modules + jlink (custom runtimes)
+Java 11 → JDK only (no separate JRE)
+```
+
+### Takeaway
+- **Before Java 9** → JDK and JRE were distinct.  
+- **From Java 9 onward** → The JDK became modular, and **jlink** allowed custom runtimes.  
+- **From Java 11 onward** → Oracle stopped shipping a separate JRE; the JDK is the single distribution, and developers use **jlink** to create runtime images if needed.  
