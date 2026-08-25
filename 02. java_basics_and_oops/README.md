@@ -4,7 +4,7 @@
 
 **Object-Oriented Programming (OOP)** is a paradigm that structures software around **classes** and **objects**. It simplifies development and maintenance by promoting modularity and reusability.
 
-The four main pillars of OOP in Java are often remembered as **PEIA**:
+The four main pillars of OOP in Java are often remembered as **PIEA**:
 
 - **Polymorphism**  
   Ability of a method or object to take many forms.  
