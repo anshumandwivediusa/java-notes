@@ -165,6 +165,8 @@ Java is a **high-level, object-oriented programming language** known for its **p
   - **Startup → Interpreter runs immediately**
     - When you launch a Java program, the JVM doesn’t wait.
     - The interpreter reads bytecode line by line and executes it right away.
+    - The Interpreter inside the JVM reads bytecode instructions one by one and directly performs the equivalent CPU operations using the JVM’s internal routines.
+      - Think of it like a translator who reads a sentence in one language and immediately speaks it in another — no permanent translation stored.
     - This gives you fast startup.
 
   - **As program runs → JVM watches usage**
