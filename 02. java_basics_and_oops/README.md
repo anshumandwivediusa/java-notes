@@ -319,6 +319,43 @@ javaBook = null;         // Remove original reference
 | **[volatile](ca://s?q=Java_volatile_keyword)** | Ensures a variable is always read/written from main memory (thread visibility). |
 | **[while](ca://s?q=Java_while_loop)** | Loop construct. |
 
+## 4. Types of Comments
+- **Single‑line (`//`)** → Quick notes, ends at line break.  
+- **Multi‑line (`/* ... */`)** → Block explanations or disable code.  
+- **Documentation (`/** ... */`)** → Javadoc comments, generate API docs.
+
+### Key Exam Points
+
+- **Reserved Syntax** → Comments are ignored by the compiler, not executed.  
+- **Javadoc Tags** → `@param`, `@return`, `@throws`, `@see` are exam favorites.  
+- **Best Practice** → Use comments for clarity, not redundancy.  
+- **Multi‑line vs Javadoc** → Both use `/* ... */`, but Javadoc starts with `/**`.  
+- **Debugging Aid** → Multi‑line comments can temporarily disable code.  
+- **Documentation** → Javadoc comments are essential for professional API documentation.  
+- **Performance** → Comments have **no runtime cost** — purely for readability.  
+- **Maintainability** → Good comments explain *why*, not just *what*.  
+
+```java
+// Single-line: explains one statement
+int x = 10;
+
+/* Multi-line:
+   Explains a block of logic
+   or disables code temporarily
+*/
+
+/**
+ * Javadoc: describes method for API docs
+ * @param a first number
+ * @param b second number
+ * @return sum of a and b
+ */
+public int add(int a, int b) {
+    return a + b;
+}
+```
+
+
 ## 3. Data Types in Java
 
 | **Data Type** | **Size (bits)** | **Initial Value** | **Min Value** | **Max Value** | **[Wrapper Class](ca://s?q=Java_Wrapper_Classes) Name |
