@@ -90,6 +90,147 @@ public class FinanceDemo {
 }
 ```
 
+## 2. Class Loading Sequence
+```java
+// Abstract class: cannot be instantiated directly, but can define constructors
+abstract class LibraryItem {
+    // Static block: runs ONCE when the class is loaded into JVM
+    static {
+        System.out.println("Static block: LibraryItem class loaded");
+    }
+
+    String title; // Instance variable (state of the object)
+
+    // Constructor: initializes instance state when subclass object is created
+    LibraryItem(String title) {
+        this.title = title;
+        System.out.println("Constructor: LibraryItem initialized");
+    }
+}
+
+// Concrete subclass extending abstract class
+class Book extends LibraryItem {
+    // Static block: runs ONCE when Book class is loaded
+    static {
+        System.out.println("Static block: Book class loaded");
+    }
+
+    // Constructor: calls abstract class constructor first (super)
+    Book(String title) {
+        super(title); // invokes LibraryItem(String) constructor
+        System.out.println("Constructor: Book initialized");
+    }
+}
+
+public class ObjectLifecycleDemo {
+    public static void main(String[] args) {
+        System.out.println("Program start");
+
+        // Step 1: Object allocation + initialization
+        // 'new Book("Effective Java")' → allocates memory on heap, runs constructors
+        Book javaBook = new Book("Effective Java");
+
+        // Step 2: Reference reassignment
+        // 'refBook' now points to the same Book object as 'javaBook'
+        Book refBook = javaBook;
+
+        // Step 3: Nullify one reference
+        // 'javaBook' no longer points to the object, but 'refBook' still does
+        javaBook = null;
+
+        // Step 4: Nullify all references
+        // Now no variable points to the Book object → eligible for GC
+        refBook = null;
+
+        System.out.println("End of main");
+    }
+}
+```
+
+
+### Object Life‑Cycle in Your Example
+
+#### 1. **Class Loading**
+- Triggered when `new Book("Effective Java")` is first executed.  
+- **Static blocks** run once per class load:
+  - `LibraryItem` static block → `"Static block: LibraryItem class loaded"`.  
+  - `Book` static block → `"Static block: Book class loaded"`.  
+- **Static fields** (if any) would also be initialized here.  
+- Managed by the **ClassLoader**, stored in the **method area**.
+
+
+
+#### 2. **Object Allocation**
+- `new Book("Effective Java")` reserves memory on the **heap**.  
+- JVM often uses **TLAB (Thread Local Allocation Buffer)** for efficiency.  
+- At this point, memory is reserved but not yet initialized.
+
+
+
+#### 3. **Initialization**
+- Constructor chain executes:
+  - `LibraryItem(String)` constructor runs first → `"Constructor: LibraryItem initialized"`.  
+  - Then `Book(String)` constructor runs → `"Constructor: Book initialized"`.  
+- Abstract class constructors always execute before subclass constructors.  
+- Interfaces cannot have constructors — they only define contracts.
+
+
+
+### 4. **Active Lifetime**
+- Object is referenced by `javaBook` and `refBook`.  
+- During this stage, JVM may optimize execution with **JIT compilation** and **inline caching**.  
+- The object participates in program logic (though here, only constructors and print statements are used).
+
+
+
+### 5. **Reachability Analysis**
+- `javaBook = null;` → one reference removed.  
+- `refBook` still points to the object, so it remains reachable.  
+- `refBook = null;` → now no references exist.  
+- JVM marks the object as **unreachable**.  
+- Reference types (strong, soft, weak, phantom) influence GC eligibility — here, only strong references are used.
+
+
+
+### 6. **Garbage Collection**
+- Object is now eligible for GC.  
+- GC algorithms (G1, ZGC, Shenandoah) may reclaim memory.  
+- `finalize()` is deprecated; modern practice uses **cleaners** or **try‑with‑resources** for resource management.  
+- GC runs **non‑deterministically** — you won’t see output unless explicitly coded.
+
+
+
+### 7. **Deallocation**
+- Memory occupied by the `Book` object is returned to the heap pool.  
+- Object ceases to exist; both references are `null`.  
+- JVM can reuse the freed memory for future allocations.
+
+
+
+### Output Recap
+```
+Program start
+Static block: LibraryItem class loaded
+Static block: Book class loaded
+Constructor: LibraryItem initialized
+Constructor: Book initialized
+End of main
+```
+
+
+
+### Conceptual Takeaway
+Your example demonstrates the **entire lifecycle**:
+- **Class loading** → static blocks run once.  
+- **Object allocation** → heap memory reserved.  
+- **Initialization** → constructor chain executes.  
+- **Active lifetime** → object referenced and used.  
+- **Reachability analysis** → references removed.  
+- **Garbage collection** → memory reclaimed automatically.  
+- **Deallocation** → object ceases to exist.  
+
+
+
 ## 2. Static vs Dynamic Class Loading
 
 Static class loading in Java happens at compile-time when classes are linked directly in code, while dynamic class loading occurs at runtime using reflection or APIs like Class.forName(). Static loading is faster and simpler, but dynamic loading provides flexibility for plugins, JDBC drivers, and frameworks.
