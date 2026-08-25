@@ -377,3 +377,16 @@ Java 11 → JDK only (no separate JRE)
 - AOT is available via **`jaotc`** starting from Java 9.  
 - It’s best used for **fast startup** and **predictable performance**.  
 - Not a full replacement for JIT — modern JVMs combine **AOT + JIT** for optimal balance.  
+
+
+
+## JDK Versions 
+| **JDK** | **Company** | **Base** | **Licensing Model** | **Docker Support** | **Highlights** |
+| --- | --- | --- | --- | --- | --- |
+| **[OpenJDK](ca://s?q=OpenJDK)** | OpenJDK Community (backed by Oracle, Red Hat, others) | Open source | GPL v2 with Classpath Exception | Yes (official OpenJDK Docker images) | Reference implementation, widely adopted |
+| **[Oracle JDK](ca://s?q=Oracle_JDK)** | Oracle | OpenJDK | Oracle Binary Code License (commercial, free for dev/test, paid for production support) | Yes (Oracle provides Docker images) | Enterprise support, LTS, security patches |
+| **[GraalVM](ca://s?q=GraalVM)** | Oracle Labs | OpenJDK | GPL v2 CE (Community Edition), Oracle commercial EE | Yes (GraalVM CE Docker images available) | Polyglot, AOT native images, high performance |
+| **[Amazon Corretto](ca://s?q=Amazon_Corretto)** | Amazon Web Services (AWS) | OpenJDK | Free, long‑term support | Yes (AWS provides Docker images) | Production‑ready, security updates, AWS integration |
+| **[Zulu JDK](ca://s?q=Zulu_JDK)** | Azul Systems | OpenJDK | GPL v2 (free builds), commercial support available | Yes (Azul provides Docker images) | Certified builds, wide OS support |
+| **[Liberica JDK](ca://s?q=Liberica_JDK)** | BellSoft | OpenJDK | GPL v2 (free builds), commercial support available | Yes (BellSoft provides Docker images) | Includes JavaFX, IoT focus |
+| **[OpenJ9](ca://s?q=Eclipse_OpenJ9)** | Eclipse Foundation (originally IBM) | Alternative JVM | EPL (Eclipse Public License) | Yes (OpenJ9 Docker images available) | Low memory footprint, fast startup |
