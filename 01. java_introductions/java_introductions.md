@@ -14,10 +14,10 @@ A platform is any environment where programs run (hardware or software). Java qu
    - Java API → Rich set of classes/interfaces for networking, collections, concurrency, etc.
 
 
-- 👉 Together, **JVM + JRE + API = Java Platform**.
-- 👉 **Java Language → How you write instructions?**
-- 👉 **Java Platform → Where those instructions run?**
-- 👉 The JVM is not just for Java — it’s a **polyglot runtime** supporting dozens of languages. For mainstream development, stick with Java, Kotlin, Scala, Groovy, or Clojure; for specialized needs, explore JRuby, Jython, Eta, or Renjin.
+✅ Together, **JVM + JRE + API = Java Platform**.  
+✅ **Java Language → How you write instructions?**  
+✅ **Java Platform → Where those instructions run?**  
+✅ The JVM is not just for Java — it’s a **polyglot runtime** supporting dozens of languages. For mainstream development, stick with Java, Kotlin, Scala, Groovy, or Clojure; for specialized needs, explore JRuby, Jython, Eta, or Renjin.
 
 <p align="center">
   <img width="400" height="275" alt="image" src="https://github.com/user-attachments/assets/daaa2e0f-19c3-497d-bca0-a3f831b2f342" />
