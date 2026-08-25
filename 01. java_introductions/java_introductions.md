@@ -380,7 +380,7 @@ Java 11 → JDK only (no separate JRE)
 
 
 
-## JDK Versions 
+## 6. JDK Versions 
 | **JDK** | **Company** | **Base** | **Licensing Model** | **Docker Support** | **Highlights** |
 | --- | --- | --- | --- | --- | --- |
 | **[OpenJDK](ca://s?q=OpenJDK)** | OpenJDK Community (backed by Oracle, Red Hat, others) | Open source | GPL v2 with Classpath Exception | Yes (official OpenJDK Docker images) | Reference implementation, widely adopted |
