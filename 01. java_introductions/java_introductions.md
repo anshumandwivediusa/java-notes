@@ -249,7 +249,7 @@ Together, they balance fast startup with optimized performance.
    Machine Code (Platform-specific)
  ```
 
-## Java LTS versions
+## 3. Java LTS versions
 | **Version** | **Release Date** | **Key Features** | **Support Timeline** |
 | --- | --- | --- | --- |
 | **[Java 8](ca://s?q=Java_8_features)** | March 2014 | **Lambdas**, **Functional**, **Streams API**, Date/Time API | Oracle Premier Support ended 2022; extended support via vendors |
