@@ -457,6 +457,14 @@ public int add(int a, int b) {
   - Case Sensitivity → Java is case-sensitive, so Name and name are different identifiers.
   - Length → No fixed limit, but should be meaningful and readable.
   - Convention → Follow camelCase for variables/methods, PascalCase for classes, UPPERCASE for constants.
+    | **Feature** | **Allowed?** | **Example** |
+    | --- | --- | --- |
+    | **ASCII letters** | ✅ | ``int ``age;`` |
+    | **Unicode letters** | ✅ | ``int ``café;`` |
+    | **Unicode escapes** | ✅ | ``int ``\\u0061bc ``= ``10; ``// ``abc`` |
+    | **Digits (not first char)** | ✅ | ``int ``value1;`` |
+    | **Keywords (even with Unicode)** | ❌ | ``int ``\\u0069f; ``// ``"if"`` |
+    | **Special chars (like @, #)** | ❌ | Not allowed |
 
 | **Element** | **Convention** | **Examples** |
 | --- | --- | --- |
