@@ -521,6 +521,9 @@ public int add(int a, int b) {
 **2. Automatic Variables(Method Local)**
   - Must be initialized explicitly. (Or, compiler will catch it.) Object references can be initialized to null to make the compiler happy. The following code won’t compile. Specify else part or initialize the local variable explicitly.
 
+```java
+[accessModifier] [specifiers] type fieldName [= initialValue];
+```
 
 ## 7. Main Method
 | Keyword | Purpose | Question | Answer |
