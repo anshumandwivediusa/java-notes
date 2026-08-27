@@ -1022,7 +1022,7 @@ The Object class is the parent class of all the classes in java by default.
 ## 17. `==`, equals and hashCode()
 ### `==` Operator
 - **Definition**: Compares **references** (memory addresses) for objects, not their content.  
-- For **primitives**, it compares actual values.  
+- For **primitives/string**, it compares actual values.  
 - For **objects**, it checks if both references point to the same object in memory.  
 
 ```java
