@@ -509,6 +509,13 @@ public int add(int a, int b) {
    - A file may contain **no public class**.  
    - In that case, file name must differ from all class/interface names inside.  
 
+    | **Scenario** | **File Name Rule** | **Explanation** |
+    | --- | --- | --- |
+    | **One public class/interface** | Must match that name | ``public ``class ``Book`` → ``Book.java`` |
+    | **Multiple classes, one public** | Must match the public one | ``public ``class ``Library``, ``class ``Book`` → ``Library.java`` |
+    | **Multiple classes, none public** | Can differ from all names | ``class ``Teacher``, ``class ``Course`` → file may be ``School.java`` |
+    | **Empty file** | Still valid | File name arbitrary |
+
 8. **Empty File Validity**  
    - Even an empty file is considered a valid Java source file.  
 
