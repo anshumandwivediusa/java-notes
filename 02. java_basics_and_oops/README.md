@@ -559,12 +559,13 @@ The order is mandatory overall, but access modifiers and specifiers can be rearr
   - A class with a different main signature or w/o main method will compile. But throws a runtime error.
   - A class without a main method can be run by JVM, if its ancestor class has a main method. (main is just a method and is inherited)
 
-## 8. Arrays
+## 8. Array
 
   - Java arrays are static arrays.
   - Size has to be specified at compile time. Array.length returns array’s size.
   - Use ArrayList for Dynamic Purpose.
-
+  - Array are full-fledged objects internally, but they have a unique JVM implementation: each array object has a header (metadata + length field) and a contiguous memory block for elements. Unlike normal objects, arrays are created directly by JVM bytecode and don’t have constructors.
+  - 
 | Rule | Explanation | Valid Example |
 | --- | --- | --- |
 | [Arrays are objects](ca://s?q=Java_arrays_are_objects) | Arrays are objects; creating ``String[5]`` makes 1 array + 5 element references (total 6 objects). | ``String[] ``arr ``= ``new ``String[5]; ``arr[0] ``= ``"Hello";`` |
