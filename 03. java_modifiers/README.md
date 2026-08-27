@@ -251,7 +251,7 @@ abstract class Shape {
 This means they have no body and must be implemented by the implementing class.
 
 ### Observations
-- Abstract methods **cannot be private, static, or final**.
+- Abstract methods **cannot be static, private or final (SPF)**.
   - Private methods are not visible to subclasses.
   - Since abstract methods must be implemented by subclasses, making them private would make them inaccessible.  
   - Static methods belong to the class, not to instances.
