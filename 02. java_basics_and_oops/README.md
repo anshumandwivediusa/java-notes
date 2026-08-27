@@ -790,7 +790,42 @@ public class CompositionDemo {
 | Performed **within the same class**. | Occurs **between two classes** with an IS‑A (inheritance) relationship. |
 | Parameters must be **different**. | Parameters must be **same**. |
 | Example of **compile‑time polymorphism**. | Example of **run‑time polymorphism**. |
-| Cannot overload by changing only the return type. <br> Return type may be same/different, but parameters must change. | Return type must be **same or covariant** (subclass type allowed). In case Parameters is different, treated as method overriding. |
+| **Cannot overload by changing only the return type**. <br> Return type may be same/different, but parameters must change. | Return type must be **same or covariant** (subclass type allowed). In case Parameters is different, treated as method overriding. |
+
+```java
+
+//Decision Basis: Compiler chooses method based on arguments.
+//Method overloading
+class Calculator {
+    int add(int a, int b) { return a + b; }
+    double add(double a, double b) { return a + b; }
+}
+
+//
+//
+
+class Animal {
+    void sound() { System.out.println("Animal sound"); }
+}
+class Dog extends Animal {
+    @Override
+    void sound() { System.out.println("Dog barks"); }
+}
+
+
+//Method Hiding
+//Polymorphism Type: Compile‑time (static binding).
+class Animal {
+    static void info() { System.out.println("Animal info"); }
+}
+class Dog extends Animal {
+    static void info() { System.out.println("Dog info"); }
+}
+Animal a = new Dog();
+a.info(); // Output: Animal info
+Dog.info(); // Output: Dog info
+
+```
 
 ## 13. Abstract Class vs Interface
 
