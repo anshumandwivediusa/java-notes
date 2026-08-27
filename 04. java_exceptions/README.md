@@ -272,7 +272,7 @@ public void readFile(String path) throws IOException {
   - Declared with semicolons:  
     ```java
     try (BufferedReader br = ...; FileWriter fw = ...) { ... }
-  ```
+    ```
 
 
 -  Checked vs Unchecked exceptions
