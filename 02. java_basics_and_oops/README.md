@@ -792,6 +792,15 @@ public class CompositionDemo {
 | Example of **compile‑time polymorphism**. | Example of **run‑time polymorphism**. |
 | **Cannot overload by changing only the return type**. <br> Return type may be same/different, but parameters must change. | Return type must be **same or covariant** (subclass type allowed). In case Parameters is different, treated as method overriding. |
 
+
+
+
+
+Method "Hiding"?
+ - Static methods are bound at compile time.
+ - The compiler decides which method to call based on the reference type or class name, not the actual object type.
+ - That means the parent’s static method is still there — it isn’t replaced. The child’s static method just shadows (hides) it when you use the child’s class name.
+
 ```java
 // ===============================
 // Method Overloading
