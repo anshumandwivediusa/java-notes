@@ -793,38 +793,62 @@ public class CompositionDemo {
 | **Cannot overload by changing only the return type**. <br> Return type may be same/different, but parameters must change. | Return type must be **same or covariant** (subclass type allowed). In case Parameters is different, treated as method overriding. |
 
 ```java
-
-//Decision Basis: Compiler chooses method based on arguments.
-//Method overloading
+// ===============================
+// Method Overloading
+// Polymorphism Type: Compile-time (static binding)
+// Decision Basis: Compiler chooses method based on arguments
 class Calculator {
-    int add(int a, int b) { return a + b; }
-    double add(double a, double b) { return a + b; }
+    // Overloaded methods: same name, different parameter lists
+    int add(int a, int b) { 
+        return a + b; 
+    }
+
+    double add(double a, double b) { 
+        return a + b; 
+    }
 }
 
-//
-//
-
+// ===============================
+// Method Overriding
+// Polymorphism Type: Runtime (dynamic binding)
+// Decision Basis: JVM chooses method based on actual object type
 class Animal {
-    void sound() { System.out.println("Animal sound"); }
+    void sound() { 
+        System.out.println("Animal sound"); 
+    }
 }
+
 class Dog extends Animal {
     @Override
-    void sound() { System.out.println("Dog barks"); }
+    void sound() { 
+        System.out.println("Dog barks"); 
+    }
 }
 
+// Usage:
+// Animal a = new Dog();
+// a.sound(); // Output: Dog barks (runtime dispatch)
 
-//Method Hiding
-//Polymorphism Type: Compile‑time (static binding).
-class Animal {
-    static void info() { System.out.println("Animal info"); }
+// ===============================
+// Method Hiding
+// Polymorphism Type: Compile-time (static binding)
+// Decision Basis: Reference type or class name
+class Animal2 {
+    static void info() { 
+        System.out.println("Animal info"); 
+    }
 }
-class Dog extends Animal {
-    static void info() { System.out.println("Dog info"); }
-}
-Animal a = new Dog();
-a.info(); // Output: Animal info
-Dog.info(); // Output: Dog info
 
+class Dog2 extends Animal2 {
+    static void info() { 
+        System.out.println("Dog info"); 
+    }
+}
+
+// Usage:
+Animal2 a2 = new Dog2();
+a2.info();   // Output: Animal info (reference type = Animal2)
+Dog2.info(); // Output: Dog info (class name = Dog2)
 ```
 
 ## 13. Abstract Class vs Interface
