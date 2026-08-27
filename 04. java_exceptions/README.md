@@ -318,7 +318,7 @@ public void readFile(String path) throws IOException {
 - **try-catch-finally** → both.
 - **try-with-resources** → modern, preferred.
 - **finally** → always executes (except JVM exit).
-- **Best practice** → log, avoid empty catch, prefer auto‑closing resources. 
+- **Best practice** → log, avoid empty catch, prefer auto‑closing resources.
 
 - **try-finally** → cleanup.  
 - **try-catch-finally** → both.  
