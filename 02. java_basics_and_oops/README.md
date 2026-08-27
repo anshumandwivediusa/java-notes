@@ -849,6 +849,7 @@ class Dog2 extends Animal2 {
 Animal2 a2 = new Dog2();
 a2.info();   // Output: Animal info (reference type = Animal2)
 Dog2.info(); // Output: Dog info (class name = Dog2)
+//Hides Animal.info() when accessed via Dog class
 ```
 
 ## 13. Abstract Class vs Interface
