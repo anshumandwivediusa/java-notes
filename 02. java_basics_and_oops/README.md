@@ -480,7 +480,7 @@ public int add(int a, int b) {
 ## 5. Notes on Java Source File Elements
 
 1. **Source File Structure**  
-   - Order:  
+   - Fixed Order:  
      a. Package declaration  
      b. Import statements  
      c. Class/interface definitions  
