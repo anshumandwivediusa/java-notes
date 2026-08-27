@@ -210,37 +210,37 @@ public void readFile(String path) throws IOException {
 ## Java Exception Handling Notes
 
 ### Key Rules
-- **finally always executes** → even if exception occurs, except when JVM exits (`System.exit(0)`), fatal error, or abrupt thread kill.  
-- **try-with-resources (Java 7+)** → auto‑closes resources implementing `AutoCloseable`.  
-- **Multiple catch blocks** → handle different exceptions separately.  
-- **Multi-catch (Java 7+)** → `catch (IOException | SQLException e)`.  
-- **Re-throwing exceptions** → useful for propagating errors up the call stack.  
+- **finally always executes** → even if exception occurs, except when JVM exits (`System.exit(0)`), fatal error, or abrupt thread kill.
+- **try-with-resources (Java 7+)** → auto‑closes resources implementing `AutoCloseable`.
+- **Multiple catch blocks** → handle different exceptions separately.
+- **Multi-catch (Java 7+)** → `catch (IOException | SQLException e)`.
+- **Re-throwing exceptions** → useful for propagating errors up the call stack.
 
 
 ### Difference: try-catch vs try-finally
-- **try-catch** → handles exception locally.  
-- **try-finally** → ensures cleanup, but exception propagates if not caught.  
-- Use **try-catch** when you want to handle errors.  
-- Use **try-finally** when you only care about cleanup (closing resources).  
+- **try-catch** → handles exception locally.
+- **try-finally** → ensures cleanup, but exception propagates if not caught.
+- Use **try-catch** when you want to handle errors.
+- Use **try-finally** when you only care about cleanup (closing resources).
 
 
 ### Exception in try-finally without catch
-- Exception is thrown in `try`.  
-- `finally` executes.  
-- Exception still propagates to the caller.  
+- Exception is thrown in `try`.
+- `finally` executes.
+- Exception still propagates to the caller.
 
 
 ### Role of finally block
-- Always executes (cleanup code).  
-- Runs whether exception occurs or not.  
-- Used for closing resources, releasing locks, etc.  
+- Always executes (cleanup code).
+- Runs whether exception occurs or not.
+- Used for closing resources, releasing locks, etc.
 
 
 ### Does finally always execute?
-- ✅ Yes, except:  
-  - JVM exits (`System.exit(0)`).  
-  - Fatal error halts execution.  
-  - Thread killed abruptly.  
+- ✅ Yes, except:
+  - JVM exits (`System.exit(0)`).
+  - Fatal error halts execution. 
+  - Thread killed abruptly.
 
 
 ### System.exit(0) inside try
@@ -254,71 +254,71 @@ public void readFile(String path) throws IOException {
 
 
 ### Execution order in try-catch-finally
-- `try` → executes first.  
-- If exception → `catch` executes.  
-- `finally` → executes last, always.  
+- `try` → executes first.
+- If exception → `catch` executes.
+- `finally` → executes last, always.
 
 
 ### Return in catch vs finally
-- If both have return statements → `finally` return overrides `catch` return.  
-- Dangerous practice, avoid returning from `finally`.  
+- If both have return statements → `finally` return overrides `catch` return.
+- Dangerous practice, avoid returning from `finally`.
 
 
 ### Advantages of try-with-resources
-- Auto‑closes resources (`AutoCloseable`).  
-- Cleaner, less boilerplate than `try-finally`.  
-- Prevents resource leaks.  
-- Multiple resources can be declared in one `try`.  
+- Auto‑closes resources (`AutoCloseable`).
+- Cleaner, less boilerplate than `try-finally`.
+- Prevents resource leaks.
+- Multiple resources can be declared in one `try`.
 
 
 ### Interface for try-with-resources
-- Resource must implement **`AutoCloseable`** (or `Closeable`).  
+- Resource must implement **`AutoCloseable`** (or `Closeable`).
 
 
 ### Multiple resources in try-with-resources
-- ✅ Allowed.  
-- Declared with semicolons:  
+- ✅ Allowed.
+- Declared with semicolons:
   ```java
   try (BufferedReader br = ...; FileWriter fw = ...) { ... }
   ```
 
 
 ### Checked vs Unchecked exceptions
-- **Checked** → must be handled or declared (`IOException`, `SQLException`).  
-- **Unchecked** → runtime errors, not mandatory (`NullPointerException`, `ArithmeticException`).  
-- `try-catch` is required for checked exceptions.  
+- **Checked** → must be handled or declared (`IOException`, `SQLException`).
+- **Unchecked** → runtime errors, not mandatory (`NullPointerException`, `ArithmeticException`).
+- `try-catch` is required for checked exceptions.
 
 
 ### Multiple exceptions in one catch
-- ✅ Supported since Java 7.  
-- Syntax:  
+- ✅ Supported since Java 7.
+- Syntax:
   ```java
   catch (IOException | SQLException e) { ... }
   ```
 
 
 ### Nested try blocks
-- ✅ Allowed.  
-- Inner `try` handles specific exceptions.  
-- Outer `try` can handle broader exceptions.  
-- Control flows outward if inner block doesn’t catch.  
+- ✅ Allowed.
+- Inner `try` handles specific exceptions.
+- Outer `try` can handle broader exceptions.
+- Control flows outward if inner block doesn’t catch.
 
 
 ### Best Practices
-- Avoid empty catch blocks → hides errors.  
-- Always log exceptions → helps debugging.  
-- Prefer `try-with-resources` → cleaner, safer resource management.  
-- Catch specific exceptions first, general last.  
-- Don’t use exceptions for normal control flow.  
+- Avoid empty catch blocks → hides errors.
+- Always log exceptions → helps debugging.
+- Prefer `try-with-resources` → cleaner, safer resource management.
+- Catch specific exceptions first, general last.
+- Don’t use exceptions for normal control flow.
 
 
 ### Quick Recap
-- **try-catch** → handle.  
-- **try-finally** → cleanup.  
-- **try-catch-finally** → both.  
-- **try-with-resources** → modern, preferred.  
-- **finally** → always executes (except JVM exit).  
-- **Best practice** → log, avoid empty catch, prefer auto‑closing resources.  
+- **try-catch** → handle.
+- **try-finally** → cleanup.
+- **try-catch-finally** → both.
+- **try-with-resources** → modern, preferred.
+- **finally** → always executes (except JVM exit).
+- **Best practice** → log, avoid empty catch, prefer auto‑closing resources. 
 
 - **try-finally** → cleanup.  
 - **try-catch-finally** → both.  
