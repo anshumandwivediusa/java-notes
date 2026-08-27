@@ -1105,3 +1105,40 @@ System.out.println(set.size()); // 1 (because equals + hashCode are consistent)
 **Rule 2:** If two objects are not equal, they may still return the same hashCode() (called a collision).
 
 **Rule 3:** hashCode() is used for bucket placement in hash-based collections (HashMap, HashSet).
+
+## 18. Scenarios where using an Abstract Class
+
+- **Common Base with Shared Code**  
+  When multiple subclasses share **state (fields)** and **behavior (methods)**, but also need to implement some methods differently.  
+  *Example*: `Shape` class with `color` field + `display()` method, but abstract `area()` method.
+
+- **Prevent Instantiation**  
+  When you want to **block direct object creation** of a base class but still allow inheritance.  
+  *Example*: `Account` abstract class in a banking system — only `SavingsAccount` or `CheckingAccount` can be instantiated.
+
+- **Template Design Pattern**  
+  Abstract classes are ideal for defining **template methods** (fixed algorithm steps) while leaving some steps abstract for subclasses.  
+  *Example*: `DataProcessor` with concrete `readFile()` and `writeFile()`, but abstract `processData()`.
+
+- **Partial Implementation**  
+  When you want to provide **default implementations** for some methods but force subclasses to implement others.  
+  *Example*: `Vehicle` class with concrete `startEngine()` but abstract `drive()`.
+
+- **Constructor Usage**  
+  When you need to **initialize common fields** across subclasses.  
+  *Example*: Abstract `Employee` class with constructor to set `id` and `name`.
+
+- **Hierarchical Design**  
+  When designing a **class hierarchy** where the base class should never be instantiated but defines a contract + shared logic.  
+  *Example*: `Animal` abstract class → `Dog`, `Cat`, `Bird`.
+
+
+### ✅ Takeaway
+- Use **Abstract Class** when:  
+  - You need **shared state + partial implementation**.  
+  - You want to **prevent instantiation** of a base class.  
+  - You’re implementing **template design patterns**.  
+- Use **Interface** when:  
+  - You need a **pure contract** with no state.  
+  - You want **multiple inheritance of type**.  
+
