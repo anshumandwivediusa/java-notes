@@ -894,6 +894,25 @@ Does it need at least one abstract method?
 | **Syntax** | Verbose | Concise |
 | **Example** | ``new ``Runnable() ``{ ``public ``void ``run(){...} ``}`` | ``() ``-> ``{...}`` |
 
+  ```java
+  abstract class Animal {
+      abstract void sound();
+  }
+  
+  public class Test {
+      public static void main(String[] args) {
+          // Anonymous class implementing abstract method
+          Animal dog = new Animal() {
+              @Override
+              void sound() {
+                  System.out.println("Dog barks");
+              }
+          };
+          dog.sound(); // Output: Dog barks
+      }
+  }
+  ```
+
 | **[Member](ca://s?q=Java_interface_members)** | **[Default Modifier](ca://s?q=Java_interface_default_modifiers)** |
 | --- | --- |
 | Methods | ``public ``abstract`` |
