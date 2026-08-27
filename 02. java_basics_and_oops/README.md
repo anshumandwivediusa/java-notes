@@ -865,16 +865,26 @@ Dog2.info(); // Output: Dog info (class name = Dog2)
 
 | **[Abstract Class](ca://s?q=Java_abstract_class)** | **[Interface](ca://s?q=Java_interface)** |
 | --- | --- |
-| Can have **abstract and non‑abstract methods**. | Can have **only abstract methods**. Since Java 8, can also have **default & static methods**. |
-| **Does not support multiple inheritance**. | **Supports multiple inheritance**. |
-| Can have **final, non‑final, static, and non‑static variables**. | Has **only static (no object creation needed) and final (immutable) variables**. |
+| Can have **abstract and non‑abstract methods**. | Can have **abstract methods**. Since Java 8 → **default & static methods**, since Java 9 → **private methods**. |
+| **Does not support multiple inheritance** (only one superclass). | **Supports multiple inheritance** (a class can implement multiple interfaces). |
+| Can have **final, non‑final, static, and non‑static variables**. | Has **only public static final constants** (implicitly). |
 | Can provide the **implementation of an interface**. | Cannot provide the **implementation of an abstract class**. |
 | Declared using the ``abstract``** keyword**. | Declared using the ``interface``** keyword**. |
-| Example: <br> ``java ``public ``abstract ``class ``Shape ``{ ``public ``abstract ``void ``draw(); ``}`` | Example: <br> ``java ``public ``interface ``Drawable ``{ ``void ``draw(); ``}`` |
+| Example: <br> ``java ``abstract ``class ``Shape ``{ ``abstract ``void ``draw(); ``}`` | Example: <br> ``java ``interface ``Drawable ``{ ``void ``draw(); ``}`` |
 | Used when classes share **common behavior** but also need **partial implementation**. | Used to define a **contract** that multiple classes can implement. |
-| Can have **constructors**. | Cannot have **constructors**. |
+| Can have **constructors** (executed when subclass is instantiated). | Cannot have **constructors** (no instantiation). |
 | Can contain **instance methods with implementation**. | Cannot contain **instance methods with implementation** (except default methods since Java 8). |
 | Suitable for **code reusability** with partial abstraction. | Suitable for **full abstraction** and defining APIs. |
+| Supports **single inheritance + hierarchical design**. | Supports **multiple inheritance of type** (flexible design). |
+| Can define **state (fields)** and **behavior**. | Defines only **behavior (methods)**, no instance state. |
+| **Polymorphism Type**: Runtime (dynamic binding for overridden methods). | **Polymorphism Type**: Compile‑time contract enforcement. |
+
+Does it need at least one abstract method?
+ - ❌ No. An abstract class does not require an abstract method.
+ - You can declare a class abstract even if it has zero abstract methods.
+ - Reason: Sometimes you want to prevent instantiation of a base class but still provide full method implementations.
+
+
 
 | Concept | **[Anonymous Class](ca://s?q=Java_anonymous_class)** | **[Lambda Expression](ca://s?q=Java_Lambda_expressions)** |
 | --- | --- | --- |
