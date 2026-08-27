@@ -534,6 +534,8 @@ public int add(int a, int b) {
 [accessModifier] [specifiers] type fieldName [= initialValue];
 ```
 
+The order is mandatory overall, but access modifiers and specifiers can be rearranged among themselves. The type must always come before the variable name.
+
 ## 7. Main Method
 | Keyword | Purpose | Question | Answer |
 | --- | --- | --- | --- |
