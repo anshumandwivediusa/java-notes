@@ -1142,3 +1142,58 @@ System.out.println(set.size()); // 1 (because equals + hashCode are consistent)
   - You need a **pure contract** with no state.  
   - You want **multiple inheritance of type**.  
 
+
+## Scenarios for Interfaces
+
+- **Multiple Inheritance of Type**  
+  When a class needs to inherit behavior from multiple sources.  
+  *Example*: A class `SmartPhone` can implement both `Camera` and `MusicPlayer` interfaces.
+
+- **Defining a Contract**  
+  When you want to enforce a **common API** across unrelated classes.  
+  *Example*: `Comparable` interface ensures all implementing classes provide `compareTo()`.
+
+- **Plug‑and‑Play Design**  
+  Interfaces allow you to swap implementations without changing client code.  
+  *Example*: `PaymentGateway` interface → implementations like `PayPal`, `Stripe`, `Razorpay`.
+
+- **Loose Coupling**  
+  Interfaces decouple code by depending on **abstractions, not implementations**.  
+  *Example*: `List` interface → `ArrayList`, `LinkedList`, `Vector`.
+
+- **API Design**  
+  When designing frameworks or libraries, interfaces define **capabilities** without dictating implementation.  
+  *Example*: `Servlet` interface in Java EE.
+
+- **Marker Interfaces**  
+  Special interfaces with no methods, used to tag classes with metadata.  
+  *Example*: `Serializable`, `Cloneable`.
+
+- **Default Methods (Java 8+)**  
+  When you want to add new behavior to interfaces without breaking existing implementations.  
+  *Example*: `Iterable` interface added `forEach()` as a default method.
+
+
+
+### Quick Comparison with Abstract Classes
+
+| **Scenario** | **Interface** | **Abstract Class** |
+|--------------|---------------|---------------------|
+| Multiple inheritance | ✅ Yes | ❌ No |
+| Shared state (fields) | ❌ No | ✅ Yes |
+| Pure contract | ✅ Best suited | ❌ Not ideal |
+| Framework/API design | ✅ Best suited | ✅ Possible |
+| Partial implementation | ❌ Not possible (except default methods) | ✅ Yes |
+| Constructors | ❌ Not allowed | ✅ Allowed |
+
+
+
+### Exam Takeaway
+- Use **Interface** when:  
+  - You need **multiple inheritance of type**.  
+  - You want to define a **contract** across unrelated classes.  
+  - You’re designing **APIs, frameworks, or plug‑and‑play systems**.  
+- Use **Abstract Class** when:  
+  - You need **shared state + partial implementation**.  
+  - You want to **prevent instantiation** of a base class.  
+
