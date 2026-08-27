@@ -9,8 +9,10 @@ The four main pillars of OOP in Java are often remembered as **PIEA**:
 - **Polymorphism**  
   Ability of a method or object to take many forms.  
   Same class, same method name, but different parameter lists (number or type of arguments).
-  Decided at compile time.
+  Decided at compile/runtime time.
   Example: Different ways to calculate interest depending on inputs.
+
+  <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/d9705592-43e5-4f88-974c-25e4cd251ac3" />
 
 - **Encapsulation**  
   Wrapping data (fields) and behavior (methods) into a single unit (class).  
