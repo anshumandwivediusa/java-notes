@@ -618,6 +618,12 @@ System.out.println(b); // Prints a string which is returned by toString
 | Compiler provides a **default constructor** if none is defined. | Compiler does **not provide any method** automatically. |
 | Constructor name must be the **same as the class name**. | Method name may or may not be the same as the class name. |
 
+```java
+[accessModifier] [specifiers] returnType methodName([parameters]) [throws ExceptionType1, ExceptionType2, ...] {
+    // method body
+}
+```
+
 ### finalize() – Key Points
   - **Definition** → Inherited from Object, signature:
     protected void finalize() throws Throwable { }.
