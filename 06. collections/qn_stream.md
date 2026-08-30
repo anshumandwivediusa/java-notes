@@ -98,6 +98,24 @@ names.parallelStream()   // Parallel stream
 **Answer:**  
 `reduce()` combines elements of a stream into a single result using an accumulator function. Examples include summing numbers, concatenating strings, or finding the maximum value. It’s a terminal operation that returns an `Optional` or a value.
 
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+int sum = numbers.stream()
+                 .reduce(0, (a, b) -> a + b);
+System.out.println(sum); // Output: 15
+
+
+List<String> words = Arrays.asList("Java", "Stream", "Reduce");
+String result = words.stream()
+                     .reduce("", (a, b) -> a + " " + b);
+System.out.println(result); // Output: " Java Stream Reduce"
+
+List<Integer> numbers = Arrays.asList(10, 25, 7, 32);
+int max = numbers.stream()
+                 .reduce(Integer.MIN_VALUE, (a, b) -> a > b ? a : b);
+System.out.println(max); // Output: 32
+
+```
 
 ### **Question 15: Difference between map() and flatMap()?**
 **Answer:**  
