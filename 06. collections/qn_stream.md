@@ -1,23 +1,33 @@
 # Stream Interview Q&A
 
 ### **Question 1: What is a Java Stream?**
-**Answer:**  
-A Java Stream is an abstraction introduced in Java 8 that allows functional‑style operations on sequences of elements. It doesn’t store data itself but provides a pipeline to process data from sources like collections, arrays, or I/O channels. Streams make data processing more declarative and concise compared to traditional loops.
+**Answer:** A Java Stream is an abstraction introduced in Java 8 that allows functional‑style operations on sequences of elements. It doesn’t store data itself but provides a pipeline to process data from sources like collections, arrays, or I/O channels. Streams make data processing more declarative and concise compared to traditional loops.
 
 
 ### **Question 3: Difference between Stream and Collection?**
-**Answer:**  
-A Collection is a data structure that holds elements in memory, while a Stream is a computational pipeline to process those elements. Collections are about *storage* and retrieval, whereas Streams are about *computation* and transformation. Streams can be consumed only once, unlike collections which can be reused.
+**Answer:** A Collection is a data structure that holds elements in memory, while a Stream is a computational pipeline to process those elements. Collections are about *storage* and retrieval, whereas Streams are about *computation* and transformation. Streams can be consumed only once, unlike collections which can be reused.
 
 
 ### **Question 4: Are Streams data structures?**
-**Answer:**  
-No, Streams are not data structures. They don’t hold or manage elements directly; instead, they provide a view over a data source. Their purpose is to enable operations like filtering, mapping, and reducing without modifying the underlying data structure.
+**Answer:** No, Streams are not data structures. They don’t hold or manage elements directly; instead, they provide a view over a data source. Their purpose is to enable operations like filtering, mapping, and reducing without modifying the underlying data structure.
 
 
 ### **Question 5: Types of Streams in Java?**
-**Answer:**  
-Java supports **sequential streams** (operations run on a single thread) and **parallel streams** (operations split across multiple threads). Sequential streams are predictable and ordered, while parallel streams can improve performance for large datasets but introduce concurrency considerations.
+**Answer:** Java supports **sequential streams** (operations run on a single thread) and **parallel streams** (operations split across multiple threads). Sequential streams are predictable and ordered, while parallel streams can improve performance for large datasets but introduce concurrency considerations.
+
+```java
+List<String> names = Arrays.asList("Anshuman", "Ravi", "Amit");
+
+names.stream()   // Sequential stream
+     .filter(n -> n.startsWith("A"))
+     .forEach(System.out::println);
+
+List<String> names = Arrays.asList("Anshuman", "Ravi", "Amit");
+
+names.parallelStream()   // Parallel stream
+     .filter(n -> n.startsWith("A"))
+     .forEach(System.out::println);
+```
 
 
 ### **Question 6: What is a terminal operation?**
