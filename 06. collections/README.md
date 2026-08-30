@@ -472,15 +472,39 @@ System.out.println(deque.removeFirst()); // 1
 System.out.println(deque.removeLast());  // 3
 
 ```
+```java
 
+//Linked List as List
+LinkedList<String> list = new LinkedList<>();
+list.add("A");
+list.add("B");
+list.add("C");
+System.out.println(list); // [A, B, C]
 
-##
+//Linked List as a Queue (FIFO)
+Queue<String> queue = new LinkedList<>();
+queue.offer("A");
+queue.offer("B");
+queue.offer("C");
+System.out.println(queue.poll()); // A
+System.out.println(queue.peek()); // B
 
+//Linked List as a Stack (LIFO)
+Deque<String> stack = new LinkedList<>();
+stack.push("A");
+stack.push("B");
+stack.push("C");
+System.out.println(stack.pop());  // C
+System.out.println(stack.peek()); // B
 
-
-
-
-
+//Linked List as a Deque (Double-Ended Queue)
+Deque<Integer> deque = new LinkedList<>();
+deque.addFirst(1);
+deque.addLast(2);
+deque.addLast(3);
+System.out.println(deque.removeFirst()); // 1
+System.out.println(deque.removeLast());  // 3
+```
 
 
 ## PriorityQueue
