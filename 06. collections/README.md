@@ -39,6 +39,14 @@ public class IterableDemo {
 
         // Using forEach method
         names.forEach(System.out::println);
+
+        //Transformations using forEach
+        names.forEach(name -> {
+            if (name.startsWith("A")) {
+                System.out.println(name + " (starts with A)");
+            }
+        });
+
     }
 }
 ```
