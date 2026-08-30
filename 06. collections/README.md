@@ -445,8 +445,8 @@ deque.addLast(3);
 
 System.out.println(deque.removeFirst()); // 1
 System.out.println(deque.removeLast());  // 3
-
-
+```
+```java
 Deque<String> queue = new ArrayDeque<>();
 queue.offer("A");   // enqueue
 queue.offer("B");
