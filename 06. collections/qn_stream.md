@@ -31,8 +31,7 @@ names.parallelStream()   // Parallel stream
 
 
 ### **Question 6: What is a terminal operation?**
-**Answer:**  
-Terminal operations trigger the execution of the stream pipeline and produce a result or side effect. Examples include `collect()`, `reduce()`, and `forEach()`. Once a terminal operation runs, the stream is consumed and cannot be reused.
+**Answer:**  Terminal operations trigger the execution of the stream pipeline and produce a result or side effect. Examples include `collect()`, `reduce()`, and `forEach()`. Once a terminal operation runs, the stream is consumed and cannot be reused.
 
  - **forEach** → Iterates over each element and performs an action.
  - **forEachOrdered** → Same as forEach but preserves encounter order in parallel streams.
@@ -49,34 +48,46 @@ Terminal operations trigger the execution of the stream pipeline and produce a r
  - **findAny** → Returns any element wrapped in an Optional.
 
 ### **Question 7: What is an intermediate operation?**
-**Answer:**  
-Intermediate operations transform a stream into another stream without executing immediately. They are lazy and only run when a terminal operation is invoked. Examples include `map()`, `filter()`, `distinct()`, and `sorted()`.
+**Answer:** Intermediate operations transform a stream into another stream without executing immediately. They are lazy and only run when a terminal operation is invoked. Examples include `map()`, `filter()`, `distinct()`, and `sorted()`.
 
+ - **map**() → Transforms each element (e.g., string → length).
+ - **filter**() → Selects elements based on a condition.
+ - **flatMap**() → Flattens nested structures into a single stream.
+ - **distinct**() → Removes duplicates.
+ - **sorted**() → Orders elements.
+ - **peek**() → Inspects elements for debugging.
+ - **limit**() → Restricts the number of elements.
+ - **skip**() → Skips a given number of elements.
+ - **takeWhile**() → Takes elements while predicate is true (Java 9+).
+ - **dropWhile**() → Drops elements while predicate is true (Java 9+).
 
 ### **Question 8: Is Stream reusable?**
-**Answer:**  
-No, a Stream is single‑use. Once a terminal operation consumes it, the pipeline is closed. If you need to process the same data again, you must create a new Stream from the source.
+**Answer:**  No, a Stream is single‑use. Once a terminal operation consumes it, the pipeline is closed. If you need to process the same data again, you must create a new Stream from the source.
 
 
 ### **Question 9: What is lazy evaluation in Streams?**
-**Answer:**  
-Lazy evaluation means intermediate operations are not executed immediately but are deferred until a terminal operation is called. This allows Streams to optimize execution, skip unnecessary work, and fuse multiple operations for efficiency.
+**Answer:**  Lazy evaluation means intermediate operations are not executed immediately but are deferred until a terminal operation is called. This allows Streams to optimize execution, skip unnecessary work, and fuse multiple operations for efficiency.
 
 
 ### **Question 10: Example of intermediate ops?**
-**Answer:**  
-Common intermediate operations include `map()` (transform elements), `filter()` (select elements), `distinct()` (remove duplicates), and `sorted()` (order elements). These operations return a new Stream and can be chained together.
+**Answer:**  Common intermediate operations include `map()` (transform elements), `filter()` (select elements), `distinct()` (remove duplicates), and `sorted()` (order elements). These operations return a new Stream and can be chained together.
 
 
 ### **Question 11: Example of terminal ops?**
-**Answer:**  
-Terminal operations include `collect()` (accumulate results), `reduce()` (aggregate into a single value), `forEach()` (iterate with side effects), and `count()` (return element count). They finalize the pipeline and produce a concrete result.
+**Answer:**  Terminal operations include `collect()` (accumulate results), `reduce()` (aggregate into a single value), `forEach()` (iterate with side effects), and `count()` (return element count). They finalize the pipeline and produce a concrete result.
 
 
 ### **Question 12: What does map() do?**
-**Answer:**  
-`map()` transforms each element of the stream into another form using a function. For example, converting strings to uppercase or extracting a field from an object. It’s an intermediate operation that returns a new Stream.
+**Answer:**  `map()` transforms each element of the stream into another form using a function. For example, converting strings to uppercase or extracting a field from an object. It’s an intermediate operation that returns a new Stream.
 
+```java
+        List<String> names = Arrays.asList("Anshuman", "Ravi", "Amit");
+
+        // Using map() to convert each name to uppercase
+        List<String> upperNames = names.stream()
+                                       .map(String::toUpperCase)   // Intermediate operation
+                                       .collect(Collectors.toList()); // Terminal operation
+```
 
 ### **Question 13: What does filter() do?**
 **Answer:**  
