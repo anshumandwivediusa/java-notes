@@ -34,6 +34,19 @@ names.parallelStream()   // Parallel stream
 **Answer:**  
 Terminal operations trigger the execution of the stream pipeline and produce a result or side effect. Examples include `collect()`, `reduce()`, and `forEach()`. Once a terminal operation runs, the stream is consumed and cannot be reused.
 
+ - **forEach** → Iterates over each element and performs an action.
+ - **forEachOrdered** → Same as forEach but preserves encounter order in parallel streams.
+ - **toArray** → Converts stream elements into an array.
+ - **reduce** → Aggregates elements into a single result using an accumulator.
+ - **collect** → Gathers elements into a collection or other container using collectors.
+ - **min** → Finds the minimum element based on a comparator.
+ - **max** → Finds the maximum element based on a comparator.
+ - **count** → Returns the number of elements in the stream.
+ - **anyMatch** → Returns true if any element matches the predicate.
+ - **allMatch** → Returns true if all elements match the predicate.
+ - **noneMatch** → Returns true if no elements match the predicate.
+ - **findFirst** → Returns the first element wrapped in an Optional.
+ - **findAny** → Returns any element wrapped in an Optional.
 
 ### **Question 7: What is an intermediate operation?**
 **Answer:**  
