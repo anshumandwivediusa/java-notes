@@ -445,6 +445,32 @@ deque.addLast(3);
 
 System.out.println(deque.removeFirst()); // 1
 System.out.println(deque.removeLast());  // 3
+
+
+Deque<String> queue = new ArrayDeque<>();
+queue.offer("A");   // enqueue
+queue.offer("B");
+queue.offer("C");
+
+System.out.println(queue.poll()); // A (first in, first out)
+System.out.println(queue.peek()); // B (next element)
+
+Deque<String> stack = new ArrayDeque<>();
+stack.push("A");   // push
+stack.push("B");
+stack.push("C");
+
+System.out.println(stack.pop());  // C (last in, first out)
+System.out.println(stack.peek()); // B (top element)
+
+Deque<Integer> deque = new ArrayDeque<>();
+deque.addFirst(1);  // front
+deque.addLast(2);   // back
+deque.addLast(3);
+
+System.out.println(deque.removeFirst()); // 1
+System.out.println(deque.removeLast());  // 3
+
 ```
 
 
