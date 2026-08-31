@@ -511,10 +511,11 @@ public int add(int a, int b) {
 
     | **Scenario** | **File Name Rule** | **Explanation** |
     | --- | --- | --- |
-    | **One public class/interface** | Must match that name | ``public ``class ``Book`` → ``Book.java`` |
-    | **Multiple classes, one public** | Must match the public one | ``public ``class ``Library``, ``class ``Book`` → ``Library.java`` |
-    | **Multiple classes, none public** | Can differ from all names | ``class ``Teacher``, ``class ``Course`` → file may be ``School.java`` |
-    | **Empty file** | Still valid | File name arbitrary |
+    | **[One public class/interface](ca://s?q=Java_file_naming_rule)** | Must match that name | If a file contains a single public type, the file name must be identical to that type’s name. Example: ``public ``class ``Book ``{ ``}`` → must be saved as ``Book.java``. |
+    | **[Multiple classes, one public](ca://s?q=Multiple_classes_one_public_in_Java)** | Must match the public one | If there are multiple classes but one is public, the file name must match the public class. Example: ``public ``class ``Library ``{ ``}``, ``class ``Book ``{ ``}`` → file must be ``Library.java``. |
+    | **[Multiple classes, none public](ca://s?q=Multiple_classes_none_public_in_Java)** | Can differ from all names | If no class/interface is public, the file name can be anything. Example: ``class ``Teacher ``{ ``}``, ``class ``Course ``{ ``}`` → file may be ``School.java``, ``Main.java``, or even ``Teacher.java``. |
+    | **[Empty file](ca://s?q=Empty_file_in_Java)** | Still valid | An empty ``.java`` file is valid. The file name is arbitrary since no class/interface exists inside. |
+
 
 8. **Empty File Validity**  
    - Even an empty file is considered a valid Java source file.  
