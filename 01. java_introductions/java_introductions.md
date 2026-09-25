@@ -6,6 +6,15 @@ Java is a **programming language** and a **platform**.
    - Syntax, keywords, operators, and constructs to write applications.
    - Object‑oriented features (encapsulation, inheritance, polymorphism).
    - Strong typing and platform independence (via bytecode).
+  
+   | **Term** | **Definition** | **Example** |
+   | --- | --- | --- |
+   | **[Keyword](ca://s?q=Programming_language_keywords)** | Reserved word with fixed meaning | ``if``, ``while``, ``return`` |
+   | **[Identifier](ca://s?q=Programming_language_identifiers)** | Programmer-defined name | ``totalMarks``, ``main`` |
+   | **[Literal](ca://s?q=Programming_language_literals)** | Fixed value in code | ``42``, ``"Hello"``, ``true`` |
+   | **[Constant](ca://s?q=Programming_language_constants)** | Identifier bound to unchangeable value | ``const ``PI ``= ``3.14;`` |
+   | **[Operator](ca://s?q=Programming_language_operators)** | Symbol for computation | ``+``, ``==``, ``&&`` |
+   | **[Token](ca://s?q=Programming_language_tokens)** | Smallest unit compiler reads | ``int ``x ``= ``5;`` → 5 tokens |
 
 2. **Java as a Platform**
 A platform is any environment where programs run (hardware or software). Java qualifies as a platform because it provides its own runtime:
