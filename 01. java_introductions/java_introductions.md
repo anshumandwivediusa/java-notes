@@ -10,7 +10,7 @@ Java is a **programming language** and a **platform**.
    | **Term** | **Definition** | **Example** |
    | --- | --- | --- |
    | **[Keyword](ca://s?q=Programming_language_keywords)** | Reserved word with fixed meaning | ``if``, ``while``, ``return`` |
-   | **[Identifier](ca://s?q=Programming_language_identifiers)** | Programmer-defined name | ``totalMarks``, ``main`` |
+   | **[Identifier](ca://s?q=Programming_language_identifiers)** | User/Programmer defined names | ``totalMarks``, ``main`` |
    | **[Literal](ca://s?q=Programming_language_literals)** | Fixed value in code | ``42``, ``"Hello"``, ``true`` |
    | **[Constant](ca://s?q=Programming_language_constants)** | Identifier bound to unchangeable value | ``const ``PI ``= ``3.14;`` |
    | **[Operator](ca://s?q=Programming_language_operators)** | Symbol for computation | ``+``, ``==``, ``&&`` |
