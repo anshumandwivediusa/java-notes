@@ -35,7 +35,7 @@ A platform is any environment where programs run (hardware or software). Java qu
 
 ## 1. Introduction to Java Foundations
 
-Java is a **high-level, object-oriented programming language** known for its **portability, robustness, and scalability (PRS)**. Programs written in Java run on the **Java Virtual Machine (JVM)**, making them platform-independent — the famous principle of *“Write Once, Run Anywhere.”*
+Java is a **high-level, object-oriented programming language** known for its **portability, robustness, scalability and security (PRSS)**. Programs written in Java run on the **Java Virtual Machine (JVM)**, making them platform-independent — the famous principle of *“Write Once, Run Anywhere.”*
 
 | **Reason** | **Benefit** | **Example Use Case** |
 | --- | --- | --- |
