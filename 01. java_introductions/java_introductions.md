@@ -18,9 +18,17 @@ Java is a **programming language** and a **platform**.
 
    ```
    Key Insight from ISO Research
-      - Reliability ≠ Robustness: A reliable system may fail under unexpected stress if not robust.
-      - Robustness ≠ Reliability: A robust system may handle errors gracefully but still fail too often under normal use.
-      - ISO guidance: Combine reliability engineering with robust design for holistic quality.
+      Reliability ≠ Robustness
+         - Reliable = works correctly under normal conditions.
+         - But if something unusual happens, it may fail if not robust.
+      
+      Robustness ≠ Reliability
+         - Robust = survives unexpected inputs or stress.
+         - But it might still fail too often in everyday use if not reliable.
+      
+      ISO Guidance (25010/9126)
+         - Combine reliability engineering (predictable, correct behavior) with robust design (fault tolerance/resilience under stress).
+         - Together → holistic quality.
    ```
 2. **Java as a Platform**
 A platform is any environment where programs run (hardware or software). Java qualifies as a platform because it provides its own runtime:
