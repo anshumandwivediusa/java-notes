@@ -16,6 +16,12 @@ Java is a **programming language** and a **platform**.
    | **[Operator](ca://s?q=Programming_language_operators)** | Symbol for computation | ``+``, ``==``, ``&&`` |
    | **[Token](ca://s?q=Programming_language_tokens)** | Smallest unit compiler reads | ``int ``x ``= ``5;`` → 5 tokens |
 
+   ```
+   Key Insight from ISO Research
+      - Reliability ≠ Robustness: A reliable system may fail under unexpected stress if not robust.
+      - Robustness ≠ Reliability: A robust system may handle errors gracefully but still fail too often under normal use.
+      - ISO guidance: Combine reliability engineering with robust design for holistic quality.
+   ```
 2. **Java as a Platform**
 A platform is any environment where programs run (hardware or software). Java qualifies as a platform because it provides its own runtime:
    - JVM → Converts bytecode into machine code for the host system.
