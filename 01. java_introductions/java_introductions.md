@@ -202,11 +202,24 @@ Java is a **high-level, object-oriented programming language** known for its **p
    }
    ```
 
-### 5. **Class Loader**
+### 5. **Class Loaders**
 - Part of JVM responsible for loading classes into memory.  
 - Types:  
-  - **Bootstrap Class Loader** → loads core Java classes. (java.lang, java.util).
-  - **Extension Class Loader** → loads extension libraries. (JAVA_HOME/lib/ext - Plugins) 
+  - **Bootstrap Class Loader** →
+    - **Role**: Loads core Java classes (java.lang.*, java.util.*, etc.) from the JDK’s internal libraries (rt.jar in older JDKs, core modules in newer ones).
+    - **Implementation**: Native code (C/C++), not a Java class.
+    - **Example in an app**: When you use String, Object, or Integer, they are loaded by the Bootstrap loader.
+    - **Note**: Appears as null when you print it, because it’s not a Java object.
+  - **Extension Class Loader** →
+    - **Role**: Loads classes from the JRE’s lib/ext directory or platform-specific extension directories.
+    - **Implementation**: sun.misc.Launcher$ExtClassLoader.
+    - **Example in an app**: If you drop a JAR into jre/lib/ext, such as a cryptography provider, it’s loaded here.
+    - **Modern JDKs**: Extension mechanism is deprecated, replaced by modularization (Java 9+).
+    - **After Java 9 (JPMS)**
+     - The module system replaced extensions.
+     - Instead of lib/ext, libraries must be declared as modules with a module-info.java file.
+     - Dependencies are explicitly defined (requires, exports) → no hidden global classpath.
+     - The Platform ClassLoader now handles what the Extension ClassLoader used to do. 
   - **Application Class Loader** → loads user-defined classes. (Loads user-defined classes from the classpath.)
 
 
