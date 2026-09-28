@@ -872,7 +872,7 @@ Dog2.info(); // Output: Dog info (class name = Dog2)
 | Can provide the **implementation of an interface**. | Cannot provide the **implementation of an abstract class**. |
 | Declared using the ``abstract``** keyword**. | Declared using the ``interface``** keyword**. |
 | Example: <br> ``java ``abstract ``class ``Shape ``{ ``abstract ``void ``draw(); ``}`` | Example: <br> ``java ``interface ``Drawable ``{ ``void ``draw(); ``}`` |
-| Used when classes share **common behavior** but also need **partial implementation**. | Used to define a **contract** that multiple classes can implement. |
+| **Used when classes share **common behavior** but also need **partial implementation**.** |**Used to define a **contract** that multiple classes can implement.** |
 | Can have **constructors** (executed when subclass is instantiated). | Cannot have **constructors** (no instantiation). |
 | Can contain **instance methods with implementation**. | Cannot contain **instance methods with implementation** (except default methods since Java 8). |
 | Suitable for **code reusability** with partial abstraction. | Suitable for **full abstraction** and defining APIs. |
