@@ -865,35 +865,8 @@ Dog2.info(); // Output: Dog info (class name = Dog2)
 ## 13. Abstract Class vs Interface
 | **[Abstract Class](ca://s?q=Java_abstract_class)** | **[Interface](ca://s?q=Java_interface)** |
 | --- | --- |
-| **Beginning:** Abstract classes were designed to allow **partial implementation**. They could mix abstract methods with concrete methods right from the start.<br><br>```java
-abstract class Shape {
-
-    abstract void draw();
-
-    void commonLogic() {
-        System.out.println("Shared logic");
-    }
-}
-``` | **Beginning:** Interfaces began as **pure contracts**: they originally allowed only abstract methods and no implementation.<br><br>```java
-interface Drawable {
-
-    void draw();
-}
-``` |
-
-| **[Abstract Class](ca://s?q=Java_abstract_class)** | **[Interface](ca://s?q=Java_interface)** |
-| --- | --- |
-| **Beginning**: Abstract classes were designed to allow **partial implementation**. They could mix abstract methods with concrete ones right from the start. ```java
-abstract class Shape {
-
-    abstract void draw();
-
-    void commonLogic() {
-        System.out.println("Shared logic");
-    }
-}
-``` | Interfaces began as **pure contracts**: only abstract methods, no implementation allowed. <br>``java\\ninterface ``Drawable ``{\\n ``void ``draw();\\n}\\n`` |
-| **Concrete methods**: Abstract classes could always define normal methods, so they didn’t need ``default``. <br>``java\\nabstract ``class ``Account ``{\\n ``abstract ``void ``calculateInterest();\\n ``void ``accountType() ``{ ``System.out.println(\\"Generic ``Account\\"); ``}\\n}\\n`` | Interfaces had no concrete methods until Java 8. To evolve APIs safely, Java introduced ``default`` methods. <br>``java\\ninterface ``Account ``{\\n ``void ``calculateInterest();\\n ``default ``void ``accountType() ``{\\n ``System.out.println(\\"Generic ``Account\\");\\n ``}\\n}\\n`` |
+| **Beginning**: Abstract classes were designed to allow **partial implementation**. They could mix abstract methods with concrete ones right from the start.  | Interfaces began as **pure contracts**: only abstract methods, no implementation allowed. |
+| **Concrete methods**: Abstract classes could always define normal methods, so they didn’t need ``default``. | Interfaces had no concrete methods until Java 8. To evolve APIs safely, Java introduced ``default`` methods. |
 | **Static methods**: Abstract classes could always have static methods. <br>``java\\nabstract ``class ``Bank ``{\\n ``static ``void ``policy() ``{\\n ``System.out.println(\\"Minimum ``balance ``= ``1000\\");\\n ``}\\n}\\n`` | Interfaces gained ``static`` methods in Java 8, mainly for utility functions tied to the interface. <br>``java\\ninterface ``Utils ``{\\n ``static ``void ``printPolicy() ``{\\n ``System.out.println(\\"Interface ``policy\\");\\n ``}\\n}\\n`` |
 | **Private methods**: Abstract classes could always have private methods. <br>``java\\nabstract ``class ``Loan ``{\\n ``private ``void ``helper() ``{ ``System.out.println(\\"Hidden ``logic\\"); ``}\\n ``void ``process() ``{ ``helper(); ``}\\n}\\n`` | Interfaces got ``private`` methods in Java 9, so default methods could share internal logic without exposing it. <br>``java\\ninterface ``Logger ``{\\n ``default ``void ``logInfo(String ``msg) ``{\\n ``log(msg);\\n ``}\\n ``private ``void ``log(String ``msg) ``{\\n ``System.out.println(\\"LOG: ``\\" ``+ ``msg);\\n ``}\\n}\\n`` |
 | **Constructors**: Abstract classes can have constructors (executed when subclass is created). <br>``java\\nabstract ``class ``Vehicle ``{\\n ``Vehicle() ``{ ``System.out.println(\\"Vehicle ``created\\"); ``}\\n}\\n`` | Interfaces cannot have constructors, since they aren’t instantiated directly. |
