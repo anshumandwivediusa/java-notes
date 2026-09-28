@@ -3,8 +3,8 @@
 ## 1. Modifiers in Java
 - **Definition** → Keywords that give the compiler information about classes, methods, and variables.  
 - **Types**:  
-  - **Access Modifiers** → `public`, `protected`, `private`, *default (package-private)*.  
-  - **Non-Access Modifiers** → `static`, `final`, `abstract`, `synchronized`, `volatile`, `transient`, `native`, `strictfpnon-sealed`.  
+  - **Access Modifiers/Specifiers** → `public`, `protected`, `private`, *default (package-private)*.  
+  - **Non-Access Modifiers/Specifiers** → `static`, `final`, `abstract`, `synchronized`, `volatile`, `transient`, `native`, `strictfpnon-sealed`.  
 
 ### Access Modifiers
 - **Public** → Accessible everywhere.  
