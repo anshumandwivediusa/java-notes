@@ -905,6 +905,8 @@ Does it need at least one abstract method?
   public class Test {
       public static void main(String[] args) {
           // Anonymous class implementing abstract method
+          // Bank is an abstract class. Normally, you cannot instantiate it directly.
+          // But here, you’re creating an anonymous subclass of Bank right at the point of assignment.
           Animal dog = new Animal() {
               @Override
               void sound() {
