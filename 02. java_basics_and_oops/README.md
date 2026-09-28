@@ -863,6 +863,23 @@ Dog2.info(); // Output: Dog info (class name = Dog2)
 ```
 
 ## 13. Abstract Class vs Interface
+| **[Abstract Class](ca://s?q=Java_abstract_class)** | **[Interface](ca://s?q=Java_interface)** |
+| --- | --- |
+| **Beginning:** Abstract classes were designed to allow **partial implementation**. They could mix abstract methods with concrete methods right from the start.<br><br>```java
+abstract class Shape {
+
+    abstract void draw();
+
+    void commonLogic() {
+        System.out.println("Shared logic");
+    }
+}
+``` | **Beginning:** Interfaces began as **pure contracts**: they originally allowed only abstract methods and no implementation.<br><br>```java
+interface Drawable {
+
+    void draw();
+}
+``` |
 
 | **[Abstract Class](ca://s?q=Java_abstract_class)** | **[Interface](ca://s?q=Java_interface)** |
 | --- | --- |
