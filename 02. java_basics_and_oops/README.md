@@ -866,20 +866,19 @@ Dog2.info(); // Output: Dog info (class name = Dog2)
 
 | **[Abstract Class](ca://s?q=Java_abstract_class)** | **[Interface](ca://s?q=Java_interface)** |
 | --- | --- |
-| Can have **abstract and non‑abstract methods**. | Can have **abstract methods**. Since Java 8 → **default & static methods**, since Java 9 → **private methods**. |
-| **Does not support multiple inheritance** (only one superclass). | **Supports multiple inheritance** (a class can implement multiple interfaces). |
-| Can have **final, non‑final, static, and non‑static variables**. | Has **only public static final constants** (implicitly). |
-| Can provide the **implementation of an interface**. | Cannot provide the **implementation of an abstract class**. |
-| Declared using the ``abstract``** keyword**. | Declared using the ``interface``** keyword**. |
-| Example: <br> ``java ``abstract ``class ``Shape ``{ ``abstract ``void ``draw(); ``}`` | Example: <br> ``java ``interface ``Drawable ``{ ``void ``draw(); ``}`` |
-| **Used when classes share **common behavior** but also need **partial implementation**.** |**Used to define a **contract** that multiple classes can implement.** |
-| Can have **constructors** (executed when subclass is instantiated). | Cannot have **constructors** (no instantiation). |
-| Can contain **instance methods with implementation**. | Cannot contain **instance methods with implementation** (except default methods since Java 8). |
-| Suitable for **code reusability** with partial abstraction. | Suitable for **full abstraction** and defining APIs. |
-| Supports **single inheritance + hierarchical design**. | Supports **multiple inheritance of type** (flexible design). |
-| Can define **state (fields)** and **behavior**. | Defines only **behavior (methods)**, no instance state. |
-| **Polymorphism Type**: Runtime (dynamic binding for overridden methods). | **Polymorphism Type**: Compile‑time contract enforcement. |
-
+| **The story begins**: Java designers needed a way to let classes share **common behavior** while still leaving some methods unimplemented. Thus, the **abstract class** was born. | At the same time, they needed a way to define a **pure contract** — a promise of behavior without any implementation. That’s where **interfaces** came in. |
+| Abstract classes could mix **abstract methods** (to be implemented later) with **concrete methods** (ready‑made behavior). | Interfaces started with only **abstract methods**. Later, Java 8 added **default & static methods**, and Java 9 added **private methods** to evolve them. |
+| But abstract classes had a limitation: they allowed only **single inheritance**. A class could extend just one abstract class. | Interfaces solved this by allowing **multiple inheritance of type** — a class could implement many interfaces at once. |
+| Abstract classes could hold **variables of all kinds** (final, non‑final, static, non‑static). | Interfaces, by design, only allowed **public static final constants** — every field was implicitly a constant. |
+| Abstract classes could even **implement interfaces**, bridging the two worlds. | Interfaces, however, could not implement abstract classes — they remained purely behavioral contracts. |
+| Declared with the ``abstract`` keyword, they looked like a halfway house between normal classes and pure abstraction. | Declared with the ``interface`` keyword, they were clearly marked as contracts. |
+| Example: <br>``abstract ``class ``Shape ``{ ``abstract ``void ``draw(); ``}`` | Example: <br>``interface ``Drawable ``{ ``void ``draw(); ``}`` |
+| Abstract classes could have **constructors**, executed when subclasses were instantiated. | Interfaces had no constructors — they couldn’t be directly instantiated. |
+| They could contain **instance methods with implementation**, giving subclasses reusable code. | Interfaces couldn’t have instance methods with implementation — until Java 8 introduced **default methods**. |
+| Abstract classes were best for **partial abstraction** and **code reusability**. | Interfaces were best for **full abstraction** and defining APIs. |
+| They supported **single inheritance + hierarchical design**, guiding class trees. | Interfaces supported **multiple inheritance of type**, enabling flexible designs. |
+| Abstract classes defined both **state (fields)** and **behavior (methods)**. | Interfaces defined only **behavior**, no instance state. |
+| Their polymorphism was **runtime‑based**: subclasses dynamically bound overridden methods. | Their polymorphism was **compile‑time contract enforcement**: the compiler checked that classes fulfilled the interface. |
 Does it need at least one abstract method?
  - ❌ No. An abstract class does not require an abstract method.
  - You can declare a class abstract even if it has zero abstract methods.
