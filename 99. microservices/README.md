@@ -33,6 +33,17 @@
 - **Scalability** → Scale only the services that need more resources.  
 - **Resilience** → Failure in one service doesn’t crash the whole system.  
 
+```
+📑 ISO/IEC 25010 Quality Model
+ISO 25010 defines Reliability as one of the eight quality characteristics, with sub‑characteristics:
+ - Maturity → frequency of failure under normal conditions
+ - Availability → readiness for use when required
+ - Fault Tolerance → ability to operate despite faults
+   - Robustness → Not explicitly listed, but often treated as part of Fault Tolerance (handling invalid inputs, stress, or unexpected conditions).
+- Recoverability → ability to recover data and re‑establish performance after failure
+   - Resilience → Closely aligned with Recoverability (bounce back after disruption).
+```
+
 ### Example Scenario
 Imagine an **e-commerce application** split into microservices:
 - **User Service** → handles registration, login.  
