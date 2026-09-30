@@ -403,3 +403,4 @@ In short: `/actuator/metrics` is your **real-time telemetry hub** — it lets yo
 
 👉 In short: Prometheus is a **time-series monitoring database** that scrapes metrics, stores them efficiently, and powers observability pipelines with Grafana and Alertmanager.  
 
+https://www.youtube.com/watch?v=gJZhdEJvZmc
