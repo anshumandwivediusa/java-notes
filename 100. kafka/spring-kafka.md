@@ -9,8 +9,17 @@
     private KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendMessage(String msg) {
-        kafkaTemplate.send("orders", msg);
+        kafkaTemplate.send("orders-topic", msg);
     }
+
+    // With key
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
+    
+    public void sendMessage(String key, String msg) {
+        kafkaTemplate.send("orders", key, msg);
+    }
+
     ```
 - **Producer Configurations** (via `application.yml`):  
   ```yaml
