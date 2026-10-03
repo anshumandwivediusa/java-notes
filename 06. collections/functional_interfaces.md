@@ -289,3 +289,50 @@ Lambdas make these interfaces usable in a clean, functional style.
 - Avoid complex logic inside lambdas — extract into named methods.  
 - Always tie lambdas to functional interfaces.  
 
+
+## Full Class Implementation
+```java
+@FunctionalInterface
+interface Square {
+    int calculate(int x);
+}
+
+class SquareImpl implements Square {
+    @Override
+    public int calculate(int x) {
+        return x * x;
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Square s = new SquareImpl();
+        System.out.println(s.calculate(5)); // Output: 25
+    }
+}
+```
+
+## Anonymous Class Implementation
+```java
+public class Demo {
+    public static void main(String[] args) {
+        Square s = new Square() {
+            @Override
+            public int calculate(int x) {
+                return x * x;
+            }
+        };
+        System.out.println(s.calculate(5)); // Output: 25
+    }
+}
+```
+
+## Lambda Expression (Java 8+)
+```java
+public class Demo {
+    public static void main(String[] args) {
+        Square s = (x) -> x * x;
+        System.out.println(s.calculate(5)); // Output: 25
+    }
+}
+```
